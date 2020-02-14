@@ -31,7 +31,7 @@
 		<h1>Bash programming</h1>
 		<h2>Tutorial content</h2>
 		
-		<h3><a href="#" onclick="showContent(1);">1. Introduction to shell scripting</a></h3>
+		<h3><a href="#content1" onclick="showContent(1);">1. Introduction to shell scripting</a></h3>
 		<div id="content1" class="hidden">
 			<p>
 			<b>Shell (bash) scripting, its benefits and dangers (and how to protect from them)</b>
@@ -121,8 +121,99 @@
 			</ol>
 		</div>
 		
+		<h3><a href="#content2" onclick="showContent(2);">2. Creating simple bash scripts</a></h3>
+		<div id="content2" class="hidden">
+			<h4><a href="#content2.1" onclick="showContent(2.1)">2.1. The vi editor</a></h4>
+			<div id="content2.1" class="hidden">
+				<p>
+				There are an unlimited number of editors available for writing shell scripts in Linux and Mac. A few are 
+				installed by default; some are used through the terminal and some others use a graphical interface (GUI). 
+				They all have pros and cons and the decision to use one or another is totally personal. In this section I will 
+				explain how to use the editor vi, which is installed by default in both Linux and MacOS and can be accessed and 
+				used through the terminal window. 
+				</p>
+				
+				These are some of the advantages of vi:
+				<ul>
+					<li>
+					It is available in all Unix systems and any type of terminal.
+					</li>
+					
+					<li>
+					It doesn't require a lot of memory to run. So, if you are running many heavy programs in your computer, 
+					vi is a good option because it won't slow down the machine anymore and will still load very fast.
+					</li>
+					
+					<li>
+					Even though there are a lot of commands that you must learn to become skilled in using this program, once 
+					you learn them you can use very short and fast commands to accomplish a lot of things. For example, you 
+					can delete all the characters from your current cursor location to the end of the line, just by using the 
+					key D in your keyboard (while in command mode). Below you will find a chart with the most commonly used 
+					shortcuts in vi.
+					</li>
+					
+					<li>
+					You can use it to code in different languages (i.e. it also works for Python, HTML, etc.).
+					</li>
+					
+					<li>
+					If you don't like using your mouse too much, or you don't have a mouse, or your mouse doesn't work 
+					properly, then vi editor is a good choice because you rarely need to use the mouse. Most things are 
+					accomplished using the keyboard.
+					</li>
+				</ul>
+				
+				However, there are some disadvantages too:
+				<ul>
+					<li>
+					The learning curve can be steep, especially for people who are new to programming and not very comfortable 
+					with computers. If you're new to bash, you not only need to learn the language, but also a whole set of 
+					commands specific to this program. 
+					</li>
+					
+					<li>
+					Not being able to use your mouse can end up wasting your time while you learn all the commands that are used 
+					to scroll around the file or jump from one line to another.
+					</li>
+					
+					<li>
+					It doesn't give you any error messages or explanation of why it's not doing what you want. If you type the 
+					wrong command, it will just do nothing (or do the wrong thing).
+					</li>
+				</ul>
+				
+				<p>
+				Generally, many people with relatively good experience programming love this editor. In my opinion, it's a good 
+				tool to use once you are familiar with shell and have been programming for a while. However, it might be a great 
+				option for you if you like challenges or if you are already somehow familiar with shell.
+				</p>
+				
+				<p>
+				To create a new file, type (on the command line) 
+				<font class="bashcommand">vi &lt;filePath&gt;/&lt;filename&gt;</font>. For example, if you want to create a file 
+				called test.sh in the desktop, you should type <font class="bashcommand">vi ~/Desktop/test.sh</font>. The vi 
+				editor will open in the current terminal.
+				</p>
+			</div>
+			
+			<h4><a href="#content2.2" onclick="showContent(2.2)">2.2. Other editors</a></h4>
+			<div id="content2.2" class="hidden">
+				other editors content
+			</div>
+			
+			<h4><a href="#content2.3" onclick="showContent(2.3)">2.3. Tips for writing scripts</a></h4>
+			<div id="content2.3" class="hidden">
+				tips content
+			</div>
+			
+			<h4><a href="#content2.4" onclick="showContent(2.4)">2.4. Running a script</a></h4>
+			<div id="content2.4" class="hidden">
+				running script content
+			</div>
+		</div>
+		
 		<p>
-		Last update: January 16 / 2020<br>
+		Last update: February 14 / 2020<br>
 		All the content from this tutorial was originally created by the author<br>
 		Author: <a href="http://www.neuro.mcw.edu/index.php/people/monica-giraldo-chica-keith-phd/" target="_blank">Monica Keith</a>
 		</p>
