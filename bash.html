@@ -194,6 +194,25 @@
 				called test.sh in the desktop, you should type <font class="bashcommand">vi ~/Desktop/test.sh</font>. The vi 
 				editor will open in the current terminal.
 				</p>
+				
+				<p>
+				This program runs in two modes, the command mode and the typing mode. By default, it opens in command mode. 
+				What this means is that anything you type is not actually being registered in the file but are commands. For 
+				example, if you type <font class="bashcommand">:q!</font> as soon as you open the file, it will quit without 
+				saving (because <font class="bashcommand">:q!</font> is the command for ignoring any modifications and exiting. 
+				If you type <font class="bashcommand">:w</font> it will save changes to the file (or if you haven’t write 
+				anything, it will just create an empty file). To change to typing mode, type <font class="bashcommand">a</font> 
+				(<font class="bashcommand">a</font> is the command for entering typing mode). After you type a (in lower case), 
+				you can start editing your file. To go back to command mode (for example to save changes), press the key esc 
+				(top left corner of the keyboard).
+				</p>
+				
+				<p>
+				<u>Example</u>: Open the vi editor, create a script that prints "Hello Word", and save it with the file name 
+				helloword.sh
+				</p>
+				
+				<p>Step 1: open the vi editor.</p>
 			</div>
 			
 			<h4><a href="#content2.2" onclick="showContent(2.2)">2.2. Other editors</a></h4>
