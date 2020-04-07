@@ -11,8 +11,16 @@
 				font-family: Courier;
 				font-size: 12px;
 			}
+			.example{
+				text-decoration: underline;
+				counter-increment: examples;
+			}
+			.example:before{
+				content: "Example " counter(examples) ": ";
+			}
 			body {
 				counter-reset: tables;
+				counter-reset: examples;
 			}
 			table {
 				border-collapse: collapse;
@@ -594,12 +602,241 @@
 		<div id="content3" class="hidden">
 			<h4><a href="#content3.1" onclick="showContent(3.1)">3.1. Utility, declaration and accessing variables</a></h4>
 			<div id="content3.1" class="hidden">
-				Content of section 3.1
+				<p>
+				A very important aspect of programming (in bash or any other language) is the ability to use a label (called 
+				variable) to indicate some other quantity (a number, character, string or command). For example, I can use 
+				the variable <font class="bashcommand">${desktop}</font> to represent the string 
+				<font class="bashcommand">"/Users/monica/Desktop"</font>. Or the variable 
+				<font class="bashcommand">${year}</font> to represent the number <font class="bashcommand">2020</font> 
+				(after correctly declaring these variables). Variables can be used for many purposes, including making the 
+				code more readable, short and organized and to prevent typing errors. They are also very useful in cases in 
+				which the actual value of a variable is not known before executing the program, or when you need to save the 
+				output of one command to use as input for another command. For example, when reading the contents of a file 
+				you can read line by line in an iterative manner (which you will learn later), saving each line in a variable 
+				and then doing something with it (depending the purpose of the program). 
+				</p>
+				
+				<p>
+				The easy thing about declaring variables in bash is that you don't have to specify data types. However, if 
+				the value that you are assigning is a string of characters, you should use quotation marks 
+				(<font class="bashcommand">"</font>) between the beginning and the end of your string (especially if the 
+				string contains spaces). You must also be careful to not include any white space between the variable name, 
+				the equals sign, and the value. Additionally, be aware that the quotation marks used in bash are 
+				<font class="bashcommand">"</font>, which is different than those used in Microsoft Word. They look very 
+				similar, but bash won't recognize the later ones. So, if you copy-paste from Microsoft Word a command that
+				includes quotation marks, you will probably get an error.
+				</p>
+				
+				<p>
+				<font class="example">Declaring variables of different data types</font><br>
+				In the following commands, I will assign a number to the variable <font class="bashcommand">YEAR</font>, a String 
+				to the variables <font class="bashcommand">MONTH</font> and <font class="bashcommand">NAME</font> and a character to 
+				the variable <font class="bashcommand">GENDER</font>. As you can observe, numbers, strings and characters should 
+				be declared in a different manner.
+				</p>
+				
+				<p>
+				<font class="bashcommand">
+				$ YEAR=2018<br>
+				$ MONTH="August"<br>
+				$ NAME="Monica Keith"<br>
+				$ GENDER='F'
+				</font>
+				</p>
+				
+				<p>
+				<font class="example">Common mistakes when declaring variables</font><br>
+				The following commands will produce errors because there is a white space before and/or after the equal sign 
+				(<font class="bashcommand">=</font>), or because the quotation marks (<font class="bashcommand">"</font>) are 
+				missing when declaring a string that contains a space. Bellow each erroneous command you can see the error 
+				that Bash produces.
+				</p>
+				
+				<p>
+				<font class="bashcommand">
+				$ NAME ="Monica Keith"<br>
+				-bash: NAME: command not found<br>
+				$ NAME= "Monica Keith"<br>
+				-bash: Monica Keith: command not found<br>
+				$ NAME = "Monica Keith"<br>
+				-bash: NAME: command not found<br>
+				$ NAME=Monica Keith<br>
+				-bash: Keith: command not found
+				</font>
+				</p>
+				
+				<p>
+				Once you assign a value to a variable, you can reference it with a dollar sign, located immediately before 
+				the variable name. You can also reference a variable by including curly brackets 
+				(<font class="bashcommand">{}</font>) at the beginning and the end of the variable name. It is better (but 
+				not mandatory) to always reference variables using brackets. This will prevent errors in your code (specially 
+				when referencing strings that have spaces or special characters).
+				</p>
+				
+				<p>
+				<font class="example">Referencing variables</font><br>
+				In the following example, I will declare variable <font class="bashcommand">VAR1</font> with value 
+				<font class="bashcommand">2</font>, and variable <font class="bashcommand">VAR2</font> with value 
+				<font class="bashcommand">"Subject"</font>. Then, I will use the function 
+				<font class="bashcommand">echo</font> to print in the command line the value of the two variables.
+				</p>
+				
+				<p>
+				<font class="bashcommand">
+				$ VAR1=2<br>
+				$ VAR2="Subject"<br>
+				$ echo ${VAR1}<br>
+				2<br>
+				$ echo ${VAR2}<br>
+				Subject
+				</font>
+				</p>
+				
+				<p>
+				<font class="example">Common mistakes when referencing variables</font><br>
+				When referencing a variable, be careful not to include any space before or after the brackets. The following 
+				examples will produce an error because of the inclusion of a space around the brackets:
+				</p>
+				
+				<p>
+				<font class="bashcommand">
+				$ echo ${ VAR2}<br>
+				-bash: ${ VAR2}: bad substitution<br>
+				$ echo ${VAR2 }<br>
+				-bash: ${VAR2 }: bad substitution<br>
+				$ echo ${ VAR2 }<br>
+				-bash: ${ VAR2 }: bad substitution
+				</font>
+				</p>
+				
+				<p>
+				The following erroneous reference (with a space between the dollar sign and the first bracket) will not cause 
+				an error but will not substitute <font class="bashcommand">${VAR2}</font> for the correct value. It will just 
+				print <font class="bashcommand">$ {VAR2}</font> instead of <font class="bashcommand">Subject</font>.
+				</p>
+				
+				<p>
+				<font class="bashcommand">
+				$ echo $ {VAR2}<br>
+				$ {VAR2}
+				</font>
+				</p>
+				
+				<p>
+				<font class="example">Concatenating variables</font><br>
+				You can concatenate different variables and characters to form new strings. To do this, you will need to 
+				reference the variables using the curly brackets and use quotation marks at the beginning and the end of your 
+				final string. For example, if you want to use the previously declared variables 
+				<font class="bashcommand">VAR1</font> and <font class="bashcommand">VAR2</font> to generate the String 
+				<font class="bashcommand">Subject_02</font>, you can concatenate them the following way:
+				</p>
+				
+				<p>
+				<font class="bashcommand">
+				$ echo ${VAR2}<br>
+				Subject<br>
+				$ echo ${VAR1}<br>
+				2<br>
+				$ echo "${VAR2}_0${VAR1}"<br>
+				Subject_02
+				</font>
+				</p>
+				
+				<p>
+				Here are a few more examples on how to declare and concatenate variables:
+				</p>
+				
+				<p>
+				<font class="bashcommand">
+				$ ID="Subject_202"<br>
+				$ VOLUME=20<br>
+				$ MEASURE="mm"<br>
+				$ echo "${ID}: ${VOLUME}${MEASURE}"<br>
+				Subject_202: 20mm
+				</font>
+				</p>
+				
+				<p>
+				<font class="bashcommand">
+				$ VAR1="MacOS"<br>
+				$ VAR2="Linux"<br>
+				$ VAR3="Windows"<br>
+				$ echo "(${VAR1},${VAR2},${VAR3})"<br>
+				(MacOS,Linux,Windows)
+				</font>
+				</p>
+				
+				<p>
+				<font class="example">A common mistake when concatenating variables</font><br>
+				It is very common when you are referencing many variables or concatenating variables to create a long string 
+				to forget the closing quotation mark. For example, writing<br>
+				<font class="bashcommand">echo "(${VAR1},${VAR2},${VAR3})</font><br>
+				instead of<br>
+				<font class="bashcommand">echo "(${VAR1},${VAR2},${VAR3})"</font>
+				</p>
+				
+				<p>
+				When that happens and you click enter in the keyboard, the command line won't allow you to enter any more 
+				commands. You will see the symbol <font class="bashcommand">></font> and if you continue pressing enter it 
+				will do nothing. This is because the command line is waiting for you to close the open String. To close the 
+				string just add the missing quotation mark or cancel and ignore what you have written so far in the current 
+				line by pressing CTR+C. 
+				</p>
 			</div>
 			
 			<h4><a href="#content3.2" onclick="showContent(3.2)">3.2. Rules for assigning variable names</a></h4>
 			<div id="content3.2" class="hidden">
-				Content of section 3.2
+				<p>You can assign any value to a variable. However, a variable cannot have just any name. There are a few 
+				rules for assigning variable names.</p>
+				
+				<ol>
+					<li>
+					A variable name should not be a number.<br>
+					This type of variable is only used to read arguments on a shell script. For example, 
+					<font class="bashcommand">$1</font> refers to the first argument of a script, 
+					<font class="bashcommand">$2</font> to the second argument, etc. Later you will learn the meaning and use 
+					of script arguments.
+					</li><br>
+					
+					<li>
+					Variable names must start with an alphabetical letter or an underscore.<br>
+					Variable names can contain any number, but it should not be located at the beginning.
+					</li><br>
+					
+					<li>
+					Do not use <font class="bashcommand">$</font> or <font class="bashcommand">${}</font> to declare a 
+					variable. These characters are used only to reference variables (not to declare).
+					</li><br>
+					
+					<li>
+					Do <u>NOT</u> assign the name <font class="bashcommand">PATH</font> to any variable.<br>
+					If you do so, you won't get any error right away. But it will mess up the execution of other programs. 
+					<font class="bashcommand">PATH</font> is a system variable that specifies a set of directories where 
+					executable programs are located. For example, when you install a software that runs in the command line 
+					(i.e. FSL), the path to the executable of that program will be included in the system variable 
+					<font class="bashcommand">PATH</font>. So, if you rename that variable, you won't be able to execute the 
+					program again in the current terminal. If you forget about this rule and mistakenly re-write the value 
+					of this variable, close the current terminal and open a new one. Every time you open a new terminal, 
+					this system variable will be re-set to the correct value (which is stored in the bash_profile, we will 
+					talk about this file in a later chapter). At any moment you can know the value of your 
+					<font class="bashcommand">PATH</font> by typing <font class="bashcommand">echo ${PATH}</font>. You will 
+					see something like this (although this will significantly varies between one computer and the other 
+					depending which programs you have installed and referenced in the bash_profile):<br><br>
+					
+					<font class="bashcommand">
+					$ echo ${PATH}<br>
+					/usr/local/fsl/bin:/Applications/freesurfer/bin:/Applications/freesurfer/fsfast/bin:/Applications/freesurfer/tktools:/usr/local/fsl/bin:/Applications/freesurfer/mni/bin:/Users/bunbury/bin:/Applications/MATLAB_R2018a.app/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+					</font><br><br>
+					
+					Another Unix reserved name that you should not use is <font class="bashcommand">BASH</font>. There is a long list 
+					of Unix reserved words that I will not include here but you will learn as you get more experienced.
+					</li><br>
+					
+					<li>
+					Avoid using the following reserved characters from appearing in variable names:
+					<font class="bashcommand">/ &gt; &lt; | : &amp; . *</font>
+					</li>
+				</ol>
 			</div>
 			
 			<h4><a href="#content3.3" onclick="showContent(3.3)">3.3. Reading user input into a variable</a></h4>
@@ -786,7 +1023,7 @@
 		</div>
 		
 		<p>
-		Last update: March 26 / 2020<br>
+		Last update: April 7 / 2020<br>
 		All the content from this tutorial was originally created by the author<br>
 		Author: <a href="http://www.neuro.mcw.edu/index.php/people/monica-giraldo-chica-keith-phd/" target="_blank">Monica Keith</a>
 		</p>
