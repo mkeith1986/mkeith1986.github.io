@@ -2031,7 +2031,173 @@
 			
 			<h4><a href="#content4.2" onclick="showContent(4.2)">4.2. Non-integer calculations</a></h4>
 			<div id="content4.2" class="hidden">
-				Content of section 4.2
+				<p>
+				When programming in bash, you will often need to do mathematical operations that involve non-integer 
+				calculations. To do this, you will need the <font class="bashcommand">bc</font> utility. You can use this 
+				utility also for integer calculations, but it is normally left for advanced math.
+				</p>
+				
+				<table>
+					<tr>
+						<th><b>Syntax</b></th>
+						<th><b>Usage</b></th>
+					</tr>
+					<tr>
+						<td>
+							<font class="bashcommand">echo "OPERATION" | bc</font>
+						</td>
+						<td>
+							Evaluates <font class="bashcommand">OPERATION</font>. This can be any arithmetic operation with 
+							integer or non-integer numbers. Including addition (<font class="bashcommand">+</font>), 
+							subtraction (<font class="bashcommand">-</font>), multiplication 
+							(<font class="bashcommand">*</font>), division (<font class="bashcommand">/</font>), square root 
+							(<font class="bashcommand">sqrt(NUM)</font>), exponentiation 
+							(<font class="bashcommand">NUM**EXP</font>), etc. It will round the result to the closest 
+							integer.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font class="bashcommand">echo "OPERATION" | bc -l</font>
+						</td>
+						<td>
+							Flag <font class="bashcommand">-l</font> will not round the result. Instead, will print it with 
+							all the decimals.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font class="bashcommand">echo "scale=NDECIMALS; OPERATION" | bc -l</font>
+						</td>
+						<td>
+							Will only print <font class="bashcommand">NDECIMALS</font> instead of all the decimals.
+						</td>
+					</tr>
+				</table>
+				
+				<font class="example">echo "OPERATION" | bc</font>
+				<p>
+					<font class="bashcommand">
+						$ echo "2.34 / 1.895" | bc<br>
+						1<br>
+						$ echo "2 / 3" | bc<br>
+						0
+					</font>
+				</p>
+				
+				<font class="example">echo "OPERATION" | bc -l</font>
+				<p>
+					<font class="bashcommand">
+						$ echo "2.34 / 1.895" | bc -l<br>
+						1.23482849604221635883<br>
+						$ echo "2 / 3" | bc -l<br>
+						.66666666666666666666
+					</font>
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ A=$(echo "2.34 / 1.895" | bc)<br>
+						$ B=$(echo "2.34 / 1.895" | bc -l)<br>
+						$ echo ${A}<br>
+						1<br>
+						$ echo ${B}<br>
+						1.23482849604221635883<br>
+						$ echo "${A} + ${B}" | bc -l<br>
+						2.23482849604221635883<br>
+						$ echo "${A} + ${B}"<br>
+						1 + 1.23482849604221635883
+					</font>
+				</p>
+				
+				<p>
+					Look at the difference between the last two expressions. They are almost the same except for the 
+					<font class="bashcommand">| bc -l</font> at the end of the first expression. Yet, the results are very 
+					different. That is because in the second case we are just printing the text 
+					<font class="bashcommand">"${A} + ${B}"</font>, while in the first one we are evaluating the expression 
+					written in that text, with the use of the <font class="bashcommand">bc</font> utility. The following 
+					example may clarify this concept:
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ echo "${A} + ${B}=$(echo "${A} + ${B}" | bc -l)"<br>
+						1 + 1.23482849604221635883=2.23482849604221635883
+					</font>
+				</p>
+				
+				<p>
+					To find the square root of a number you use the expression <font class="bashcommand">sqrt()</font>, like 
+					in many other programming languages.
+				</p>
+				
+				<font class="example">finding the square root of 10 and saving it in variable A</font>
+				<p>
+					<font class="bashcommand">
+						$ A=$(echo "sqrt (10)" | bc -l)<br>
+						$ echo ${A}<br>
+						3.16227766016837933199
+					</font>
+				</p>
+				
+				<p>
+					Knowing this, you can do any type of operations with non-integer numbers. Just by writing the desired 
+					expression between the quotation marks, or combine integer and non-integer calculations. Let’s look at 
+					a few more examples:
+				</p>
+				
+				<font class="bashcommand">
+					<p>
+						$ echo "(2.34 / 1.895) + sqrt (10)" | bc -l<br>
+						4.39710615621059569082<br>
+						$ echo $((2**3))<br>
+						12.397106156210595690828<br>
+						$ echo "(2.34 / 1.895) + sqrt (10) + $((2**3))" | bc -l<br>
+						12.39710615621059569082<br>
+						$ echo "(2.34 / 1.895) + sqrt (10) + 2^3" | bc -l<br>
+						12.39710615621059569082<br>
+						$ echo "2 + 2" | bc -l<br>
+						4<br>
+						$ echo "2 + 2"<br>
+						2 + 2<br>
+						$ echo "2 + 2= $(echo "2 + 2" | bc -l)"<br>
+						2 + 2= 4
+					</p>	
+						
+					<p>
+						$ A=$(echo "(2.34 / 1.895) + sqrt (10)" | bc -l)<br>
+						$ echo ${A}<br>
+						4.39710615621059569082<br>
+						$ echo $(echo "(2.34 / 1.895) + sqrt (10)" | bc -l)<br>
+						4.39710615621059569082<br>
+						$ echo "(2.34 / 1.895) + sqrt (10)= $(echo "(2.34 / 1.895) + sqrt (10)" | bc -l)"<br>
+						(2.34 / 1.895) + sqrt (10)= 4.39710615621059569082				
+					</p>
+				</font>
+				
+				<font class="example">echo "scale=NDECIMALS; OPERATION" | bc -l</font>
+				<p>
+					Clearly, some of the results of the previous examples have way too many decimals. You can cut the number 
+					of decimals using scale.
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ echo "(2.34 / 1.895) + sqrt (10)" | bc -l<br>
+						4.39710615621059569082<br>
+						$ echo "scale=3; (2.34 / 1.895) + sqrt (10)" | bc -l<br>
+						4.396<br>
+						$ echo "scale=0; (2.34 / 1.895) + sqrt (10)" | bc -l<br>
+						4
+					</font>
+				</p>
+				
+				<font class="example">Comparing non-integers</font>
+				<p>
+					In order to compare non-integers you can use the <font class="bashcommand">awk</font> function. This 
+					function will be studied more in detail in later chapters as it is mainly used for processing files and 
+					strings. But as this example shows, it can also be used to deal with numbers.
+				</p>
 			</div>
 		</div>
 		
@@ -2039,7 +2205,30 @@
 		<div id="content5" class="hidden">
 			<h4><a href="#content5.1" onclick="showContent(5.1)">5.1. Declaring and assigning values</a></h4>
 			<div id="content5.1" class="hidden">
-				Content of section 5.1
+				<p>
+					An array is a data structure that stores a group of elements and allows you to access each element 
+					individually or all elements sequentially. For example, you can have an array of subject IDs. The first 
+					object in the array would be the ID of your first subject; the second object would be the ID of your 
+					second subject, and so on. An analogy could be a To Do List. In that case, you would have an array of 
+					things to do and you can ask yourself what is the first thing in your To-Do list, the second thing, or 
+					the last thing, etc. There are different ways of creating an array, as well as different ways of adding 
+					elements to it:
+				</p>
+				
+				<table>
+					<tr>
+						<th><b>Syntax</b></th>
+						<th><b>Usage</b></th>
+					</tr>
+					<tr>
+						<td>
+							<font class="bashcommand">ARRAY[INDEX]=VAL</font>
+						</td>
+						<td>
+							
+						</td>
+					</tr>
+				</table>
 			</div>
 			
 			<h4><a href="#content5.2" onclick="showContent(5.2)">5.2. Array operations</a></h4>
@@ -2195,9 +2384,9 @@
 		</div>
 		
 		<p>
-		Last update: April 7 / 2020<br>
-		All the content from this tutorial was originally created by the author<br>
-		Author: <a href="http://www.neuro.mcw.edu/index.php/people/monica-giraldo-chica-keith-phd/" target="_blank">Monica Keith</a>
+			Last update: April 7 / 2020<br>
+			All the content from this tutorial was originally created by the author<br>
+			Author: <a href="linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 		</p>
 	</body>
 </html>
