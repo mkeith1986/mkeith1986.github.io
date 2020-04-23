@@ -47,6 +47,13 @@
 			tr:nth-child(even){
 				background-color: #dddddd;
 			}
+			tr:nth-child(1){
+				background-color: #b1b1b1;
+			}
+			.ghostTable td{
+				border: 0px;
+				background-color: #ffffff;
+			}
 		</style>
 	</head>
 	
@@ -57,88 +64,88 @@
 		<h3><a href="#content1" onclick="showContent(1);">1. Introduction to shell scripting</a></h3>
 		<div id="content1" class="hidden">
 			<p>
-			<b>Shell (bash) scripting, its benefits and dangers (and how to protect from them)</b>
+				<b>Shell (bash) scripting, its benefits and dangers (and how to protect from them)</b>
 			</p>
 			
 			<p>
-			Shell is a program that users employ to run commands for the operating system to execute. These can be very simple 
-			instructions such as coping or moving files, or long scripts that contain hundreds of commands. Users typically 
-			interact with a shell using a terminal window (also referred to as command line), which can be run from the same or 
-			a remote machine. There are different types of shells, but I will refer in this tutorial only to the Bourne-Again shell, 
-			which is the most commonly used. The Bourne-Again shell (or simply shell, as most people call it) is installed by 
-			default in any Linux or MacOS. The programming language used to write commands and scripts in shell is called bash.
+				Shell is a program that users employ to run commands for the operating system to execute. These can be very simple 
+				instructions such as coping or moving files, or long scripts that contain hundreds of commands. Users typically 
+				interact with a shell using a terminal window (also referred to as command line), which can be run from the same or 
+				a remote machine. There are different types of shells, but I will refer in this tutorial only to the Bourne-Again shell, 
+				which is the most commonly used. The Bourne-Again shell (or simply shell, as most people call it) is installed by 
+				default in any Linux or MacOS. The programming language used to write commands and scripts in shell is called bash.
 			</p>
 
 			<p>
-			The terminal window for Mac can be found inside the applications folder and in the subfolder Utilities. You can also 
-			open it by pressing the command and space bar in your keyboard to open the spotlight and then type Terminal. 
-			In Linux, the easiest way to open the terminal is to use the key combination Ctl + Alt + T.
+				The terminal window for Mac can be found inside the applications folder and in the subfolder Utilities. You can also 
+				open it by pressing the command and space bar in your keyboard to open the spotlight and then type Terminal. 
+				In Linux, the easiest way to open the terminal is to use the key combination Ctl + Alt + T.
 			</p>
 
 			<p>
-			Shell scripting is very powerful; it allows you to run any instruction on your computer or a remote machine. Things 
-			that normally would take hours to do could be executed in seconds. For example, if you have thousands of files 
-			inside a folder, which need to be renamed following a pattern, it would take forever to rename those files by hand. 
-			However, using the command line you could do it in seconds. When you write a shell script, you know exactly what and 
-			how you did things, and you will be able to replicate those commands on different files, datasets or programs.
+				Shell scripting is very powerful; it allows you to run any instruction on your computer or a remote machine. Things 
+				that normally would take hours to do could be executed in seconds. For example, if you have thousands of files 
+				inside a folder, which need to be renamed following a pattern, it would take forever to rename those files by hand. 
+				However, using the command line you could do it in seconds. When you write a shell script, you know exactly what and 
+				how you did things, and you will be able to replicate those commands on different files, datasets or programs.
 			</p>
 
 			<p>			
-			However, as powerful as scripting is, it is also very dangerous. Through the terminal you will have access to any 
-			files or system resources if you have the right permissions, and the freedom to do anything with them. Inadvertent 
-			"small" typing errors such as adding an extra space in the remove command (<font class="bashcommand">rm</font>) could delete everything in your 
-			computer (including the root directory) or any external drive connected to your machine. Similarly, the contents of 
-			any file could be mistakenly removed in less than a second. What makes it harder to prevent these errors is that 
-			many commands differ in name by only one letter.
+				However, as powerful as scripting is, it is also very dangerous. Through the terminal you will have access to any 
+				files or system resources if you have the right permissions, and the freedom to do anything with them. Inadvertent 
+				"small" typing errors such as adding an extra space in the remove command (<font class="bashcommand">rm</font>) could delete everything in your 
+				computer (including the root directory) or any external drive connected to your machine. Similarly, the contents of 
+				any file could be mistakenly removed in less than a second. What makes it harder to prevent these errors is that 
+				many commands differ in name by only one letter.
 			</p>
 
 			<p>
-			Unfortunately, there is no way to completely protect your computer from potential mistakes that you may (and you 
-			will at some point) do when writing and running shell scripts. However, there are a couple of tips that you can 
-			follow in order to minimize the chances of making irreparable mistakes or to prevent any mistake from becoming a 
-			catastrophe:
+				Unfortunately, there is no way to completely protect your computer from potential mistakes that you may (and you 
+				will at some point) do when writing and running shell scripts. However, there are a couple of tips that you can 
+				follow in order to minimize the chances of making unfixable mistakes or to prevent any mistake from becoming a 
+				catastrophe:
 			</p>	
 
 			<ol>
 				<li>
-				First and most importantly, create constant backups of either your entire drive or the most important folders. 
-				Preferably save those backups in an external hard drive or remote machine, which won't be constantly connected 
-				to your computer. It is not a bad idea to have more than one backup if your data is not easily recoverable.
+					First and most importantly, create constant backups of either your entire drive or the most important folders. 
+					Preferably save those backups in an external hard drive or remote machine, which won't be constantly connected 
+					to your computer. It is not a bad idea to have more than one backup if your data is not easily recoverable.
 				</li><br>
 
 				<li>
-				If you're using a shared computer or account, control access permissions to important files and folders. You can 
-				control for each file and folder who and what can be done. By managing permissions, you can allow a file to be 
-				read but not to be written (hence preventing it from being modified or deleted). Or you can authorize only a 
-				user or group of users for viewing, reading, writing or executing a file. In chapter 12 you will learn how to 
-				manage permissions.
+					If you're using a shared computer or account, control access permissions to important files and folders. You can 
+					control for each file and folder who and what can be done. By managing permissions, you can allow a file to be 
+					read but not to be written (hence preventing it from being modified or deleted). Or you can authorize only a 
+					user or group of users for viewing, reading, writing or executing a file. In chapter 12 you will learn how to 
+					manage permissions.
 				</li><br>
 
 				<li>
-				The root user is an account in any Linux or Unix operating system (i.e. MacOS) that has access to absolutely all 
-				commands, files and directories. When you login as a root in the command line, you can modify, read and write 
-				protected folders and files. This is very helpful when installing software or modifying the default settings of 
-				your computer. However, coding as the root user can be extremely dangerous. It is very normal to make mistakes 
-				when coding and if you have all permissions, you could mistakenly delete, move or modify files that should not 
-				be touched. For this reason, it is advisable to only login as a root when strictly necessary and log out once 
-				you're done. More information about the root user will be covered in chapter 12.
+					The root user is an account in any Linux or Unix operating system (i.e. MacOS) that has access to absolutely all 
+					commands, files and directories. When you login as a root in the command line, you can modify, read and write 
+					protected folders and files. This is very helpful when installing software or modifying the default settings of 
+					your computer. However, coding as the root user can be extremely dangerous. It is very normal to make mistakes 
+					when coding and if you have all permissions, you could mistakenly delete, move or modify files that should not 
+					be touched. For this reason, it is advisable to only login as a root when strictly necessary and log out once 
+					you're done. More information about the root user will be covered in chapter 12.
 				</li><br>
 
 				<li>
-				Use aliases to protect from "dangerous" commands. Two of the most commonly used but dangerous commands are 
-				<font class="bashcommand">rm</font> (to remove files) and <font class="bashcommand">mv</font> (to move files). 
-				The <font class="bashcommand">mv</font> command can be as harmful as the <font class="bashcommand">rm</font> 
-				command because if you specify the wrong target or source paths, you can end up deleting a big number of files. 
-				When you use any of these two commands, always double check what you have written before clicking enter.
+					Use aliases to protect from "dangerous" commands. Two of the most commonly used but dangerous commands are 
+					<font class="bashcommand">rm</font> (to remove files) and <font class="bashcommand">mv</font> (to move files). 
+					The <font class="bashcommand">mv</font> command can be as harmful as the <font class="bashcommand">rm</font> 
+					command because if you specify the wrong target or source paths, you can end up deleting a big number of files. 
+					When you use any of these two commands, always double check what you have written before clicking enter.
 				</li><br>
 
 				<li>
-				Be careful when copy pasting commands from a website into the terminal. There can be errors that will be 
-				executed right away if the text you're copying contains a carriage return at the end of the line. It is better 
-				to paste into a shell script and then either execute the shell script or copy from the shell script into the 
-				command line. Although generally not dangerous, you might also run into errors when copy pasting from Microsoft 
-				word or other editors that modify symbols such as dash or underscore and convert them into new symbols that 
-				bash won't understand.
+					Be careful when copy pasting commands from a website into the terminal. There can be errors that will be 
+					executed right away if the text you're copying contains a carriage return at the end of the line. It is better 
+					to paste into a shell script and then either execute the shell script or copy from the shell script into the 
+					command line. Although generally not dangerous, you might also run into errors when copy pasting from Microsoft 
+					word or other editors that modify symbols such as dash or underscore and convert them into new symbols that 
+					bash won't understand.
 				</li>
 
 			</ol>
@@ -149,144 +156,144 @@
 			<h4><a href="#content2.1" onclick="showContent(2.1)">2.1. The vi editor</a></h4>
 			<div id="content2.1" class="hidden">
 				<p>
-				There are an unlimited number of editors available for writing shell scripts in Linux and Mac. A few are 
-				installed by default; some are used through the terminal and some others use a graphical interface (GUI). 
-				They all have pros and cons and the decision to use one or another is totally personal. In this section I will 
-				explain how to use the editor vi, which is installed by default in both Linux and MacOS and can be accessed and 
-				used through the terminal window. 
+					There are an unlimited number of editors available for writing shell scripts in Linux and Mac. A few are 
+					installed by default; some are used through the terminal and some others use a graphical interface (GUI). 
+					They all have pros and cons and the decision to use one or another is totally personal. In this section I will 
+					explain how to use the editor vi, which is installed by default in both Linux and MacOS and can be accessed and 
+					used through the terminal window. 
 				</p>
 				
 				These are some of the advantages of vi:
 				<ul>
 					<li>
-					It is available in all Unix systems and any type of terminal.
+						It is available in all Unix systems and any type of terminal.
 					</li>
 					
 					<li>
-					It doesn't require a lot of memory to run. So, if you are running many heavy programs in your computer, 
-					vi is a good option because it won't slow down the machine anymore and will still load very fast.
+						It doesn't require a lot of memory to run. So, if you are running many heavy programs in your computer, 
+						vi is a good option because it won't slow down the machine anymore and will still load very fast.
 					</li>
 					
 					<li>
-					Even though there are a lot of commands that you must learn to become skilled in using this program, once 
-					you learn them you can use very short and fast commands to accomplish a lot of things. For example, you 
-					can delete all the characters from your current cursor location to the end of the line, just by pressing two 
-					times the d in your keyboard (while in command mode). Below you will find a chart with the most commonly used 
-					shortcuts in vi.
+						Even though there are a lot of commands that you must learn to become skilled in using this program, once 
+						you learn them you can use very short and fast commands to accomplish a lot of things. For example, you 
+						can delete all the characters from your current cursor location to the end of the line, just by pressing two 
+						times the d in your keyboard (while in command mode). Below you will find a chart with the most commonly used 
+						shortcuts in vi.
 					</li>
 					
 					<li>
-					You can use it to code in different languages (i.e. it also works for Python, HTML, etc.).
+						You can use it to code in different languages (i.e. it also works for Python, HTML, etc.).
 					</li>
 					
 					<li>
-					Some editors add special characters to the text and when you run scripts written in those editors, they could
-					fail. vi doesn't add any special characters, and if it did, they are visible in the editor.
+						Some editors add special characters to the text and when you run scripts written in those editors, they could
+						fail. vi doesn't add any special characters, and if it did, they are visible in the editor.
 					</li>
 					
 					<li>
-					If you don't like using your mouse too much, or you don't have a mouse, or your mouse doesn't work 
-					properly, then vi editor is a good choice because you rarely need to use the mouse. Most things are 
-					accomplished using the keyboard.
+						If you don't like using your mouse too much, or you don't have a mouse, or your mouse doesn't work 
+						properly, then vi editor is a good choice because you rarely need to use the mouse. Most things are 
+						accomplished using the keyboard.
 					</li>
 				</ul>
 				
 				However, there are some disadvantages too:
 				<ul>
 					<li>
-					The learning curve can be steep, especially for people who are new to programming and not very comfortable 
-					with computers. If you're new to bash, you not only need to learn the language, but also a whole set of 
-					commands specific to this program. 
+						The learning curve can be steep, especially for people who are new to programming and not very comfortable 
+						with computers. If you're new to bash, you not only need to learn the language, but also a whole set of 
+						commands specific to this program. 
 					</li>
 					
 					<li>
-					Not being able to use your mouse can end up wasting your time while you learn all the commands that are used 
-					to scroll around the file or jump from one line to another.
+						Not being able to use your mouse can end up wasting your time while you learn all the commands that are used 
+						to scroll around the file or jump from one line to another.
 					</li>
 					
 					<li>
-					It doesn't give you any error messages or explanation of why it's not doing what you want. If you type the 
-					wrong command, it will just do nothing (or do the wrong thing).
+						It doesn't give you any error messages or explanation of why it's not doing what you want. If you type the 
+						wrong command, it will just do nothing (or do the wrong thing).
 					</li>
 				</ul>
 				
 				<p>
-				Generally, many people with relatively good experience programming love this editor. In my opinion, it's a good 
-				tool to use once you are familiar with shell and have been programming for a while. However, it might be a great 
-				option for you if you like challenges or if you are already somehow familiar with shell.
+					Generally, many people with relatively good experience programming love this editor. In my opinion, it's a good 
+					tool to use once you are familiar with shell and have been programming for a while. However, it might be a great 
+					option for you if you like challenges or if you are already somehow familiar with shell.
 				</p>
 				
 				<p>
-				To create a new file, type (on the command line) 
-				<font class="bashcommand">vi &lt;filePath&gt;/&lt;filename&gt;</font>. For example, if you want to create a file 
-				called test.sh in the desktop, you should type <font class="bashcommand">vi ~/Desktop/test.sh</font>. The vi 
-				editor will open in the current terminal.
+					To create a new file, type (on the command line) 
+					<font class="bashcommand">vi &lt;filePath&gt;/&lt;filename&gt;</font>. For example, if you want to create a file 
+					called test.sh in the desktop, you should type <font class="bashcommand">vi ~/Desktop/test.sh</font>. The vi 
+					editor will open in the current terminal.
 				</p>
 				
 				<p>
-				This program runs in two modes, the command mode and the typing mode. By default, it opens in command mode. 
-				What this means is that anything you type is not actually being registered in the file but are commands. For 
-				example, if you type <font class="bashcommand">:q!</font> as soon as you open the file, it will quit without 
-				saving (because <font class="bashcommand">:q!</font> is the command for ignoring any modifications and exiting. 
-				If you type <font class="bashcommand">:w</font> it will save changes to the file (or if you haven't write 
-				anything, it will just create an empty file). To change to typing mode, type <font class="bashcommand">a</font> 
-				(<font class="bashcommand">a</font> is the command for entering typing mode). After you type a (in lower case), 
-				you can start editing your file. To go back to command mode (for example to save changes), press the key 
-				<font class="bashcommand">esc</font> (top left corner of the keyboard).
+					This program runs in two modes, the command mode and the typing mode. By default, it opens in command mode. 
+					What this means is that anything you type is not actually being registered in the file but are commands. For 
+					example, if you type <font class="bashcommand">:q!</font> as soon as you open the file, it will quit without 
+					saving (because <font class="bashcommand">:q!</font> is the command for ignoring any modifications and exiting. 
+					If you type <font class="bashcommand">:w</font> it will save changes to the file (or if you haven't write 
+					anything, it will just create an empty file). To change to typing mode, type <font class="bashcommand">a</font> 
+					(<font class="bashcommand">a</font> is the command for entering typing mode). After you type a (in lower case), 
+					you can start editing your file. To go back to command mode (for example to save changes), press the key 
+					<font class="bashcommand">esc</font> (top left corner of the keyboard).
 				</p>
 				
 				<p>
-				<font class="example">Using the vi editor for the first time</font>
-				Open the vi editor, create a script that prints "Hello Word", and save it with the file name helloword.sh
+					<font class="example">Using the vi editor for the first time</font>
+					Open the vi editor, create a script that prints "Hello Word", and save it with the file name helloword.sh
 				</p>
 				
 				<p>
-				Step 1: Open the vi editor<br><br>
-				<img src="vi_1.png"/>
+					Step 1: Open the vi editor<br><br>
+					<img src="vi_1.png"/>
 				</p>
 				
 				<p>
-				Step 2: Type <font class="bashcommand">a</font> to start editing the file. You will see that an 
-				<b>--Insert--</b> message in the bottom of the terminal appears. This means that now you are in typing mode.<br><br>
-				<img src="vi_2.png"/>
+					Step 2: Type <font class="bashcommand">a</font> to start editing the file. You will see that an 
+					<b>--Insert--</b> message in the bottom of the terminal appears. This means that now you are in typing mode.<br><br>
+					<img src="vi_2.png"/>
 				</p>
 				
 				<p>
-				Step 3: Start typing commands. The simplest command, to print a message such as 
-				<font class="bashcommand">"Hello World"</font> (or any other) is <font class="bashcommand">echo</font>. The 
-				syntax of this command is the word <font class="bashcommand">echo</font> followed by the message you want to 
-				print out between quotation marks (in this case <font class="bashcommand">"Hello World!"</font>).<br><br>
-				<img src="vi_3.png"/>
+					Step 3: Start typing commands. The simplest command, to print a message such as 
+					<font class="bashcommand">"Hello World"</font> (or any other) is <font class="bashcommand">echo</font>. The 
+					syntax of this command is the word <font class="bashcommand">echo</font> followed by the message you want to 
+					print out between quotation marks (in this case <font class="bashcommand">"Hello World!"</font>).<br><br>
+					<img src="vi_3.png"/>
 				</p>
 				
 				<p>
-				Step 4: Once you finish your script, press the <font class="bashcommand">esc</font> key to enter command mode. 
-				You will see that the <b>--Insert--</b> message at the bottom of the terminal disappears (this means that now 
-				you are in command mode).<br><br>
-				<img src="vi_4.png"/>
+					Step 4: Once you finish your script, press the <font class="bashcommand">esc</font> key to enter command mode. 
+					You will see that the <b>--Insert--</b> message at the bottom of the terminal disappears (this means that now 
+					you are in command mode).<br><br>
+					<img src="vi_4.png"/>
 				</p>
 				
 				<p>
-				Step 5: Save changes and exit the vi editor. In order to do this, type <font class="bashcommand">:wq</font> 
-				(to write (<font class="bashcommand">w</font>) and quit (<font class="bashcommand">q</font>) at the same time). 
-				The table below will show you the most commonly used commands for vi.<br><br>
-				<img src="vi_5.png"/>
+					Step 5: Save changes and exit the vi editor. In order to do this, type <font class="bashcommand">:wq</font> 
+					(to write (<font class="bashcommand">w</font>) and quit (<font class="bashcommand">q</font>) at the same time). 
+					The table below will show you the most commonly used commands for vi.<br><br>
+					<img src="vi_5.png"/>
 				</p>
 				
 				<p>
-				Step 6: To be able to execute the script, you will have to give it running permissions. The topic of 
-				permissions is a lot more complicated, so I will not go into details now (I will talk about it later). For now, 
-				all you need to know is that to give running permissions to your script you have to type 
-				<font class="bashcommand">chmod 775 helloword.sh</font><br><br>
-				<img src="vi_6.png"/>
+					Step 6: To be able to execute the script, you will have to give it running permissions. The topic of 
+					permissions is a lot more complicated, so I will not go into details now (I will talk about it later). For now, 
+					all you need to know is that to give running permissions to your script you have to type 
+					<font class="bashcommand">chmod 775 helloword.sh</font><br><br>
+					<img src="vi_6.png"/>
 				</p>
 				
 				<p>
-				The following table shows a list of vi commands that can be used in command mode and the action that will 
-				happen in each case. In general, a number preceding any vi command will tell vi to repeat the command that 
-				number of times. For example, <font class="bashcommand">p</font> is the command for pasting. If you write 
-				(in command mode) <font class="bashcommand">2p</font>, then vi will paste whatever you copied two times where 
-				the cursor is currently located.
+					The following table shows a list of vi commands that can be used in command mode and the action that will 
+					happen in each case. In general, a number preceding any vi command will tell vi to repeat the command that 
+					number of times. For example, <font class="bashcommand">p</font> is the command for pasting. If you write 
+					(in command mode) <font class="bashcommand">2p</font>, then vi will paste whatever you copied two times where 
+					the cursor is currently located.
 				</p>
 				
 				<table>
@@ -1303,8 +1310,10 @@
 					<font class="example">**Example specific for people doing neuroimaging**</font>
 					<b>WARNING:</b> If you have never analyzed MRI brain images, the following paragraph might sound like written in 
 					extraterrestrial language, and it probably will not work in your computer since you need neuroimaging software
-					to execute it.<br><br>
-					
+					to execute it.
+				</p>
+				
+				<p>	
 					In this example, we are reading the output of a function and saving it in the variable 
 					<font class="bashcommand">VOL</font>. The output of this function (<font class="bashcommand">fslstats -V</font>) 
 					consists of two values separated by a space. The first value is the volume of a region of interest (ROI) from 
@@ -2004,28 +2013,28 @@
 				</table>
 				
 				<p>
-				<font class="example">Usage of (( $i % 2 ))</font>
-				<font class="bashcommand">
-				$for i in $(seq 10)<br>
-				>do<br>
-				>if (( $i % 2 ))<br>
-				>then<br>
-				>echo $i is odd<br>
-				>else<br>
-				>echo $i is even<br>
-				>fi<br>
-				>done<br>
-				1 is odd<br>
-				2 is even<br>
-				3 is odd<br>
-				4 is even<br>
-				5 is odd<br>
-				6 is even<br>
-				7 is odd<br>
-				8 is even<br>
-				9 is odd<br>
-				10 is even
-				</font>
+					<font class="example">Usage of (( $i % 2 ))</font>
+					<font class="bashcommand">
+						$for i in $(seq 10)<br>
+						>do<br>
+						>if (( $i % 2 ))<br>
+						>then<br>
+						>echo $i is odd<br>
+						>else<br>
+						>echo $i is even<br>
+						>fi<br>
+						>done<br>
+						1 is odd<br>
+						2 is even<br>
+						3 is odd<br>
+						4 is even<br>
+						5 is odd<br>
+						6 is even<br>
+						7 is odd<br>
+						8 is even<br>
+						9 is odd<br>
+						10 is even
+					</font>
 				</p>
 			</div>
 			
@@ -2220,28 +2229,1212 @@
 						<th><b>Syntax</b></th>
 						<th><b>Usage</b></th>
 					</tr>
+					
 					<tr>
 						<td>
 							<font class="bashcommand">ARRAY[INDEX]=VAL</font>
 						</td>
 						<td>
-							
+							If <font class="bashcommand">ARRAY</font> hasn't been initialized, it will create the array and 
+							put element <font class="bashcommand">VAL</font> in the position 
+							<font class="bashcommand">INDEX</font>. The first element of an array is always in 
+							<font class="bashcommand">INDEX=0</font>, instead of <font class="bashcommand">INDEX=1</font>. 
+							If <font class="bashcommand">ARRAY</font> already exists, it will replace 
+							<font class="bashcommand">ARRAY</font> in the position <font class="bashcommand">INDEX</font> by 
+							the value <font class="bashcommand">VAL</font>.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">declare -a ARRAY=('VAL1' 'VAL2' 'VAL3' ...)</font>
+						</td>
+						<td>
+							Initializes <font class="bashcommand">ARRAY</font> and puts the values inside the parenthesis 
+							into the array, respecting the same order. You can specify any number of values. The array is 
+							emptied before assigning the values if it already exists.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">read -a ARRAY</font>
+						</td>
+						<td>
+							The words that the user inputs are assigned to sequential indices of 
+							<font class="bashcommand">ARRAY</font>. The words must be separated by spaces. The array is 
+							emptied before assigning the values if it already exists.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">IFS='DEL' read -a ARRAY</font>
+						</td>
+						<td>
+							Splits the user input using delimiter <font class="bashcommand">DEL</font>, which must be a 
+							character or a space. Then, saves the different elements into 
+							<font class="bashcommand">ARRAY</font>. The array is emptied before assigning the values if it 
+							already exists.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">IFS='DEL' read -a ARRAY &lt;&lt;&lt; STRING</font>
+						</td>
+						<td>
+							Splits <font class="bashcommand">STRING</font> using delimiter 
+							<font class="bashcommand">DEL</font>, which must be a character or a space. Then, saves the 
+							different elements into <font class="bashcommand">ARRAY</font>. The array is emptied before 
+							assigning the values if it already exists.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">ARRAY=($(seq FIRST STEP SIZE))</font>
+						</td>
+						<td>
+							Creates an array of equally spaced numbers beginning with <font class="bashcommand">FIRST</font> 
+							and separated by <font class="bashcommand">STEP</font>. It will add 
+							<font class="bashcommand">SIZE</font> numbers to <font class="bashcommand">ARRAY</font>.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">ARRAY=$(count -digits N FIRST LAST)</font>
+						</td>
+						<td>
+							Creates an array of numbers, each with <font class="bashcommand">N</font> number of digits, 
+							starting with <font class="bashcommand">FIRST</font> and ending with 
+							<font class="bashcommand">LAST</font>.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">ARRAY=$(seq N)</font>
+						</td>
+						<td>
+							Creates an array of sequential numbers, starting with 1 and ending with 
+							<font class="bashcommand">N</font>.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">ARRAY=(ELEMENT1 ELEMENT3 ...)</font>
+						</td>
+						<td>
+							Creates an array with the elements specified inside the parenthesis.
 						</td>
 					</tr>
 				</table>
+				
+				<p>
+					In the following examples we will use the syntax <font class="bashcommand">${ARRAY[INDEX]}</font> to 
+					access the element located in the position <font class="bashcommand">INDEX</font> inside 
+					<font class="bashcommand">ARRAY</font>. Remember that the first item in an array has index 0, the second 
+					item has index 1, etc. I will also use the syntax <font class="bashcommand">${#ARRAY[@]}</font> to get 
+					the number of non-empty values inside <font class="bashcommand">ARRAY</font>.
+				</p>
+				
+				<font class="example">ARRAY[INDEX]=VAL</font>
+				<p>
+					Create an array of subjects' age where each element in the array corresponds to the age of one subject. 
+					There are five subjects, so the size of the array is five. Remember, subject 1 will have its age in the 
+					position 0, subject 2 in the position 1, etc. This is because <u>in bash, arrays start in the position 0 
+					instead of position 1</u>. After assigning all the values to my array, I can print its contents using 
+					the expression echo <font class="bashcommand">${ARRAY[@]}</font>. I can also check the size of my array 
+					using <font class="bashcommand">echo ${#ARRAY[@]}</font>.
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ age[0]=59<br>
+						$ age[1]=63<br>
+						$ age[2]=21<br>
+						$ age[3]=15<br>
+						$ age[4]=94<br>
+						$ echo ${age[@]}<br>
+						59 63 21 15 94<br>
+						$ echo "Array size: ${#age[@]}"<br>
+						Array size: 5
+					</font>
+				</p>
+				
+				<p>
+					In the following example, I will start assigning values to the array in the position 1 (instead of 0). 
+					That is not a problem, but the first position of my array (index=0) will remain empty, and my array will 
+					have only 4 values. If I echo the item in position 0 (echo <font class="bashcommand">${ARRAY[0]}</font>), 
+					I will get an empty string.
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ age[1]=63<br>
+						$ age[2]=21<br>
+						$ age[3]=15<br>
+						$ age[4]=94<br>
+						$ echo ${age[@]}<br>
+						63 21 15 94<br>
+						$ echo "Array size: ${#age[@]}"<br>
+						Array size: 4<br>
+						$ echo "age(0): ${age[0]} "<br>
+						age(0):
+					</font>
+				</p>
+				
+				<p>
+					<font class="example">declare -a ARRAY=('VAL1' 'VAL2' 'VAL3' ...)</font>
+					It is also possible to initiate an array and assign all the values at the same time. To print an element 
+					of the array, located in the position <font class="bashcommand">INDEX</font>, you must use the expression 
+					<font class="bashcommand">${ARRAY[INDEX]}</font>.
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ declare -a array=('Colombia' 'United States' 'Germany' 'Spain' 'Canada')<br>
+						$ echo "The element in position 0 is: ${array[0]}"<br>
+						The element in position 0 is: Colombia<br>
+						$ echo "The element in position 1 is: ${array[1]}"<br>
+						The element in position 1 is: United States<br>
+						$ echo "The element in position 2 is: ${array[2]}"<br>
+						The element in position 2 is: Germany<br>
+						$ echo "The element in position 3 is: ${array[3]}"<br>
+						The element in position 3 is: Spain<br>
+						$ echo "The element in position 4 is: ${array[4]}"<br>
+						The element in position 4 is: Canada<br>
+						$ echo "List of elements in the array: ${array[@]}"<br> 
+						List of elements in the array: Colombia United States Germany Spain Canada<br>
+						$ echo "The number of elements in the array is ${#array[@]}"<br>
+						The number of elements in the array is 5
+					</font>
+				</p>
+				
+				<p>
+					After you declare an array, it doesn't need to stay static. You can keep adding items:
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ array[5]="Argentina"<br>
+						$ array[6]="France"<br>
+						$ echo "List of elements in the array: ${array4[@]}"<br>
+						List of elements in the array: Colombia United States Germany Spain Canada Argentina France
+					</font>
+				</p>
+				
+				<p>
+					<font class="example">read -a ARRAY</font>
+					Another way of creating and initializing an array is by reading a user input. As we previously learned, 
+					the command read captures the user input and saves it in a variable. By using the flag 
+					<font class="bashcommand">-a</font>, the user can input more than one word (separated by a space) and bash 
+					will assign each word to sequential indexes of the array, starting at 0.
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ read -a ARRAY<br>
+						Element1 Element2 Element3<br>
+						$ echo ${ARRAY[0]}<br>
+						Element1<br>
+						$ echo ${ARRAY[1]}<br>
+						Element2<br>
+						$ echo ${ARRAY[2]}<br>
+						Element3
+					</font>
+				</p>
+				
+				<p>
+					<font class="example">IFS='DEL' read -a ARRAY</font>
+					If you want to use a different delimiter other than a space to split the user input into array elements, 
+					you can add <font class="bashcommand">IFS='DEL'</font> before the read command, with 
+					<font class="bashcommand">DEL</font> being any character.
+				</p>
+				
+				<font class="bashcommand">
+					<p>
+						$ IFS='/' read -a ARRAY<br>
+						Element1/Element2/Element3<br>
+						$ echo ${ARRAY[0]}<br>
+						Element1<br>
+						$ echo ${ARRAY[1]}<br>
+						Element2<br>
+						$ echo ${ARRAY[2]}<br>
+						Element3
+					</p>
+					
+					<p>
+						$ IFS='.' read -a ARRAY<br>
+						1.2.3<br>
+						$ echo ${ARRAY[0]}<br>
+						1<br>
+						$ echo ${ARRAY[1]}<br>
+						2<br>
+						$ echo ${ARRAY[2]}<br>
+						3
+					</p>
+				</font>
+				
+				<p>
+					<font class="example">IFS='DEL' read -a ARRAY &lt;&lt;&lt; STRING</font>
+					The same way as you can split a user input into elements of an array using a specific delimiter, you can 
+					split elements of a string. This is very useful when trying to retain parts of a file path.
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ IFS='/' read -a ARRAY &lt;&lt;&lt; "Element1/Element2/Element3"<br>
+						$ echo ${ARRAY[0]}<br>
+						Element1<br>
+						$ echo ${ARRAY[1]}<br>
+						Element2<br>
+						$ echo ${ARRAY[2]}<br>
+						Element3
+					</font>
+				</p>
+				
+				<p>
+					In the following example, the input string (<font class="bashcommand">/Element1/Element2/Element3</font>) 
+					starts with the delimiter (<font class="bashcommand">/</font>). So, when you split it, 
+					<font class="bashcommand">Element1</font> will be in position 1 (not in position 0), because the element 
+					in position 0 would be the string located before the first appearance of the delimiter (which is an 
+					empty string). 
+				</p>
+				
+				<font class="bashcommand">
+					<p>
+						$ IFS='/' read -a ARRAY &lt;&lt;&lt; "/Element1/Element2/Element3"<br>
+						$ echo ${ARRAY[0]}<br>
+						<br>
+						$ echo ${ARRAY[1]}<br>
+						Element1<br>
+						$ echo ${ARRAY[2]}<br>
+						Element2<br>
+						$ echo ${ARRAY[3]}<br>
+						Element3
+					</p>
+					
+					<p>
+						$ IFS='/' read -a ARRAY &lt;&lt;&lt; "./Folder/Subfolder/file.txt"<br>
+						$ echo ${ARRAY[0]}<br>
+						.<br>
+						$ echo ${ARRAY[1]}<br>
+						Folder<br>
+						$ echo ${ARRAY[2]}<br>
+						Subfolder<br>
+						$ echo ${ARRAY[3]}<br>
+						file.txt
+					</p>
+					
+					<p>
+						$ IFS='.' read -a ARRAY &lt;&lt;&lt; "1.2.3"<br>
+						1.2.3<br>
+						$ echo ${ARRAY[0]}<br>
+						1<br>
+						$ echo ${ARRAY[1]}<br>
+						2<br>
+						$ echo ${ARRAY[2]}<br>
+						3
+					</p>
+					
+					<p>
+						$ IFS='.' read -a ARRAY &lt;&lt;&lt; "23.485"<br>
+						$ echo "The integer part is ${ARRAY[0]}, and the decimal part is 0.${ARRAY[1]}"<br>
+						The integer part is 23, and the decimal part is 0.485
+					</p>
+				</font>
+				
+				<p>
+					<font class="example">ARRAY=($(seq FIRST STEP SIZE))</font>
+					You can also create an array of equally spaced or consecutive numbers in a very easy way using the 
+					command <font class="bashcommand">seq</font>. In this example, I will create an array of numbers that go 
+					from 15 to 19. The distance between each number (<font class="bashcommand">STEP</font>) is 0.5.
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ ARRAY=($(seq 15 0.5 19))<br>
+						$ echo ${ARRAY[0]}<br>
+						15<br>
+						$ echo ${ARRAY[1]}<br>
+						15.5<br>
+						$ echo ${ARRAY[2]}<br>
+						16<br>
+						$ echo ${ARRAY[3]}<br>
+						16.5<br>
+						$ echo ${ARRAY[4]}<br>
+						17<br>
+						$ echo ${ARRAY[5]}<br>
+						17.5<br>
+						$ echo ${ARRAY[6]}<br>
+						18<br>
+						$ echo ${ARRAY[7]}<br>
+						18.5<br>
+						$ echo ${ARRAY[8]}<br>
+						19
+					</font>
+				</p>
+				
+				<p>
+					In this example, I will create an array of numbers that go from 1 to 10. The distance between each 
+					number (<font class="bashcommand">STEP</font>) is 2. 
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ ARRAY=($(seq 1 2 10))<br>
+						$ echo ${ARRAY[0]}<br>
+						1<br>
+						$ echo ${ARRAY[1]}<br>
+						3<br>
+						$ echo ${ARRAY[2]}<br>
+						5<br>
+						$ echo ${ARRAY[3]}<br>
+						7<br>
+						$ echo ${ARRAY[4]}<br>
+						9
+					</font>
+				</p>
+				
+				<p>
+					When the step between the numbers is 1, it doesn't need to be written:<br>
+ 					<font class="bashcommand">($(seq 15 1 19))</font> is the same as 
+ 					<font class="bashcommand">($(seq 15 19))</font>
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						$ ARRAY=($(seq 15 19))<br>
+						$ echo ${ARRAY[0]}<br>
+						15<br>
+						$ echo ${ARRAY[1]}<br>
+						16<br>
+						$ echo ${ARRAY[2]}<br>
+						17<br>
+						$ echo ${ARRAY[3]}<br>
+						18<br>
+						$ echo ${ARRAY[4]}<br>
+						19
+					</font>
+				</p>
+				
+				<font class="example">ARRAY=(ELEMENT1 ELEMENT2 ELEMENT3 ...)</font>
+				
+				<p>
+					<font class="bashcommand">
+						$ array=(e1 e2 e3 e4 e5 e6)<br>
+						$ echo ${array[0]}<br>
+						e1<br>
+						$ echo ${array[1]}<br>
+						e2<br>
+						$ echo ${array[2]}<br>
+						e3<br>
+						$ echo ${array[3]}<br>
+						e4<br>
+						$ echo ${array[4]}<br>
+						e5<br>
+						$ echo ${array[5]}<br>
+						e6
+					</font>
+				</p>
+				
+				<p>
+					Bash and other programs have functions that return a list of elements. For example, as you will learn in 
+					the section of file manipulation, the command <font class="bashcommand">ls</font> returns the list of 
+					files in your current working directory. In these cases, instead of manually entering a list of elements 
+					between parentheses to convert into an array, you can write the function name, and its output will be saved in the array:
+				</p>
+				
+				<font class="bashcommand">
+					<p>
+						$ ls<br>
+						<table class="ghostTable">
+							<tr>
+								<td>@update.afni.binaries</td>
+								<td>Downloads</td>
+								<td>abin</td>
+							</tr>
+							
+							<tr>
+								<td>AFNI_data5</td>
+								<td>Library</td>
+								<td>afni_handouts</td>
+							</tr>
+							
+							<tr>
+								<td>AFNI_data6</td>
+								<td>Movies</td>
+								<td>dax</td>
+							</tr>
+							
+							<tr>
+								<td>AFNI_demos</td>
+								<td>Music</td>
+								<td>std_meshes</td>
+							</tr>
+							
+							<tr>
+								<td>Desktop</td>
+								<td>Pictures</td>
+								<td>suma_demo</td>
+							</tr>
+							
+							<tr>
+								<td>Documents</td>
+								<td>Public</td>
+								<td>test.txt</td>
+							</tr>
+						</table>
+					</p>
+					
+					<p>
+						$ array=($(ls))<br>
+						$ echo ${array[0]}<br>
+						@update.afni.binaries<br>
+						$ echo ${array[1]}<br>
+						AFNI_data5<br>
+						$ echo ${array[2]}<br>
+						AFNI_data6<br>
+						$ echo ${array[3]}<br>
+						AFNI_demos<br>
+						$ echo ${array[4]}<br>
+						Desktop
+					</p>
+				</font>
 			</div>
 			
 			<h4><a href="#content5.2" onclick="showContent(5.2)">5.2. Array operations</a></h4>
 			<div id="content5.2" class="hidden">
-				Content of section 5.2
+				<p>
+					Once you have initialized an array, you can do the following operations with it:
+				</p>
+				
+				<table>
+					<tr>
+						<th><b>Syntax</b></th>
+						<th><b>Usage</b></th>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">${ARRAY[INDEX]}</font>
+						</td>
+						<td>
+							Returns the element in position <font class="bashcommand">INDEX</font> inside 
+							<font class="bashcommand">ARRAY</font>. The first index is 0, then 1, etc.<br>
+							See the examples section of creating sub-strings 
+							(<font class="bashcommand">${STRING:START:NUM}</font>) to know how to obtain a character in a 
+							specific position inside a string instead of an array.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">${#ARRAY[@]}</font><br>
+							or<br>
+							<font class="bashcommand">${#STRING}</font>
+						</td>
+						<td>
+							Returns the size of <font class="bashcommand">ARRAY</font> (number of non-empty elements) or the 
+							number of characters in <font class="bashcommand">STRING</font>.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">${#ARRAY[INDEX]}</font>
+						</td>
+						<td>
+							Returns the size of the element located in the position <font class="bashcommand">INDEX</font> 
+							(number of characters).
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">${ARRAY[@]}</font>
+						</td>
+						<td>
+							Returns all the elements of <font class="bashcommand">ARRAY</font>.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">${ARRAY[@]/OLD_ITEM/NEW_ITEM}</font>
+						</td>
+						<td>
+							Replaces <b>all occurrences</b> of <font class="bashcommand">OLD_ITEM</font> by 
+							<font class="bashcommand">NEW_ITEM</font>. You could use the symbols 
+							<font class="bashcommand">*</font>, <font class="bashcommand">#</font> and 
+							<font class="bashcommand">%</font> inside <font class="bashcommand">OLD_ITEM</font> to replace 
+							all elements that follow a specific pattern (<a href="#ex5">see examples</a>).
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">${STRING/OLD_ITEM/NEW_ITEM}</font>
+						</td>
+						<td>
+							Replaces the <b>first occurrence</b> of <font class="bashcommand">OLD_ITEM</font> by 
+							<font class="bashcommand">NEW_ITEM</font> in <font class="bashcommand">STRING</font> (a string 
+							is an array of characters). You could use the symbols <font class="bashcommand">*</font>, 
+							<font class="bashcommand">#</font> and <font class="bashcommand">%</font> inside 
+							<font class="bashcommand">OLD_ITEM</font> to replace all elements that follow a specific pattern 
+							(<a href="#ex6">see examples</a>).
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">${STRING//OLD_ITEM/NEW_ITEM}</font>
+						</td>
+						<td>
+							Replaces <b>all occurrences</b> of <font class="bashcommand">OLD_ITEM</font> by 
+							<font class="bashcommand">NEW_ITEM</font> in <font class="bashcommand">STRING</font>. You could use 
+							the symbols <font class="bashcommand">*</font>, <font class="bashcommand">#</font> and 
+							<font class="bashcommand">%</font> inside <font class="bashcommand">OLD_ITEM</font> to replace all 
+							elements that follow a specific pattern (<a href="#ex7">see examples</a>).
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">NEWARRAY=("${ARRAY[@]}")</font>
+						</td>
+						<td>
+							Copy the elements of <font class="bashcommand">ARRAY</font> into 
+							<font class="bashcommand">NEWARRAY</font>.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">NEWARRAY=("${ARRAY1[@]}" "${ARRAY2[@]}" "${ARRAY3[@]}" ...)</font>
+						</td>
+						<td>
+							Concatenates arrays <font class="bashcommand">ARRAY1</font>, 
+							<font class="bashcommand">ARRAY2</font>, and <font class="bashcommand">ARRAY3</font> into one 
+							single array called <font class="bashcommand">NEWARRAY</font>. You can concatenate as many 
+							arrays as you want.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">unset ARRAY</font>
+						</td>
+						<td>
+							Deletes <font class="bashcommand">ARRAY</font> from memory.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">${ARRAY[@]:START:NUM}</font><br>
+							or<br>
+							<font class="bashcommand">${STRING:START:NUM}</font>
+						</td>
+						<td>
+							Creates a sub-array from <font class="bashcommand">ARRAY</font> (or a sub-string from 
+							<font class="bashcommand">STRING</font>). Beginning with the element in the position 
+							<font class="bashcommand">START</font> and containing <font class="bashcommand">NUM</font> 
+							number of elements.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">IFS=$'\n' sorted=($(sort &lt;&lt;&lt;"${array[*]}"))</font>
+						</td>
+						<td>
+							Sorts in alphabetical order array and saves the result in sorted.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">IFS='+' sum=$(echo "scale=1;${array[*]}"|bc)</font>
+						</td>
+						<td>
+							Adds all elements in array and saves the result in variable <font class="bashcommand">sum</font>.
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">IFS='+' avg=$(echo "scale=1;(${array[*]})/${#array[@]}"|bc)</font>
+						</td>
+						<td>
+							Calculates the average of elements in <font class="bashcommand">array</font> and saves the 
+							result in variable <font class="bashcommand">avg</font>.
+						</td>
+					</tr>
+				</table>
+				
+				<div id="ex1">
+					<p><font class="example">${ARRAY[INDEX]}</font></p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a array=('Colombia' 'United States' 'Spain' 'Canada')<br>
+							$ echo "The element of the array in position 0 is: ${array[0]}"<br>
+							The element of the array in position 0 is: Colombia<br>
+							$ echo "The element of the array in position 1 is: ${array[1]}"<br>
+							The element of the array in position 1 is: United States
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex2">
+					<p><font class="example">${#ARRAY[@]}</font></p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a array=('Colombia' 'United States' 'Spain' 'Canada')<br>
+							$ echo "The number of elements in the array is ${#array[@]}"<br>
+							The number of elements in the array is 4
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex3">
+					<p>
+						<font class="example">${#ARRAY[INDEX]}</font>
+						<font class="bashcommand">${#ARRAY[INDEX]}</font> will return the number of characters of the element of 
+						the array located in the specified index. <font class="bashcommand">Colombia</font> is in index 0, 
+						<font class="bashcommand">United States</font> in index 1, <font class="bashcommand">Spain</font> in 
+						index 2. <font class="bashcommand">Spain</font> has six characters, so 
+						<font class="bashcommand">${#ARRAY[2]}=6</font>.
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a array=('Colombia' 'United States' 'Spain' 'Canada')<br>
+							$ echo "The element in position 2 is ${array[2]}, and its size is ${#array[2]}"<br>
+							The element in position 2 is Spain, and its size is 5
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex4">
+					<p><font class="example">${ARRAY[@]}</font></p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a array=('Colombia' 'United States' 'Spain' 'Canada')<br>
+							$ echo ${array[@]}<br>
+							Colombia United States Spain Canada
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex5">
+					<p>
+						<font class="example">${ARRAY[@]/OLD_ITEM/NEW_ITEM}</font>
+						Substitute all the instances of <font class="bashcommand">Colombia</font> 
+						(<font class="bashcommand">OLD_ITEM</font>) by Spain (<font class="bashcommand">NEW_ITEM</font>) in 
+						the array.
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a array=('Colombia' 'United States' 'Colombia' 'Canada')<br>
+							$ echo ${array[@]/Colombia/Spain}<br>
+							Spain United States Spain Canada
+						</font>
+					</p>
+					
+					<p>To remove an item, you simply substitute it by nothing (leave <font class="bashcommand">NEW_ITEM</font> 
+					empty).</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a array=('Subject01' 'Subject01' 'Subject03' 'Subject04')<br>
+							$ echo ${array[@]/Subject01/}<br>
+							Subject03 Subject04
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex6">
+					<p>
+						<font class="bashcommand">${STRING/OLD_ITEM/NEW_ITEM}</font>
+						A string is an array of characters. So, you can replace parts of a string the same way that you do 
+						with an array (without the <font class="bashcommand">[@]</font>).
+					</p>
+					
+					<font class="bashcommand">
+						<p>
+							$ P="/Users/Neuro/Desktop"<br>
+							$ echo ${P/Neuro/Research}<br>
+							/Users/Research/Desktop
+						</p>
+						
+						<p>
+							$ P="/Users/Neuro/Desktop"<br>
+							$ echo ${P/Desktop/}<br>
+							/Users/Neuro/
+						</p>
+					</font>
+					
+					<p>
+						You can use patterns to remove a group of elements from an array. For example, in the following 
+						array you have three items that start by <font class="bashcommand">AA</font>, so you use as 
+						<font class="bashcommand">ITEM_TO_REPLACE: AA*</font>. As you can see, the three items that start 
+						with <font class="bashcommand">AA</font> are deleted.
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a ARRAY=('AA123' 'AB345' 'AA987' 'BB098' 'AA456')<br>
+							$ echo ${ARRAY[@]/AA*/}<br>
+							AB345 BB098
+						</font>
+					</p>
+					
+					<p>
+						Below are a few more examples on how to use patterns to remove a group of items from an array:
+					</p>
+					
+					<p>
+						Delete all items that end with the letter Z (<font class="bashcommand">'HGTZ'</font> and 
+						<font class="bashcommand">'ZZZZ'</font>):<br>
+						<font class="bashcommand">
+							$ declare -a ARRAY=('QWER' 'HGTZ' 'QRJD' 'ZZZZ' 'JHGF')<br>
+							$ echo ${ARRAY[@]/*Z/}<br>
+							QWER QRJD JHGF
+						</font>
+					</p>
+					
+					<p>
+						Delete all items that have an <font class="bashcommand">A</font> at the beginning and a 
+						<font class="bashcommand">Z</font> at the end (<font class="bashcommand">'ASDFZ'</font>). Observe 
+						that either <font class="bashcommand">'RFGHJZ'</font> nor <font class="bashcommand">'ZZZZ'</font> get 
+						deleted because even though they end with a <font class="bashcommand">Z</font>, they don't start 
+						with an <font class="bashcommand">A</font>, so those two strings don't follow the 
+						<font class="bashcommand">A*Z</font> pattern: <br>
+						<font class="bashcommand">
+							$ declare -a ARRAY=('ASDFZ' 'RFGHJZ' 'QRJD' 'ZZZZ' 'JHGF')<br>
+							$ echo ${ARRAY[@]/A*Z/}<br>
+							RFGHJZ QRJD ZZZZ JHGF
+						</font>
+					</p>
+					
+					<p>
+						To replace the front-end occurrences of a substring within an array, you can use the following 
+						syntax: <font class="bashcommand">${ARRAY[@]/#SUBSTRING_TO_REPLACE/NEW_SUBSTRING}:</font><br>
+						<font class="bashcommand">
+							$ declare -a ARRAY=('SUBJ0' 'SUBJ9' 'SUBJ3' 'SUBJ4' 'SUBJ3')<br>
+							$ echo ${ARRAY[@]/#SUBJ/SUBJECT}<br>
+							SUBJECT0 SUBJECT9 SUBJECT3 SUBJECT4 SUBJECT3
+						</font>
+					</p>
+					
+					<p>
+						To replace the back end occurrences of a substring within an array, use the symbol 
+						<font class="bashcommand">%</font> instead of <font class="bashcommand">#</font> and the same syntax 
+						as before:<br>
+						<font class="bashcommand">
+							$ declare -a ARRAY=('ID_001' 'AGE_001' 'GENDER_001' 'QC_001')<br>
+							$ echo ${ARRAY[@]/%001/125}<br>
+							ID_125 AGE_125 GENDER_125 QC_125
+						</font> 
+					</p>
+				</div>
+				
+				<div id="ex7">
+					<p>
+						<font class="example">${STRING//OLD_ITEM/NEW_ITEM}</font>
+						With strings, contrary to how it happens with arrays, using the previous syntax will only replace the 
+						first occurrence of <font class="bashcommand">OLD_ITEM</font>.
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ P="/Users/Neuro/Desktop/Neuro"<br>
+							$ echo ${P/Neuro/Research}<br>
+							/Users/Research/Desktop/Neuro
+						</font>
+					</p>
+					
+					<p>In order to replace all occurrences of <font class="bashcommand">OLD_ITEM</font> you must use double 
+					slash:</p>
+					
+					<font class="bashcommand">
+						<p>
+							$ P="/Users/Neuro/Desktop/Neuro"<br>
+							$ echo ${P//Neuro/Research}<br>
+							/Users/Research/Desktop/Research
+						</p>
+						
+						<p>
+							$ P="/Users/Neuro/Desktop"<br>
+							$ echo ${P//e/}<br>
+							/Usrs/Nuro/Dsktop
+						</p>
+					</font>
+				</div>
+				
+				<div id="ex8">
+					<p>
+						<font class="example">NEWARRAY=("${ARRAY[@]}")</font>
+						This syntax is used to copy all the elements of one array into a new one.
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a ARRAY=('ASDFZ' 'RFGHJZ' 'QRJD' 'ZZZZ' 'JHGF')<br>
+							$ NEWARRAY=("${ARRAY[@]}")<br>
+							$ echo ${NEWARRAY[@]}<br>
+							ASDFZ RFGHJZ QRJD ZZZZ JHGF
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex9">
+					<p>
+						<font class="example">NEWARRAY=("${ ARRAY1[@]}" "${ARRAY2[@]}" "${ ARRAY3[@]}" ...)</font>
+						Concatenating arrays is very similar to copying arrays. If you want to concatenate array 
+						<font class="bashcommand">A</font> and <font class="bashcommand">B</font>, and save the result in 
+						<font class="bashcommand">C</font>. You just copy <font class="bashcommand">A</font> after 
+						<font class="bashcommand">B</font> (using the previous syntax) and assign it to 
+						<font class="bashcommand">C</font>.
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a A=('ASDFZ' 'RFGHJZ' 'QRJD' 'ZZZZ' 'JHGF')<br>
+							$ declare -a B=('3333' '2222' '1111')<br>
+							$ C=("${A[@]}" "${B[@]}")<br>
+							$ echo ${C[@]}<br>
+							ASDFZ RFGHJZ QRJD ZZZZ JHGF 3333 2222 1111
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex10">
+					<p>
+						<font class="example">unset ARRAY</font>
+						If your script creates very big temporary arrays that won't be used again, you might want to delete them 
+						to free some memory. For that you use the command unset. You might want to use unset also if you want to 
+						make sure that the array is empty before you start adding elements.
+					</p>
+					
+					<p>
+						In this example, after deleting array A and echoing it again, nothing will be printed as the array is now 
+						empty:
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a A=('ASDFZ' 'RFGHJZ' 'QRJD' 'ZZZZ' 'JHGF')<br>
+							$ echo ${A[@]}<br>
+							ASDFZ RFGHJZ QRJD ZZZZ JHGF<br>
+							$ unset A<br>
+							$ echo ${A[@]}
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex11">
+					<p>
+						<font class="example">${ARRAY[@]:START:NUM}</font>
+						By using <font class="bashcommand">${ARRAY[@]:START:N}</font>, you can create a sub-array that 
+						contains <font class="bashcommand">N</font> elements from the original array, starting from the 
+						index <font class="bashcommand">START</font>. Remember, the index of the first item is 0. So, in the 
+						following example the index of <font class="bashcommand">'Element1'</font> is 0 and the index of 
+						<font class="bashcommand">'Element2'</font> is 1.
+					</p>
+					
+					<p>
+						Extract 2 items from <font class="bashcommand">ARRAY</font> starting in index 0 (items 
+						<font class="bashcommand">'Element1'</font> and <font class="bashcommand">'Element2'</font>):
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a ARRAY=( 'Element1' 'Element2' 'Element3' 'Element4' 'Element5')<br>
+							$ echo ${ARRAY[@]:0:2}<br>
+							Element1 Element2
+						</font>
+					</p>
+					
+					<p>
+						Extract 3 items from <font class="bashcommand">ARRAY</font> starting in index 2 (items 
+						<font class="bashcommand">'Element3'</font>, <font class="bashcommand">'Element4'</font> and 
+						<font class="bashcommand">'Element5'</font>):
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a ARRAY=( 'Element1' 'Element2' 'Element3' 'Element4' 'Element5')<br>
+							$ echo ${ARRAY[@]:2:3}<br>
+							Element3 Element4 Element5
+						</font>
+					</p>
+					
+					<p>
+						Extract 4 items from <font class="bashcommand">ARRAY</font> starting in index 2. There are only 
+						three elements from the item in index 2 until the end of the array. So, bash will only extract 3 
+						items (there's no 4th item to extract).
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ declare -a ARRAY=( 'Element1' 'Element2' 'Element3' 'Element4' 'Element5')<br>
+							$ echo ${ARRAY[@]:2:4}<br>
+							Element3 Element4 Element5
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex12">
+					<p>
+						<font class="example">${STRING:START:NUM}</font>
+						Extract characters from a string. Remember, a string is also an array (an array of characters).
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ S="Colombia"<br>
+							$ echo "The first character in ${S} is ${S:0:1}"<br>
+							The first character in Colombia is C<br>
+							$ echo "The third character in ${S} is ${S:2:1}"<br>
+							The third character in Colombia is l<br>
+							$ SIZE=${#S}<br>
+							$ echo $SIZE<br>
+							8<br>
+							$ echo "The last two characters in ${S} are ${S:$(( ${SIZE} - 2 )):2}"<br>
+							The last two characters in Colombia are ia
+						</font>
+					</p>
+				</div>
+				
+				<div id="ex13">
+					<p>
+						<font class="example">IFS=$'\n' sorted=($(sort <<<"${array[*]}"))</font>
+						Sort <font class="bashcommand">array</font> and save the output in sorted (array stays the same):
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							$ array=(ewrwr dfgfgdf asda yrtytr)<br>
+							$ echo ${array[@]}<br>
+							ewrwr dfgfgdf asda yrtytr<br>
+							$ IFS=$'\n' sorted=($(sort &lt;&lt;&lt;"${array[*]}"))<br>
+							${sorted[@]}<br>
+							asda dfgfgdf ewrwr yrtytr<br>
+							$ echo ${array[@]}<br>
+							ewrwr dfgfgdf asda yrtytr
+						</font>
+					</p>
+				</div>
 			</div>
 		</div>
 		
 		<h3><a href="#content6" onclick="showContent(6);">6. Condition-testing</a></h3>
 		<div id="content6" class="hidden">
+				<p>
+					Variables can be used to test if a certain condition is true or false, and therefore be able to take a 
+					different course of action depending on the result of the test. For example, you might want to evaluate 
+					if a file exists to decide if you can copy it into a different folder or not. For condition-testing you 
+					will use the if-command. This command has the following syntax:
+				</p>
+				
+				<p>
+					if [ CONDITION_TO_EVALUATE ]<br>
+					then<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;INSTRUCTIONS THAT WILL RUN IF THE CONDITION IS TRUE&gt;<br>
+					elif [ OTHER_CONDITION_TO_EVALUATE_IF_1ST_CONDITION_IS_FALSE ]<br>
+					then<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;INSTRUCTIONS THAT WILL RUN IF FIRST CONDITION IS FALSE BUT SECOND IS TRUE&gt;<br>
+					else<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;INSTRUCTIONS THAT WILL RUN IF ALL THE PREVIOUS CONDITIONS ARE FALSE&gt;<br>
+					fi
+				</p>
+				
+				<p>
+					The CONDITION_TO_EVALUATE is an expression that follows a specific syntax depending on what you want to 
+					test (checking files, string comparison, comparing numbers, or combining different expressions). Lets 
+					look at the different syntaxes used in each of these situations and at some examples that will help you 
+					understand this seemingly confusing subject.
+				</p>
+				
 			<h4><a href="#content6.1" onclick="showContent(6.1)">6.1. Condition-testing to check files</a></h4>
 			<div id="content6.1" class="hidden">
-				Content of section 6.1
+				<p>
+					In the following table, <font class="bashcommand">FILE</font> refers to the path of the file or to the 
+					variable that contains the path of the file. The spaces after <font class="bashcommand">[</font> and 
+					before <font class="bashcommand">]</font> are very important. If those spaces are missing, bash will 
+					give an error.
+				</p>
+				
+				<table>
+					<tr>
+						<th><b>Condition</b></th>
+						<th><b>Meaning</b></th>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -a FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -d FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is a directory.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -e FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -f FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is a regular file.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -g FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and its SGID bit is set.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -h FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is a symbolic link.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -k FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and its sticky bit is set.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -p FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is a named pipe (FIFO).</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -r FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is readable.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -s FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and has a size greater than zero.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -t FD ]</font>
+						</td>
+						<td>Tests if file descriptor <font class="bashcommand">FD</font> is open and refers to a terminal.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -u FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and its SUID (set user ID) bit is set.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -w FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is writable.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -x FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is executable.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -O FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is owned by the effective user ID.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -G FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is owned by the effective group ID.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -L FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is a symbolic link.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -N FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and has been modified since it was last read.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ -S FILE ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE</font> exists and is a socket.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ FILE1 -nt FILE2 ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE1</font> has been changed more recently than <font class="bashcommand">FILE2</font>, or if <font class="bashcommand">FILE1</font> exists and <font class="bashcommand">FILE2</font> does not.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ FILE1 -ot FILE2 ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE1</font> is older than <font class="bashcommand">FILE2</font>, or is <font class="bashcommand">FILE2</font> exists and <font class="bashcommand">FILE1</font> does not.</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<font class="bashcommand">[ FILE1 -ef FILE2 ]</font>
+						</td>
+						<td>Tests if <font class="bashcommand">FILE1</font> and <font class="bashcommand">FILE2</font> refer to the same device and inode numbers.</td>
+					</tr>
+				</table>
 			</div>
 			
 			<h4><a href="#content6.2" onclick="showContent(6.2)">6.2. Condition-testing to compare/evaluate strings</a></h4>
