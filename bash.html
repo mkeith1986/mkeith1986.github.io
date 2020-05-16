@@ -3530,11 +3530,111 @@
 						then<br>
 						echo "${FILE} exists"<br>
 						else<br>
-						echo "${FILE} doesn't exist" <br>
+						echo "${FILE} doesn't exist"<br>
 						fi 
 					</font>
 				</p>
-					
+				
+				<p>
+					<font class="bashcommand">
+						if [ -a "/Users/MyUser/Desktop/someFile.txt" ]<br>
+						then<br>
+						echo "The file exists"<br>
+						else<br>
+						echo "The file doesn''t exist"<br>
+						fi 
+					</font>
+				</p>
+				
+				<p>
+					The following example shows a common mistake. Here, the quotation marks surrounding the file path are missing. Since the path has spaces, bash gives an error: 
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						if [ -a /Users/MyUser/Desktop/some file name with spaces.txt ]<br>
+						then<br>
+						echo "The file exists"<br>
+						else<br>
+						echo "The file doesn't exist"<br>
+						fi<br>
+						-bash: [: too many arguments 
+					</font>
+				</p>
+				
+				<p>
+					<font class="example">[ -d FILE ]:</font>
+					<font class="bashcommand">
+						FILE=/Users/MyUser/Desktop/someFile.txt<br>
+						if [ -a "${FILE}" ]<br>
+						then<br>
+						echo "The file exists. Now I will find out if it's a directory or a regular file."<br>
+						if [ -d "${FILE}" ]<br>
+						then<br>
+						echo "It is a directory."<br>
+						else<br>
+						echo "It is a regular file."<br>
+						fi<br>
+						else<br>
+						echo "The file doesn't exist."<br>
+						fi
+					</font>
+				</p>
+				
+				<p>
+					The following example shows a common mistake. Here, the spaces before and after the expression (<font class="bashcommand">-a "${FILE}"</font>) are missing. So, bash will give an error: 
+				</p>
+				
+				<p>
+					<font class="bashcommand">
+						FILE=/Users/MyUser/Desktop/someFile.txt<br>
+						if [-a "${FILE}"]<br>
+						then<br>
+						echo "The file exists. Now I will find out if it’s a directory or a regular file."<br>
+						if [ -d "${FILE}" ]<br>
+						then<br>
+						echo "It is a directory."<br>
+						else<br>
+						echo "It is a regular file."<br>
+						fi<br>
+						else<br>
+						echo "The file doesn’t exist."<br>
+						Fi<br>
+						-bash: [-a: command not found
+					</font>
+				</p>
+				
+				<p>
+					<font class="example">[ -f FILE ]:</font>
+					<font class="bashcommand">
+						FILE=/Users/MyUser/Desktop/someFile.txt<br>
+						if [ -a "${FILE}" ]<br>
+						then<br>
+						echo "The file exists. Now I will find out if it’s a directory or a regular file."<br>
+						if [ -f "${FILE}" ]<br>
+						then<br>
+						echo "It is a regular file."<br>
+						else<br>
+						echo "It is a directory."<br>
+						fi<br>
+						else<br>
+						echo "The file doesn’t exist."<br>
+						fi
+					</font>
+				</p>
+				
+				<p>
+					<font class="example">[ -N FILE ]:</font>
+					<font class="bashcommand">
+						if [ -N "/Users/MyUser/Desktop/someFile.txt" ]<br>
+						then<br>
+						echo "The file exists and has been modified since the last time it was opened."<br>
+						else<br>
+						echo "Either the file doesn’t exist, or it hasn’t been modified."<br>
+						fi 
+					</font>
+				</p>
+				
 				<h3>6.2. Condition-testing to compare/evaluate strings</h3>
 					<p>Content of section 6.2</p>
 					
