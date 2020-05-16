@@ -3636,7 +3636,58 @@
 				</p>
 				
 				<h3>6.2. Condition-testing to compare/evaluate strings</h3>
-					<p>Content of section 6.2</p>
+					<p>
+						When comparing strings, it is mandatory to use the quotation marks. The spaces after '[' and before ']' are very important. If those spaces are missing, bash will give an error. 
+					</p>
+					
+					<table>
+						<tr>
+							<th style="width:30%"><b>Command</b></th>
+							<th style="width:70%"><b>Explanation</b></th>
+						</tr>
+						
+						<tr>
+							<td>
+								<font class="bashcommand">[ -z "STRING" ]</font>
+							</td>
+							<td>Tests if the length of <font class="command">STRING</font> is zero</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<font class="bashcommand">[ -n "STRING" ]</font>
+							</td>
+							<td>Tests if the length of <font class="bashcommand">STRING</font> is non-zero</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<font class="bashcommand">[ "STRING1" == "STRING2" ]</font>
+							</td>
+							<td>Tests if the strings are equal</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<font class="bashcommand">[ "STRING1" != "STRING2" ]</font>
+							</td>
+							<td>Tests if the strings are not equal</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<font class="bashcommand">[ "STRING1" \< "STRING2" ]</font>
+							</td>
+							<td>Tests if <font class="bashcommand">STRING1</font> sorts before <font class="bashcommand">STRING2</font></td>
+						</tr>
+						
+						<tr>
+							<td>
+								<font class="bashcommand">[ "STRING1" \> "STRING2" ]</font>
+							</td>
+							<td>Tests if <font class="bashcommand">STRING1</font> sorts after <font class="bashcommand">STRING2</font></td>
+						</tr>
+					</table>
 					
 				<h3>6.3. Condition-testing to compare numbers</h3>
 					<p>Content of section 6.3</p>
