@@ -3689,6 +3689,101 @@
 						</tr>
 					</table>
 					
+					<p>
+						<font class="example">[ -z "STRING" ]:</font>
+						<font class="bashcommand">
+							if [ -z "" ]<br>
+							then<br>
+							echo "Empty string"<br>
+							fi<br>
+							Empty string 
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ -n "STRING" ]:</font>
+						<font class="bashcommand">
+							VAR="Some text"<br>
+							if [ -n "${VAR}" ]<br>
+							then<br>
+							echo "The string is not empty"<br>
+							fi<br>
+							The string is not empty 
+						</font>
+					</p>
+					
+					<p>In this example, bash will show an error because I forgot to put the quotation marks around <font class="bashcommand">${VAR}</font>.</p>
+					
+					<p>
+						<font class="bashcommand">
+							VAR="Some text"<br>
+							if [ -n ${VAR} ]<br>
+							then<br>
+							echo "The string is not empty"<br>
+							fi<br>
+							-bash: [: Some: binary operator expected 
+						</bash>
+					</p>
+					
+					<p>
+						<font class="example">[ "STRING1" == "STRING2" ]:</font>
+						<font class="bashcommand">
+							QC="Good"<br>
+							if [ "${QC}" == "Good" ]<br>
+							then<br>
+							echo "Quality control good"<br>
+							else<br>
+							echo "Image has bad quality"<br>
+							fi<br>
+							Quality control good 
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ "STRING1" != "STRING2" ]:</font>
+						<font class="bashcommand">
+							QC="Good"<br>
+							if [ "${QC}" != "Good" ]<br>
+							then<br>
+							echo "Quality control is not good"<br>
+							else<br>
+							echo "Image has good quality"<br>
+							fi<br>
+							Image has good quality
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ "STRING1" \< "STRING2" ]:</font>
+						In the following example, I am comparing the strings <font class="bashcommand">"Canada"</font> with <font class="bashcommand">"Colombia"</font> and printing the one that sorts first. <font class="bashcommand">"Canada"</font> will be printed because the first letter of both words is the same but the second letter in <font class="bashcommand">"Canada"</font> (letter <font class="bashcommand">a</font>) comes before the second letter in <font class="bashcommand">"Colombia"</font> (letter <font class="bashcommand">o</font>).<br>
+						<font class="bashcommand">
+							VAR1="Canada"<br>
+							VAR2="Colombia"<br>
+							if [ "${VAR1}" \< "${VAR2}" ]<br>
+							then<br>
+							echo ${VAR1}<br>
+							else<br>
+							echo ${VAR2}<br>
+							fi<br>
+							Canada
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ "STRING1" \> "STRING2" ]:</font>
+						<font class="bashcommand">
+							VAR1="Canada"<br> 
+							VAR2="Colombia"<br>
+							if [ "${VAR1}" \> "${VAR2}" ]<br>
+							then<br>
+							echo ${VAR2}<br>
+							else<br>
+							echo ${VAR1}<br>
+							fi<br>
+							Canada 
+						</font>
+					</p>
+					
 				<h3>6.3. Condition-testing to compare numbers</h3>
 					<p>Content of section 6.3</p>
 					
