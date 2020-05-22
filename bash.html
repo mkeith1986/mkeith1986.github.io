@@ -105,6 +105,10 @@
 				font-size: 10px;
 			}
 			
+			.bashcommand-result{
+				color: #A9A9A9;
+			}
+			
 			.example{
 				text-decoration: underline;
 				display: block;
@@ -755,7 +759,7 @@
 					<p>
 						<font class="bashcommand">
 						$ NAME ="Monica Keith"<br>
-						-bash: NAME: command not found<br>
+						<font class=".bashcommand-result">-bash: NAME: command not found</font><br>
 						$ NAME= "Monica Keith"<br>
 						-bash: Monica Keith: command not found<br>
 						$ NAME = "Monica Keith"<br>
@@ -2107,14 +2111,14 @@
 						<font class="example">Usage of (( $i % 2 ))</font>
 						<font class="bashcommand">
 							$for i in $(seq 10)<br>
-							>do<br>
-							>if (( $i % 2 ))<br>
-							>then<br>
-							>echo $i is odd<br>
-							>else<br>
-							>echo $i is even<br>
-							>fi<br>
-							>done<br>
+							&gt; do<br>
+							&gt; if (( $i % 2 ))<br>
+							&gt; then<br>
+							&gt; echo $i is odd<br>
+							&gt; else<br>
+							&gt; echo $i is even<br>
+							&gt; fi<br>
+							&gt; done<br>
 							1 is odd<br>
 							2 is even<br>
 							3 is odd<br>
@@ -3527,21 +3531,21 @@
 					<font class="bashcommand">
 						FILE=/Users/MyUser/Desktop/someFile.txt<br>
 						if [ -a "${FILE}" ]<br>
-						then<br>
-						echo "${FILE} exists"<br>
-						else<br>
-						echo "${FILE} doesn't exist"<br>
-						fi 
+						&gt; then<br>
+						&gt; echo "${FILE} exists"<br>
+						&gt; else<br>
+						&gt; echo "${FILE} doesn't exist"<br>
+						&gt; fi 
 					</font>
 				</p>
 				
 				<p>
 					<font class="bashcommand">
 						if [ -a "/Users/MyUser/Desktop/someFile.txt" ]<br>
-						then<br>
-						echo "The file exists"<br>
-						else<br>
-						echo "The file doesn''t exist"<br>
+						&gt; then<br>
+						&gt; echo "The file exists"<br>
+						&gt; else<br>
+						&gt; echo "The file doesn't exist"<br>
 						fi 
 					</font>
 				</p>
@@ -3553,11 +3557,11 @@
 				<p>
 					<font class="bashcommand">
 						if [ -a /Users/MyUser/Desktop/some file name with spaces.txt ]<br>
-						then<br>
-						echo "The file exists"<br>
-						else<br>
-						echo "The file doesn't exist"<br>
-						fi<br>
+						&gt; then<br>
+						&gt; echo "The file exists"<br>
+						&gt; else<br>
+						&gt; echo "The file doesn't exist"<br>
+						&gt; fi<br>
 						-bash: [: too many arguments 
 					</font>
 				</p>
@@ -3567,17 +3571,17 @@
 					<font class="bashcommand">
 						FILE=/Users/MyUser/Desktop/someFile.txt<br>
 						if [ -a "${FILE}" ]<br>
-						then<br>
-						echo "The file exists. Now I will find out if it's a directory or a regular file."<br>
-						if [ -d "${FILE}" ]<br>
-						then<br>
-						echo "It is a directory."<br>
-						else<br>
-						echo "It is a regular file."<br>
-						fi<br>
-						else<br>
-						echo "The file doesn't exist."<br>
-						fi
+						&gt; then<br>
+						&gt; echo "The file exists. Now I will find out if it's a directory or a regular file."<br>
+						&gt; if [ -d "${FILE}" ]<br>
+						&gt; then<br>
+						&gt; echo "It is a directory."<br>
+						&gt; else<br>
+						&gt; echo "It is a regular file."<br>
+						&gt; fi<br>
+						&gt; else<br>
+						&gt; echo "The file doesn't exist."<br>
+						&gt; fi
 					</font>
 				</p>
 				
@@ -3589,17 +3593,17 @@
 					<font class="bashcommand">
 						FILE=/Users/MyUser/Desktop/someFile.txt<br>
 						if [-a "${FILE}"]<br>
-						then<br>
-						echo "The file exists. Now I will find out if it’s a directory or a regular file."<br>
-						if [ -d "${FILE}" ]<br>
-						then<br>
-						echo "It is a directory."<br>
-						else<br>
-						echo "It is a regular file."<br>
-						fi<br>
-						else<br>
-						echo "The file doesn’t exist."<br>
-						Fi<br>
+						&gt; then<br>
+						&gt; echo "The file exists. Now I will find out if it's a directory or a regular file."<br>
+						&gt; if [ -d "${FILE}" ]<br>
+						&gt; then<br>
+						&gt; echo "It is a directory."<br>
+						&gt; else<br>
+						&gt; echo "It is a regular file."<br>
+						&gt; fi<br>
+						&gt; else<br>
+						&gt; echo "The file doesn't exist."<br>
+						&gt; fi<br>
 						-bash: [-a: command not found
 					</font>
 				</p>
@@ -3609,16 +3613,16 @@
 					<font class="bashcommand">
 						FILE=/Users/MyUser/Desktop/someFile.txt<br>
 						if [ -a "${FILE}" ]<br>
-						then<br>
-						echo "The file exists. Now I will find out if it’s a directory or a regular file."<br>
-						if [ -f "${FILE}" ]<br>
-						then<br>
-						echo "It is a regular file."<br>
-						else<br>
-						echo "It is a directory."<br>
-						fi<br>
-						else<br>
-						echo "The file doesn’t exist."<br>
+						&gt; then<br>
+						&gt; echo "The file exists. Now I will find out if it's a directory or a regular file."<br>
+						&gt; if [ -f "${FILE}" ]<br>
+						&gt; then<br>
+						&gt; echo "It is a regular file."<br>
+						&gt; else<br>
+						&gt; echo "It is a directory."<br>
+						&gt; fi<br>
+						&gt; else<br>
+						&gt; echo "The file doesn't exist."<br>
 						fi
 					</font>
 				</p>
@@ -3627,11 +3631,11 @@
 					<font class="example">[ -N FILE ]:</font>
 					<font class="bashcommand">
 						if [ -N "/Users/MyUser/Desktop/someFile.txt" ]<br>
-						then<br>
-						echo "The file exists and has been modified since the last time it was opened."<br>
-						else<br>
-						echo "Either the file doesn’t exist, or it hasn’t been modified."<br>
-						fi 
+						&gt; then<br>
+						&gt; echo "The file exists and has been modified since the last time it was opened."<br>
+						&gt; else<br>
+						&gt; echo "Either the file doesn't exist, or it hasn't been modified."<br>
+						&gt; fi 
 					</font>
 				</p>
 				
@@ -3693,9 +3697,9 @@
 						<font class="example">[ -z "STRING" ]:</font>
 						<font class="bashcommand">
 							if [ -z "" ]<br>
-							then<br>
-							echo "Empty string"<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "Empty string"<br>
+							&gt; fi<br>
 							Empty string 
 						</font>
 					</p>
@@ -3705,9 +3709,9 @@
 						<font class="bashcommand">
 							VAR="Some text"<br>
 							if [ -n "${VAR}" ]<br>
-							then<br>
-							echo "The string is not empty"<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "The string is not empty"<br>
+							&gt; fi<br>
 							The string is not empty 
 						</font>
 					</p>
@@ -3718,9 +3722,9 @@
 						<font class="bashcommand">
 							VAR="Some text"<br>
 							if [ -n ${VAR} ]<br>
-							then<br>
-							echo "The string is not empty"<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "The string is not empty"<br>
+							&gt; fi<br>
 							-bash: [: Some: binary operator expected 
 						</font>
 					</p>
@@ -3730,11 +3734,11 @@
 						<font class="bashcommand">
 							QC="Good"<br>
 							if [ "${QC}" == "Good" ]<br>
-							then<br>
-							echo "Quality control good"<br>
-							else<br>
-							echo "Image has bad quality"<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "Quality control good"<br>
+							&gt; else<br>
+							&gt; echo "Image has bad quality"<br>
+							&gt; fi<br>
 							Quality control good 
 						</font>
 					</p>
@@ -3744,11 +3748,11 @@
 						<font class="bashcommand">
 							QC="Good"<br>
 							if [ "${QC}" != "Good" ]<br>
-							then<br>
-							echo "Quality control is not good"<br>
-							else<br>
-							echo "Image has good quality"<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "Quality control is not good"<br>
+							&gt; else<br>
+							&gt; echo "Image has good quality"<br>
+							&gt; fi<br>
 							Image has good quality
 						</font>
 					</p>
@@ -3760,11 +3764,11 @@
 							VAR1="Canada"<br>
 							VAR2="Colombia"<br>
 							if [ "${VAR1}" \< "${VAR2}" ]<br>
-							then<br>
-							echo ${VAR1}<br>
-							else<br>
-							echo ${VAR2}<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo ${VAR1}<br>
+							&gt; else<br>
+							&gt; echo ${VAR2}<br>
+							&gt; fi<br>
 							Canada
 						</font>
 					</p>
@@ -3775,11 +3779,11 @@
 							VAR1="Canada"<br> 
 							VAR2="Colombia"<br>
 							if [ "${VAR1}" \> "${VAR2}" ]<br>
-							then<br>
-							echo ${VAR2}<br>
-							else<br>
-							echo ${VAR1}<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo ${VAR2}<br>
+							&gt; else<br>
+							&gt; echo ${VAR1}<br>
+							&gt; fi<br>
 							Canada 
 						</font>
 					</p>
@@ -3827,9 +3831,9 @@
 						<font class="example">[ NUM1 -eq NUM2 ]:</font>
 						<font class="bashcommand">
 							if [ "3" -eq "3" ]<br>
-							then<br>		
-							echo "This makes sense, 3 equals 3."<br>					
-							fi<br>			
+							&gt; then<br>		
+							&gt; echo "This makes sense, 3 equals 3."<br>					
+							&gt; fi<br>			
 							This makes sense, 3 equals 3. 
 						</font>
 					</p>
@@ -3838,9 +3842,9 @@
 						<font class="bashcommand">
 							A=3<br>
 							if [ "${A}" -eq "3" ]<br>
-							then<br> 
-							echo "This makes sense, ${A} equals 3."<br>
-							fi<br>
+							&gt; then<br> 
+							&gt; echo "This makes sense, ${A} equals 3."<br>
+							&gt; fi<br>
 							This makes sense, 3 equals 3. 
 						</font>
 					</p>
@@ -3850,11 +3854,11 @@
 						<font class="bashcommand">
 							A=3<br>
 							if [ "${A}" -ne "3" ]<br>
-							then<br>
-							echo "Variable A is not equal to 3"<br> 
-							else<br>
-							echo "Variable A equals 3."<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "Variable A is not equal to 3"<br> 
+							&gt; else<br>
+							&gt; echo "Variable A equals 3."<br>
+							&gt; fi<br>
 							Variable A equals 3. 
 						</font>
 					</p>
@@ -3864,11 +3868,11 @@
 						<font class="bashcommand">
 							A=3<br>
 							if [ "${A}" -lt "3" ]<br>
-							then<br>
-							echo "Variable A is less than 3"<br> 
-							else<br>
-							echo "Variable A not less than 3."<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "Variable A is less than 3"<br> 
+							&gt; else<br>
+							&gt; echo "Variable A not less than 3."<br>
+							&gt; fi<br>
 							Variable A is not less than 3. 
 						</font>
 					</p>
@@ -3878,11 +3882,11 @@
 						<font class="bashcommand">
 							A=3<br> 
 							if [ "${A}" -le "3" ]<br>
-							then<br>
-							echo "Variable A is less or equal to 3"<br>
-							else<br>
-							echo "Variable A greater than 3."<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "Variable A is less or equal to 3"<br>
+							&gt; else<br>
+							&gt; echo "Variable A greater than 3."<br>
+							&gt; fi<br>
 							Variable A is less or equal to 3. 
 						</font>
 					</p>
@@ -3892,11 +3896,11 @@
 						<font class="bashcommand">
 							A=3<br>
 							if [ "${A}" -gt "3" ]<br>
-							then<br>
-							echo "Variable A is greater than 3"<br>
-							else<br>
-							echo "Variable A not greater than 3."<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "Variable A is greater than 3"<br>
+							&gt; else<br>
+							&gt; echo "Variable A not greater than 3."<br>
+							&gt; fi<br>
 							Variable A is not greater than 3. 
 						</font>
 					</p>
@@ -3906,11 +3910,11 @@
 						<font class="bashcommand">
 							A=3<br>
 							if [ "${A}" -ge "3" ]<br>
-							then<br>
-							echo "Variable A is greater or equal to 3"<br>
-							else<br>
-							echo "Variable A less than 3."<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "Variable A is greater or equal to 3"<br>
+							&gt; else<br>
+							&gt; echo "Variable A less than 3."<br>
+							&gt; fi<br>
 							Variable A is greater or equal to 3. 
 						</font>
 					</p>
@@ -3940,11 +3944,11 @@
 							arr2=(a b c d)<br>
 							arr3=(a b c)<br>
 							if [ "${arr1[*]}" == "${arr3[*]}" ]<br>
-							then<br>
-							echo "equal"<br>
-							else<br>
-							echo "different"<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "equal"<br>
+							&gt; else<br>
+							&gt; echo "different"<br>
+							&gt; fi<br>
 							equal 
 						</font>
 					</p>
@@ -3952,11 +3956,11 @@
 					<p>
 						<font class="bashcommand">
 							if [ "${arr1[*]}" == "${arr2[*]}" ]<br>
-							then<br>
-							echo "equal"<br>
-							else<br>
-							echo "different"<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "equal"<br>
+							&gt; else<br>
+							&gt; echo "different"<br>
+							&gt; fi<br>
 							different
 						</font>
 					</p>
@@ -3965,12 +3969,12 @@
 						<font class="example">[ "${arr1[*]}" != "${arr2[*]}" ]:</font>
 						<font class="bashcommand">
 							if [ "${arr1[*]}" != "${arr2[*]}" ]<br>
-							then<br>
-							echo "distinct"<br>
-							else<br>
-							echo "equal"<br>
-							fi<br>
-							distinct 
+							&gt; then<br>
+							&gt; echo "different"<br>
+							&gt; else<br>
+							&gt; echo "equal"<br>
+							&gt; fi<br>
+							different 
 						</font>
 					</p>
 					
@@ -4006,22 +4010,22 @@
 						<font class="example">[ EXPR ] vs [ ! EXPR ]</font>
 						<font class="bashcommand">
 							if [ "3" -eq "3" ]<br>
-							then<br>
-							echo "This will be printed if the expression 3 equals 3 is true."<br>
-							else<br>
-							echo "This will be printed if the expression is false".<br>
-							fi 
+							&gt; then<br>
+							&gt; echo "This will be printed if the expression 3 equals 3 is true."<br>
+							&gt; else<br>
+							&gt; echo "This will be printed if the expression is false".<br>
+							&gt; fi 
 						</font>
 					</p>
 					
 					<p>
 						<font class="bashcommand">
 							if [ ! "3" -eq "3" ]<br>
-							then<br>
-							echo "This will be printed if the expression is false."<br>
-							else<br>
-							echo "This will be printed if the expression 3 equals 3 is true".<br>
-							fi 
+							&gt; then<br>
+							&gt; echo "This will be printed if the expression is false."<br>
+							&gt; else<br>
+							&gt; echo "This will be printed if the expression 3 equals 3 is true".<br>
+							&gt; fi 
 						</font>
 					</p>
 					
@@ -4030,18 +4034,18 @@
 					<font class="bashcommand">
 						<p>
 							FILE="SomeFileThatExists.txt"<br>
-							if [ -f ${FILE} ]<br>
-							then<br>
-							echo "The file exist"<br>
-							fi 
+							&gt; if [ -f ${FILE} ]<br>
+							&gt; then<br>
+							&gt; echo "The file exist"<br>
+							&gt; fi 
 						</p>
 						
 						<p>
 							FILE="SomeFileThatDoesntExist.txt"<br>
 							if [ ! -f ${FILE} ]<br>
-							then<br>
-							echo "The file doesn’t exist"<br>
-							fi 
+							&gt; then<br>
+							&gt; echo "The file doesn't exist"<br>
+							&gt; fi 
 						</p>
 					</font>
 					
@@ -4050,11 +4054,11 @@
 						Test if any of the two expressions are true.
 						<font class="bashcommand">
 							if [ "2" -lt "3" ] || [ "4" -lt "3" ]<br>
-							then<br>
-							echo "This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3."<br>
-							else<br>
-							echo "This will be echoed if none of the two expressions are true"<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3."<br>
+							&gt; else<br>
+							&gt; echo "This will be echoed if none of the two expressions are true"<br>
+							&gt; fi<br>
 							This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3. 
 						</font>
 					</p>
@@ -4067,11 +4071,11 @@
 					<p>
 						<font class="bashcommand">
 							if [ "2" -lt "3" ] &amp;&amp; [ ! "4" -lt "3" ]<br>
-							then<br>
-							echo "This will be echoed if the two expressions are true."<br>
-							else<br>
-							echo "This will be echoed if one of the two expressions are false, or if both are false."<br>
-							fi<br>
+							&gt; then<br>
+							&gt; echo "This will be echoed if the two expressions are true."<br>
+							&gt; else<br>
+							&gt; echo "This will be echoed if one of the two expressions are false, or if both are false."<br>
+							&gt; fi<br>
 							This will be echoed if the two expressions are true. 
 						</font>
 					</p>
@@ -4081,6 +4085,43 @@
 					<p>
 						Using &amp;&amp; to test more than two conditions:<br>
 						You can combine more than two expressions. In the following example I am combining three. Because I am using the <b>AND</b> operator, the whole condition will test true <b>if and only if</b> all the three expressions are true. If one is false, then the whole expression will be false.  
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							if [ "2" -lt "3" ] &amp;&amp; [ ! "4" -lt "3" ] &amp;&amp; [ "4" -lt "3" ]<br>
+							&gt; then<br>
+							&gt; echo "This will be echoed if all the three expressions are true."<br>
+							&gt; else<br>
+							&gt; echo "This will be echoed if any of the three expressions is false."<br> 
+							&gt; fi<br>
+							This will be echoed if any of the three expressions is false. 
+						</font>
+					</p>
+					
+					<p>
+						Let's take a look at why the whole expression evaluates false:<br>
+						<font class="bashcommand">[ "2" -lt "3" ]</font>: This is true, 2 &lt; 3.<br>
+						<font class="bashcommand">[ ! "4" -lt "3" ]</font>: This is true, 4 is not less than 3.<br> 
+						<font class="bashcommand">[ "4" -lt "3" ]</font>: This is false, It is false that 4 be less than 3.<br>
+						<font class="bashcommand">[ "2" -lt "3" ] &amp;&amp; [ ! "4" -lt "3" ] &amp;&amp; [ "4" -lt "3" ]</font>: This is false because one of the three expressions is false. 
+					</p>
+					
+					<p>
+						Using || to test more than two conditions:<br>
+						This example is very similar than the previous one but instead of using the operator AND, we are using the operator OR. So, the whole expression will be true if ANY of the three expressions is true. Since the first two are true, then the result is true. 
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							if [ "2" -lt "3" ] || [ ! "4" -lt "3" ] || [ "4" -lt "3" ]<br>
+							&gt; then<br>
+							&gt; echo "This will be echoed if any of the three expressions is true."<br>
+							&gt; else<br>
+							&gt; echo "This will be echoed if all of the three expressions are false."<br>
+							&gt; fi<br>
+							This will be echoed if any of the three expressions is true.
+						</font>
 					</p>
 		    </div>
 		       
