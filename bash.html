@@ -105,7 +105,7 @@
 				font-size: 10px;
 			}
 			
-			.bashcommand-result{
+			.bashcommand-result {
 				color: #A9A9A9;
 			}
 			
@@ -678,15 +678,15 @@
 						For example, if I want to declare a variable called <font class="bashcommand">age</font> with value 
 						<font class="bashcommand">30</font> and this value should never be replaced, then you should declare it 
 						like this:<br>
-						<font class="bashcommand">readonly age=30</font><br>
+						<font class="bashcommand">$ readonly age=30</font><br>
 						Instead of:<br>
-						<font class="bashcommand">age=30</font><br><br>
+						<font class="bashcommand">$ age=30</font><br><br>
 						
 						If at some point in the script you try to replace the value of that variable, you will get an error message:
 						<br>
-						<font class="bashcommand">readonly age=30</font><br>
-						<font class="bashcommand">age=29</font><br>
-						<font class="bashcommand">-bash: age: readonly variable</font>
+						<font class="bashcommand">$ readonly age=30</font><br>
+						<font class="bashcommand">$ age=29</font><br>
+						<font class="bashcommand .bashcommand-result">-bash: age: readonly variable</font>
 						</li>
 					</ol>
 				
@@ -4051,7 +4051,10 @@
 					
 					<p>
 						<font class="example">[ EXPR1 ] || [ EXPR2 ]:</font>
-						Test if any of the two expressions are true.<br>
+						Test if any of the two expressions are true.
+					</p>
+					
+					<p>
 						<font class="bashcommand">
 							if [ "2" -lt "3" ] || [ "4" -lt "3" ]<br>
 							&gt; then<br>
