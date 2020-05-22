@@ -1811,6 +1811,7 @@
 							<font class="bashcommand">NUM</font>. For that reason, when <font class="bashcommand">NUM</font> is echoed 
 							at the end, it still has value 1 (instead of 0).
 							</td>
+							
 							<td>
 							<font class="bashcommand">
 								$ NUM=1<br>
@@ -1820,7 +1821,7 @@
 								<font class="bashcommand-result">0</font><br><br>
 							</font>
 		
-							The command echo <font class="bashcommand">$((--NUM))</font> is equivalent to this sequence of instructions:
+							The command echo <font class="bashcommand">$((--NUM))</font> is equivalent to this sequence of instructions:<br><br>
 		
 							<font class="bashcommand">
 								$ NUM=$(( ${NUM} - 1 ))<br>
@@ -1986,7 +1987,7 @@
 						<td>
 							<font class="bashcommand">((A+=B))</font> is equivalent to:<br><br>
 		
-							<font class="bashcommand">A=$(( ${A} + ${B} ))</font><br><br>
+							<font class="bashcommand">$ A=$(( ${A} + ${B} ))</font><br><br>
 		
 							The value of <font class="bashcommand">B</font> is not being modified.
 						</td>
@@ -2185,9 +2186,9 @@
 					<p>
 						<font class="bashcommand">
 							$ echo "2.34 / 1.895" | bc<br>
-							1<br>
+							<font class="bashcommand-result">1</font><br>
 							$ echo "2 / 3" | bc<br>
-							0
+							<font class="bashcommand-result">0</font>
 						</font>
 					</p>
 					
@@ -2195,9 +2196,9 @@
 					<p>
 						<font class="bashcommand">
 							$ echo "2.34 / 1.895" | bc -l<br>
-							1.23482849604221635883<br>
+							<font class="bashcommand-result">1.23482849604221635883</font><br>
 							$ echo "2 / 3" | bc -l<br>
-							.66666666666666666666
+							<font class="bashcommand-result">.66666666666666666666</font>
 						</font>
 					</p>
 					
@@ -2206,13 +2207,13 @@
 							$ A=$(echo "2.34 / 1.895" | bc)<br>
 							$ B=$(echo "2.34 / 1.895" | bc -l)<br>
 							$ echo ${A}<br>
-							1<br>
+							<font class="bashcommand-result">1</font><br>
 							$ echo ${B}<br>
-							1.23482849604221635883<br>
+							<font class="bashcommand-result">1.23482849604221635883</font><br>
 							$ echo "${A} + ${B}" | bc -l<br>
-							2.23482849604221635883<br>
+							<font class="bashcommand-result">2.23482849604221635883</font><br>
 							$ echo "${A} + ${B}"<br>
-							1 + 1.23482849604221635883
+							<font class="bashcommand-result">1 + 1.23482849604221635883</font>
 						</font>
 					</p>
 					
@@ -2228,7 +2229,7 @@
 					<p>
 						<font class="bashcommand">
 							$ echo "${A} + ${B}=$(echo "${A} + ${B}" | bc -l)"<br>
-							1 + 1.23482849604221635883=2.23482849604221635883
+							<font class="bashcommand-result">1 + 1.23482849604221635883=2.23482849604221635883</font>
 						</font>
 					</p>
 					
@@ -2242,7 +2243,7 @@
 						<font class="bashcommand">
 							$ A=$(echo "sqrt (10)" | bc -l)<br>
 							$ echo ${A}<br>
-							3.16227766016837933199
+							<font class="bashcommand-result">3.16227766016837933199</font>
 						</font>
 					</p>
 					
@@ -2255,29 +2256,29 @@
 					<font class="bashcommand">
 						<p>
 							$ echo "(2.34 / 1.895) + sqrt (10)" | bc -l<br>
-							4.39710615621059569082<br>
+							<font class="bashcommand-result">4.39710615621059569082</font><br>
 							$ echo $((2**3))<br>
-							12.397106156210595690828<br>
+							<font class="bashcommand-result">12.397106156210595690828</font><br>
 							$ echo "(2.34 / 1.895) + sqrt (10) + $((2**3))" | bc -l<br>
-							12.39710615621059569082<br>
+							<font class="bashcommand-result">12.39710615621059569082</font><br>
 							$ echo "(2.34 / 1.895) + sqrt (10) + 2^3" | bc -l<br>
-							12.39710615621059569082<br>
+							<font class="bashcommand-result">12.39710615621059569082</font><br>
 							$ echo "2 + 2" | bc -l<br>
-							4<br>
+							<font class="bashcommand-result">4</font><br>
 							$ echo "2 + 2"<br>
-							2 + 2<br>
-							$ echo "2 + 2= $(echo "2 + 2" | bc -l)"<br>
-							2 + 2= 4
+							<font class="bashcommand-result">2 + 2</font><br>
+							$ echo "2 + 2 = $(echo "2 + 2" | bc -l)"<br>
+							<font class="bashcommand-result">2 + 2 = 4</font>
 						</p>	
 							
 						<p>
 							$ A=$(echo "(2.34 / 1.895) + sqrt (10)" | bc -l)<br>
 							$ echo ${A}<br>
-							4.39710615621059569082<br>
+							<font class="bashcommand-result">4.39710615621059569082</font><br>
 							$ echo $(echo "(2.34 / 1.895) + sqrt (10)" | bc -l)<br>
-							4.39710615621059569082<br>
+							<font class="bashcommand-result">4.39710615621059569082</font><br>
 							$ echo "(2.34 / 1.895) + sqrt (10)= $(echo "(2.34 / 1.895) + sqrt (10)" | bc -l)"<br>
-							(2.34 / 1.895) + sqrt (10)= 4.39710615621059569082				
+							<font class="bashcommand-result">(2.34 / 1.895) + sqrt (10)= 4.39710615621059569082</font>				
 						</p>
 					</font>
 					
@@ -2290,11 +2291,11 @@
 					<p>
 						<font class="bashcommand">
 							$ echo "(2.34 / 1.895) + sqrt (10)" | bc -l<br>
-							4.39710615621059569082<br>
+							<font class="bashcommand-result">4.39710615621059569082</font><br>
 							$ echo "scale=3; (2.34 / 1.895) + sqrt (10)" | bc -l<br>
-							4.396<br>
+							<font class="bashcommand-result">4.396</font><br>
 							$ echo "scale=0; (2.34 / 1.895) + sqrt (10)" | bc -l<br>
-							4
+							<font class="bashcommand-result">4</font>
 						</font>
 					</p>
 					
@@ -2454,9 +2455,9 @@
 							$ age[3]=15<br>
 							$ age[4]=94<br>
 							$ echo ${age[@]}<br>
-							59 63 21 15 94<br>
+							<font class="bashcommand-result">59 63 21 15 94</font><br>
 							$ echo "Array size: ${#age[@]}"<br>
-							Array size: 5
+							<font class="bashcommand-result">Array size: 5</font>
 						</font>
 					</p>
 					
@@ -2474,11 +2475,11 @@
 							$ age[3]=15<br>
 							$ age[4]=94<br>
 							$ echo ${age[@]}<br>
-							63 21 15 94<br>
+							<font class="bashcommand-result">63 21 15 94</font><br>
 							$ echo "Array size: ${#age[@]}"<br>
-							Array size: 4<br>
+							<font class="bashcommand-result">Array size: 4</font><br>
 							$ echo "age(0): ${age[0]} "<br>
-							age(0):
+							<font class="bashcommand-result">age(0):</font>
 						</font>
 					</p>
 					
@@ -2493,19 +2494,19 @@
 						<font class="bashcommand">
 							$ declare -a array=('Colombia' 'United States' 'Germany' 'Spain' 'Canada')<br>
 							$ echo "The element in position 0 is: ${array[0]}"<br>
-							The element in position 0 is: Colombia<br>
+							<font class="bashcommand-result">The element in position 0 is: Colombia</font><br>
 							$ echo "The element in position 1 is: ${array[1]}"<br>
-							The element in position 1 is: United States<br>
+							<font class="bashcommand-result">The element in position 1 is: United States</font><br>
 							$ echo "The element in position 2 is: ${array[2]}"<br>
-							The element in position 2 is: Germany<br>
+							<font class="bashcommand-result">The element in position 2 is: Germany</font><br>
 							$ echo "The element in position 3 is: ${array[3]}"<br>
-							The element in position 3 is: Spain<br>
+							<font class="bashcommand-result">The element in position 3 is: Spain</font><br>
 							$ echo "The element in position 4 is: ${array[4]}"<br>
-							The element in position 4 is: Canada<br>
+							<font class="bashcommand-result">The element in position 4 is: Canada</font><br>
 							$ echo "List of elements in the array: ${array[@]}"<br> 
-							List of elements in the array: Colombia United States Germany Spain Canada<br>
+							<font class="bashcommand-result">List of elements in the array: Colombia United States Germany Spain Canada</font><br>
 							$ echo "The number of elements in the array is ${#array[@]}"<br>
-							The number of elements in the array is 5
+							<font class="bashcommand-result">The number of elements in the array is 5</font>
 						</font>
 					</p>
 					
@@ -2518,7 +2519,7 @@
 							$ array[5]="Argentina"<br>
 							$ array[6]="France"<br>
 							$ echo "List of elements in the array: ${array4[@]}"<br>
-							List of elements in the array: Colombia United States Germany Spain Canada Argentina France
+							<font class="bashcommand-result">List of elements in the array: Colombia United States Germany Spain Canada Argentina France</font>
 						</font>
 					</p>
 					
@@ -2533,13 +2534,13 @@
 					<p>
 						<font class="bashcommand">
 							$ read -a ARRAY<br>
-							Element1 Element2 Element3<br>
+							<font class="bashcommand-result">Element1 Element2 Element3</font><br>
 							$ echo ${ARRAY[0]}<br>
-							Element1<br>
+							<font class="bashcommand-result">Element1</font><br>
 							$ echo ${ARRAY[1]}<br>
-							Element2<br>
+							<font class="bashcommand-result">Element2</font><br>
 							$ echo ${ARRAY[2]}<br>
-							Element3
+							<font class="bashcommand-result">Element3</font>
 						</font>
 					</p>
 					
@@ -2553,24 +2554,24 @@
 					<font class="bashcommand">
 						<p>
 							$ IFS='/' read -a ARRAY<br>
-							Element1/Element2/Element3<br>
+							<font class="bashcommand-result">Element1/Element2/Element3</font><br>
 							$ echo ${ARRAY[0]}<br>
-							Element1<br>
+							<font class="bashcommand-result">Element1</font><br>
 							$ echo ${ARRAY[1]}<br>
-							Element2<br>
+							<font class="bashcommand-result">Element2</font><br>
 							$ echo ${ARRAY[2]}<br>
-							Element3
+							<font class="bashcommand-result">Element3</font>
 						</p>
 						
 						<p>
 							$ IFS='.' read -a ARRAY<br>
-							1.2.3<br>
+							<font class="bashcommand-result">1.2.3</font><br>
 							$ echo ${ARRAY[0]}<br>
-							1<br>
+							<font class="bashcommand-result">1</font><br>
 							$ echo ${ARRAY[1]}<br>
-							2<br>
+							<font class="bashcommand-result">2</font><br>
 							$ echo ${ARRAY[2]}<br>
-							3
+							<font class="bashcommand-result">3</font>
 						</p>
 					</font>
 					
@@ -2584,11 +2585,11 @@
 						<font class="bashcommand">
 							$ IFS='/' read -a ARRAY &lt;&lt;&lt; "Element1/Element2/Element3"<br>
 							$ echo ${ARRAY[0]}<br>
-							Element1<br>
+							<font class="bashcommand-result">Element1</font><br>
 							$ echo ${ARRAY[1]}<br>
-							Element2<br>
+							<font class="bashcommand-result">Element2</font><br>
 							$ echo ${ARRAY[2]}<br>
-							Element3
+							<font class="bashcommand-result">Element3</font>
 						</font>
 					</p>
 					
@@ -2606,40 +2607,40 @@
 							$ echo ${ARRAY[0]}<br>
 							<br>
 							$ echo ${ARRAY[1]}<br>
-							Element1<br>
+							<font class="bashcommand-result">Element1</font><br>
 							$ echo ${ARRAY[2]}<br>
-							Element2<br>
+							<font class="bashcommand-result">Element2</font><br>
 							$ echo ${ARRAY[3]}<br>
-							Element3
+							<font class="bashcommand-result">Element3</font>
 						</p>
 						
 						<p>
 							$ IFS='/' read -a ARRAY &lt;&lt;&lt; "./Folder/Subfolder/file.txt"<br>
 							$ echo ${ARRAY[0]}<br>
-							.<br>
+							<font class="bashcommand-result">.</font><br>
 							$ echo ${ARRAY[1]}<br>
-							Folder<br>
+							<font class="bashcommand-result">Folder</font><br>
 							$ echo ${ARRAY[2]}<br>
-							Subfolder<br>
+							<font class="bashcommand-result">Subfolder</font><br>
 							$ echo ${ARRAY[3]}<br>
-							file.txt
+							<font class="bashcommand-result">file.txt</font>
 						</p>
 						
 						<p>
 							$ IFS='.' read -a ARRAY &lt;&lt;&lt; "1.2.3"<br>
-							1.2.3<br>
+							<font class="bashcommand-result">1.2.3</font><br>
 							$ echo ${ARRAY[0]}<br>
-							1<br>
+							<font class="bashcommand-result">1</font><br>
 							$ echo ${ARRAY[1]}<br>
-							2<br>
+							<font class="bashcommand-result">2</font><br>
 							$ echo ${ARRAY[2]}<br>
-							3
+							<font class="bashcommand-result">3</font>
 						</p>
 						
 						<p>
 							$ IFS='.' read -a ARRAY &lt;&lt;&lt; "23.485"<br>
 							$ echo "The integer part is ${ARRAY[0]}, and the decimal part is 0.${ARRAY[1]}"<br>
-							The integer part is 23, and the decimal part is 0.485
+							<font class="bashcommand-result">The integer part is 23, and the decimal part is 0.485</font>
 						</p>
 					</font>
 					
@@ -2654,23 +2655,23 @@
 						<font class="bashcommand">
 							$ ARRAY=($(seq 15 0.5 19))<br>
 							$ echo ${ARRAY[0]}<br>
-							15<br>
+							<font class="bashcommand-result">15</font><br>
 							$ echo ${ARRAY[1]}<br>
-							15.5<br>
+							<font class="bashcommand-result">15.5</font><br>
 							$ echo ${ARRAY[2]}<br>
-							16<br>
+							<font class="bashcommand-result">16</font><br>
 							$ echo ${ARRAY[3]}<br>
-							16.5<br>
+							<font class="bashcommand-result">16.5</font><br>
 							$ echo ${ARRAY[4]}<br>
-							17<br>
+							<font class="bashcommand-result">17</font><br>
 							$ echo ${ARRAY[5]}<br>
-							17.5<br>
+							<font class="bashcommand-result">17.5</font><br>
 							$ echo ${ARRAY[6]}<br>
-							18<br>
+							<font class="bashcommand-result">18</font><br>
 							$ echo ${ARRAY[7]}<br>
-							18.5<br>
+							<font class="bashcommand-result">18.5</font><br>
 							$ echo ${ARRAY[8]}<br>
-							19
+							<font class="bashcommand-result">19</font>
 						</font>
 					</p>
 					
@@ -2683,15 +2684,15 @@
 						<font class="bashcommand">
 							$ ARRAY=($(seq 1 2 10))<br>
 							$ echo ${ARRAY[0]}<br>
-							1<br>
+							<font class="bashcommand-result">1</font><br>
 							$ echo ${ARRAY[1]}<br>
-							3<br>
+							<font class="bashcommand-result">3</font><br>
 							$ echo ${ARRAY[2]}<br>
-							5<br>
+							<font class="bashcommand-result">5</font><br>
 							$ echo ${ARRAY[3]}<br>
-							7<br>
+							<font class="bashcommand-result">7</font><br>
 							$ echo ${ARRAY[4]}<br>
-							9
+							<font class="bashcommand-result">9</font>
 						</font>
 					</p>
 					
@@ -2705,15 +2706,15 @@
 						<font class="bashcommand">
 							$ ARRAY=($(seq 15 19))<br>
 							$ echo ${ARRAY[0]}<br>
-							15<br>
+							<font class="bashcommand-result">15</font><br>
 							$ echo ${ARRAY[1]}<br>
-							16<br>
+							<font class="bashcommand-result">16</font><br>
 							$ echo ${ARRAY[2]}<br>
-							17<br>
+							<font class="bashcommand-result">17</font><br>
 							$ echo ${ARRAY[3]}<br>
-							18<br>
+							<font class="bashcommand-result">18</font><br>
 							$ echo ${ARRAY[4]}<br>
-							19
+							<font class="bashcommand-result">19</font>
 						</font>
 					</p>
 					
