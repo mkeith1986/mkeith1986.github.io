@@ -3793,10 +3793,127 @@
 						</tr>
 						
 						<tr>
-							<td>1</td>
-							<td>2</td>
+							<td><font class="bashcommand">[ NUM1 -eq NUM2 ]</font></td>
+							<td>Tests if <font class="bashcommand">NUM1</font> is equal to <font class="bashcommand">NUM2</font></td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ NUM1 -ne NUM2 ]</font></td>
+							<td>Tests if <font class="bashcommand">NUM1</font> is not equal to <font class="bashcommand">NUM2</font>.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ NUM1 -lt NUM2 ]</font></td>
+							<td>Tests if <font class="bashcommand">NUM1</font> is less than <font class="bashcommand">NUM2</font>.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ NUM1 -le NUM2 ]</font></td>
+							<td>Tests if <font class="bashcommand">NUM1</font> is less than or equal to <font class="bashcommand">NUM2</font>.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ NUM1 -gt NUM2 ]</font></td>
+							<td>Tests if <font class="bashcommand">NUM1</font> is greater than <font class="bashcommand">NUM2</font>.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ NUM1 -ge NUM2 ]</font></td>
+							<td>Tests if <font class="bashcommand">NUM1</font> is greater than or equal to <font class="bashcommand">NUM2</font>.</td>
 						</tr>
 					</table>
+					
+					<p>
+						<font class="example">[ NUM1 -eq NUM2 ]:</font>
+						<font class="bashcommand">
+							if [ "3" -eq "3" ]<br>
+							then<br>		
+							echo "This makes sense, 3 equals 3."<br>					
+							fi<br>			
+							This makes sense, 3 equals 3. 
+						</font>
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							A=3<br>
+							if [ "${A}" -eq "3" ]<br>
+							then<br> 
+							echo "This makes sense, ${A} equals 3."<br>
+							fi<br>
+							This makes sense, 3 equals 3. 
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ NUM1 -ne NUM2 ]:</font>
+						<font class="bashcommand">
+							A=3<br>
+							if [ "${A}" -ne "3" ]<br>
+							then<br>
+							echo "Variable A is not equal to 3"<br> 
+							else<br>
+							echo "Variable A equals 3."<br>
+							fi<br>
+							Variable A equals 3. 
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ NUM1 -lt NUM2 ]:</font>
+						<font class="bashcommand">
+							A=3<br>
+							if [ "${A}" -lt "3" ]<br>
+							then<br>
+							echo "Variable A is less than 3"<br> 
+							else<br>
+							echo "Variable A not less than 3."<br>
+							fi<br>
+							Variable A is not less than 3. 
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ NUM1 -le NUM2 ]:</font>
+						<font class="bashcommand">
+							A=3<br> 
+							if [ "${A}" -le "3" ]<br>
+							then<br>
+							echo "Variable A is less or equal to 3"<br>
+							else<br>
+							echo "Variable A greater than 3."<br>
+							fi<br>
+							Variable A is less or equal to 3. 
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ NUM1 -gt NUM2 ]:</font>
+						<font class="bashcommand">
+							A=3<br>
+							if [ "${A}" -gt "3" ]<br>
+							then<br>
+							echo "Variable A is greater than 3"<br>
+							else<br>
+							echo "Variable A not greater than 3."<br>
+							fi<br>
+							Variable A is not greater than 3. 
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ NUM1 -ge NUM2 ]:</font>
+						<font class="bashcommand">
+							A=3<br>
+							if [ "${A}" -ge "3" ]<br>
+							then<br>
+							echo "Variable A is greater or equal to 3"<br>
+							else<br>
+							echo "Variable A less than 3."<br>
+							fi<br>
+							Variable A is greater or equal to 3. 
+						</font>
+					</p>
 					
 				<h3>6.4. Condition-testing to compare arrays</h3>
 					<p>Content of section 6.4</p>
