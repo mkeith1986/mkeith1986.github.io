@@ -695,11 +695,11 @@
 						Running a shell script is easy. You only type the path and name of the file in the command line and then press 
 						enter. For example, if your script is located in the Desktop and is called helloWord.sh, then to execute it 
 						you should type the following in the command line:<br>
-						<font class="bashcommand">&gt; ~/Desktop/helloWord.sh</font><br><br>
+						<font class="bashcommand">$ ~/Desktop/helloWord.sh</font><br><br>
 						If you get a Permission Denied error, this means that you must change its permissions to make it runnable. 
 						The topic of permissions is a bit complicated and will be explained in detail in chapter 12. But for now, you 
 						only need to know that the following command will allow you to execute the script if it's not runnable:<br>
-						<font class="bashcommand">&gt; chmod 775 &lt;script_path_and_name&gt;</font>
+						<font class="bashcommand">$ chmod 775 &lt;script_path_and_name&gt;</font>
 					</p>
 		    </div>
 		    
@@ -1329,36 +1329,36 @@
 						<tr>
 							<td>
 								<font class="bashcommand">
-								$ read -r VAR<br>
-								C:\Documents\Newsletters\Summer2018.pdf<br>
-								$ echo ${VAR}<br>
-								C:\Documents\Newsletters\Summer2018.pdf
+									$ read -r VAR<br>
+									<font class="bashcommand-result">C:\Documents\Newsletters\Summer2018.pdf</font><br>
+									$ echo ${VAR}<br>
+									<font class="bashcommand-result">C:\Documents\Newsletters\Summer2018.pdf</font>
 								</font>
 							</td>
 							<td>
 								<font class="bashcommand">
-								$ read VAR<br>
-								C:\Documents\Newsletters\Summer2018.pdf<br>
-								$ echo ${VAR}<br>
-								C:DocumentsNewslettersSummer2018.pdf
-								</font>
+									$ read VAR<br>
+									<font class="bashcommand-result">C:\Documents\Newsletters\Summer2018.pdf</font><br>
+									$ echo ${VAR}<br>
+									<font class="bashcommand-result">C:DocumentsNewslettersSummer2018.pdf</font>
+									</font>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<font class="bashcommand">
-								$ read -r MESSAGE<br>
-								In HTML \n is used to indicate a new line<br>
-								$ echo ${MESSAGE}<br>
-								In HTML \n is used to indicate a new line
+									$ read -r MESSAGE<br>
+									<font class="bashcommand-result">In HTML \n is used to indicate a new line</font><br>
+									$ echo ${MESSAGE}<br>
+									<font class="bashcommand-result">In HTML \n is used to indicate a new line</font>
 								</font>
 							</td>
 							<td>
 								<font class="bashcommand">
-								$ read MESSAGE<br>
-								In HTML \n is used to indicate a new line<br>
-								$ echo ${MESSAGE}<br>
-								In HTML n is used to indicate a new line
+									$ read MESSAGE<br>
+									<font class="bashcommand-result">In HTML \n is used to indicate a new line</font><br>
+									$ echo ${MESSAGE}<br>
+									<font class="bashcommand-result">In HTML n is used to indicate a new line</font>
 								</font>
 							</td>
 						</tr>
@@ -1382,7 +1382,7 @@
 						$ VAR=yes<br>
 						$ read -n 1 R &lt;&lt;&lt; ${VAR}<br>
 						$ echo ${R}<br>
-						y
+						<font class="bashcommand-result">y</font>
 						</font>
 					</p>
 					
@@ -1397,10 +1397,10 @@
 					<p>
 						<font class="bashcommand">
 						$ pwd<br>
-						/Users/myUserName<br>
+						<font class="bashcommand-result">/Users/myUserName</font><br>
 						$ read CURRENT_DIR &lt;&lt;&lt; $(pwd)<br>
 						$ echo ${CURRENT_DIR}<br>
-						/Users/myUserName
+						<font class="bashcommand-result">/Users/myUserName</font>
 						</font>
 					</p>
 					
@@ -1424,10 +1424,10 @@
 					<p>
 						<font class="bashcommand">
 						$ fslstats /Users/myUserName/Desktop/MRI/subject001/LGN_L.nii.gz -V<br>
-						196 186.920166<br>
+						<font class="bashcommand-result">196 186.920166</font><br>
 						$ read -d ' ' VOL &lt;&lt;&lt; $(fslstats /Users/myUserName/Desktop/MRI/subject001/LGN_L.nii.gz -V)<br>
 						$ echo $VOL<br>
-						196
+						<font class="bashcommand-result">196</font>
 						</font>
 					</p>					
 		    </div>
@@ -1532,7 +1532,7 @@
 						<td>
 							<font class="bashcommand">
 								$ echo $(( 2 + 1 ))<br>
-								3
+								<font class="bashcommand-result">3</font>
 							</font>
 						</td>
 						<td>2 + 1</td>
@@ -1542,7 +1542,7 @@
 							<font class="bashcommand">
 							$ A=2<br>
 							$ echo $(( ${A} + 1 ))<br>
-							3
+							<font class="bashcommand-result">3</font>
 							</font>
 						</td>
 						<td>A + 1</td>
@@ -1553,7 +1553,7 @@
 								$ A=2<br>
 								$ B=1<br>
 								$ echo $(( ${A} + ${B} ))<br>
-								3
+								<font class="bashcommand-result">3</font>
 							</font>
 						</td>
 						<td>A + B</td>
@@ -1561,10 +1561,10 @@
 					<tr>
 						<td>
 							<font class="bashcommand">
-							$ A=2<br>
-							$ B=1<br>
-							$ echo $(( ${A} - ${B} ))<br>
-							1
+								$ A=2<br>
+								$ B=1<br>
+								$ echo $(( ${A} - ${B} ))<br>
+								<font class="bashcommand-result">1</font>
 							</font>
 						</td>
 						<td>A - B</td>
@@ -1575,7 +1575,7 @@
 								$ A=2<br>
 								$ B=1<br>
 								$ echo $(( ${A} * ${B} ))<br>
-								2
+								<font class="bashcommand-result">2</font>
 							</font>
 						</td>
 						<td>A x B</td>
@@ -1586,7 +1586,7 @@
 								$ A=2<br>
 								$ B=1<br>
 								$ echo $(( ${A} / ${B} ))<br>
-								2
+								<font class="bashcommand-result">2</font>
 							</font>
 						</td>
 						<td>A &#247; B</td>
@@ -1597,7 +1597,7 @@
 								$ A=2<br>
 								$ B=1<br>
 								$ echo $(( $(( ${A} + ${B} )) * $(( ${A} - ${B} )) ))<br>
-								3
+								<font class="bashcommand-result">3</font>
 							</font>
 						</td>
 						<td>(A + B) x (A - B)</td>
@@ -1608,7 +1608,7 @@
 								$ A=2<br>
 								$ B=1<br>
 								$ echo $(( ${B} / ${A} ))<br>
-								0
+								<font class="bashcommand-result">0</font>
 							</font>
 						</td>
 						<td>
@@ -1623,7 +1623,7 @@
 							<font class="bashcommand">
 								$ A=2<br>
 								$ echo $(( ${A} ** 3 ))<br>
-								8
+								<font class="bashcommand-result">8</font>
 							</font>
 						</td>
 						<td>A<sup>3</sup></td>
@@ -1631,10 +1631,10 @@
 					<tr>
 						<td>
 							<font class="bashcommand">
-							$ A=2<br>
-							$ B=4<br>
-							$ echo $(( ${A} ** ${B} ))<br>
-							16
+								$ A=2<br>
+								$ B=4<br>
+								$ echo $(( ${A} ** ${B} ))<br>
+								<font class="bashcommand-result">16</font>
 							</font>
 						</td>
 						<td>A<sup>B</sup></td>
@@ -1642,9 +1642,9 @@
 					</table>
 					
 					<p>
-					<font class="example">Usage of ((++NUM)) and ((NUM++))</font>
-					In order to increment the value of a variable by one, there are a couple of options. Some of these options will be 
-					very useful when doing iterations (which you will learn later on).
+						<font class="example">Usage of ((++NUM)) and ((NUM++))</font>
+						In order to increment the value of a variable by one, there are a couple of options. Some of these options will be 
+						very useful when doing iterations (which you will learn later on).
 					</p>
 					
 					<table>
@@ -1658,9 +1658,9 @@
 							<font class="bashcommand">
 							$ NUM=1<br>
 							$ echo $(( ${NUM} + 1 ))<br>
-							2<br>
+							<font class="bashcommand-result">2</font><br>
 							$ echo ${NUM}<br>
-							1<br><br>
+							<font class="bashcommand-result">1</font><br><br>
 							</font>
 								
 							The command echo <font class="bashcommand">$(( ${NUM} + 1 ))</font> prints the result of 
@@ -1670,19 +1670,19 @@
 						</td>
 						<td>
 							<font class="bashcommand">
-							$ NUM=1<br>
-							$ echo $((++NUM))<br>
-							2<br>
-							$ echo ${NUM}<br>
-							2<br><br>
+								$ NUM=1<br>
+								$ echo $((++NUM))<br>
+								<font class="bashcommand-result">2</font><br>
+								$ echo ${NUM}<br>
+								<font class="bashcommand-result">2</font><br><br>
 							</font>
 							
 							The command <font class="bashcommand">echo $((++NUM))</font> is equivalent to this sequence of 
 							instructions:<br><br>
 							
 							<font class="bashcommand">
-							NUM=$(( ${NUM} + 1 ))<br>
-							echo ${NUM}<br><br>
+								$ NUM=$(( ${NUM} + 1 ))<br>
+								$ echo ${NUM}<br><br>
 							</font>
 							
 							First, increases the value of variable <font class="bashcommand">NUM</font> in one, and then it echoes 
@@ -1692,19 +1692,19 @@
 						</td>
 						<td>
 							<font class="bashcommand">
-							$ NUM=1<br>
-							$ echo $((NUM++))<br>
-							1<br>
-							$ echo ${NUM}<br>
-							2<br><br>
+								$ NUM=1<br>
+								$ echo $((NUM++))<br>
+								<font class="bashcommand-result">1</font><br>
+								$ echo ${NUM}<br>
+								<font class="bashcommand-result">2</font><br><br>
 							</font>
 							
 							The command echo <font class="bashcommand">$((NUM++))</font> is equivalent to this sequence of 
 							instructions:<br><br>
 							
 							<font class="bashcommand">
-							echo ${NUM}<br>
-							NUM=$(( ${NUM} + 1 ))<br><br>
+								$ echo ${NUM}<br>
+								$ NUM=$(( ${NUM} + 1 ))<br><br>
 							</font>
 							
 							First echoes the value of <font class="bashcommand">NUM</font>. Then, it increases the value of the 
@@ -1722,12 +1722,12 @@
 					<tr>
 						<td>
 							<font class="bashcommand">
-							$ NUM=1<br>
-							$ A=$(( ${NUM} + 1 ))<br>
-							$ echo ${A}<br>
-							2<br>
-							$ echo ${NUM}<br
-							1<br><br>
+								$ NUM=1<br>
+								$ A=$(( ${NUM} + 1 ))<br>
+								$ echo ${A}<br>
+								<font class="bashcommand-result">2</font><br>
+								$ echo ${NUM}<br
+								<font class="bashcommand-result">1</font><br><br>
 							</font>
 							
 							The command <font class="bashcommand">A=$(( ${NUM} + 1 ))</font> assigns to 
@@ -1736,20 +1736,20 @@
 						</td>
 						<td>
 							<font class="bashcommand">
-							$ NUM=1<br>
-							$ A=$((++NUM))<br>
-							$ echo ${A}<br>
-							2<br>
-							$ echo ${NUM}<br>
-							2<br><br>
+								$ NUM=1<br>
+								$ A=$((++NUM))<br>
+								$ echo ${A}<br>
+								<font class="bashcommand-result">2</font><br>
+								$ echo ${NUM}<br>
+								<font class="bashcommand-result">2</font><br><br>
 							</font>
 							
 							The command <font class="bashcommand">A=$((++NUM))</font> is equivalent to this sequence of 
 							instructions:<br><br>
 							
 							<font class="bashcommand">
-							NUM=$(( ${NUM} + 1 ))<br>
-							A=${NUM}<br><br>
+								$ NUM=$(( ${NUM} + 1 ))<br>
+								$ A=${NUM}<br><br>
 							</font>
 							
 							First increases the value of variable <font class="bashcommand">NUM</font> in one, and then it assigns 
@@ -1758,20 +1758,20 @@
 						</td>
 						<td>
 							<font class="bashcommand">
-							$ NUM=1<br>
-							$ A=$((NUM++))<br>
-							$ echo ${A}<br>
-							1<br>
-							$ echo ${NUM}<br>
-							2<br><br>
+								$ NUM=1<br>
+								$ A=$((NUM++))<br>
+								$ echo ${A}<br>
+								<font class="bashcommand-result">1</font><br>
+								$ echo ${NUM}<br>
+								<font class="bashcommand-result">2</font><br><br>
 							</font>
 							
 							The command <font class="bashcommand">A=$((NUM++))</font> is equivalent to this sequence of 
 							instructions:<br><br>
 							
 							<font class="bashcommand">
-							A=${NUM}<br>
-							NUM=$(( ${NUM} + 1 ))<br><br>
+								$ A=${NUM}<br>
+								$ NUM=$(( ${NUM} + 1 ))<br><br>
 							</font>
 							
 							First assigns the value of <font class="bashcommand">NUM</font> to the new variable <font class="bashcommand">A</font>. 
@@ -1799,11 +1799,11 @@
 						<tr>
 							<td>
 							<font class="bashcommand">
-							$ NUM=1<br>
-							$ echo $(( ${NUM} - 1 ))<br>
-							0<br>
-							$ echo ${NUM}<br>
-							1<br><br>		
+								$ NUM=1<br>
+								$ echo $(( ${NUM} - 1 ))<br>
+								<font class="bashcommand-result">0</font><br>
+								$ echo ${NUM}<br>
+								<font class="bashcommand-result">1</font><br><br>		
 							</font>
 		
 							The command echo <font class="bashcommand">$(( ${NUM} - 1 ))</font> prints the result of 
@@ -1813,18 +1813,18 @@
 							</td>
 							<td>
 							<font class="bashcommand">
-							$ NUM=1<br>
-							$ echo $((--NUM))<br>
-							0<br>
-							$ echo ${NUM}<br>
-							0<br><br>
+								$ NUM=1<br>
+								$ echo $((--NUM))<br>
+								<font class="bashcommand-result">0</font><br>
+								$ echo ${NUM}<br>
+								<font class="bashcommand-result">0</font><br><br>
 							</font>
 		
 							The command echo <font class="bashcommand">$((--NUM))</font> is equivalent to this sequence of instructions:
 		
 							<font class="bashcommand">
-							NUM=$(( ${NUM} - 1 ))<br>
-							echo ${NUM}<br><br>
+								$ NUM=$(( ${NUM} - 1 ))<br>
+								$ echo ${NUM}<br><br>
 							</font>
 		
 							First, decreases the value of variable <font class="bashcommand">$NUM</font> in one, and then it echoes the 
@@ -1832,25 +1832,26 @@
 							the example in the right, the variable value is modified before the other instruction 
 							(<font class="bashcommand">=</font>).
 							</td>
+							
 							<td>
-							<font class="bashcommand">
-							$ NUM=1<br>
-							$ echo $((NUM--))<br>
-							1<br>
-							$ echo ${NUM}<br>
-							0<br><br>
-							</font>
-		
-							The command echo <font class="bashcommand">$((NUM--))</font> is equivalent to this sequence of 
-							instructions:<br><br>
-		
-							<font class="bashcommand">
-							echo ${NUM}<br>
-							NUM=$(( ${NUM} - 1 ))<br><br>
-							</font>
-		
-							First, echoes the value of <font class="bashcommand">NUM</font>. Then, it decreases the value of the 
-							variable. 
+								<font class="bashcommand">
+									$ NUM=1<br>
+									$ echo $((NUM--))<br>
+									<font class="bashcommand-result">1</font><br>
+									$ echo ${NUM}<br>
+									<font class="bashcommand-result">0</font><br><br>
+								</font>
+			
+								The command echo <font class="bashcommand">$((NUM--))</font> is equivalent to this sequence of 
+								instructions:<br><br>
+			
+								<font class="bashcommand">
+									$ echo ${NUM}<br>
+									$ NUM=$(( ${NUM} - 1 ))<br><br>
+								</font>
+			
+								First, echoes the value of <font class="bashcommand">NUM</font>. Then, it decreases the value of the 
+								variable. 
 							</td>
 						</tr>
 					</table><br>
@@ -1867,9 +1868,9 @@
 									$ NUM=1<br>
 									$ A=$(( ${NUM} - 1 ))<br>
 									$ echo ${A}<br>
-									0<br>
+									<font class="bashcommand-result">0</font><br>
 									$ echo ${NUM}<br>
-									1<br><br>
+									<font class="bashcommand-result">1</font><br><br>
 								</font>
 								
 								The command <font class="bashcommand">A=$(( ${NUM} - 1 ))</font> assigns to 
@@ -1881,17 +1882,17 @@
 									$ NUM=1<br>
 									$ A=$((--NUM))<br>
 									$ echo ${A}<br>
-									0<br>
+									<font class="bashcommand-result">0</font><br>
 									$ echo ${NUM}<br>
-									0<br><br>
+									<font class="bashcommand-result">0</font><br><br>
 								</font>
 								
 								The command <font class="bashcommand">A=$((--NUM))</font> is equivalent to this sequence of 
 								instructions:<br><br>
 								
 								<font class="bashcommand">
-									NUM=$(( ${NUM} - 1 ))<br>
-									A=${NUM}<br><br>
+									$ NUM=$(( ${NUM} - 1 ))<br>
+									$ A=${NUM}<br><br>
 								</font>			
 								
 								First, decreases the value of variable <font class="bashcommand">NUM</font> in one, and then it assigns 
@@ -1903,17 +1904,17 @@
 									$ NUM=1<br>
 									$ A=$((NUM--))<br>
 									$ echo ${A}<br>
-									1<br>
+									<font class="bashcommand-result">1</font><br>
 									$ echo ${NUM}<br>
-									0<br><br>
+									<font class="bashcommand-result">0</font><br><br>
 								</font>
 								
 								The command <font class="bashcommand">A=$((NUM--))</font> is equivalent to this sequence of 
 								instructions:<br><br>
 								
 								<font class="bashcommand">
-									A=${NUM}<br>
-									NUM=$(( ${NUM} - 1 ))<br><br>
+									$ A=${NUM}<br>
+									$ NUM=$(( ${NUM} - 1 ))<br><br>
 								</font>
 								
 								First, assigns the value of <font class="bashcommand">NUM</font> to the new variable 
@@ -1941,7 +1942,7 @@
 								$ A=1<br>
 								$ ((A+=2))<br>
 								$ echo ${A}<br>
-								3<br><br>
+								<font class="bashcommand-result">3</font><br><br>
 							</font>				
 						</td>
 						<td>
@@ -1956,17 +1957,17 @@
 								$ A=1<br>
 								$ B=$((A+=2))<br>
 								$ echo ${A}<br>
-								3<br>
+								<font class="bashcommand-result">3</font><br>
 								$ echo ${B}<br>
-								3<br>
+								<font class="bashcommand-result">3</font><br>
 							</font>
 						</td>
 						<td>
 							<font class="bashcommand">B=$((A+=2))</font> is equivalent to this sequence of instructions:<br><br>
 		
 							<font class="bashcommand">
-								A=$(( ${A} + 2 ))<br>
-								B=${A}
+								$ A=$(( ${A} + 2 ))<br>
+								$ B=${A}
 							</font>
 						</td>
 					</tr>		
@@ -1977,9 +1978,9 @@
 								$ B=9<br>
 								$ ((A+=B))<br>
 								$ echo ${A}<br>
-								10<br>
+								<font class="bashcommand-result">10</font><br>
 								$ echo ${B}<br>
-								9
+								<font class="bashcommand-result">9</font>
 							</font>					
 						</td>
 						<td>
@@ -1997,17 +1998,17 @@
 								$ B=9<br>
 								$ B=$((A+=B))<br>
 								$ echo ${A}<br>
-								10<br>
+								<font class="bashcommand-result">10</font><br>
 								$ echo ${B}<br>
-								10
+								<font class="bashcommand-result">10</font>
 							</font>
 						</td>
 						<td>
 							<font class="bashcommand">B=$((A+=B))</font> is equivalent to this sequence of instructions:<br><br>
 	
 							<font class="bashcommand">
-								A=$(( ${A} + ${B} ))<br>
-								B=${A}<br><br>
+								$ A=$(( ${A} + ${B} ))<br>
+								$ B=${A}<br><br>
 							</font>
 	
 							In this case, the value of <font class="bashcommand">B</font> is being modified because the result of 
@@ -2032,7 +2033,7 @@
 									$ A=1<br>
 									$ ((A-=2))<br>
 									$ echo ${A}<br>
-									-1
+									<font class="bashcommand-result">-1</font>
 								</font>
 							</td>
 							<td>
@@ -2047,17 +2048,17 @@
 									$ A=1<br>
 									$ B=$((A-=2))<br>
 									$ echo ${A}<br>
-									-1<br>
+									<font class="bashcommand-result">-1</font><br>
 									$ echo ${B}<br>
-									-1
+									<font class="bashcommand-result">-1</font>
 								</font>
 							</td>
 							<td>
 								<font class="bashcommand">B=$((A-=2))</font> is equivalent to this sequence of instructions:<br><br>
 	
 								<font class="bashcommand">
-									A=$(( ${A} - 2 ))<br>
-									B=${A}	
+									$ A=$(( ${A} - 2 ))<br>
+									$ B=${A}	
 								</font>				
 							</td>
 						</tr>
@@ -2068,9 +2069,9 @@
 									$ B=9<br>
 									$ ((A-=B))<br>
 									$ echo ${A}<br>
-									-8<br>
+									<font class="bashcommand-result">-8</font><br>
 									$ echo ${B}<br>
-									9
+									<font class="bashcommand-result">9</font>
 								</font>
 							</td>
 							<td>
@@ -2088,17 +2089,17 @@
 									$ B=9<br>
 									$ B=$((A-=B))<br>
 									$ echo ${A}<br>
-									-8<br>
+									<font class="bashcommand-result">-8</font><br>
 									$ echo ${B}<br>
-									-8
+									<font class="bashcommand-result">-8</font>
 								</font>
 							</td>
 							<td>
 								<font class="bashcommand">B=$((A-=B))</font> is equivalent to this sequence of instructions:<br><br>
 	
 								<font class="bashcommand">
-									A=$(( ${A} - ${B} ))<br>
-									B=${A}<br><br>
+									$ A=$(( ${A} - ${B} ))<br>
+									$ B=${A}<br><br>
 								</font>
 								
 								In this case, the value of B is being modified because the result of 
@@ -2120,6 +2121,7 @@
 							&gt; echo $i is even<br>
 							&gt; fi<br>
 							&gt; done<br>
+							<font class="bashcommand-result">
 							1 is odd<br>
 							2 is even<br>
 							3 is odd<br>
@@ -2130,6 +2132,7 @@
 							8 is even<br>
 							9 is odd<br>
 							10 is even
+							</font>
 						</font>
 					</p>
 					
