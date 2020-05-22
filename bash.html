@@ -790,9 +790,9 @@
 						$ VAR1=2<br>
 						$ VAR2="Subject"<br>
 						$ echo ${VAR1}<br>
-						2<br>
+						<font class="bashcommand-result">2</font><br>
 						$ echo ${VAR2}<br>
-						Subject
+						<font class="bashcommand-result">Subject</font>
 						</font>
 					</p>
 					
@@ -805,11 +805,11 @@
 					<p>
 						<font class="bashcommand">
 						$ echo ${ VAR2}<br>
-						-bash: ${ VAR2}: bad substitution<br>
+						<font class="bashcommand-result">-bash: ${ VAR2}: bad substitution</font><br>
 						$ echo ${VAR2 }<br>
-						-bash: ${VAR2 }: bad substitution<br>
+						<font class="bashcommand-result">-bash: ${VAR2 }: bad substitution</font><br>
 						$ echo ${ VAR2 }<br>
-						-bash: ${ VAR2 }: bad substitution
+						<font class="bashcommand-result">-bash: ${ VAR2 }: bad substitution</font>
 						</font>
 					</p>
 					
@@ -838,11 +838,11 @@
 					<p>
 						<font class="bashcommand">
 						$ echo ${VAR2}<br>
-						Subject<br>
+						<font class="bashcommand-result">Subject</font><br>
 						$ echo ${VAR1}<br>
-						2<br>
+						<font class="bashcommand-result">2</font><br>
 						$ echo "${VAR2}_0${VAR1}"<br>
-						Subject_02
+						<font class="bashcommand-result">Subject_02</font>
 						</font>
 					</p>
 					
@@ -854,7 +854,7 @@
 						$ VOLUME=20<br>
 						$ MEASURE="mm"<br>
 						$ echo "${ID}: ${VOLUME}${MEASURE}"<br>
-						Subject_202: 20mm
+						<font class="bashcommand-result">Subject_202: 20mm</font>
 						</font>
 					</p>
 					
@@ -864,7 +864,7 @@
 						$ VAR2="Linux"<br>
 						$ VAR3="Windows"<br>
 						$ echo "(${VAR1},${VAR2},${VAR3})"<br>
-						(MacOS,Linux,Windows)
+						<font class="bashcommand-result">(MacOS,Linux,Windows)</font>
 						</font>
 					</p>
 					
@@ -872,9 +872,9 @@
 						<font class="example">A common mistake when concatenating variables</font>
 						It is very common when you are referencing many variables or concatenating variables to create a long string 
 						to forget the closing quotation mark. For example, writing<br>
-						<font class="bashcommand">echo "(${VAR1},${VAR2},${VAR3})</font><br>
+						<font class="bashcommand">$ echo "(${VAR1},${VAR2},${VAR3})</font><br>
 						instead of<br>
-						<font class="bashcommand">echo "(${VAR1},${VAR2},${VAR3})"</font>
+						<font class="bashcommand">$ echo "(${VAR1},${VAR2},${VAR3})"</font>
 					</p>
 					
 					<p>
@@ -925,7 +925,7 @@
 							
 							<font class="bashcommand">
 							$ echo ${PATH}<br>
-							/usr/local/fsl/bin:/Applications/freesurfer/bin:/Applications/freesurfer/fsfast/bin:/Applications/freesurfer/tktools:/usr/local/fsl/bin:/Applications/freesurfer/mni/bin:/Users/bunbury/bin:/Applications/MATLAB_R2018a.app/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+							<font class="bashcommand-result">/usr/local/fsl/bin:/Applications/freesurfer/bin:/Applications/freesurfer/fsfast/bin:/Applications/freesurfer/tktools:/usr/local/fsl/bin:/Applications/freesurfer/mni/bin:/Users/bunbury/bin:/Applications/MATLAB_R2018a.app/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin</font>
 							</font><br><br>
 							
 							Another Unix reserved name that you should not use is <font class="bashcommand">BASH</font>. There is a long list 
@@ -1005,11 +1005,11 @@
 						<font class="example">Saving user input into a new variable</font>
 						<font class="bashcommand">
 						$ echo "Username:"<br>
-						Username:<br>
+						<font class="bashcommand-result">Username:</font><br>
 						$ read VAR<br>
-						Noemi<br>
+						<font class="bashcommand-result">Noemi</font><br>
 						$ echo "You typed: ${VAR}"<br>
-						You typed: Noemi
+						<font class="bashcommand-result">You typed: Noemi</font>
 						</font>
 					</p>
 					
@@ -1034,7 +1034,7 @@
 						<tr>
 							<td><font class="bashcommand">-p "MESSAGE"</font></td>
 							<td>
-							Displays the <font class="bashcommand">MESSAGE</font> where the user must write the input.
+								Displays the <font class="bashcommand">MESSAGE</font> where the user must write the input.
 							</td>
 						</tr>
 						<tr>
@@ -1053,7 +1053,7 @@
 						<tr>
 							<td><font class="bashcommand">-r</font></td>
 							<td>
-							Backslash does not act as an escape character but instead is part of the line.
+								Backslash does not act as an escape character but instead is part of the line.
 							</td>
 						</tr>
 						<tr>
@@ -1115,14 +1115,14 @@
 								$ read -s PASSWORD<br>
 								<img src="pwd.png"/><br>
 								$ echo ${PASSWORD}</br>
-								ThisIsMyPassword
+								<font class="bashcommand-result">ThisIsMyPassword</font>
 								</font>
 							</td>
 							<td>
 								<font class="bashcommand">
 								$ read PASSWORD -s<br>
 								ThisIsMyPassword<br>
-								-bash: read: `-s': not a valid identifier
+								<font class="bashcommand-result">-bash: read: `-s': not a valid identifier</font>
 								</font>
 							</td>
 						</tr>
@@ -1160,47 +1160,48 @@
 						<tr>
 							<td>
 								<font class="bashcommand">
-								$ read -p "Please input your password" -s PASSWORD<br>
-								Please input your password <img src="pwd.png"/><br>
-								$ echo ${PASSWORD}<br> 
-								ThisIsMyPassword
+									$ read -p "Please input your password" -s PASSWORD<br>
+									<font class="bashcommand-result">Please input your password</font> <img src="pwd.png"/><br>
+									$ echo ${PASSWORD}<br> 
+									<font class="bashcommand-result">ThisIsMyPassword</font>
 								</font>
 							</td>
 							<td>
 								<font class="bashcommand">
-								$ read -p -s "Please input your password" PASSWORD<br>
-								-s<br>
-								-bash: read: `Please input your password': not a valid identifier
-								</font>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<font class="bashcommand">
-								$ read -p "Please input your password" -s PASSWORD<br>
-								Please input your password <img src="pwd.png"/><br>
-								$ echo ${PASSWORD}<br> 
-								ThisIsMyPassword
-								</font>
-							</td>
-							<td>
-								<font class="bashcommand">
-								$ read PASSWORD -s -p "Please input your password"<br>
-								ThisIsMyPassword<br>
-								-bash: read: `-s': not a valid identifier
+									$ read -p -s "Please input your password" PASSWORD<br>
+									<font class="bashcommand-result">-s</font><br>
+									<font class="bashcommand-result">-bash: read: `Please input your password': not a valid identifier</font>
 								</font>
 							</td>
 						</tr>
 						<tr>
 							<td>
+								<font class="bashcommand">
+									$ read -p "Please input your password" -s PASSWORD<br>
+									<font class="bashcommand-result">Please input your password</font> <img src="pwd.png"/><br>
+									$ echo ${PASSWORD}<br> 
+									<font class="bashcommand-result">ThisIsMyPassword</font>
+								</font>
 							</td>
 							<td>
 								<font class="bashcommand">
-								read -s -p Please input your password ThisIsMyPassword<br>
-								$ echo $PASSWORD<br>
-								<br>
-								$ echo ${input}<br>
-								ThisIsMyPassword
+									$ read PASSWORD -s -p "Please input your password"<br>
+									ThisIsMyPassword<br>
+									<font class="bashcommand-result">-bash: read: `-s': not a valid identifier</font>
+								</font>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<font class="bashcommand">
+									$ read -s -p Please input your password<br>
+									ThisIsMyPassword<br>
+									$ echo $PASSWORD<br>
+									<br>
+									$ echo ${input}<br>
+									<font class="bashcommand-result">ThisIsMyPassword</font>
 								</font>
 							</td>
 						</tr>
@@ -1229,26 +1230,26 @@
 						<tr>
 							<td>
 								<font class="bashcommand">
-								$ read -n 1 -p "Do you wish to continue? (y/n)" VAR<br>
-								Do you wish to continue? (y/n)y<br>
-								$ echo $VAR<br>
-								y
+									$ read -n 1 -p "Do you wish to continue? (y/n)" VAR<br>
+									<font class="bashcommand-result">Do you wish to continue? (y/n)y</font><br>
+									$ echo $VAR<br>
+									<font class="bashcommand-result">y</font>
 								</font>
 							</td>
 							<td>
 								<font class="bashcommand">
-								$ read -n -p 1 "Do you wish to continue? (y/n)" VAR<br>
-								-bash: read: -p: invalid number
+									$ read -n -p 1 "Do you wish to continue? (y/n)" VAR<br>
+									<font class="bashcommand-result">-bash: read: -p: invalid number</font>
 								</font>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<font class="bashcommand">
-								$ read -p "Do you wish to continue? (y/n)" -n 1 VAR<br>
-								Do you wish to continue? (y/n)y<br>
-								$ echo $VAR<br>
-								y					
+									$ read -p "Do you wish to continue? (y/n)" -n 1 VAR<br>
+									<font class="bashcommand-result">Do you wish to continue? (y/n)y</font><br>
+									$ echo $VAR<br>
+									<font class="bashcommand-result">y</font>					
 								</font>
 							</td>
 							<td>
@@ -1279,16 +1280,16 @@
 						<tr>
 							<td>
 								<font class="bashcommand">
-								$ read -d '#' VAR<br>
-								$ echo $VAR<br>
-								SomeText
+									$ read -d '#' VAR<br>
+									$ echo $VAR<br>
+									<font class="bashcommand-result">SomeText</font>
 								</font>
 							</td>
 							<td>
 								<font class="bashcommand">
-								$ read -d # VAR<br>
-								-bash: read: -d: option requires an argument<br>
-								read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+									$ read -d # VAR<br>
+									<font class="bashcommand-result">-bash: read: -d: option requires an argument</font><br>
+									<font class="bashcommand-result">read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]</font>
 								</font>
 							</td>
 						</tr>
@@ -1306,11 +1307,11 @@
 					
 					<p>
 						<font class="bashcommand">
-						$ VAR="Some text"<br>
-						$ echo ${VAR}<br>
-						Some text<br>
-						$ echo \${VAR}<br>
-						${VAR}
+							$ VAR="Some text"<br>
+							$ echo ${VAR}<br>
+							<font class="bashcommand-result">Some text</font><br>
+							$ echo \${VAR}<br>
+							${VAR}
 						</font>
 					</p>
 					
