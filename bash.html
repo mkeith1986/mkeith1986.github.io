@@ -3916,7 +3916,172 @@
 					</p>
 					
 				<h3>6.4. Condition-testing to compare arrays</h3>
-					<p>Content of section 6.4</p>
+					<table>
+						<tr>
+							<th><b>Condition</b></th>
+							<th><b>Meaning</b></th>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ "${array1[*]}" == "${array2[*]}" ]</font></td>
+							<td>Tests if <font class="bashcommand">array1</font> equals to <font class="bashcommand">array2</font>.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ "${array1[*]}" != "${array2[*]}" ]</font></td>
+							<td>Tests if array1 is different to array2.</td>
+						</tr>
+					</table>
+					
+					<p>
+						<font class="example">[ "${array1[*]}" == "${array2[*]}" ]:</font>
+						<font class="bashcommand">
+							arr1=(a b c)<br>
+							arr2=(a b c d)<br>
+							arr3=(a b c)<br>
+							if [ "${arr1[*]}" == "${arr3[*]}" ]<br>
+							then<br>
+							echo "equal"<br>
+							else<br>
+							echo "different"<br>
+							fi<br>
+							equal 
+						</font>
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							if [ "${arr1[*]}" == "${arr2[*]}" ]<br>
+							then<br>
+							echo "equal"<br>
+							else<br>
+							echo "different"<br>
+							fi<br>
+							different
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ "${arr1[*]}" != "${arr2[*]}" ]:</font>
+						<font class="bashcommand">
+							if [ "${arr1[*]}" != "${arr2[*]}" ]<br>
+							then<br>
+							echo "distinct"<br>
+							else<br>
+							echo "equal"<br>
+							fi<br>
+							distinct 
+						</font>
+					</p>
+					
+					<h3>6.5. Combining different expressions for condition-testing</h3>
+					<table>
+						<tr>
+							<th><b>Condition</b></th>
+							<th><b>Meaning</b></th>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ EXPR ]</font></td>
+							<td>Tests if the expression <font class="bashcommand">EXPR</font> is <b>true</b>.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ ! EXPR ]</font></td>
+							<td>Tests if the expression <font class="bashcommand">EXPR</font> is <b>false</b>.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ EXPR1 ] || [ EXPR2 ]</font></td>
+							<td>Tests if <font class="bashcommand">EXPR1</font> <b>or</b> <font class="bashcommand">EXPR2</font> are true. You can add as many expressions as desired.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">[ EXPR1 ] &amp;&amp; [ EXPR2 ]</font></td>
+							<td>Tests if <font class="bashcommand">EXPR1</font> <b>and</b> <font class="bashcommand">EXPR2</font> are true. You can add as many expressions as desired.</td>
+						</tr>
+					</table>
+					
+					<p>
+						<font class="example">[ EXPR ] vs [ ! EXPR ]</font>
+						<font class="bashcommand">
+							if [ "3" -eq "3" ]<br>
+							then<br>
+							echo "This will be printed if the expression 3 equals 3 is true."<br>
+							else<br>
+							echo "This will be printed if the expression is false".<br>
+							fi 
+						</font>
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							if [ ! "3" -eq "3" ]<br>
+							then<br>
+							echo "This will be printed if the expression is false."<br>
+							else<br>
+							echo "This will be printed if the expression 3 equals 3 is true".<br>
+							fi 
+						</font>
+					</p>
+					
+					<p>We learned that the expression <font class="bashcommand">-f FILE</font> tests if a file exists. If we want to test if a file doesn't exist, then we just need to test if <font class="bashcommand">-f FILE</font> is false.</p>
+
+					<font class="bashcommand">
+						<p>
+							FILE="SomeFileThatExists.txt"<br>
+							if [ -f ${FILE} ]<br>
+							then<br>
+							echo "The file exist"<br>
+							fi 
+						</p>
+						
+						<p>
+							FILE="SomeFileThatDoesntExist.txt"<br>
+							if [ ! -f ${FILE} ]<br>
+							then<br>
+							echo "The file doesn’t exist"<br>
+							fi 
+						</p>
+					</font>
+					
+					<p>
+						<font class="example">[ EXPR1 ] || [ EXPR2 ]:</font>
+						Test if any of the two expressions are true.
+						<font class="bashcommand">
+							if [ "2" -lt "3" ] || [ "4" -lt "3" ]<br>
+							then<br>
+							echo "This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3."<br>
+							else<br>
+							echo "This will be echoed if none of the two expressions are true"<br>
+							fi<br>
+							This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3. 
+						</font>
+					</p>
+					
+					<p>
+						<font class="example">[ EXPR1 ] &amp;&amp; [ EXPR2 ]:</font>
+						Test if the two expressions are true. The second expression, contrary to the previous example, has the negation (<font class="bashcommand">!</font>). So, the second expression is not testing if 4 is less than 3, it is testing if 4 is <b>NOT</b> less than 3. So, both of the expressions are true, because 4 is not less than 3, and 2 is less than 3. 
+					</p>
+					
+					<p>
+						<font class="bashcommand">
+							if [ "2" -lt "3" ] &amp;&amp; [ ! "4" -lt "3" ]<br>
+							then<br>
+							echo "This will be echoed if the two expressions are true."<br>
+							else<br>
+							echo "This will be echoed if one of the two expressions are false, or if both are false."<br>
+							fi<br>
+							This will be echoed if the two expressions are true. 
+						</font>
+					</p>
+					
+					<font class="example">Using the and (<font class="bashcommand">&amp;&amp;</font>) and or (<font class="bashcommand">||</font>) operands to test more than two conditions:</font>
+					
+					<p>
+						Using &amp;&amp; to test more than two conditions:<br>
+						You can combine more than two expressions. In the following example I am combining three. Because I am using the <b>AND</b> operator, the whole condition will test true <b>if and only if</b> all the three expressions are true. If one is false, then the whole expression will be false.  
+					</p>
 		    </div>
 		       
 		    <div id="content7" class="hidden">
