@@ -12,7 +12,7 @@
 		<script language="javascript">
 			function showContent(num){
 				var i;
-				for (i=1; i<=11; i++) {
+				for (i=1; i<=20; i++) {
 					var x = document.getElementById("content".concat(i)).style;
 					if (i==num){
 						x.display="block";
@@ -158,17 +158,26 @@
 		<section>
 		  <nav>
 		    <ul>
-		      <li><a onclick="showContent(1);">1. Introduction to shell scripting</a></li>
-		      <li><a onclick="showContent(2);">2. Creating simple bash scripts</a></li>
-		      <li><a onclick="showContent(3);">3. Variables</a></li>
-		      <li><a onclick="showContent(4);">4. Arithmetic calculations</a></li>
-		      <li><a onclick="showContent(5);">5. Arrays</a></li>
-		      <li><a onclick="showContent(6);">6. Condition-testing</a></li>
-		      <li><a onclick="showContent(7);">7. Iteration</a></li>
-		      <li><a onclick="showContent(8);">8. General file manipulation</a></li>
-		      <li><a onclick="showContent(9);">9. Manipulating text and csv files</a></li>
-		      <li><a onclick="showContent(10);">10. Manipulating image and video files</a></li>
-		      <li><a onclick="showContent(11);">11. Writing more complex bash scripts</a></li>
+		     	 <li><a onclick="showContent(1);">1. Introduction to shell scripting</a></li>
+		      	<li><a onclick="showContent(2);">2. Creating simple bash scripts</a></li>
+		      	<li><a onclick="showContent(3);">3. Variables</a></li>
+		      	<li><a onclick="showContent(4);">4. Arithmetic calculations</a></li>
+		      	<li><a onclick="showContent(5);">5. Arrays</a></li>
+		      	<li><a onclick="showContent(6);">6. Condition-testing</a></li>
+		      	<li><a onclick="showContent(7);">7. Iteration</a></li>
+		      	<li><a onclick="showContent(8);">8. General file manipulation</a></li>
+		      	<li><a onclick="showContent(9);">9. Manipulating text and csv files</a></li>
+		      	<li><a onclick="showContent(10);">10. Manipulating image and video files</a></li>
+		      	<li><a onclick="showContent(11);">11. Writing more complex bash scripts</a></li>
+				<li><a onclick="showContent(12);">12. Remote shell</a></li>
+				<li><a onclick="showContent(13);">13. Cluster jobs</a></li>
+				<li><a onclick="showContent(14);">14. Downloading files from the web</a></li>
+				<li><a onclick="showContent(15);">15. Creating backups</a></li>
+				<li><a onclick="showContent(16);">16. File permissions</a></li>
+				<li><a onclick="showContent(17);">17. Using aliases</a></li>
+				<li><a onclick="showContent(18);">18. Keyboard shortcuts</a></li>
+				<li><a onclick="showContent(19);">19. MySQL</a></li>
+				<li><a onclick="showContent(20);">20. Report an error in the tutorial</a></li>
 		    </ul>
 		  </nav>
 		  
@@ -2724,17 +2733,17 @@
 						<font class="bashcommand">
 							$ array=(e1 e2 e3 e4 e5 e6)<br>
 							$ echo ${array[0]}<br>
-							e1<br>
+							<font class="bashcommand-result">e1</font><br>
 							$ echo ${array[1]}<br>
-							e2<br>
+							<font class="bashcommand-result">e2</font><br>
 							$ echo ${array[2]}<br>
-							e3<br>
+							<font class="bashcommand-result">e3</font><br>
 							$ echo ${array[3]}<br>
-							e4<br>
+							<font class="bashcommand-result">e4</font><br>
 							$ echo ${array[4]}<br>
-							e5<br>
+							<font class="bashcommand-result">e5</font><br>
 							$ echo ${array[5]}<br>
-							e6
+							<font class="bashcommand-result">e6</font>
 						</font>
 					</p>
 					
@@ -2748,6 +2757,7 @@
 					<font class="bashcommand">
 						<p>
 							$ ls<br>
+							<font class="bashcommand-result">
 							<table class="ghostTable">
 								<tr>
 									<td>@update.afni.binaries</td>
@@ -2785,20 +2795,21 @@
 									<td>test.txt</td>
 								</tr>
 							</table>
+							</font>
 						</p>
 						
 						<p>
 							$ array=($(ls))<br>
 							$ echo ${array[0]}<br>
-							@update.afni.binaries<br>
+							<font class="bashcommand-result">@update.afni.binaries</font><br>
 							$ echo ${array[1]}<br>
-							AFNI_data5<br>
+							<font class="bashcommand-result">AFNI_data5</font><br>
 							$ echo ${array[2]}<br>
-							AFNI_data6<br>
+							<font class="bashcommand-result">AFNI_data6</font><br>
 							$ echo ${array[3]}<br>
-							AFNI_demos<br>
+							<font class="bashcommand-result">AFNI_demos</font><br>
 							$ echo ${array[4]}<br>
-							Desktop
+							<font class="bashcommand-result">Desktop</font>
 						</p>
 					</font>
 					
@@ -2976,9 +2987,9 @@
 						<font class="bashcommand">
 							$ declare -a array=('Colombia' 'United States' 'Spain' 'Canada')<br>
 							$ echo "The element of the array in position 0 is: ${array[0]}"<br>
-							The element of the array in position 0 is: Colombia<br>
+							<font class="bashcommand-result">The element of the array in position 0 is: Colombia</font><br>
 							$ echo "The element of the array in position 1 is: ${array[1]}"<br>
-							The element of the array in position 1 is: United States
+							<font class="bashcommand-result">The element of the array in position 1 is: United States</font>
 						</font>
 					</p>
 				</div>
@@ -2990,7 +3001,7 @@
 						<font class="bashcommand">
 							$ declare -a array=('Colombia' 'United States' 'Spain' 'Canada')<br>
 							$ echo "The number of elements in the array is ${#array[@]}"<br>
-							The number of elements in the array is 4
+							<font class="bashcommand-result">The number of elements in the array is 4</font>
 						</font>
 					</p>
 				</div>
@@ -3009,7 +3020,7 @@
 						<font class="bashcommand">
 							$ declare -a array=('Colombia' 'United States' 'Spain' 'Canada')<br>
 							$ echo "The element in position 2 is ${array[2]}, and its size is ${#array[2]}"<br>
-							The element in position 2 is Spain, and its size is 5
+							<font class="bashcommand-result">The element in position 2 is Spain, and its size is 5</font>
 						</font>
 					</p>
 				</div>
@@ -3021,7 +3032,7 @@
 						<font class="bashcommand">
 							$ declare -a array=('Colombia' 'United States' 'Spain' 'Canada')<br>
 							$ echo ${array[@]}<br>
-							Colombia United States Spain Canada
+							<font class="bashcommand-result">Colombia United States Spain Canada</font>
 						</font>
 					</p>
 				</div>
@@ -3038,7 +3049,7 @@
 						<font class="bashcommand">
 							$ declare -a array=('Colombia' 'United States' 'Colombia' 'Canada')<br>
 							$ echo ${array[@]/Colombia/Spain}<br>
-							Spain United States Spain Canada
+							<font class="bashcommand-result">Spain United States Spain Canada</font>
 						</font>
 					</p>
 					
@@ -3049,7 +3060,7 @@
 						<font class="bashcommand">
 							$ declare -a array=('Subject01' 'Subject01' 'Subject03' 'Subject04')<br>
 							$ echo ${array[@]/Subject01/}<br>
-							Subject03 Subject04
+							<font class="bashcommand-result">Subject03 Subject04</font>
 						</font>
 					</p>
 				</div>
@@ -3065,13 +3076,13 @@
 						<p>
 							$ P="/Users/Neuro/Desktop"<br>
 							$ echo ${P/Neuro/Research}<br>
-							/Users/Research/Desktop
+							<font class="bashcommand-result">/Users/Research/Desktop</font>
 						</p>
 						
 						<p>
 							$ P="/Users/Neuro/Desktop"<br>
 							$ echo ${P/Desktop/}<br>
-							/Users/Neuro/
+							<font class="bashcommand-result">/Users/Neuro/</font>
 						</p>
 					</font>
 					
@@ -3086,7 +3097,7 @@
 						<font class="bashcommand">
 							$ declare -a ARRAY=('AA123' 'AB345' 'AA987' 'BB098' 'AA456')<br>
 							$ echo ${ARRAY[@]/AA*/}<br>
-							AB345 BB098
+							<font class="bashcommand-result">AB345 BB098</font>
 						</font>
 					</p>
 					
@@ -3100,7 +3111,7 @@
 						<font class="bashcommand">
 							$ declare -a ARRAY=('QWER' 'HGTZ' 'QRJD' 'ZZZZ' 'JHGF')<br>
 							$ echo ${ARRAY[@]/*Z/}<br>
-							QWER QRJD JHGF
+							<font class="bashcommand-result">QWER QRJD JHGF</font>
 						</font>
 					</p>
 					
@@ -3114,7 +3125,7 @@
 						<font class="bashcommand">
 							$ declare -a ARRAY=('ASDFZ' 'RFGHJZ' 'QRJD' 'ZZZZ' 'JHGF')<br>
 							$ echo ${ARRAY[@]/A*Z/}<br>
-							RFGHJZ QRJD ZZZZ JHGF
+							<font class="bashcommand-result">RFGHJZ QRJD ZZZZ JHGF</font>
 						</font>
 					</p>
 					
@@ -3124,7 +3135,7 @@
 						<font class="bashcommand">
 							$ declare -a ARRAY=('SUBJ0' 'SUBJ9' 'SUBJ3' 'SUBJ4' 'SUBJ3')<br>
 							$ echo ${ARRAY[@]/#SUBJ/SUBJECT}<br>
-							SUBJECT0 SUBJECT9 SUBJECT3 SUBJECT4 SUBJECT3
+							<font class="bashcommand-result">SUBJECT0 SUBJECT9 SUBJECT3 SUBJECT4 SUBJECT3</font>
 						</font>
 					</p>
 					
@@ -3135,7 +3146,7 @@
 						<font class="bashcommand">
 							$ declare -a ARRAY=('ID_001' 'AGE_001' 'GENDER_001' 'QC_001')<br>
 							$ echo ${ARRAY[@]/%001/125}<br>
-							ID_125 AGE_125 GENDER_125 QC_125
+							<font class="bashcommand-result">ID_125 AGE_125 GENDER_125 QC_125</font>
 						</font> 
 					</p>
 				</div>
@@ -3151,7 +3162,7 @@
 						<font class="bashcommand">
 							$ P="/Users/Neuro/Desktop/Neuro"<br>
 							$ echo ${P/Neuro/Research}<br>
-							/Users/Research/Desktop/Neuro
+							<font class="bashcommand-result">/Users/Research/Desktop/Neuro</font>
 						</font>
 					</p>
 					
@@ -3162,13 +3173,13 @@
 						<p>
 							$ P="/Users/Neuro/Desktop/Neuro"<br>
 							$ echo ${P//Neuro/Research}<br>
-							/Users/Research/Desktop/Research
+							<font class="bashcommand-result">/Users/Research/Desktop/Research</font>
 						</p>
 						
 						<p>
 							$ P="/Users/Neuro/Desktop"<br>
 							$ echo ${P//e/}<br>
-							/Usrs/Nuro/Dsktop
+							<font class="bashcommand-result">/Usrs/Nuro/Dsktop</font>
 						</p>
 					</font>
 				</div>
@@ -3184,7 +3195,7 @@
 							$ declare -a ARRAY=('ASDFZ' 'RFGHJZ' 'QRJD' 'ZZZZ' 'JHGF')<br>
 							$ NEWARRAY=("${ARRAY[@]}")<br>
 							$ echo ${NEWARRAY[@]}<br>
-							ASDFZ RFGHJZ QRJD ZZZZ JHGF
+							<font class="bashcommand-result">ASDFZ RFGHJZ QRJD ZZZZ JHGF</font>
 						</font>
 					</p>
 				</div>
@@ -3205,7 +3216,7 @@
 							$ declare -a B=('3333' '2222' '1111')<br>
 							$ C=("${A[@]}" "${B[@]}")<br>
 							$ echo ${C[@]}<br>
-							ASDFZ RFGHJZ QRJD ZZZZ JHGF 3333 2222 1111
+							<font class="bashcommand-result">ASDFZ RFGHJZ QRJD ZZZZ JHGF 3333 2222 1111</font>
 						</font>
 					</p>
 				</div>
@@ -3227,7 +3238,7 @@
 						<font class="bashcommand">
 							$ declare -a A=('ASDFZ' 'RFGHJZ' 'QRJD' 'ZZZZ' 'JHGF')<br>
 							$ echo ${A[@]}<br>
-							ASDFZ RFGHJZ QRJD ZZZZ JHGF<br>
+							<font class="bashcommand-result">ASDFZ RFGHJZ QRJD ZZZZ JHGF</font><br>
 							$ unset A<br>
 							$ echo ${A[@]}
 						</font>
@@ -3253,7 +3264,7 @@
 						<font class="bashcommand">
 							$ declare -a ARRAY=( 'Element1' 'Element2' 'Element3' 'Element4' 'Element5')<br>
 							$ echo ${ARRAY[@]:0:2}<br>
-							Element1 Element2
+							<font class="bashcommand-result">Element1 Element2</font>
 						</font>
 					</p>
 					
@@ -3267,7 +3278,7 @@
 						<font class="bashcommand">
 							$ declare -a ARRAY=( 'Element1' 'Element2' 'Element3' 'Element4' 'Element5')<br>
 							$ echo ${ARRAY[@]:2:3}<br>
-							Element3 Element4 Element5
+							<font class="bashcommand-result">Element3 Element4 Element5</font>
 						</font>
 					</p>
 					
@@ -3281,7 +3292,7 @@
 						<font class="bashcommand">
 							$ declare -a ARRAY=( 'Element1' 'Element2' 'Element3' 'Element4' 'Element5')<br>
 							$ echo ${ARRAY[@]:2:4}<br>
-							Element3 Element4 Element5
+							<font class="bashcommand-result">Element3 Element4 Element5</font>
 						</font>
 					</p>
 				</div>
@@ -3296,14 +3307,14 @@
 						<font class="bashcommand">
 							$ S="Colombia"<br>
 							$ echo "The first character in ${S} is ${S:0:1}"<br>
-							The first character in Colombia is C<br>
+							<font class="bashcommand-result">The first character in Colombia is C</font><br>
 							$ echo "The third character in ${S} is ${S:2:1}"<br>
-							The third character in Colombia is l<br>
+							<font class="bashcommand-result">The third character in Colombia is l</font><br>
 							$ SIZE=${#S}<br>
 							$ echo $SIZE<br>
-							8<br>
+							<font class="bashcommand-result">8</font><br>
 							$ echo "The last two characters in ${S} are ${S:$(( ${SIZE} - 2 )):2}"<br>
-							The last two characters in Colombia are ia
+							<font class="bashcommand-result">The last two characters in Colombia are ia</font>
 						</font>
 					</p>
 				</div>
@@ -3318,12 +3329,12 @@
 						<font class="bashcommand">
 							$ array=(ewrwr dfgfgdf asda yrtytr)<br>
 							$ echo ${array[@]}<br>
-							ewrwr dfgfgdf asda yrtytr<br>
+							<font class="bashcommand-result">ewrwr dfgfgdf asda yrtytr</font><br>
 							$ IFS=$'\n' sorted=($(sort &lt;&lt;&lt;"${array[*]}"))<br>
 							${sorted[@]}<br>
-							asda dfgfgdf ewrwr yrtytr<br>
+							<font class="bashcommand-result">asda dfgfgdf ewrwr yrtytr</font><br>
 							$ echo ${array[@]}<br>
-							ewrwr dfgfgdf asda yrtytr
+							<font class="bashcommand-result">ewrwr dfgfgdf asda yrtytr</font>
 						</font>
 					</p>
 				</div>
@@ -3534,8 +3545,8 @@
 				<p>
 					<font class="example">[ -a FILE ]:</font>
 					<font class="bashcommand">
-						FILE=/Users/MyUser/Desktop/someFile.txt<br>
-						if [ -a "${FILE}" ]<br>
+						$ FILE=/Users/MyUser/Desktop/someFile.txt<br>
+						$ if [ -a "${FILE}" ]<br>
 						&gt; then<br>
 						&gt; echo "${FILE} exists"<br>
 						&gt; else<br>
@@ -3546,12 +3557,12 @@
 				
 				<p>
 					<font class="bashcommand">
-						if [ -a "/Users/MyUser/Desktop/someFile.txt" ]<br>
+						$ if [ -a "/Users/MyUser/Desktop/someFile.txt" ]<br>
 						&gt; then<br>
 						&gt; echo "The file exists"<br>
 						&gt; else<br>
 						&gt; echo "The file doesn't exist"<br>
-						fi 
+						&gt; fi 
 					</font>
 				</p>
 				
@@ -3561,21 +3572,21 @@
 				
 				<p>
 					<font class="bashcommand">
-						if [ -a /Users/MyUser/Desktop/some file name with spaces.txt ]<br>
+						$ if [ -a /Users/MyUser/Desktop/some file name with spaces.txt ]<br>
 						&gt; then<br>
 						&gt; echo "The file exists"<br>
 						&gt; else<br>
 						&gt; echo "The file doesn't exist"<br>
 						&gt; fi<br>
-						-bash: [: too many arguments 
+						<font class="bashcommand-result">-bash: [: too many argument</font>
 					</font>
 				</p>
 				
 				<p>
 					<font class="example">[ -d FILE ]:</font>
 					<font class="bashcommand">
-						FILE=/Users/MyUser/Desktop/someFile.txt<br>
-						if [ -a "${FILE}" ]<br>
+						$ FILE=/Users/MyUser/Desktop/someFile.txt<br>
+						$ if [ -a "${FILE}" ]<br>
 						&gt; then<br>
 						&gt; echo "The file exists. Now I will find out if it's a directory or a regular file."<br>
 						&gt; if [ -d "${FILE}" ]<br>
@@ -3596,8 +3607,8 @@
 				
 				<p>
 					<font class="bashcommand">
-						FILE=/Users/MyUser/Desktop/someFile.txt<br>
-						if [-a "${FILE}"]<br>
+						$ FILE=/Users/MyUser/Desktop/someFile.txt<br>
+						$ if [-a "${FILE}"]<br>
 						&gt; then<br>
 						&gt; echo "The file exists. Now I will find out if it's a directory or a regular file."<br>
 						&gt; if [ -d "${FILE}" ]<br>
@@ -3609,15 +3620,15 @@
 						&gt; else<br>
 						&gt; echo "The file doesn't exist."<br>
 						&gt; fi<br>
-						-bash: [-a: command not found
+						<font class="bashcommand-result">-bash: [-a: command not found</font>
 					</font>
 				</p>
 				
 				<p>
 					<font class="example">[ -f FILE ]:</font>
 					<font class="bashcommand">
-						FILE=/Users/MyUser/Desktop/someFile.txt<br>
-						if [ -a "${FILE}" ]<br>
+						$ FILE=/Users/MyUser/Desktop/someFile.txt<br>
+						$ if [ -a "${FILE}" ]<br>
 						&gt; then<br>
 						&gt; echo "The file exists. Now I will find out if it's a directory or a regular file."<br>
 						&gt; if [ -f "${FILE}" ]<br>
@@ -3628,14 +3639,14 @@
 						&gt; fi<br>
 						&gt; else<br>
 						&gt; echo "The file doesn't exist."<br>
-						fi
+						&gt; fi
 					</font>
 				</p>
 				
 				<p>
 					<font class="example">[ -N FILE ]:</font>
 					<font class="bashcommand">
-						if [ -N "/Users/MyUser/Desktop/someFile.txt" ]<br>
+						$ if [ -N "/Users/MyUser/Desktop/someFile.txt" ]<br>
 						&gt; then<br>
 						&gt; echo "The file exists and has been modified since the last time it was opened."<br>
 						&gt; else<br>
@@ -3701,23 +3712,23 @@
 					<p>
 						<font class="example">[ -z "STRING" ]:</font>
 						<font class="bashcommand">
-							if [ -z "" ]<br>
+							$ if [ -z "" ]<br>
 							&gt; then<br>
 							&gt; echo "Empty string"<br>
 							&gt; fi<br>
-							Empty string 
+							<font class="bashcommand-result">Empty string</font> 
 						</font>
 					</p>
 					
 					<p>
 						<font class="example">[ -n "STRING" ]:</font>
 						<font class="bashcommand">
-							VAR="Some text"<br>
-							if [ -n "${VAR}" ]<br>
+							$ VAR="Some text"<br>
+							$ if [ -n "${VAR}" ]<br>
 							&gt; then<br>
 							&gt; echo "The string is not empty"<br>
 							&gt; fi<br>
-							The string is not empty 
+							<font class="bashcommand-result">The string is not empty</font> 
 						</font>
 					</p>
 					
@@ -3725,40 +3736,40 @@
 					
 					<p>
 						<font class="bashcommand">
-							VAR="Some text"<br>
-							if [ -n ${VAR} ]<br>
+							$ VAR="Some text"<br>
+							$ if [ -n ${VAR} ]<br>
 							&gt; then<br>
 							&gt; echo "The string is not empty"<br>
 							&gt; fi<br>
-							-bash: [: Some: binary operator expected 
+							<font class="bashcommand-result">-bash: [: Some: binary operator expected</font> 
 						</font>
 					</p>
 					
 					<p>
 						<font class="example">[ "STRING1" == "STRING2" ]:</font>
 						<font class="bashcommand">
-							QC="Good"<br>
-							if [ "${QC}" == "Good" ]<br>
+							$ QC="Good"<br>
+							$ if [ "${QC}" == "Good" ]<br>
 							&gt; then<br>
 							&gt; echo "Quality control good"<br>
 							&gt; else<br>
 							&gt; echo "Image has bad quality"<br>
 							&gt; fi<br>
-							Quality control good 
+							<font class="bashcommand-result">Quality control good</font> 
 						</font>
 					</p>
 					
 					<p>
 						<font class="example">[ "STRING1" != "STRING2" ]:</font>
 						<font class="bashcommand">
-							QC="Good"<br>
-							if [ "${QC}" != "Good" ]<br>
+							$ QC="Good"<br>
+							$ if [ "${QC}" != "Good" ]<br>
 							&gt; then<br>
 							&gt; echo "Quality control is not good"<br>
 							&gt; else<br>
 							&gt; echo "Image has good quality"<br>
 							&gt; fi<br>
-							Image has good quality
+							<font class="bashcommand-result">Image has good quality</font>
 						</font>
 					</p>
 					
@@ -3766,30 +3777,46 @@
 						<font class="example">[ "STRING1" \< "STRING2" ]:</font>
 						In the following example, I am comparing the strings <font class="bashcommand">"Canada"</font> with <font class="bashcommand">"Colombia"</font> and printing the one that sorts first. <font class="bashcommand">"Canada"</font> will be printed because the first letter of both words is the same but the second letter in <font class="bashcommand">"Canada"</font> (letter <font class="bashcommand">a</font>) comes before the second letter in <font class="bashcommand">"Colombia"</font> (letter <font class="bashcommand">o</font>).<br>
 						<font class="bashcommand">
-							VAR1="Canada"<br>
-							VAR2="Colombia"<br>
-							if [ "${VAR1}" \< "${VAR2}" ]<br>
+							$ VAR1="Canada"<br>
+							$ VAR2="Colombia"<br>
+							$ if [ "${VAR1}" \< "${VAR2}" ]<br>
 							&gt; then<br>
 							&gt; echo ${VAR1}<br>
 							&gt; else<br>
 							&gt; echo ${VAR2}<br>
 							&gt; fi<br>
-							Canada
+							<font class="bashcommand-result">Canada</font>
 						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${VAR1}" \< "${VAR2}" ] &gt;&gt; echo ${VAR1} || echo ${VAR2}<br>
+							<font class="bashcommand-result">Canada</font>
+						</font>	
 					</p>
 					
 					<p>
 						<font class="example">[ "STRING1" \> "STRING2" ]:</font>
 						<font class="bashcommand">
-							VAR1="Canada"<br> 
-							VAR2="Colombia"<br>
-							if [ "${VAR1}" \> "${VAR2}" ]<br>
+							$ VAR1="Canada"<br> 
+							$ VAR2="Colombia"<br>
+							$ if [ "${VAR1}" \> "${VAR2}" ]<br>
 							&gt; then<br>
 							&gt; echo ${VAR2}<br>
 							&gt; else<br>
 							&gt; echo ${VAR1}<br>
 							&gt; fi<br>
-							Canada 
+							<font class="bashcommand-result">Canada</font> 
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${VAR1}" \> "${VAR2}" ] &gt;&gt; echo ${VAR2} || echo ${VAR1}<br>
+							<font class="bashcommand-result">Canada</font>
 						</font>
 					</p>
 					
@@ -3835,92 +3862,148 @@
 					<p>
 						<font class="example">[ NUM1 -eq NUM2 ]:</font>
 						<font class="bashcommand">
-							if [ "3" -eq "3" ]<br>
+							$ if [ 3 -eq 3 ]<br>
 							&gt; then<br>		
 							&gt; echo "This makes sense, 3 equals 3."<br>					
 							&gt; fi<br>			
-							This makes sense, 3 equals 3. 
+							<font class="bashcommand-result">This makes sense, 3 equals 3.</font> 
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ 3 -eq 3 ] &gt;&gt; echo "This makes sense, 3 equals 3."<br>
+							<font class="bashcommand-result">This makes sense, 3 equals 3.</font>
 						</font>
 					</p>
 					
 					<p>
 						<font class="bashcommand">
-							A=3<br>
-							if [ "${A}" -eq "3" ]<br>
+							$ A=3<br>
+							$ if [ "${A}" -eq "3" ]<br>
 							&gt; then<br> 
 							&gt; echo "This makes sense, ${A} equals 3."<br>
 							&gt; fi<br>
-							This makes sense, 3 equals 3. 
+							<font class="bashcommand-result">This makes sense, 3 equals 3.</font> 
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${A}" -eq "3" ] &gt;&gt; echo "This makes sense, ${A} equals 3."<br>
+							<font class="bashcommand-result">This makes sense, 3 equals 3.</font> 
 						</font>
 					</p>
 					
 					<p>
 						<font class="example">[ NUM1 -ne NUM2 ]:</font>
 						<font class="bashcommand">
-							A=3<br>
-							if [ "${A}" -ne "3" ]<br>
+							$ A=3<br>
+							$ if [ "${A}" -ne "3" ]<br>
 							&gt; then<br>
 							&gt; echo "Variable A is not equal to 3"<br> 
 							&gt; else<br>
 							&gt; echo "Variable A equals 3."<br>
 							&gt; fi<br>
-							Variable A equals 3. 
+							<font class="bashcommand-result">Variable A equals 3.</font> 
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${A}" -ne "3" ] &gt;&gt; echo "Variable A is not equal to 3" || echo "Variable A equals 3."<br>
+							<font class="bashcommand-result">Variable A equals 3.</font>
 						</font>
 					</p>
 					
 					<p>
 						<font class="example">[ NUM1 -lt NUM2 ]:</font>
 						<font class="bashcommand">
-							A=3<br>
-							if [ "${A}" -lt "3" ]<br>
+							$ A=3<br>
+							$ if [ "${A}" -lt "3" ]<br>
 							&gt; then<br>
 							&gt; echo "Variable A is less than 3"<br> 
 							&gt; else<br>
 							&gt; echo "Variable A not less than 3."<br>
 							&gt; fi<br>
-							Variable A is not less than 3. 
+							<font class="bashcommand-result">Variable A is not less than 3.</font> 
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${A}" -lt "3" ] &gt;&gt; echo "Variable A is less than 3" || echo "Variable A not less than 3."<br>
+							<font class="bashcommand-result">Variable A is not less than 3.</font>
 						</font>
 					</p>
 					
 					<p>
 						<font class="example">[ NUM1 -le NUM2 ]:</font>
 						<font class="bashcommand">
-							A=3<br> 
-							if [ "${A}" -le "3" ]<br>
+							$ A=3<br> 
+							$ if [ "${A}" -le "3" ]<br>
 							&gt; then<br>
 							&gt; echo "Variable A is less or equal to 3"<br>
 							&gt; else<br>
 							&gt; echo "Variable A greater than 3."<br>
 							&gt; fi<br>
-							Variable A is less or equal to 3. 
+							<font class="bashcommand-result">Variable A is less or equal to 3.</font> 
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${A}" -le "3" ] &gt;&gt; echo "Variable A is less or equal to 3" || echo "Variable A greater than 3."<br>
+							<font class="bashcommand-result">Variable A is less or equal to 3.</font>
 						</font>
 					</p>
 					
 					<p>
 						<font class="example">[ NUM1 -gt NUM2 ]:</font>
 						<font class="bashcommand">
-							A=3<br>
-							if [ "${A}" -gt "3" ]<br>
+							$ A=3<br>
+							$ if [ "${A}" -gt "3" ]<br>
 							&gt; then<br>
-							&gt; echo "Variable A is greater than 3"<br>
+							&gt; echo "Variable A is greater than 3."<br>
 							&gt; else<br>
 							&gt; echo "Variable A not greater than 3."<br>
 							&gt; fi<br>
-							Variable A is not greater than 3. 
+							<font class="bashcommand-result">Variable A is not greater than 3.</font> 
 						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${A}" -gt "3" ] &gt;&gt; echo "Variable A is greater than 3." || echo "Variable A not greater than 3."<br>
+							<font class="bashcommand-result">Variable A is not greater than 3.</font>
+						</font>	
 					</p>
 					
 					<p>
 						<font class="example">[ NUM1 -ge NUM2 ]:</font>
 						<font class="bashcommand">
-							A=3<br>
-							if [ "${A}" -ge "3" ]<br>
+							$ A=3<br>
+							$ if [ "${A}" -ge "3" ]<br>
 							&gt; then<br>
 							&gt; echo "Variable A is greater or equal to 3"<br>
 							&gt; else<br>
 							&gt; echo "Variable A less than 3."<br>
 							&gt; fi<br>
-							Variable A is greater or equal to 3. 
+							<font class="bashcommand-result">Variable A is greater or equal to 3.</font> 
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${A}" -ge "3" ] &gt;&gt; echo "Variable A is greater or equal to 3" || echo "Variable A less than 3."<br>
+							<font class="bashcommand-result">Variable A is greater or equal to 3.</font>
 						</font>
 					</p>
 					
@@ -3945,41 +4028,65 @@
 					<p>
 						<font class="example">[ "${array1[*]}" == "${array2[*]}" ]:</font>
 						<font class="bashcommand">
-							arr1=(a b c)<br>
-							arr2=(a b c d)<br>
-							arr3=(a b c)<br>
-							if [ "${arr1[*]}" == "${arr3[*]}" ]<br>
+							$ arr1=(a b c)<br>
+							$ arr2=(a b c d)<br>
+							$ arr3=(a b c)<br>
+							$ if [ "${arr1[*]}" == "${arr3[*]}" ]<br>
 							&gt; then<br>
 							&gt; echo "equal"<br>
 							&gt; else<br>
 							&gt; echo "different"<br>
 							&gt; fi<br>
-							equal 
+							<font class="bashcommand-result">equal</font> 
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${arr1[*]}" == "${arr3[*]}" ] &gt;&gt; echo "equal" || echo "different"<br>
+							<font class="bashcommand-result">equal</font>
 						</font>
 					</p>
 					
 					<p>
 						<font class="bashcommand">
-							if [ "${arr1[*]}" == "${arr2[*]}" ]<br>
+							$ if [ "${arr1[*]}" == "${arr2[*]}" ]<br>
 							&gt; then<br>
 							&gt; echo "equal"<br>
 							&gt; else<br>
 							&gt; echo "different"<br>
 							&gt; fi<br>
-							different
+							<font class="bashcommand-result">different</font>
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${arr1[*]}" == "${arr2[*]}" ] &gt;&gt; echo "equal" || echo "different"<br>
+							<font class="bashcommand-result">different</font>
 						</font>
 					</p>
 					
 					<p>
 						<font class="example">[ "${arr1[*]}" != "${arr2[*]}" ]:</font>
 						<font class="bashcommand">
-							if [ "${arr1[*]}" != "${arr2[*]}" ]<br>
+							$ if [ "${arr1[*]}" != "${arr2[*]}" ]<br>
 							&gt; then<br>
 							&gt; echo "different"<br>
 							&gt; else<br>
 							&gt; echo "equal"<br>
 							&gt; fi<br>
-							different 
+							<font class="bashcommand-result">different</font> 
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ "${arr1[*]}" != "${arr2[*]}" ] &gt;&gt; echo "different" || echo "equal"<br>
+							<font class="bashcommand-result">different</font>
 						</font>
 					</p>
 					
@@ -4014,23 +4121,41 @@
 					<p>
 						<font class="example">[ EXPR ] vs [ ! EXPR ]</font>
 						<font class="bashcommand">
-							if [ "3" -eq "3" ]<br>
+							$ if [ 3 -eq 3 ]<br>
 							&gt; then<br>
 							&gt; echo "This will be printed if the expression 3 equals 3 is true."<br>
 							&gt; else<br>
-							&gt; echo "This will be printed if the expression is false".<br>
-							&gt; fi 
+							&gt; echo "This will be printed if the expression is false (3 is not equal to 3)."<br>
+							&gt; fi<br>
+							<font class="bashcommand-result">This will be printed if the expression 3 equals 3 is true.</font>
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ 3 -eq 3 ] &gt;&gt;  echo "This will be printed if the expression 3 equals 3 is true." || echo "This will be printed if the expression is false (3 is not equal to 3)."<br>
+							<font class="bashcommand-result">This will be printed if the expression 3 equals 3 is true.</font>
 						</font>
 					</p>
 					
 					<p>
 						<font class="bashcommand">
-							if [ ! "3" -eq "3" ]<br>
+							$ if [ ! 3 -eq 3 ]<br>
 							&gt; then<br>
-							&gt; echo "This will be printed if the expression is false."<br>
+							&gt; echo "This will be printed if it is false that 3 equals 3 (so, if 3 is different than 3)."<br>
 							&gt; else<br>
-							&gt; echo "This will be printed if the expression 3 equals 3 is true".<br>
-							&gt; fi 
+							&gt; echo "This will be printed if it is not false (it's true) that 3 equals 3."<br>
+							&gt; fi<br>
+							<font class="bashcommand-result">This will be printed if it is not false (it's true) that 3 equals 3.</font>
+						</font>
+					</p>
+					
+					<p>
+						The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+						<font class="bashcommand">
+							$ [ ! 3 -eq 3 ] &gt;&gt; echo "This will be printed if it is false that 3 equals 3 (so, if 3 is different than 3)." || echo "This will be printed if it is not false (it's true) that 3 equals 3."<br>
+							<font class="bashcommand-result">This will be printed if it is not false (it's true) that 3 equals 3.</font>
 						</font>
 					</p>
 					
@@ -4038,19 +4163,33 @@
 
 					<font class="bashcommand">
 						<p>
-							FILE="SomeFileThatExists.txt"<br>
-							&gt; if [ -f ${FILE} ]<br>
+							$ FILE="SomeFileThatExists.txt"<br>
+							$ if [ -f ${FILE} ]<br>
 							&gt; then<br>
 							&gt; echo "The file exist"<br>
-							&gt; fi 
+							&gt; fi <br>
+							<font class="bashcommand-result">The file exist</font>
 						</p>
 						
 						<p>
-							FILE="SomeFileThatDoesntExist.txt"<br>
-							if [ ! -f ${FILE} ]<br>
+							The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+							<font class="bashcommand">$ [ -f ${FILE} ] &gt;&gt; echo "The file exist"</font><br>
+							<font class="bashcommand-result">The file exist</font>
+						</p>
+						
+						<p>
+							$ FILE="SomeFileThatDoesntExist.txt"<br>
+							$ if [ ! -f ${FILE} ]<br>
 							&gt; then<br>
 							&gt; echo "The file doesn't exist"<br>
-							&gt; fi 
+							&gt; fi<br>
+							<font class="bashcommand-result">The file doesn't exist</font>
+						</p>
+						
+						<p>
+							The previous expression can be written using a shorter syntax: [ expression ] &gt;&gt; what_to_do_if_expression_is_true || what_to_do_if_expression_is_false:<br>
+							<font class="bashcommand">$ [ ! -f ${FILE} ] &gt;&gt; echo "The file doesn't exist"</font><br>
+							<font class="bashcommand-result">The file doesn't exist</font>
 						</p>
 					</font>
 					
@@ -4061,13 +4200,23 @@
 					
 					<p>
 						<font class="bashcommand">
-							if [ "2" -lt "3" ] || [ "4" -lt "3" ]<br>
+							$ if [ 2 -lt 3 ] || [ 4 -lt 3 ]<br>
 							&gt; then<br>
 							&gt; echo "This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3."<br>
 							&gt; else<br>
 							&gt; echo "This will be echoed if none of the two expressions are true"<br>
 							&gt; fi<br>
-							This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3. 
+							<font class="bashcommand-result">This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3.</font> 
+						</font>
+					</p>
+					
+					<p>The previous example can also be written using a shorter syntax. When using multiple expressions, they will have to be encapsulated in parentheses using the following syntax: ( expressions ) &amp;&amp; what_to_do_if_true || what_to_do_if_false</p>
+					
+					<p>
+						Shorter version:<br>
+						<font class="bashcommand">
+							$ ( [ 2 -lt 3 ] || [ 4 -lt 3 ] ) &amp;&amp; echo "This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3." || echo "This will be echoed if none of the two expressions are true":<br>
+							<font class="bashcommand-result">This will be echoed if any of the two expressions are true: 2&lt;3 OR 4&lt;3.</font> 
 						</font>
 					</p>
 					
@@ -4078,13 +4227,23 @@
 					
 					<p>
 						<font class="bashcommand">
-							if [ "2" -lt "3" ] &amp;&amp; [ ! "4" -lt "3" ]<br>
+							$ if [ 2 -lt 3 ] &amp;&amp; [ ! 4 -lt 3 ]<br>
 							&gt; then<br>
 							&gt; echo "This will be echoed if the two expressions are true."<br>
 							&gt; else<br>
 							&gt; echo "This will be echoed if one of the two expressions are false, or if both are false."<br>
 							&gt; fi<br>
-							This will be echoed if the two expressions are true. 
+							<font class="bashcommand-result">This will be echoed if the two expressions are true.</font> 
+						</font>
+					</p>
+					
+					<p>The previous example can also be written using a shorter syntax. Remember that when using multiple expressions, they will have to be encapsulated in parentheses using the following syntax: ( expressions ) &amp;&amp; what_to_do_if_true || what_to_do_if_false</p>
+					
+					<p>
+						This is the shorter version:<br>
+						<font class="bashcommand">
+							$ ( [ 2 -lt 3 ] &amp;&amp; [ ! 4 -lt 3 ] ) &amp;&amp; echo "This will be echoed if the two expressions are true." || echo "This will be echoed if one of the two expressions are false, or if both are false."<br>
+							<font class="bashcommand-result">This will be echoed if the two expressions are true.</font> 
 						</font>
 					</p>
 					
@@ -4097,38 +4256,58 @@
 					
 					<p>
 						<font class="bashcommand">
-							if [ "2" -lt "3" ] &amp;&amp; [ ! "4" -lt "3" ] &amp;&amp; [ "4" -lt "3" ]<br>
+							$ if [ 2 -lt 3 ] &amp;&amp; [ ! 4 -lt 3 ] &amp;&amp; [ 4 -lt 3 ]<br>
 							&gt; then<br>
 							&gt; echo "This will be echoed if all the three expressions are true."<br>
 							&gt; else<br>
 							&gt; echo "This will be echoed if any of the three expressions is false."<br> 
 							&gt; fi<br>
-							This will be echoed if any of the three expressions is false. 
+							<font class="bashcommand-result">This will be echoed if any of the three expressions is false.</font> 
 						</font>
 					</p>
 					
 					<p>
 						Let's take a look at why the whole expression evaluates false:<br>
-						<font class="bashcommand">[ "2" -lt "3" ]</font>: This is true, 2 &lt; 3.<br>
-						<font class="bashcommand">[ ! "4" -lt "3" ]</font>: This is true, 4 is not less than 3.<br> 
-						<font class="bashcommand">[ "4" -lt "3" ]</font>: This is false, It is false that 4 be less than 3.<br>
-						<font class="bashcommand">[ "2" -lt "3" ] &amp;&amp; [ ! "4" -lt "3" ] &amp;&amp; [ "4" -lt "3" ]</font>: This is false because one of the three expressions is false. 
+						<font class="bashcommand">[ 2 -lt 3 ]</font>: This is true, 2 &lt; 3.<br>
+						<font class="bashcommand">[ ! 4 -lt 3 ]</font>: This is true, 4 is not less than 3.<br> 
+						<font class="bashcommand">[ 4 -lt 3 ]</font>: This is false, It is false that 4 be less than 3.<br>
+						<font class="bashcommand">[ 2 -lt 3 ] &amp;&amp; [ ! 4 -lt 3 ] &amp;&amp; [ 4 -lt 3 ]</font>: This is false because one of the three expressions is false. 
+					</p>
+					
+					<p>The previous example can also be written using a shorter syntax. Remember that when using multiple expressions, they will have to be encapsulated in parentheses using the following syntax: ( expressions ) &amp;&amp; what_to_do_if_true || what_to_do_if_false</p>
+					
+					<p>
+						This is the shorter version:</br>
+						<font class="bashcommand">
+							$ ( [ 2 -lt 3 ] &amp;&amp; [ ! 4 -lt 3 ] &amp;&amp; [ 4 -lt 3 ] ) &amp;&amp; echo "This will be echoed if all the three expressions are true." || echo "This will be echoed if any of the three expressions is false."<br>
+							<font class="bashcommand-result">This will be echoed if any of the three expressions is false.</font> 
+						</font>
 					</p>
 					
 					<p>
-						Using || to test more than two conditions:<br>
-						This example is very similar than the previous one but instead of using the operator AND, we are using the operator OR. So, the whole expression will be true if ANY of the three expressions is true. Since the first two are true, then the result is true. 
+						Using <font class="bashcommand">||</font> to test more than two conditions:<br>
+						This example is very similar than the previous one but instead of using the operator AND (<font class="bashcommand">&gt;&gt;</font>)), we are using the operator OR (<font class="bashcommand">||</font>). So, the whole expression will be true if ANY of the three expressions is true. Since the first two are true, then the result is true. 
 					</p>
 					
 					<p>
 						<font class="bashcommand">
-							if [ "2" -lt "3" ] || [ ! "4" -lt "3" ] || [ "4" -lt "3" ]<br>
+							$ if [ 2 -lt 3 ] || [ ! 4 -lt 3 ] || [ 4 -lt 3 ]<br>
 							&gt; then<br>
-							&gt; echo "This will be echoed if any of the three expressions is true."<br>
+							&gt; echo "This will be echoed if ANY of the three expressions is true."<br>
 							&gt; else<br>
 							&gt; echo "This will be echoed if all of the three expressions are false."<br>
 							&gt; fi<br>
-							This will be echoed if any of the three expressions is true.
+							<font class="bashcommand-result">This will be echoed if ANY of the three expressions is true.</font>
+						</font>
+					</p>
+					
+					<p>The previous example can also be written using a shorter syntax. Remember that when using multiple expressions, they will have to be encapsulated in parentheses using the following syntax: ( expressions ) &amp;&amp; what_to_do_if_true || what_to_do_if_false</p>
+					
+					<p>
+						This is the shorter version:<br>
+						<font class="bashcommand">
+							$ ( [ 2 -lt 3 ] || [ ! 4 -lt 3 ] || [ 4 -lt 3 ] ) &amp;&amp; echo "This will be echoed if ANY of the three expressions is true." || echo "This will be echoed if all of the three expressions are false."<br>
+							<font class="bashcommand-result">This will be echoed if ANY of the three expressions is true.</font>
 						</font>
 					</p>
 		    </div>
@@ -4207,7 +4386,7 @@
 		    </div>
 		       
 		    <div id="content14" class="hidden">
-		    	<h2>14. Downloading files from the web using the command line</h2>
+		    	<h2>14. Downloading files from the web</h2>
 		    		<p>Content section 14</p>
 		    </div>
 		       
@@ -4227,15 +4406,33 @@
 		    </div>
 		       
 		    <div id="content18" class="hidden">
-		    	<h2>18. keyboard shortcuts for MacOS</h2>
+		    	<h2>18. keyboard shortcuts</h2>
 		    		<p>Content of section 18</p>
+		    </div>
+		       
+		    <div id="content19" class="hidden">
+		    	<h2>19. MySQL</h2>
+		    		<p>Content of section 19</p>
+		    </div>
+		       
+		    <div id="content20" class="hidden">
+		    	<h2>20. Report an error in the tutorial</h2>
+			    	<form name="input" action="https://formspree.io/mgcgithub@gmail.com" target="_blank" method="POST">
+						First name: <input type="text" id="fname" name="fname" placeholder="Your name"><br>
+						Email: <input type="email" id="male" name="_replyto" placeholder="Your email"><br><br>
+						<input type="submit" value="Submit">
+						<input type="hidden" name="_subject" value="Enter your email here" />
+						<input type="hidden" name="_next" value="thanks.html" />
+					</form> 
+					
+					<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
 		    </div>
 		  </article>
 		</section>
 		
 		<footer>
 			<p>
-				Last update: May 22 / 2020<br>
+				Last update: June 9 / 2020<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
