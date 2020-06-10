@@ -37,6 +37,18 @@
 				  	}
 				}
 			}
+			
+			function showOther(){
+				var e = document.getElementById("etype");
+				var num = e.options[e.selectedIndex].value;
+				var x = document.getElementById("other").style;
+				if (num==5){
+					x.display="block";
+				}
+				else{
+					x.display="none";
+				}
+			}
 		</script>
 	
 		<style type="text/css">
@@ -4505,6 +4517,22 @@
 								<option value="4">6.4. Condition-testing to compare arrays</option>
 								<option value="5">6.5. Combining different expressions for condition-testing</option>
 							</select><br><br>
+						</div>
+						
+						<div onclick="showOther()" id="errtype">
+							Error type:<br>
+							<select id="etype" name="etype">
+								<option value="0">Select error type</option>
+								<option value="1">An error in a bash command</option>
+								<option value="2">An error in the html code</option>
+								<option value="3">Something in this section is not true</option>
+								<option value="4">A spelling or grammatical error</option>
+								<option value="5">Other</option>
+							</select><br><br>
+						</div>
+						
+						<div id="other" class="hidden">
+							Please specify: <input type="text" id="othererror" name="othererror"><br><br>
 						</div>
 						
 						<input type="submit" value="Submit">
