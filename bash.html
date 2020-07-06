@@ -9,174 +9,9 @@
 		<meta name="keywords" content="bash, tutorial">
 		<meta name="author" content="Monica Keith">	
 		
-		<script language="javascript">
-			function showContent(num){
-				var i;
-				for (i=1; i<=20; i++) {
-					var x = document.getElementById("content".concat(i)).style;
-					if (i==num){
-						x.display="block";
-				  	}
-					else{
-						x.display="none";
-				  	}
-				}
-			}
-			
-			function showErrSec(){
-				var e = document.getElementById("chaperror");
-				var num = e.options[e.selectedIndex].value;
-				var i;
-				for (i=1; i<=6; i++) {
-					var x = document.getElementById("secerror".concat(i)).style;
-					if (i==num){
-						x.display="block";
-				  	}
-					else{
-						x.display="none";
-				  	}
-				}
-			}
-			
-			function showOther(){
-				var e = document.getElementById("etype");
-				var num = e.options[e.selectedIndex].value;
-				var x = document.getElementById("other").style;
-				if (num==5){
-					x.display="block";
-				}
-				else{
-					x.display="none";
-				}
-			}
-		</script>
-		
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="functions.js"></script>
 		<noscript>Sorry, your browser does not support JavaScript. This page needs to have JavaScript enabled.</noscript>
-	
-		<style type="text/css">
-			* {
-			  box-sizing: border-box;
-			}
-			
-			body {
-			  font-family: Helvetica, sans-serif, Arial;
-			  font-size: 14px;
-			}
-			
-			/* Style the header */
-			header {
-			  background-color: #666;
-			  padding: 5px;
-			  text-align: center;
-			  font-size: 35px;
-			  color: white;
-			}
-			
-			/* Create two columns/boxes that floats next to each other */
-			nav {
-			  float: left;
-			  width: 30%;
-			}
-
-			nav a {
-			  background-color: #eee;
-			  color: black;
-			  display: block;
-			  padding: 12px;
-			  text-decoration: none;
-			}
-
-			nav a:hover {
-			  background-color: #ccc;
-			}
-			
-			/* Style the list inside the menu */
-			nav ul {
-			  list-style-type: none;
-			  padding: 0;
-			}
-			
-			article {
-			  float: left;
-			  padding: 20px;
-			  width: 70%;
-			}
-			
-			/* Clear floats after the columns */
-			section:after {
-			  content: "";
-			  display: table;
-			  clear: both;
-			}
-			
-			/* Style the footer */
-			footer {
-			  background-color: #777;
-			  padding: 5px;
-			  text-align: center;
-			  color: white;
-			}
-			
-			/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-			@media (max-width: 600px) {
-			  nav, article {
-			    width: 100%;
-			    height: auto;
-			  }
-			}
-			
-			div.hidden {
-				display: none;
-			}
-			
-			.bashcommand {
-				font-family: Courier;
-				font-size: 10px;
-			}
-			
-			.bashcommand-result {
-				color: #808080;
-			}
-			
-			.example{
-				text-decoration: underline;
-				display: block;
-			}
-			
-			.example:before{
-				content: "Example: ";
-			}
-			
-			table {
-				border-collapse: collapse;
-				font-size: 12px;
-			}
-			
-			caption {
-				padding: 5px;
-				caption-side: bottom;
-			}
-			
-			td, th {
-				border: 1px solid #dddddd;
-				text-align: left;
-				vertical-align: top;
-				padding: 5px;
-			}
-			
-			tr:nth-child(even){
-				background-color: #dddddd;
-			}
-			
-			tr:nth-child(1){
-				background-color: #b1b1b1;
-			}
-			
-			.ghostTable td{
-				border: 0px;
-				background-color: #ffffff;
-			}
-		</style>
 	</head>
 	
 	<body>
@@ -187,7 +22,7 @@
 		<section>
 		  <nav>
 		    <ul>
-		     	 <li><a onclick="showContent(1);">1. Introduction to shell scripting</a></li>
+		     	<li><a onclick="showContent(1);">1. Introduction to shell scripting</a></li>
 		      	<li><a onclick="showContent(2);">2. Creating simple bash scripts</a></li>
 		      	<li><a onclick="showContent(3);">3. Variables</a></li>
 		      	<li><a onclick="showContent(4);">4. Arithmetic calculations</a></li>
@@ -4980,9 +4815,7 @@
 							&gt; CONTROLS[${i}]=${SUBJECTS[$((i++))]} <br>
 							&gt; done <br>
 							$ echo ${CONTROLS[@]} <br>
-							<font class="bashcommand-result">
-							C01 C02 C03 C04 C05 C06 
-							</font>
+							<font class="bashcommand-result">C01 C02 C03 C04 C05 C06</font>
 						</font>
 					</p>
 			</div>
@@ -5257,7 +5090,7 @@
 		
 		<footer>
 			<p>
-				Last update: June 29 / 2020<br>
+				Last update: July 06 / 2020<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>

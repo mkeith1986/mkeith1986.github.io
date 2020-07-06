@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<title>Neuroimaging Software</title>
+	
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Installation of neuroimaging software">
+		<meta name="keywords" content="neuroimaging, software, FSL, DSI Studio, Linux">
+		<meta name="author" content="Monica Keith">	
+		
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="functions.js"></script>
+		<noscript>Sorry, your browser does not support JavaScript. This page needs to have JavaScript enabled.</noscript>
+	</head>
+	
+	<body>
+		<header>
+		  <h2>Installation of NeuroImaging Tools</h2>
+		</header>
+		
+		<section>
+			<nav>
+				<ul>
+					<li><a onclick="showContent(1);">1. FSL 6.0.3 (Linux 18.04)</a></li>
+					<li><a onclick="showContent(2);">2. DSI Studio (Linux 18.04)</a></li>
+				</ul>
+			</nav>
+			
+			<article>
+				<div id="content1">
+			    	<h2>1. FSL 6.0.3 (Ubuntu 18.04)</h2>
+			    	
+			    	<h3>1.1. Check your Python installation</h3>
+			    	<p>
+			    		Make sure that you have Python 2 installed. To do that, type:<br>
+			    		<font class="bashcommand">$ python --version</font><br>
+			    		If you have Python 2 installed, you should see something like this (the exact version will vary but should start with 2):<br>
+			    		<font class="bashcommand-result">Python 2.7.17</font><br>
+			    		If Python 2 is <b>not</b> installed, you should see something like this:<br>
+			    		<font class="bashcommand-result">-bash: python: command not found</font><br>
+			    		And you can install it with the following command:<br>
+			    		<font class="bashcommand">$ sudo apt install python</font>
+			    	</p>
+			    	
+			    	<h3>1.2. Register the new license</h3>
+			    	<p>Register at <a href="https://fsl.fmrib.ox.ac.uk/fsldownloads_registration" target="_blank">fsldownloads_registration</a>. Read and agree to the software license, fill the form and select Linux - Ubuntu 18 bionic as operating system, then click Register.</p>
+			    
+			    	<h3>1.3. Install the software</h3>
+			    	<ul>
+			    		<li>Click on <a href="https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py" target="_blank">Download FSL 6.0.3</a> to download the installer (fslinstaller.py)</li>
+			    		<li>Open your Terminal application:
+			    			<ul>
+			    				<li>Click on the nine dots in the left bottom of the screen. It will show a menu with all the installed applications.</li>
+			    				<li>Scroll down until you see an application called Terminal and click on it. The Terminal will open.</li>
+			    				<li>Navigate to the folder where you downloaded the FSL installer. For example, if the file was downloaded in the Downloads directory, type <font class="bashcommand">$ cd ~/Downloads/</font></li>
+			    			</ul>
+			    		</li>
+			    		<li>If you have administrative privileges:
+			    			<ul>
+			    				<li>If Python 2 is your default version, Type: <font class="bashcommand">$ python fslinstaller.py</font></li>
+			    				<li>If Python 3 is your default version, Type: <font class="bashcommand">$ python2 fslinstaller.py</font></li>
+			    				<li>Select /usr/local/fsl as the download location</li>
+			    			</ul>
+			    		</li>	
+			    		<li>Provide your password when prompted</li>
+			    		<li>Log out and back in to complete the setup</li>
+			    	</ul>
+			    	
+			    	<h3>Check the installation</h3>
+			    	<ul>
+			    		<li>Start a new Terminal session</li>
+			    		<li>Check that your environment is correct by typing: c$ echo $FSLDIR</font>. It should show the location you selected during installation.</li>
+			    		<li>Check that your path is correct by typing: <font class="bashcommand">$ flirt -version</font>. The output should be: <font class="bashcommand-result">FLIRT version 6.0</font></li>
+			    	</ul>
+			    </div>
+			    
+				<div id="content2" class="hidden">
+			    	<h2>2. DSI Studio (Ubuntu 18.04)</h2>
+			    	
+			    	<h3>2.1. Update all your current packages</h3>
+			    	<ul>
+			    		<li>Open your Terminal application:
+			    			<ul>
+			    				<li>Click on the nine dots in the left bottom of the screen. It will show a menu with all the installed applications.</li>
+			    				<li>Scroll down until you see an application called Terminal and click on it. The Terminal will open.</li>
+			    				<li>Navigate to the folder where you downloaded the FSL installer. For example, if the file was downloaded in the Downloads directory, type <font class="bashcommand">$ cd ~/Downloads/</font></li>
+			    			</ul>
+			    		</li>
+			    		<li>Type <font class="bashcommand">$ sudo apt-get upgrade</font></li>
+			    		<li>Type <font class="bashcommand">Y</font> when prompted for confirmation</li>
+			    	</ul>
+			    	
+			    	<h3>2.2. Install all the dependency packages</h3>
+			    	<p>You could install all of the packages below in a single command but I prefer to install them separately in case one of them has a dependency that is not installed in my computer. To install all at the same time, list all the packages name separated by a space after the word <font class="bashcommand">install</font>. Either way, install first g++-5 and gcc-5 before installing the others.</p>
+			    	<font class="bashcommand">
+				    	<ul>
+				    		<li>$ sudo apt install g++-5</li>
+				    		<li>$ sudo apt install gcc-5</li>
+				    		<li>$ sudo apt install git</li>
+				    		<li>$ sudo apt install libboost-all-dev</li>
+				    		<li>$ sudo apt install zlib1g</li>
+				    		<li>$ sudo apt install zlib1g-dev</li>
+				    	</ul>
+			    	</font>
+			    	
+			    	<h3>2.3. Download and install Qt 5.12.8</h3>
+			    	<ul>
+			    		<li>Download the <a href="http://download.qt.io/archive/qt/5.12/5.12.8/qt-opensource-linux-x64-5.12.8.run" target="_blank">installer</a></li>
+			    		<li>Navigate to the folder where you downloaded the installer (i.e. <font class="bashcommand">$ cd ~/Downloads/</font>)</li>
+			    		<li>Change the permissions of the installation file so it can be executed: <font class="bashcommand">$ chmod 775 qt-opensource-linux-x64-5.12.8.run</font></li>
+			    		<li>Execute the installer: <font class="bashcommand">$ ./qt-opensource-linux-x64-5.12.8.run</font></li>
+			    		<li>If you get a waring about the Qt account settings file missing, it's ok, it will be created once you log in or create an account. Check that the file was actually created after the installation (If you get the warning, it will show the expected path of the file).</li>
+			    		<li>Login to your Qt Account or sign up for one when prompted, and accept the service terms</li>
+			    		<li>Check your email and verify your Qt account before clicking Next</li>
+			    		<li>Follow the instructions of the installer. When prompted to select the components, select all of them</li>
+			    		<li>Write down the folder where Qr5.12.8 was installed (the information will be provided to you during installation) because you will need to remember it in the next section</li>
+			    		<li>You can close the Qt application if it launches</li>
+			    	</ul>
+			    	
+			    	<h3>2.4. Download the DSI Studio installer</h3>
+			    	<ul>
+			    		<li>Create a working directory where the installation files will be saved. For example, in your home directory (i.e. <font class="bashcommand">$ mkdir /home/myuser/dsistudio</font>)</li>
+			    		<li>Navigate to the directory that you just created (i.e. <font class="bashcommand">$ cd /home/myuser/dsistudio</font>)</li>
+			    		<li>Download the source code of DSI Studio from Github: <font class="bashcommand">$ git clone -b master git://github.com/frankyeh/DSI-Studio.git src</font></li>
+			    		<li>A folder called src should now appear in your current directory (to check type <font class="bashcommand">$ ls</font>)</li>
+			    		<li>Create the following subdirectory inside the src folder: <font class="bashcommand">$ mkdir src/tipl</font></li>
+			    		<li>Download frankyeh-TIPL zip folder: <font class="bashcommand">$ xdg-open https://github.com/frankyeh/TIPL/zipball/master</font></li>
+			    		<li>Move the downloaded zip file to the tipl folder we just created if downloaded elsewhere</li>
+			    		<li>Navigate to that directory: <font class="bashcommand">$ cd src/tipl</font></li>
+			    		<li>Unzip the zip file: (i.e.<font class="bashcommand">$ unzip frankyeh-TIPL-2020_07-0-g8eb8d76.zip</font>) The actual file name will vary depending on when/what version you download.</li>
+			    		<li>Move all the contents of the unzipped folder to the current directory (src/tipl): (i.e. <font class="bashcommand">$ mv frankyeh-TIPL-8eb8d76/* .</font>)</li>
+			    		<li>Remove the zip and unzipped (which now should be empty) files: (i.e. <font class="bashcommand">rm -r frankyeh-TIPL-2020_07-0-g8eb8d76.zip frankyeh-TIPL-8eb8d76</font>)</li>
+			    	</ul>
+			    	
+			    	<h3>2.5. Compile</h3>
+			    	<ul>
+			    		<li>Go back to your DSI studio folder (i.e. <font class="bashcommand">$ cd /home/myuser/dsistudio</font>)</li>
+			    		<li>Create a directory to build and compile: <font class="bashcommand">$ mkdir build</font></li>
+			    		<li>Navigate to that directory: <font class="bashcommand">$ cd build</font></li>
+			    		<li>Execute qmake, which is installed in the Qt5.12.5 directory (and I wrote above to remember its path). i.e. if my installation folder for Qt5 is /home/myuser/Qt5.12.8, then this is the command I will run to execute qmake: <font class="bashcommand">$ /home/myuser/Qt5.12.8/5.12.8/gcc_64/bin/qmake ../src</font></li>
+			    		<li>You should see something like this: <font class="bashcommand-result">Info: creating stash file /home/myuser/dsistudio/build/.qmake.stash</font></li>
+			    		<li>Compile: <font class="bashcommand">$ make</font></li>
+			    		<li>Wait until it finishes compiling. This could take several few minutes. If everything goes well, you should find dsi_studio under build directory (Which should be the current directory). To check type <font class="bashcommand">ls dsi_studio</font>. You should get: <font class="bashcommand-result">dsi-studio</font>. If there was an error in the installation, you will get something like this: <font class="bashcommand-result">ls: cannot access 'dsi_studio': No such file or directory</font>. If this happens, do <b>not</b> continue with the installation, check the previous steps. Did you get any error running a previous step? Did you get a message of some package or dependency that needs to be installed? Any error should be fixed right away or the installation wont be completed successfully.</li>
+			    		<li>Remove unnecessary files: <font class="bashcommand">$ make clean</font></li>
+			    	</ul>
+			    	
+			    	<h3>2.6. Download the atlas files from the Windows installer</h3>
+			    	<ul>
+			    		<li>Go back to the dsistudio directory: <font class="bashcommand">$ cd ..</font></li>
+			    		<li>Download the Windows installer from one of the following locations:
+			    			<ul>
+			    				<li><a href="https://drive.google.com/open?id=0ByehavN7OmC7MlVHVTgyVFBNQmc" target="_blank">DSI Studio Google Drive folder</a></li>
+			    				<li><a href="https://www.dropbox.com/s/oofozwq3toyh2m4/dsi_studio_64.zip?dl=0" target="_blank">DSI Studio Dropbox folder</a></li>
+			    				<li><a href="https://pitt.box.com/v/dsi-studio-win" target="_blank">DSI Studio Box folder</a></li>
+			    				<li><a href="https://1drv.ms/u/s!Ap9BQsu66jeblKEayFJqQRB7WL0OEw?e=Z0A7sX" target="_blank">DSI Studio One Drive folder</a></li>
+			    			</ul>
+			    		</li>
+			    		<li>Move into the current directory (dsistudio) if downloaded elsewhere</li>
+			    		<li>Unzip the file: <font class="bashcommand">$ unzip dsi_studio_64.zip</font></li>
+			    		<li><font class="bashcommand">$ cd dsi_studio_64</font></li>
+			    		<li>Remove unnecessary files (that are for Windows):
+			    			<font class="bashcommand">
+			    			<ul>
+			    				<li>find . -name '*.dll' -exec rm {} \;</li>
+			    				<li>rmdir iconengines imageformats platforms styles</li>
+			    				<li>rm dsi_studio.exe vc_redist.x64.exe</li>
+			    				<li>rm ../dsi_studio_64.zip</li>
+			    			</ul>
+			    			</font>
+			    		</li>
+			    		<li>Move the DSI Studio executable into the current directory: <font class="bashcommand">$ cp ../build/dsi_studio .</font></li>
+			    	</ul>
+			    	
+			    	<h3>2.7. Check the installation</h3>
+			    	<ul>
+			    		<li>Cross your fingers and hope for the best</li>
+			    		<li>Try to run DSI Studio from the terminal: <font class="bashcommand">$ ./dsi_studio</font></li>
+			    		<li>If the installation finished successfully, the application should open</li>
+			    	</ul>
+			    </div>
+			</article>
+		</section>
+		
+		<footer>
+			<p>
+				Last update: July 06 / 2020<br>
+				All of the content of this tutorial was copied from different parts of each software web page or from external blogs, and organized into one single tutorial<br>
+				The DSI Studio installation was copied and re-formated from this blog, which is referenced in the DSI Studio page: <a href="http://www.nemotos.net/?p=1878" target="_blank">K-Lab</a><br>
+				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
+			</p>
+		</footer>
+	</body>
+</html>
