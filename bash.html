@@ -4903,7 +4903,175 @@
 					
 					<p>Again, the backslash is indicating us to treat the special character (<font class="bashcommand">$</font>) as part of the file name and not as the beginning of a variable name (which is the normal use of <font class="bashcommand">$</font> in bash). If we don't use the backslash before the dollar sign, bash will try to find a variable called folder (<font class="bashcommand">$folder</font> normally refers to the value of folder as a variable, not a string). If that variable doesn't exist, then bash will read <font class="bashcommand">/Users/user_name/Desktop/untitled$folder</font> as <font class="bashcommand">/Users/user_name/Desktop/untitled</font>, replacing <font class="bashcommand">$folder</font> for an empty space.</p>
 					
+					<p>In the following sections you will learn how the absolute and relative paths are used to manipulate files in <b>MacOS and Linux</b>.</p>
+					
+					<h4>pwd command</h4>
+					<p>Prints the absolute path of the current working directory. </p>
+					
+					<h4>ls command</h4>
+					<p>Lists the files and folders inside the specified directory. If no directory is specified after <font class="bashcommand">ls</font>, then it prints the contents of the current folder. If no flag is used, it lists the files in bare format (without any details such as modified date and time or permissions). Depending which flag is used (or a combination of flags), then specific information about the file will be displayed. The following table is taken from manual of the ls command as displayed in the command line.</p>
 
+					<table>
+						<tr>
+							<th>Flag</th>
+							<th>Usage</th>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-1</font></td>
+							<td>Force output to be one entry per line.  This is the default when output is not to a terminal.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-A</font></td>
+							<td>List all entries except for (<font class="bashcommand">.</font>) and (<font class="bashcommand">..</font>). Always set for the super-user.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-a</font></td>
+							<td>Include directory entries whose names begin with a dot (<font class="bashcommand">.</font>). Typically, these are configuration files for applications.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-B</font></td>
+							<td>Force printing of non-printable characters in file names as \xxx, where xxx is the numeric value of the character in octal.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-b</font></td>
+							<td>As <font class="bashcommand">-B</font>, but use C escape codes whenever possible.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-C</font></td>
+							<td>Force multi-column output; this is the default when output is to a terminal.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-c</font></td>
+							<td>Directories are listed as plain files (not searched recursively).</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-F</font></td>
+							<td>Display a slash (<font class="bashcommand">/</font>) immediately after each pathname that is a directory, an asterisk (<font class="bashcommand">*</font>) after each that is executable, an at sign (<font class="bashcommand">@</font>) after each symbolic link, an equal sign (<font class="bashcommand">=</font>) after each socket, a percent sign (<font class="bashcommand">%</font>) after each whiteout, and a vertical bar (<font class="bashcommand">|</font>) after each that is a FIFO.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-f</font></td>
+							<td>Output is not sorted. This option turns on the <font class="bashcommand">-a</font> option.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-G</font></td>
+							<td>Enable colorized output.  This option is equivalent to defining <font class="bashcommand">CLICOLOR</font> in the environment.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-H</font></td>
+							<td>Symbolic links on the command line are followed. This option is assumed if none of the <font class="bashcommand">-F</font> or <font class="bashcommand">-l</font> options are specified.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-i</font></td>
+							<td>For each file, print the files file serial number (inode number). Each object in the file system is represented by an inode.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-k</font></td>
+							<td>If the <font class="bashcommand">-s</font> option is specified, print the file size allocation in kilobytes, not blocks. This option overrides the environment variable <font class="bashcommand">BLOCKSIZE</font>.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-L</font></td>
+							<td>Follow all symbolic links to final target and list the file or directory the link references rather than the link itself. This option cancels the <font class="bashcommand">-P</font> option.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-l</font></td>
+							<td>List in long format.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-l@</font></td>
+							<td>Display extended attribute keys and sizes in long output.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-le</font></td>
+							<td>Print the Access Control List (ACL) associated with the file, if present, in long output.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-lg</font></td>
+							<td>This option is only available for compatibility with POSIX; it is used to display the group name in the long format output (the owner name is suppressed).</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-lh</font></td>
+							<td>Use unit suffixes when displaying the information in long output: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte, in order to reduce the number of digits to three or less using base 2 for sizes.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-ln</font></td>
+							<td>Display user and group IDs numerically, rather than converting to a user or group name in a long output.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-lO</font></td>
+							<td>Include the file flags in a long output.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-lT</font></td>
+							<td>Display complete time information for the file, including month, day, hour, minute, second, and year.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-m</font></td>
+							<td>Stream output format; list files across the page, separated by commas.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-o</font></td>
+							<td>List in long format, but omit the group id.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-P</font></td>
+							<td>If argument is a symbolic link, list the link itself rather than the object the link references. This option cancels the <font class="bashcommand">-H</font> and <font class="bashcommand">-L</font> options.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-p</font></td>
+							<td>Write a slash (<font class="bashcommand">/</font>) after each filename if that file is a directory.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-q</font></td>
+							<td>Force printing of non-graphic characters in file names as the interrogation character (<font class="bashcommand">?</font>); this is the default when output is to a terminal.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-R</font></td>
+							<td>Recursively list subdirectories encountered.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-r</font></td>
+							<td>Reverse the order of the sort to get reverse lexicographical order, or the oldest entries first (or largest files last, if combined with sort by size).</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-S</font></td>
+							<td>Sort files by size.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-s</font></td>
+							<td>Display the number of file system blocks actually used by each file, in units of 512 bytes, where partial units are rounded up to the next integer value.  If the output is to a terminal, a total sum for all the file sizes is output on a line before the listing. The environment variable <font class="bashcommand">BLOCKSIZE</font> overrides the unit size of 512 bytes.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-t</font></td>
+							<td>Sort by time modified (most recently modified first) before sorting the operands by lexicographical order.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-u</font></td>
+							<td>Use time of last access, instead of last modification of the file for sorting (<font class="bashcommand">-t</font>) or long printing (0<font class="bashcommand">-l</font>)</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-U</font></td>
+							<td>Use time of file creation, instead of last modification for sorting (<font class="bashcommand">-t</font>) or long output (<font class="bashcommand">-l</font>).</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-v</font></td>
+							<td>Force unedited printing of non-graphic characters; this is the default when output is not to a terminal.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-W</font></td>
+							<td>Display whiteouts when scanning directories.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-w</font></td>
+							<td>Force raw printing of non-printable characters. This is the default when output is not to a terminal.</td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand">-x</font></td>
+							<td>The same as <font class="bashcommand">-C</font>, except that the multi-column output is produced with entries sorted across, rather than down the columns.</td>
+						</tr>
+					</table>
+					
+					<p>The following examples show the usage of the flags presented in the previous table and details on the results that can be obtained when using the command ls together with those flags.</p>
+					
 		    	<h3>8.2. Listing files using patterns</h3>
 		    		<p>Content of section 8.2</p>
 		    		
@@ -5090,7 +5258,7 @@
 		
 		<footer>
 			<p>
-				Last update: July 06 / 2020<br>
+				Last update: August 12 / 2020<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
