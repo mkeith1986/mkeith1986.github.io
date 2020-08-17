@@ -5072,9 +5072,125 @@
 					
 					<p>The following examples show the usage of the flags presented in the previous table and details on the results that can be obtained when using the command ls together with those flags.</p>
 					
+			    		<p><font class="example">ls with no flags</font></p>
+			    
+			    		<p>Show the list of files in the current working directory:</p>
+			    		<p><font class="bashcommand">
+						$ ls<br>
+						<font class="bashcommand-result">
+						Applicationshome<br>
+						Libraryinstaller.failurerequests<br>
+						Networknet<br>
+						Subjectsopt<br>
+						Usersprivate<br>
+						Volumessbin<br>
+						binmp<br>
+						coresusr<br>
+						devvar<br>
+						etc 
+						</font>
+					</font></p>
+			    
+			    		<p><font class="example">Show the list of files in a different directory using the absolute path of that directory</font></p>
+			    
+			    		<p><font class="bashcommand">
+						$ ls /Volumes/MyExternalDrive<br>
+						<font class="bashcommand-result">
+						ArticlesMRIdata SharedFolder 
+						</font>
+			    		</font></p>
+			    
+			    		<p><font class="example">Show the list of files in a subfolder (Applications) using the relative path</font></p>
+			    
+			    		<p><font class="bashcommand">
+						$ ls Applications/<br>
+						<font class="bashcommand-result">
+						Calculator.app<br>
+						Calendar.app<br>
+						Chess.app<br>
+						Dashboard.app<br> 
+						Dictionary.app<br>
+						EndNote X7<br>
+						EndNote X8<br>
+						FaceTime.app<br>
+						Firefox.app<br>
+						IBM<br>
+						Image Capture.app<br>
+						Launchpad.app<br>
+						MATLAB_R2014b.app 
+						</font>
+					</font></p>
+			    
+			    		<p><font class="example">ls -l</font></p>
+			    
+			    		<p>When using the flag -l, bash will not only show the list of files but also a description for each file. The output will be organized in columns, each one with a specific meaning. Most of these meanings will be discussed later as they are part of more advanced topics related to file manipulation.</p>
+			    
+			    		<p><font class="bashcommand">
+						$ ls -l /Volumes/MyExternalDrive 
+						<font class="bashcommand-result">
+						Total 0 
+			    			<table class="ghostTable">
+							<tr>
+								<td>drwxr-xr-x</td>
+								<td>22</td>
+								<td>myUser</td>
+								<td>UserGroup</td>
+								<td>714</td>
+								<td>Sep 4</td>
+								<td>11:40</td>
+								<td>Articles</td>
+							</tr>
+							
+							<tr>
+								<td>-rw-r--r--@</td>
+								<td>1</td>
+								<td>myUse</td>
+								<td>UserGroup</td>
+								<td>51620</td>
+								<td>Jan 14</td>
+								<td>2017</td>
+								<td>CV.docx</td>
+							</tr>
+							
+							<tr>
+								<td>-rw-r--r--</td>
+								<td>1</td>
+								<td>myUser</td>
+								<td>UserGroup</td>
+								<td>137195</td>
+								<td>Jan 14</td>
+								<td>2017</td>
+								<td>CV.pdf</td>
+							</tr>
+							
+							<tr>
+								<td>drwxr-xr-x</td>
+								<td>28</td>
+								<td>myUser</td>
+								<td>UserGroup</td>
+								<td>952</td>
+								<td>Sep 10</td>
+								<td>09:04</td>
+								<td>MRIdata</td>
+							</tr>
+							
+							<tr>
+								<td>drwxrwxrwx</td>
+								<td>5</td>
+								<td>myUser</td>
+								<td>UserGroup</td>
+								<td>170</td>
+								<td>Sep 4</td>
+								<td>11:15</td>
+								<td>SharedFolder</td>
+							</tr>
+			    			</table>
+						</font>
+					</font></p>
+			    
 		    	<h3>8.2. Listing files using patterns</h3>
 		    		<p>Content of section 8.2</p>
-		    		
+			    
 		    	<h3>8.3. Frequently used commands for file manipulation</h3>
 		    		<p>Content of section 8.3</p>
 		    		
