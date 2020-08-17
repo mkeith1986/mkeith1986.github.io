@@ -5188,6 +5188,110 @@
 						</font>
 					</font></p>
 			    
+			    		<table>
+						<tr>
+							<th>Column #</th>
+							<th>Column name</th>
+							<th>Meaning</th>
+						</tr>
+						
+						<tr>
+							<td>1</td>
+							<td>File type + permissions</td>
+							<td>See below for the explanation of the output presented in this column (file type and permissions from the <font class="bashcommand">ls -l</font> command).<td>
+						</tr>
+						
+						<tr>
+							<td>2</td>
+							<td>Link count</td>
+							<td>The meaning of the output presented in this column will be discussed in the section "Symbolic links" of "File manipulation".<td>
+						</tr>
+						
+						<tr>
+							<td>3</td>
+							<td>Owner name</td>
+							<td>The meaning of the output presented in this column will be discussed in the chapter "File permissions". If the owner is unknown, the number ID is displayed.<td>
+						</tr>
+						
+						<tr>
+							<td>4</td>
+							<td>Group name</td>
+							<td>The meaning of the output presented in this column will be discussed in the chapter "File permissions". If the owner is unknown, the number ID is displayed.<td>
+						</tr>
+						
+						<tr>
+							<td>5</td>
+							<td>File Size</td>
+							<td>Number of bytes in the file. See the flag <font class="bashcommand">-lh</font> to output the size of the file in human-readable format. <td>
+						</tr>
+						
+						<tr>
+							<td>6</td>
+							<td>Last modified date</td>
+							<td>Abbreviated month and day-of-month when the file was last modified.<td>
+						</tr>
+						
+						<tr>
+							<td>7</td>
+							<td>Last modified time</td>
+							<td>Abbreviated hour and minute when the file was last modified in military format (24 hours). If the file was last modified more than six months before, then the year of the last modification is displayed instead of the hour and minute.<td>
+						</tr>
+						
+						<tr>
+							<td>8</td>
+							<td>File name</td>
+							<td>Name of the file with its extension.<td>
+						</tr>
+			    		</table>
+			    
+			    		<p>File type and permissions from the ls -l command: </p>
+			    
+			    		<p>The first character of the first column, where the file type and permissions are specified, describes the type of file. It is one of the following characters:</p>
+			    
+			    		<table>
+						<tr>
+							<th>Character</th>
+							<th>File type</th>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">b</font></td>
+							<td>Block special file: provide access to hardware devices.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">c</font></td>
+							<td>Character special file: provide access to hardware devices.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">d</font></td>
+							<td>Directory.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">l</font></td>
+							<td>Symbolic link: a file that points to another file (a shortcut). It does not contain the data in the target file; it simply contains a pointer somewhere in the file system.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">s</font></td>
+							<td>Socket link: file used for communication between processes.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">p</font></td>
+							<td>FIFO: special file that can be opened by various processes for exchanging data.</td>
+						</tr>
+						
+						<tr>
+							<td><font class="bashcommand">-</font></td>
+							<td>Regular file.</td>
+						</tr>
+			    		</table>
+			    
+			    		<p>The next three characters show the owner permissions (the things that the user listed as the owner can do):</p>
+			    
 		    	<h3>8.2. Listing files using patterns</h3>
 		    		<p>Content of section 8.2</p>
 			    
