@@ -5290,7 +5290,42 @@
 						</tr>
 			    		</table>
 			    
-			    		<p>The next three characters show the owner permissions (the things that the user listed as the owner can do):</p>
+			    		<p>
+						The next three characters show the owner permissions (the things that the user listed as the owner can do):<br>
+						2<sup>nd</sup> character: will have value <font class="bashcommand">r</font> if the owner can read the file, <font class="bashcommand">-</font> otherwise.<br>
+						3<sup>rd</sup> character: will have value <font class="bashcommand">w</font> if the file can be written by the owner, <font class="bashcommand">-</font> otherwise.<br>
+						4<sup>th</sup> character: will have value <font class="bashcommand">-</font> if the file is not executable by the owner. It will have value <font class="bashcommand">x</font>, <font class="bashcommand">s</font> or <font class="bashcommand">S</font> if it is executable by the owner or if that user can search the directory. 
+			    		</p>
+			    
+			    		<p>
+						The following three characters show the group permissions:<br>
+						5<sup>th</sup> character: will have value <font class="bashcommand">r</font> if the users that are part of the group listed in the group name column can read the file, <font class="bashcommand">-</font> otherwise.<br>
+						6<sup>th</sup> character: will have value <font class="bashcommand">w</font> if the users that are part of the group listed in the group name column can write the file, <font class="bashcommand">-</font> otherwise.<br>
+						7<sup>th</sup> character: will have value <font class="bashcommand">-</font> if the file is not executable by the users that are part of the group listed in the group name column can write the file. It will have value <font class="bashcommand">x</font>, <font class="bashcommand">s</font> or <font class="bashcommand">S</font> if it is executable by these users of if they can search the directory. 
+			    		</p>
+			    
+			    		<p>The rest of the characters represent other permissions or whether the file has extended attributes or security information. The permissions can be modified for any file, this will be explained in the chapter “File permissions”. Additionally, the total number of 512-byte blocks used by the files in the directory is displayed on a line by itself, immediately before the lines that contain the information of each file in the directory.</p>
+			    
+			    		<p>In the previous example, the first line of the result is, this means that the folder occupies less than one 512-block.</p>
+			    
+			    		<p>The second line is the following:</p>
+					
+			    		<font class="bashcommand-result"> 
+						<table class="ghostTable">
+							<tr>
+								<td>drwxr-xr-x</td>
+								<td>22</td>
+								<td>myUser</td>
+								<td>UserGroup</td>
+								<td>714</td>
+								<td>Sep 4</td>
+								<td>11:40</td>
+								<td>Articles</td>
+							</tr>
+						</table>
+					</font>
+			    
+			    		<p>This means that <font class="bashcommand-result">Articles</font> is a directory, modified the last on September 4 of the current year at 11:40am (if it was pm, the value would be 23:40 instead of 11:40). This folder is owned by the user <font class="bashcommand-result">myUser</font>. This user can read, write and navigate through the folder. The other users can read and navigate the folder but cannot write on it.</p>
 			    
 		    	<h3>8.2. Listing files using patterns</h3>
 		    		<p>Content of section 8.2</p>
@@ -5478,7 +5513,7 @@
 		
 		<footer>
 			<p>
-				Last update: August 12 / 2020<br>
+				Last update: August 20 / 2020<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
