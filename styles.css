@@ -122,11 +122,3 @@ tr:nth-child(1){
 	border: 0px;
 	background-color: #ffffff;
 }
-			
-.ghostTable2 td{
-	border: 0px;
-	background-color: #ffffff;
-	font-family: Courier;
-	font-size: 10px;
-	color: #808080;
-}
