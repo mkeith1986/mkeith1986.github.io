@@ -5390,16 +5390,212 @@
 
 				<p>When using the <font class="bashcommand">-lh</font> flag, the size of the file will be followed by a letter which represents the units:</p>
 
+				<table>
+					<tr>
+						<th>Letter</th>
+						<th>Unit</th>
+						<th>Number of bytes per unit</th>
+					</tr>
+					<tr>
+						<td>B</td>
+						<td>Bytes</td>
+						<td>2<sup>0</sup> bytes</td>
+					</tr>
+					<tr>
+						<td>K</td>
+						<td>Kilobytes</td>
+						<td>2<sup>10</sup> bytes</td>
+					</tr>
+					<tr>
+						<td>M</td>
+						<td>Megabyte</td>
+						<td>2<sup>20</sup> bytes</td>
+					</tr>
+					<tr>
+						<td>G</td>
+						<td>Gigabyte</td>
+						<td>2<sup>30</sup> bytes</td>
+					</tr>
+					<tr>
+						<td>T</td>
+						<td>Terabyte</td>
+						<td>2<sup>40</sup> bytes</td>
+					</tr>
+					<tr>
+						<td>P</td>
+						<td>Petabyte</td>
+						<td>2<sup>50</sup> bytes</td>
+					</tr>
+				</table>
+
+				<p><font class="example">Using more than one flag</font></p>
+
+				<p>Most of the flags can be combined, except for the following group of flags which override each other (either partially or fully). If used together, only the last one specified will be the format used to display the information. Or if possible they will be applied in the order specified.</p>
+
+				<ul>
+					<li><font class="bashcommand">-1</font>, <font class="bashcommand">-C</font>, <font class="bashcommand">-x</font>, and <font class="bashcommand">-l</font></li>
+					<li><font class="bashcommand">-c</font> and <font class="bashcommand">-u</font></li>
+					<li><font class="bashcommand">-B</font>, <font class="bashcommand">-b</font>, <font class="bashcommand">-w</font>, and <font class="bashcommand">-q</font></li>
+					<li><font class="bashcommand">-H</font>, <font class="bashcommand">-L</font> and <font class="bashcommand">-P</font></li>
+				</ul>
+
+				<p>Combine <font class="bashcommand">-lh</font>, <font class="bashcommand">-o</font>, and <font class="bashcommand">-r</font> to print the information in long format, using human readable file sizes (<font class="bashcommand">-lh</font>), omitting the group id (<font class="bashcommand">-o</font>) and in reverse lexicographical order (<font class="bashcommand">-r</font>):</p>
+
+				<p>
+					<font class="bashcommand">$ ls -lhor /Volumes/MyExternalDrive</font><br>
+					<font class="bashcommand bashcommand-result">Total 0</font><br>
+					<table class="ghostTable">
+						<tr>
+							<td><font class="bashcommand bashcommand-result">drwxrwxrwx</font></td>
+							<td><font class="bashcommand bashcommand-result">5</font></td>
+							<td><font class="bashcommand bashcommand-result">myUser</font></td>
+							<td><font class="bashcommand bashcommand-result">170B</font></td>
+							<td><font class="bashcommand bashcommand-result">Sep 4</font></td>
+							<td><font class="bashcommand bashcommand-result">11:15</font></td>
+							<td><font class="bashcommand bashcommand-result">SharedFolder</font></td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand bashcommand-result">drwxr-xr-x</font></td>
+							<td><font class="bashcommand bashcommand-result">28</font></td>
+							<td><font class="bashcommand bashcommand-result">myUser</font></td>
+							<td><font class="bashcommand bashcommand-result">952B</font></td>
+							<td><font class="bashcommand bashcommand-result">Sep 10</font></td>
+							<td><font class="bashcommand bashcommand-result">09:05</font></td>
+							<td><font class="bashcommand bashcommand-result">MRIdata</font></td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand bashcommand-result">-rw-r--r-- </font></td>
+							<td><font class="bashcommand bashcommand-result">1</font></td>
+							<td><font class="bashcommand bashcommand-result">myUser</font></td>
+							<td><font class="bashcommand bashcommand-result">134K</font></td>
+							<td><font class="bashcommand bashcommand-result">Jan14</font></td>
+							<td><font class="bashcommand bashcommand-result">2017</font></td>
+							<td><font class="bashcommand bashcommand-result">CV.pdf</font></td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand bashcommand-result">-rw-r--r--@</font></td>
+							<td><font class="bashcommand bashcommand-result">1</font></td>
+							<td><font class="bashcommand bashcommand-result">myUser</font></td>
+							<td><font class="bashcommand bashcommand-result">50K</font></td>
+							<td><font class="bashcommand bashcommand-result">Jan 14</font></td>
+							<td><font class="bashcommand bashcommand-result">2017</font></td>
+							<td><font class="bashcommand bashcommand-result">CV.docx</font></td>
+						</tr>
+						<tr>
+							<td><font class="bashcommand bashcommand-result">drwxr-xr-x</font></td>
+							<td><font class="bashcommand bashcommand-result">22</font></td>
+							<td><font class="bashcommand bashcommand-result">myUser</font></td>
+							<td><font class="bashcommand bashcommand-result">714B</font></td>
+							<td><font class="bashcommand bashcommand-result">Sep 4</font></td>
+							<td><font class="bashcommand bashcommand-result">11:40</font></td>
+							<td><font class="bashcommand bashcommand-result">Articles</font></td>
+						</tr>
+					</table>
+				</p>
 			<h3>8.2. Listing files using patterns</h3>
-		    		<p>Content of section 8.2</p>
-			    
-		    	<h3>8.3. Frequently used commands for file manipulation</h3>
+		    		<p>You can print information about a group of files based on patterns or characters using wildcards.</p>
+
+				<table>
+					<tr>
+						<th>Wildcard</th>
+						<th>Meaning</th>
+					</tr>
+					<tr>
+						<td><font class="bashcommand">*</font></td>
+						<td>Matches any number of characters</td>
+					</tr>
+					<tr>
+						<td><font class="bashcommand">?</font></td>
+						<td>Matches any single character</td>
+					</tr>
+					<tr>
+						<td>[character_class]</td>
+						<td>
+							Matches any character that is a member of the specified character class.<br><br>
+							
+							Character Classes:<br>
+							<font class="bashcommand">[:alnum:]</font> Alphanumeric characters<br>
+							<font class="bashcommand">[:alpha:]</font> Alphabetic characters<br>
+							<font class="bashcommand">[:digit:]</font> Numerals<br>
+							<font class="bashcommand">[:upper:]</font> Uppercase alphabetic characters<br>
+							<font class="bashcommand">[:lower:]</font> Lowercase alphabetic characters 
+						</td>
+					</tr>
+					<tr>
+						<td>[!character_class]</td>
+						<td>Matches any character that is not a member of the specified character class</td>
+					</tr>
+				</table>
+
+				<table>
+					<tr>
+						<th>Pattern</th>
+						<th>Matches</th>
+					</tr>
+					<tr>
+						<td>AB*</td>
+						<td>List all the filenames that begin with "AB"</td>
+					</tr>
+					<tr>
+						<td>*AB</td>
+						<td>List all the filenames that end with "AB"</td>
+					</tr>
+					<tr>
+						<td>AB*.txt</td>
+						<td>List all the filenames that begin with "AB" and end with ".txt"</td>
+					</tr>
+					<tr>
+						<td>AB???</td>
+						<td>List all the filenames that begin with "AB" followed by exactly three characters</td>
+					</tr>
+					<tr>
+						<td>[aA]*</td>
+						<td>List all the filenames that begin with "a" or "A"</td>
+					</tr>
+					<tr>
+						<td>[aA]?.txt</td>
+						<td>List all the filenames that begin with "a" or "A" followed by one character and ".txt"</td>
+					</tr>
+					<tr>
+						<td>[[:upper:]]*</td>
+						<td>List any filenames that begin with an uppercase letter</td>
+					</tr>
+					<tr>
+						<td>[![:upper:]]*</td>
+						<td>List any filenames that do not begin with an uppercase letter</td>
+					</tr>
+				</table>
+
+				<p>
+					<font class="bashcommand">
+					$ ls /Volumes/MyDrive/MyFolder/Articles/p*<br>
+					<font class="bashcommand-result">
+					/Volumes/MyDrive/MyFolder/Articles/patel and shen.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/perez 2013.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/pnas-0502843102.pdf<br> 
+					/Volumes/MyDrive/MyFolder/Articles/pnas.201604898.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/pnas01522-0696.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/poldrack ROI analysis.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/pone.0088419.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/pone.0113807.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/pq004724.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/pq008939.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/precuneus.pdf<br>
+					/Volumes/MyDrive/MyFolder/Articles/prefrontalCortex.pdf 
+					</font>
+					</font>
+				</p>
+			
+			<h3>8.3. Changing the working directory</h3>
+				<p>Content of cd command</p>
+
+		    	<h3>8.4. Frequently used commands for file manipulation</h3>
 		    		<p>Content of section 8.3</p>
 		    		
-		    	<h3>8.4. Writing files</h3>
+		    	<h3>8.5. Writing files</h3>
 		    		<p>Content of 8.4</p>
 		    		
-		    	<h3>8.5. Reading files</h3>
+		    	<h3>8.6. Reading files</h3>
 		    		<p>Content of 8.5</p>
 		    </div>
 		       
@@ -5576,7 +5772,7 @@
 		
 		<footer>
 			<p>
-				Last update: August 21 / 2020<br>
+				Last update: August 24 / 2020<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
