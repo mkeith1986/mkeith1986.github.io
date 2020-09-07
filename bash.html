@@ -5767,9 +5767,57 @@
 					</font>
 				</p>
 
-		    	<h3>8.4. Frequently used commands for file manipulation</h3>
-		    		<p>Content of section 8.3</p>
+				<p>
+					<font class="example">Jumping to the previous directory</font><br>
+					In this example, the first working directory is <font class="bashcommand">/Volumes/Shared</font>, then I jump to <font class="bashcommand">/Volumes/Shared/Articles</font> using the command <font class="bashcommand">cd</font>. Finally, I go back to the first working directory <font class="bashcommand">/Volumes/Shared</font>) using <font class="bashcommand">cd -</font>. 
+				</p>
+
+				<p>
+					<font class="bashcommand">
+					$ pwd<br>
+					<font class="bashcommand-result">/Volumes/Shared</font><br>
+					$ cd Articles<br>
+					$ pwd<br>
+					<font class="bashcommand-result">/Volumes/Shared/Articles</font><br>
+					$ cd -<br>
+					$ pwd<br>
+					<font class="bashcommand-result">/Volumes/Shared</font>
+					</font>
+				</p>
+
+		    	<h3>8.4. Other frequently used commands for file manipulation</h3>
+				<h2>cp command</h2>
+				Syntax: <font class="bashcommand">cp source target</font>
 		    		
+				<p>
+				<font class="example">Copy the file /Users/MyUser/Desktop/test.txt into folder /Volumes/MyExternalDrive</font>
+				<font class="bashcommand">$ cp /Users/MyUser/Desktop/test.txt /Volumes/MyExternalDrive</font>
+				</p>
+
+				<p>
+				<font class="example">Copy file /Users/MyUser/Desktop/test.txt into folder /Volumes/MyExternalDrive, but save it with a different name in the new directory (i.e. test2.txt instead of test1.txt)</font>
+				<font class="bashcommand">$ cp /Users/MyUser/Desktop/test.txt /Volumes/MyExternalDrive/test2.txt</font>
+				</p>
+
+				<p>
+				As you can observe in the previous two examples, if you specify a folder as a target in the <font class="bashcommand">cp</font> command, then it will copy the file with the same name. If you specify a regular file as a target, then it will rename the file in the destination (not in the source, the source file will stay untouched). The source file need not have the same extension. For example, the following command will copy the file <font class="bashcommand">/Users/MyUser/Desktop/subjectFolder/534534.bvals</font> into the folder <font class="bashcommand">/Volumes/MyExternalDrive</font>, will rename it and delete the extension (now it has no extension).<br>
+				<font class="bashcommand">$ cp /Users/MyUser/Desktop/subjectFolder/534534.bvals /Volumes/MyExternalDrive/bvals</font>
+				</p>
+
+				<p>
+				Caution! If a file with the same name exists in the source, it will be re-written and this action cannot be undone. For example, if you run the following command:<br>
+				<font class="bashcommand">$ cp /Users/MyUser/Desktop/test.txt /Volumes/MyExternalDrive/test2.txt</font>
+				</p>
+
+				<p>And a file with the same source path (<font class="bashcommand">/Volumes/MyExternalDrive/test2.txt</font>) already existed, then that file will be replaced by test.txt. You will not be able to recover the replaced file.</p>
+
+				<h2>mv command</h2>
+				Syntax: <font class="bashcommand">mv source target</font>
+
+				<p>The <font class="bashcommand">mv</font> command works the same way was the <font class="bashcommand">cp</font> command. The difference is that the source file is moved instead of copied.</p>
+
+				<font class="example">Rename file test1.txt to test2.txt in the current directory</font>
+
 		    	<h3>8.5. Writing files</h3>
 		    		<p>Content of 8.4</p>
 		    		
