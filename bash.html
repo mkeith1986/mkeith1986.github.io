@@ -5816,12 +5816,130 @@
 
 				<p>The <font class="bashcommand">mv</font> command works the same way was the <font class="bashcommand">cp</font> command. The difference is that the source file is moved instead of copied.</p>
 
-				<font class="example">Rename file test1.txt to test2.txt in the current directory</font>
+				<font class="example">Renaming a file</font>
+				Rename file <font class="bashcommand">test1.txt</font> to <font class="bashcommand">test2.txt</font> in the current directory.
+
+				<p><font class="bashcommand">
+				$ ls<br>
+				<font class="bashcommand-result">
+				Applications<br> 
+				Library<br>
+				Volumes<br> 
+				bin<br>
+				test1.txt<br>
+				</font>
+				$ mv test1.txt test2.txt<br>
+				$ ls<br>
+				<font class="bashcommand-result">
+				Applications<br>
+				Library<br>
+				Volumes<br> 
+				bin<br>
+				test2.txt 
+				</font>
+				</font></p>
+
+				<h4>rm / rmdir commands</h4>
+
+				<h4>mkdir command</h4>
+
+				<h4>touch command</h4>
+
+				<h4>find command</h4>
+
+				<font class="example">Moving a file from one directory to another</font>
+				Move <font class="bashcommand">test1.txt</bash> from directory <font class="bashcommand">/Users/MyUser/</bash> to directory <font class="bashcommand">/Volumes/MyExternalDrive</font>.
+
+				<p><font class="bashcommand">
+				$ ls /Volumes/MyDrive<br>
+ 				<br>
+				$ mv /Users/MyUser/Desktop/test1.txt /Volumes/MyDrive <br>
+				$ ls /Volumes/MyDrive<br>
+				<font class="bashcommand-result">test1.txt</font>
+				</font></p>
 
 		    	<h3>8.5. Writing files</h3>
-		    		<p>Content of 8.4</p>
+				<h4>echo</h4>
+				<p>So far we have used echo to print text into the terminal. You can also use this utility to print text into a file (and create a new file if it doesn't exist):</p>
 		    		
-		    	<h3>8.6. Reading files</h3>
+				<p>
+				The following command will append <font class="bashcommand">"some text"</font> in a new line of <font class="bashcommand">someFile.txt</font> and add the new line character at the end. If someFile.txt didn’t exist, the file is created.<br>
+				<font class="bashcommand">echo "some text" >> someFile.txt</font>
+				</p>
+
+				<p>
+				If you add the flag <font class="bashcommand">-n</font>, bash won't print the trailing newline character:<br> 
+				<font class="bashcommand">echo -n "some text" >> someFile.txt</font>
+				</p>
+
+				<p>If you add the flag <font class="bashcommand">-e</font> it will interpret the character scape sequences in the text (see table below in the <font class="bashcommand">printf</font> section for a list of scape sequences).</p>
+
+				<p>If you use <font class="bashcommand">&gt;</font> instead of &gt;&gt;, the previous contents of the file (if it existed) will be erased and replaced with the new text that you are echoing.</p>
+
+				<h4>printf</h4>
+				<p><font class="bashcommand">printf</font> is a powerful tool that allows you to format the information before printing it in a file, the command line or another variable. For example, you can specify the format of any number that you print and the number of decimal points you want to use. You could even use this tool to change the format of a variable (i.e. from scientific notation to float) and save the result in a new variable instead of a file. You can also add tab or any character scape sequence to your text.</p>
+
+				<p>Syntax: <font class="bashcommand">printf &lt;format&gt; &lt;arguments&gt;</font></p>
+
+				<p><font class="bashcommand">printf</font> uses the format specified in <font class="bashcommand">&lt;format&gt;</font> to print the objects (strings, numbers or variables) specified in <font class="bashcommand">&lt;arguments&gt;</font>. <font class="bashcommand">&lt;format&gt;</font> is a string that contains alphanumerical characters, character scape sequences and format specifications, each of which causes printing of the next successive argument. In contrast with the echo command, printf does not print the text in a new line by default, in order to add a new line the following character scape sequence should be added at the end of <font class="bashcommand">&lt;format&gt;</font>: \n.</p>
+		    	
+				<table>
+					<tr>
+					<th>Character scape sequence</th>
+					<th>Meaning</th>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand">\b</font></td>
+					<td> </td>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand">\c</font></td>
+					<td> </td>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand"> </font></td>
+					<td> </td>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand"> </font></td>
+					<td> </td>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand"> </font></td>
+					<td> </td>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand"> </font></td>
+					<td> </td>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand"> </font></td>
+					<td> </td>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand"> </font></td>
+					<td> </td>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand"> </font></td>
+					<td> </td>
+					</tr>
+
+					<tr>
+					<td><font class="bashcommand"> </font></td>
+					<td> </td>
+					</tr>
+				</table>
+			<h3>8.6. Reading files</h3>
 		    		<p>Content of 8.5</p>
 		    </div>
 		       
