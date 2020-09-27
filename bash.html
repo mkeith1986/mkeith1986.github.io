@@ -5891,7 +5891,17 @@
 
 					<tr>
 					<td><font class="bashcommand">\b</font></td>
-					<td> </td>
+					<td>
+						<p>Do not print the previous character (backspace).</p>
+						<p><font class="bashcommand">
+							printf "%b" "abcdef"<br>
+							<font class="bashcommand-result">abcdef</font>
+						</font></p>
+						<p><font class="bashcommand">
+							printf "%b" "abc\bdef"<br>
+							<font class="bashcommand-result">abdef</font>
+						</font></p>
+					</td>
 					</tr>
 
 					<tr>
@@ -5900,45 +5910,138 @@
 					</tr>
 
 					<tr>
-					<td><font class="bashcommand"> </font></td>
-					<td> </td>
+					<td><font class="bashcommand">\n</font></td>
+					<td> 
+						<p>Write a new-line character.</p>
+						<p><font class="bashcommand">
+							printf "%b" "abc\ndef"<br>
+							<font class="bashcommand-result">
+							abc<br>
+							def
+							</font>
+						</font></p>
+					</td>
 					</tr>
 
 					<tr>
-					<td><font class="bashcommand"> </font></td>
-					<td> </td>
+					<td><font class="bashcommand">\r</font></td>
+					<td>Write a &lt;carriage return&gt; character.</td>
 					</tr>
 
 					<tr>
-					<td><font class="bashcommand"> </font></td>
-					<td> </td>
+					<td><font class="bashcommand">\t</font></td>
+					<td> 
+						<p>Write a &lt;tab&gt; character.</p>
+						<p><font class="bashcommand">
+							printf "%b" "abc\tdef"<br>
+							<font class="bashcommand-result">abc   def</font>
+						</font></p>
+					</td>
 					</tr>
 
 					<tr>
-					<td><font class="bashcommand"> </font></td>
-					<td> </td>
+					<td><font class="bashcommand">\v</font></td>
+					<td> 
+						<p>Write a &lt;vertical tab&gt; character.</p>
+						<p><font class="bashcommand">
+							printf "%b" "abc\vdef"<br>
+							<font class="bashcommand-result">
+							abc<br>
+							   def 
+							</font>
+						</font></p>
+					</td>
 					</tr>
 
 					<tr>
-					<td><font class="bashcommand"> </font></td>
-					<td> </td>
+					<td><font class="bashcommand">\'</font></td>
+					<td>Write a single quote character.</td>
 					</tr>
 
 					<tr>
-					<td><font class="bashcommand"> </font></td>
-					<td> </td>
+					<td><font class="bashcommand">\\</font></td>
+					<td>Write a backslash character.</td>
 					</tr>
 
 					<tr>
-					<td><font class="bashcommand"> </font></td>
-					<td> </td>
-					</tr>
-
-					<tr>
-					<td><font class="bashcommand"> </font></td>
-					<td> </td>
+					<td><font class="bashcommand">\num</font></td>
+					<td>Write a byte whose value is the 1-, 2-, or 3-digit octal number <font class="bashcommand">num</font>. Multibyte characters can be constructed using multiple \num sequences.</td>
 					</tr>
 				</table>
+
+				<p>Each format specification is introduced by the percent character (<font class="bashcommand">%</font>), followed by the following fields (in the exact order). You must use one format specification for each argument (in the same order):</p>
+			
+				<table>
+					<tr>
+						<th>Flag</th>
+						<th>Meaning</th>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">#</font></td>
+						<td> 
+							<p>When printing an octal number: Inserts a 0 prefix.</p>
+							<p>(234)<sub>10</sub> = (352)<sub>8</sub></p>
+							<p><font class="bashcommand">
+								printf "%o\n%#o\n" 234 234<br>
+								<font class="bashcommand-result">
+								352<br>
+								0352 
+								</font>
+							</font></p>
+							<p>When printing a hexadecimal number: Inserts a 0x prefix.</p>
+							<p>Given that (234)<sub>10</sub> = (EA)<sub>16</sub></p>
+							<p><font class="bashcommand">
+								printf "%x\n%#x\n" 234 234<br>
+								<font class="bashcommand-result">
+								ea<br>
+								0xea 
+								</font>
+							</font></p>
+							<p>When printing numbers using formats e (E), f (F) or g (G): Show the decimal point.</p>
+						</td>
+					</tr>	
+					
+					<tr>
+						<td><font class="bashcommand">-</font></td>
+						<td>Left justify.</td>
+					</tr>	
+					
+					<tr>
+						<td><font class="bashcommand">+</font></td>
+						<td>Place a sign before the number when using signed formats.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td>&lt;blank space&ht; Positive values begin with a blank. </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">0</font></td>
+						<td>Field is padded with zeros instead of blanks.</td>
+					</tr>
+				</table>
+
+				<p>Field width or precision: An integer number preceded by a period (<font class="bashcommand">.</font>) or an asterisk (<font class="bashcommand">*</font>). If a number is given, it will represent the number of characters or digits to print if the argument is a string or a number (respectively). If an asterisk is given instead of a number, the field width or precision will be specified as another argument.</p>
+
+				<p><font class="bashcommand">
+					printf "%s\n" "qwertyuiop"<br>
+					qwertyuiop 
+				</font></p>
+
+				<p>font class="bashcommand">
+					printf "%.4s\n" "qwertyuiop"<br>
+					qwer 
+				</font></p>
+
+				<p>font class="bashcommand">
+					printf "%.*s\n" 6 "qwertyuiop"<br>
+					qwerty 
+				</font></p>
+				
+				<p>Format: This is a character that indicates the type of format that should be used to print the arguments. The character options are listed in the following table.</p>
+
 			<h3>8.6. Reading files</h3>
 		    		<p>Content of 8.5</p>
 		    </div>
