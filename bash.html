@@ -6267,6 +6267,40 @@
 				</font></p>
 
 				<p>Moreover, if you want to read line by line and run a set of instructions on each line, you can combine the <font class="bashcommand">cat</font> and <font class="bashcommand">for</font> commands.</p>
+		    
+				<p>
+					<font class="example">Read line by line the previous file</font>
+					Read line by line the previous file (<font class="bashcommand">subjectList.txt</font>), which contain a list of subject IDs. And copy into a new file (<font class="bashcommand">subjectInfo.txt</font>) the subject IDs plus the group they belong to (which can be obtained from the first two letters in the subject ID). 
+				</p>
+
+				<p><font class="bashcommand">
+				$ FOLDER=/Volumes/MyExternalDrive/MRIdata<br>
+				$ for line in $(cat $FOLDER/subjectList.txt)<br>
+				> do<br>
+				> echo "${line:0:2},${line}" >> $FOLDER/subjectInfo.txt<br>
+				> done 
+				</font></p>
+
+				<p>In this example, I am reading one line of <font class="bashcommand">subjectList.txt</font> on every loop and assigning that line of text to the variable line (the variable could have had any other name). Then, I am extracting the first two characters in <font class="bashcommand">$line</font> (which represent the subject group) and saving that information, together with the subject ID, into a new file (<font class="bashcommand">subjectInfo.txt</font>). I am using <font class="bashcommand">${line:0:2}</font> to extract the first two characters of <font class="bashcommand">$line</font>. If I now print the content of the new file, this is what it will contain:</p>
+		    
+				<p><font class="bashcommand">
+				$ cat /Volumes/MyExternalDrive/MRIdata/subjectInfo.txt  
+				<font class="bashcommand-result">
+				AA,AA0083277<br> 
+				AA,AA0084999<br>
+				AC,AC0208933<br>
+				AC,AC0148099<br>
+				AD,AD0190300<br>
+				BB,BB0299033<br>
+				BC,BC0345100<br>
+				BD,BD0365666<br>
+				CA,CA0372599<br>
+				CA,CA0381677<br>
+				CB,CB0384399<br>
+				CC,CC0384433<br>
+				DD,DD0385444 
+				</font>
+				</font></p>
 		    </div>
 		       
 		    <div id="content9" class="hidden">
