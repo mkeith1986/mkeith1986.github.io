@@ -6027,17 +6027,17 @@
 
 				<p><font class="bashcommand">
 				$ printf "%s\n" "qwertyuiop"<br>
-				<font class="bashcommand">qwertyuiop</font>
+				<font class="bashcommand-result">qwertyuiop</font>
 				</font></p>
 
 				<p><font class="bashcommand">
 				$ printf "%.4s\n" "qwertyuiop"<br>
-				<font class="bashcommand">qwer</font>
+				<font class="bashcommand-result">qwer</font>
 				</font></p>
 
 				<p><font class="bashcommand">
 				$ printf "%.*s\n" 6 "qwertyuiop"<br>
-				<font class="bashcommand">qwerty</font>
+				<font class="bashcommand-result">qwerty</font>
 				</font></p>
 				
 				<p>Format: This is a character that indicates the type of format that should be used to print the arguments. The character options are listed in the following table.</p>
@@ -6122,7 +6122,7 @@
 						<td><font class="bashcommand">e</font> or <font class="bashcommand">E</font></td>
 						<td> 
 							<p>Writes the number in the argument in scientific notation, with format <font class="bashcommand">[-]d.ddde+-dd</font>. There will be one digit before the decimal point and six digits after the decimal point if no precision is specified (or the number of digits specified in the precision). Infinity is printed as <font class="bashcommand">inf</font> and <font class="bashcommand">NaN</font> as <font class="bashcommand">nan</font>. If the flag is in upper case, the <font class="bashcommand">e</font> of the output will be printed in capital letter.</p>
-							<p>234.567 equals 2.34567 × 102 in scientific notation. So, <font class="bashcommand">printf</p> would print that number in the following way:</p>
+							<p>234.567 equals 2.34567 × 102 in scientific notation. So, <font class="bashcommand">printf</font> would print that number in the following way:</p>
 							<p><font class="bashcommand">
 							$ printf "%e" 234.567<br> 
 							<font class="bashcommand-result">2.345670e+02</font>
