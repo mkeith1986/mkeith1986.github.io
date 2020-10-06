@@ -6530,6 +6530,126 @@
 				&gt; fi<br>
 				&gt; done 
 				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedCM=($(sort &lt;&lt;&lt;"${CM[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${CM[*]})/${#CM[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedCM[0]} ${sortedCM[${#sortedCM[@]} -1]} $avg 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedCF=($(sort &lt;&lt;&lt;"${CF[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${CF[*]})/${#CF[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedCF[0]} ${sortedCF[${#sortedCF[@]} -1]} $avg 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedPM=($(sort &lt;&lt;&lt;"${PM[*]}"))<br> 
+				$ IFS='+' avg=$(echo "scale=4;(${PM[*]})/${#PM[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedPM[0]} ${sortedPM[${#sortedPM[@]} -1]} $avg 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedPF=($(sort &lt;&lt;&lt;"${PF[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${PF[*]})/${#PF[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedPF[0]} 
+				</font></p>
+
+				<p>The number of lines of the previous code could be reduced by simplifying the <font class="bashcommand">if</font> expressions. The code below is equivalent to the code above:</p>
+
+				<p><font class="bashcommand">
+				$ n=0<br>
+				$ for line in $(cat infoFile.csv)<br>
+				&gt; do<br>
+				&gt; if [ $((n++)) -gt 0 ]<br>
+				&gt; then<br>
+				&gt; IFS=',' read -a ARRAY &lt;&lt;&lt; "${line}"<br>
+				&gt; GRP=${ARRAY[1]}<br>
+				&gt; GEN=${ARRAY[2]}<br>
+				&gt; MOV=${ARRAY[6]}<br>
+				&gt; [ "$GRP" == "Control" ] && [ "$GEN" == "M" ] && CM[${#CM[@]}]=${MOV}<br>
+				&gt; [ "$GRP" == "Control" ] && [ "$GEN" == "F" ] && CF[${#CF[@]}]=${MOV}<br>
+				&gt; [ "$GRP" == "Patient" ] && [ "$GEN" == "M" ] && PM[${#PM[@]}]=${MOV}<br>
+				&gt; [ "$GRP" == "Patient" ] && [ "$GEN" == "F" ] && PF[${#PF[@]}]=${MOV}<br>
+				&gt; fi<br>
+				&gt; done 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedCM=($(sort &lt;&lt;&lt;"${CM[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${CM[*]})/${#CM[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedCM[0]} ${sortedCM[${#sortedCM[@]} -1]} $avg 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedCF=($(sort &lt;&lt;&lt;"${CF[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${CF[*]})/${#CF[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedCF[0]} ${sortedCF[${#sortedCF[@]} -1]} $avg 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedPM=($(sort &lt;&lt;&lt;"${PM[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${PM[*]})/${#PM[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedPM[0]} ${sortedPM[${#sortedPM[@]} -1]} $avg 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedPF=($(sort &lt;&lt;&lt;"${PF[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${PF[*]})/${#PF[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedPF[0]} 
+				</font></p>
+
+				<p>You could reduce even more the number of lines in the code:</p>
+
+				<p><font class="bashcommand">
+				$ n=0<br>
+				$ for line in $(cat infoFile.csv)<br>
+				&gt; do<br>
+				&gt; if [ $((n++)) -gt 0 ]<br>
+				&gt; then<br>
+				&gt; IFS=',' read -a ARRAY &lt;&lt;&lt; "${line}"<br>
+				&gt; [ "${ARRAY[1]}" == "Control" ] && [ "${ARRAY[2]}" == "M" ] && CM[${#CM[@]}]=${ARRAY[6]}<br>
+				&gt; [ "${ARRAY[1]}" == "Control" ] && [ "${ARRAY[2]}" == "F" ] && CF[${#CF[@]}]=${ARRAY[6]}<br>
+				&gt; [ "${ARRAY[1]}" == "Patient" ] && [ "${ARRAY[2]}" == "M" ] && PM[${#PM[@]}]=${ARRAY[6]}<br>
+				&gt; [ "${ARRAY[1]}" == "Patient" ] && [ "${ARRAY[2]}" == "F" ] && PF[${#PF[@]}]=${ARRAY[6]}<br>
+				&gt; fi<br>
+				&gt; done 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedCM=($(sort &lt;&lt;&lt;"${CM[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${CM[*]})/${#CM[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedCM[0]} ${sortedCM[${#sortedCM[@]} -1]} $avg 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedCF=($(sort &lt;&lt;&lt;"${CF[*]}"))<br> 
+				$ IFS='+' avg=$(echo "scale=4;(${CF[*]})/${#CF[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedCF[0]} ${sortedCF[${#sortedCF[@]} -1]} $avg 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedPM=($(sort &lt;&lt;&lt;"${PM[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${PM[*]})/${#PM[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedPM[0]} ${sortedPM[${#sortedPM[@]} -1]} $avg 
+				</font></p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n' sortedPF=($(sort &lt;&lt;&lt;"${PF[*]}"))<br>
+				$ IFS='+' avg=$(echo "scale=4;(${PF[*]})/${#PF[@]}"|bc)<br>
+				$ printf "Male Controls:\nMin: %.3f\nMax: %.3f\nAve: %.3f\n" ${sortedPF[0]} 
+				</font></p>
+
+				<p>In the previous example we read line by line a file using a for loop and the cat utility. This works most of the times. However, if you try to read this way a file in which one or more of the lines contain a space, bash will read each word separated by a space as a separate line.</p>
+
+				<p>
+				For example, if file test.txt has the following content:<br>
+				a b<br>
+				c d<br>
+				e f<br>
+				g h<br>
+				i j 
+				</p>
 		    </div>
 		       
 		    <div id="content9" class="hidden">
