@@ -5857,8 +5857,12 @@
 				$ ls /Volumes/MyDrive<br>
 				<font class="bashcommand-result">test1.txt</font>
 				</font></p>
-
-		    	<h3>8.5. Writing files</h3>
+		    </div>
+		       
+		    <div id="content9" class="hidden">
+		    	<h2>9. Manipulating text and csv files</h2>
+			    
+			<h3>9.1. Writing files</h3>
 				<h4>echo</h4>
 				<p>So far we have used echo to print text into the terminal. You can also use this utility to print text into a file (and create a new file if it doesn't exist):</p>
 		    		
@@ -6240,7 +6244,7 @@
 				<font class="bashcommand-result">234.567000</font> 
 				</font></p>
 
-			<h3>8.6. Reading files</h3>
+			<h3>9.2. Reading files</h3>
 		    		<p>
 				<font class="example">Read line by line using the for loop and the cat command</font>
 				The <font class="bashcommand">cat</font> command, followed by the path of a file, can be used to visualize the content of the file in the command line:
@@ -6650,16 +6654,66 @@
 				g h<br>
 				i j 
 				</p>
-		    </div>
-		       
-		    <div id="content9" class="hidden">
-		    	<h2>9. Manipulating text and csv files</h2>
+
+				<p>When you try to read each line using a file, this is the result you will get:</p>
+
+				<p><font class="bashcommand">
+				$ for line in $(cat test.txt)<br>
+				&gt; do<br>
+				&gt; echo $((i++)) $line<br>
+				&gt; done<br>
+				0 a<br>
+				1 b<br>
+				2 c<br>
+				3 d<br>
+				4 e<br>
+				5 f<br>
+				6 g<br>
+				7 h<br>
+				8 i<br>
+				9 j 
+				</font></p>
+
+				<p>To fix this problem you have to tell bash that newline (<font class="bashcommand">\n</font>) is the only separator. You do this by declaring the system variable <font class="bashcommand">IFS=$'\n'</font>.</p>
+
+				<p><font class="bashcommand">
+				$ IFS=$'\n'<br>
+				$ for line in $(cat test.txt)<br>
+				&gt; do<br>
+				&gt; echo $((i++)) $line<br>
+				&gt; done<br>
+				0 a b<br>
+				1 c d<br>
+				2 e f<br>
+				3 g h<br>
+				4 i j 
+				</font></p>
+			    
+			    	<p>
+				<font class="example">Load the content of a file into an array and access a specific line separately</font>
+				<font class="bashcommand">
+				$ ARRAY=($(cat test.txt))<br>
+				$ echo ${ARRAY[0]}<br>
+				<font class="bashcommand-result">a b</font><br>
+				$ echo ${ARRAY[1]}<br>
+				<font class="bashcommand-result">c d</font><br>
+				$ echo ${ARRAY[2]}<br>
+				<font class="bashcommand-result">e f</font><br>
+				$ echo ${ARRAY[3]}<br>
+				<font class="bashcommand-result">g h</font><br>
+				$ echo ${ARRAY[4]}<br>
+				<font class="bashcommand-result">i j 
+				</font>
+			    	</p>
+			    
+			<h3>9.3. Using the read command for more complex csv files</h3>
+		    		<p>Content 9.3</p>
 		    	
-		    	<h3>9.1. The awk command</h3>
-		    		<p>Content 9.1</p>
+		    	<h3>9.4. The awk command</h3>
+		    		<p>Content 9.4</p>
 		    		
-		    	<h3>9.2. The grep command</h3>
-		    		<p>Content 9.2</p>
+		    	<h3>9.5. The grep command</h3>
+		    		<p>Content 9.5</p>
 		    </div>
 		       
 		    <div id="content10" class="hidden">
@@ -6696,6 +6750,7 @@
 		    <div id="content14" class="hidden">
 		    	<h2>14. Downloading files from the web</h2>
 		    		<p>Content section 14</p>
+		    		<p>Stocks</p>
 		    </div>
 		       
 		    <div id="content15" class="hidden">
@@ -6825,7 +6880,7 @@
 		
 		<footer>
 			<p>
-				Last update: October 5 / 2020<br>
+				Last update: October 6 / 2020<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
