@@ -4824,9 +4824,8 @@
 		    	<h2>8. General file manipulation</h2>
 		    	
 		    	<h3>8.1. Basic concepts and simple commands</h3>
-					<h4>The absolute path of a file</h4>
-
-		    		<p>
+				<h4>The absolute path of a file</h4>
+		    			<p>
 						The absolute or full path of a file specifies its unique location in the file system, its name and extension. The absolute path of every file is different and constant. It will always be the same regardless of the current directory in which you are working (unless you move the file). This path follows a hierarchy of directories where the file is located, separating each directory with the delimiting character, which is the slash (<font class="bashcommand">/</font>) for Macintosh and Linux and the backslash (<font class="bashcommand">\</font>) for Windows. For example, a text file named file.txt located in the Desktop of a Mac computer, will commonly have an absolute path similar to this:<br> 
 						<font class="bashcommand">/Users/user_name/Desktop/file.txt</font><br>
 						To find the absolute path of a file you can drag and drop it into the Terminal. 
@@ -5878,14 +5877,14 @@
 
 				<p>If you add the flag <font class="bashcommand">-e</font> it will interpret the character scape sequences in the text (see table below in the <font class="bashcommand">printf</font> section for a list of scape sequences).</p>
 
-				<p>If you use <font class="bashcommand">&gt;</font> instead of &gt;&gt;, the previous contents of the file (if it existed) will be erased and replaced with the new text that you are echoing.</p>
+				<p>If you use <font class="bashcommand">&gt;</font> instead of <font class="bashcommand">&gt;&gt;</font>, the previous contents of the file (if it existed) will be erased and replaced with the new text that you are echoing.</p>
 
 				<h4>printf</h4>
 				<p><font class="bashcommand">printf</font> is a powerful tool that allows you to format the information before printing it in a file, the command line or another variable. For example, you can specify the format of any number that you print and the number of decimal points you want to use. You could even use this tool to change the format of a variable (i.e. from scientific notation to float) and save the result in a new variable instead of a file. You can also add tab or any character scape sequence to your text.</p>
 
 				<p>Syntax: <font class="bashcommand">printf &lt;format&gt; &lt;arguments&gt;</font></p>
 
-				<p><font class="bashcommand">printf</font> uses the format specified in <font class="bashcommand">&lt;format&gt;</font> to print the objects (strings, numbers or variables) specified in <font class="bashcommand">&lt;arguments&gt;</font>. <font class="bashcommand">&lt;format&gt;</font> is a string that contains alphanumerical characters, character scape sequences and format specifications, each of which causes printing of the next successive argument. In contrast with the echo command, printf does not print the text in a new line by default, in order to add a new line the following character scape sequence should be added at the end of <font class="bashcommand">&lt;format&gt;</font>: \n.</p>
+				<p><font class="bashcommand">printf</font> uses the format specified in <font class="bashcommand">&lt;format&gt;</font> to print the objects (strings, numbers or variables) specified in <font class="bashcommand">&lt;arguments&gt;</font>. <font class="bashcommand">&lt;format&gt;</font> is a string that contains alphanumerical characters, character scape sequences and format specifications, each of which causes printing of the next successive argument. In contrast with the <font class="bashcommand">echo</font> command, <font class="bashcommand">printf</font> does not print the text in a new line by default, in order to add a new line the following character scape sequence should be added at the end of <font class="bashcommand">&lt;format&gt;</font>: <font class="bashcommand">\n</font>.</p>
 		    	
 				<table>
 					<tr>
@@ -6273,16 +6272,16 @@
 				<p>Moreover, if you want to read line by line and run a set of instructions on each line, you can combine the <font class="bashcommand">cat</font> and <font class="bashcommand">for</font> commands.</p>
 		    
 				<p>
-					<font class="example">Read line by line the previous file</font>
-					Read line by line the previous file (<font class="bashcommand">subjectList.txt</font>), which contain a list of subject IDs. And copy into a new file (<font class="bashcommand">subjectInfo.txt</font>) the subject IDs plus the group they belong to (which can be obtained from the first two letters in the subject ID). 
+				<font class="example">Read line by line the previous file</font>
+				Read line by line the previous file (<font class="bashcommand">subjectList.txt</font>), which contain a list of subject IDs. And copy into a new file (<font class="bashcommand">subjectInfo.txt</font>) the subject IDs plus the group they belong to (which can be obtained from the first two letters in the subject ID). 
 				</p>
 
 				<p><font class="bashcommand">
 				$ FOLDER=/Volumes/MyExternalDrive/MRIdata<br>
 				$ for line in $(cat $FOLDER/subjectList.txt)<br>
-				> do<br>
-				> echo "${line:0:2},${line}" >> $FOLDER/subjectInfo.txt<br>
-				> done 
+				&gt; do<br>
+				&gt; echo "${line:0:2},${line}" &gt;&gt; $FOLDER/subjectInfo.txt<br>
+				&gt; done 
 				</font></p>
 
 				<p>In this example, I am reading one line of <font class="bashcommand">subjectList.txt</font> on every loop and assigning that line of text to the variable line (the variable could have had any other name). Then, I am extracting the first two characters in <font class="bashcommand">$line</font> (which represent the subject group) and saving that information, together with the subject ID, into a new file (<font class="bashcommand">subjectInfo.txt</font>). I am using <font class="bashcommand">${line:0:2}</font> to extract the first two characters of <font class="bashcommand">$line</font>. If I now print the content of the new file, this is what it will contain:</p>
@@ -6702,7 +6701,7 @@
 				$ echo ${ARRAY[3]}<br>
 				<font class="bashcommand-result">g h</font><br>
 				$ echo ${ARRAY[4]}<br>
-				<font class="bashcommand-result">i j 
+				<font class="bashcommand-result">i j</font>
 				</font>
 			    	</p>
 			    
