@@ -6706,13 +6706,427 @@
 			    	</p>
 			    
 			<h3>9.3. Using the read command for more complex csv files</h3>
-		    		<p>Content 9.3</p>
-		    	
+			    	<p>So far, we have learned that using the <font class="bashcommand">for</font> loop and the cat utility you can read each line of a file and separate it into different fields using a separator. However, csv files can become very difficult to separate into fields if some of them contain a comma (the same character that is being used as a separator), a space, or both. </p>
+			    
+			    	<p>
+				Example: Obtain the last field of $line using the concepts learned before. 
+				<font class="bashcommand">
+				$ line="SUBJ20"," Age 22-30","VISIT1","1","DIAGN: Major Depressive Disorder, Single Episode, In Full Remission"<br>
+				$ IFS=',' read -a ARRAY &gt;&gt;&gt; "$line"<br>
+				$ echo "The last field of line is: "${ARRAY[4]}<br>
+				<font class="bashcommand-result">The last field of line is: DIAGN: Major Depressive Disorder</font>
+				</font>
+			    	</p>
+			    
+			    	<p>This is not the correct result, though. The last field of <font class="bashcommand">$line</font> is <font class="bashcommand">"DIAGN: Major Depressive Disorder, Single Episode, In Full Remission"</font>. But because we are using a comma as a separator, bash is separating this field into separate columns. To solve this problem, you can read from the file descriptor and save each field in a separate variable using the <font class="bashcommand">read</font> utility.</p>
+			    
+			    	<p>
+				The first step is to assign a file descriptor (which must be an integer number) to the input file:<br>
+				<font class="bashcommand">$ exec 3&lt; $INPUT_FILE</font>
+				</p>
+			    
+			    	<p>
+				Then, to read each line of the file and save each field in a different variable:<br>
+				<font class="bashcommand">$ read -u 3 a b</font>
+			    	</p>
+			    
+			    	<p>
+				The previous command will read the next line of the input file with descriptor 3 (the number following flag <font class="bashcommand">-u</font>) and save the first field in variable a and the rest of the line in variable <font class="bashcommand">b</font>.<br>
+				<font class="bashcommand">$ read -u 3 a b c</font>
+			    	</p>
+			    
+			    	<p>
+				The previous command will read the next line of the input file with descriptor 3 and save the first field in variable <font class="bashcommand">a</font>, the second field in variable <font class="bashcommand">b</font>, and the rest of the line in variable <font class="bashcommand">c</font> (variable <font class="bashcommand">c</font> would be empty if there are no more fields to read). If you want to separate the fields using comma as a separator, you should use the following command instead:<br>
+				<font class="bashcommand">$ IFS=',' read -u 3 a b c d</font>
+			    	</p>
+			    
+			    	<p>
+				If one of the columns contains a comma but is surrounded by quotation marks, then it will read the text inside the quotation marks as a single field. In the example before, it will read the following text as the last field: <font class="bashcommand">$ "DIAGN: Major Depressive Disorder, Single Episode, In Full Remission"</font>.<br>
+				Each time you type the command <font class="bashcommand">$ FS=',' read -u 3 a b c d</font> it will read the following line. 
+			    	</p>
+			    
+			    	<p>
+				<font class="example">Read each line of a file and save the first and last fields into a new file</font>
+				Given the file example.csv with the following content: 
+				"SUBJ1","Age 22-30","VISIT1","DIAGN: Major Depressive Disorder, Single Episode"<br>
+				"SUBJ2","Age 22-30","VISIT1","DIAGN: Bipolar, Schizophrenia"<br>
+				"SUBJ3","Age 22-30","VISIT1","DIAGN: Major Depressive Disorder"<br>
+				"SUBJ4","Age 22-30","VISIT1","DIAGN: Autism, Dyslexia, ADHD"<br>
+				Read each line of the file and save the first and last fields into a new file called result.csv. 
+			    	</p>
+			    
+			    	<p>
+				<ol>
+					<li>
+					Assign the file descriptor 3 to example.csv for input<br>
+					<font class="bashcommand">$ exec 3&lt; example.csv</font>
+					</li>
+					
+					<li>
+					Obtain the number of lines in the input file.<br>
+					<font class="bashcommand">
+					$ N=$(cat example.csv | wc -l)<br>
+					$ echo $N 
+					</font>
+					</li>
+					
+					<li>
+					Iterate through all the lines of the file saving each field in a different variable. Then, write the value of the first and last fields into the output file.<br> 
+					<font class="bashcommand">
+					$ i=0<br>
+					$ while [ $((i++)) -lt $N ]<br> 
+					&gt; do<br> 
+					&gt; IFS=',' read -u 3 f1 f2 f3 f4<br> 
+					&gt; echo  "$f1,$f4" &gt;&gt; result.csv<br> 
+					&gt; done 
+					</font>
+					</li>
+					
+					<li>
+					You must close the file descriptor using the following command (replace number 3 by the corresponding file descriptor):<br> 
+					<font class="bashcommand">
+					$ exec 3&lt;&- 
+					</font>
+					</li>
+					
+					<li>
+					Read the content of the output file.<br> 
+					<font class="bashcommand">
+					$ cat result.csv<br> 
+					<font class="bashcommand-result">
+					"SUBJ1","Age 22-30","VISIT1","DIAGN: Major Depressive Disorder, Single Episode"<br> 
+					"SUBJ2","Age 22-30","VISIT1","DIAGN: Bipolar, Schizophrenia"<br> 
+					"SUBJ3","Age 22-30","VISIT1","DIAGN: Major Depressive Disorder"<br> 
+					"SUBJ4","Age 22-30","VISIT1","DIAGN: Autism, Dyslexia, ADHD" 
+					</font>
+					</font>
+					</li>
+			    	</ol>
+			    	</p>
+
+			<h3>Reading comma-separated CSV files using the read utility but no file descriptor</h3>
+
+			<p>In the following example we are going to read a csv file called example.csv. The file has five columns (five fields per line). We are going to use the <font class="bashcommand">while</font> loop to iterate through each line of the csv file and save the fields in variables <font class="bashcommand">f1</font>, <font class="bashcommand">f2</font>, <font class="bashcommand">f3</font>, <font class="bashcommand">f4</font>. Before starting to iterate, we have to tell bash that comma (<font class="bashcommand">,</font>) will be the separator in each line: <font class="bashcommand">IFS=','</font>.</p>
+
+			<p><font class="bashcommand">
+			$ IFS=','<br> 
+				$ i=1<br>
+				$ while read f1 f2 f3 f4<br> 
+				&gt; do<br>  
+				&gt; echo "Line $((i++)):"<br> 
+				&gt; echo "Field 1: $f1"<br> 
+				&gt; echo "Field 2: $f2"<br> 
+				&gt; echo "Field 3: $f3"<br> 
+				&gt; echo "Field 4: $f4"<br> 
+				&gt; done &lt; example.csv<br> 
+				<font class="bashcommand-result">
+				Line 1:<br> 
+				Field 1: "SUBJ1"<br> 
+				Field 2: "Age 22-30"<br> 
+				Field 3: "VISIT1"<br> 
+				Field 4: "DIAGN: Major Depressive Disorder, Single Episode"<br> 
+				Line 2:<br> 
+				Field 1: "SUBJ2"<br> 
+				Field 2: "Age 22-30"<br> 
+				Field 3: "VISIT1"<br> 
+				Field 4: "DIAGN: Bipolar, Schizophrenia"<br> 
+				Line 3:<br> 
+				Field 1: "SUBJ3"<br> 
+				Field 2: "Age 22-30"<br> 
+				Field 3: "VISIT1"<br> 
+				Field 4: "DIAGN: Major Depressive Disorder"<br> 
+				Line 4:<br> 
+				Field 1: "SUBJ4"<br> 
+				Field 2: "Age 22-30"<br> 
+				Field 3: "VISIT1"<br> 
+				Field 4: "DIAGN: Autism, Dyslexia, ADHD" 
+				</font>
+		    		</font></p>
+
 		    	<h3>9.4. The awk command</h3>
-		    		<p>Content 9.4</p>
+		    		<p><font class="bashcommand">awk</font> is a bash program that scans files and process their content using patterns. It reads each line of a file or a group of files searching for the specified pattern and each time that it finds the pattern, it performs an associated action. This tool can extract specific lines or columns from files, merge files, search the content of one file in the other, etc.</p>
 		    		
+				<p>When reading each line of the specified files, <font class="bashcommand">awk</font> will separate it into fields (columns) using the blank space as a separator. If your file uses a different separator (i.e. a comma). Then you must specify your separator using the <font class="bashcommand">-F</font> flag (see syntax below). The different fields will be denoted <font class="bashcommand">$1</font>, <font class="bashcommand">$2</font>, <font class="bashcommand">$3</font>... etc. <font class="bashcommand">$0</font> will refer to the entire line. If the field separator (<font class="bashcommand">FS</font>) is null, each line will be split into one field per character.</p>
+
+				<p>Syntax: <font class="bashcommand">awk [ -F fs ] [ -v var=value ] [ 'pattern {action}' ] [ files ] | [ other functions ]</font></p>
+
+				<table>
+					<tr>
+						<th>Flag</th>
+						<th>Meaning</th>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">-F fs (optional)</font></td>
+						<td>Defines the input field separator to be the regular expression <font class="bashcommand">fs</font>. Use this flag when the columns of your file use a separator other than a space. See examples below.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">-v var=variableName (optional)</font></td>
+						<td>When the value that is being search is stored in a variable, you should use this flag. See below for examples on how to use this flag.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">files</font></td>
+						<td>List of files to be searched.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">other functions</font> (optional)</td>
+						<td>You can apply to the output of <font class="bashcommand">awk</font> other functions such as <font class="bashcommand">head</font>, <font class="bashcommand">tail</font>, <font class="bashcommand">paste</font>, <font class="bashcommand">grep</font>, etc (some of them explained below and in the examples section)</td>
+					</tr>
+				</table>
+
 		    	<h3>9.5. The grep command</h3>
-		    		<p>Content 9.5</p>
+		    		<p>Searches a given pattern or text in a file or list of files. <font class="bashcommand">grep</font> is is able to find simple patterns and basic regular expressions, <font class="bashcommand">egrep</font> can perform search of extended regular expressions. <font class="bashcommand">fgrep</font> is quicker than both tools but can only handle fixed patterns. <font class="bashcommand">zgrep</font>, <font class="bashcommand">zegrep</font>, and <font class="bashcommand">zfgrep</font> act like <font class="bashcommand">grep</font>, <font class="bashcommand">egrep</font>, and <font class="bashcommand">fgrep</font>, respectively, but accept compressed files as input.</p>
+		    
+				<p>Syntax: <font class="bashcommand">grep [flag] [pattern] [file(s)]</font></p>
+
+				<table>
+					<tr>
+						<th>grep format</th>
+						<th>meaning</th>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">grep string files</font></td>
+						<td>Searches the list of <font class="bashcommand">files</font> for lines that <u>contain</u> <font class="bashcommand">string</font>. See examples here.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">grep '^expression' files</font></td>
+						<td> 
+							<p>Search for any lines that <u>start with</u> <font class="bashcommand">expression</font> in the list of <font class="bashcommand">files</font>. If <font class="bashcommand">expression</font> contains a back slash (<font class="bashcommand">\</font>), the special meaning of the next special character is turned off. If <font class="bashcommand">expression</font> contains a dot (<font class="bashcommand">.</font>) that is not preceded by a black slash, it will match a single character of any value in the position of the dot.</p>
+							
+							<p>e.i. <font class="bashcommand">grep '^string' file.txt</font> will search for any lines in <font class="bashcommand">file.txt</font> that start with <font class="bashcommand">string</font>. See more examples here.</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">grep 'expression$' files</font></td>
+						<td> 
+							<p>Search for any lines that <u>end with</u> <font class="bashcommand">expression</font> in the list of <font class="bashcommand">files</font>. If <font class="bashcommand">expression</font> contains a back slash (<font class="bashcommand">\</font>), the special meaning of the next special character is turned off. If <font class="bashcommand">expression</font> contains a dot (<font class="bashcommand">.</font>) that is not preceded by a black slash, it will match a single character of any value in the position of the dot.</p>
+							
+							<p>
+							Examples:<br>
+							<font class="bashcommand">grep 'string$' file</font> matches any lines in <font class="bashcommand">file</font> that end with <font class="bashcommand">string</font>. See more examples here. 
+							</p>
+							
+							<p><font class="bashcommand">grep '^string$' files</font> matches any lines in <font class="bashcommand">file</font> that start and end with <font class="bashcommand">string</font> (lines containing only string).</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">grep '[characters]' files</font></td>
+						<td> 
+							<p>Search for any lines that contain any of the characters enclosed between the brackets. Use a hyphen for a range of values.</p>
+							
+							<p>
+							Examples:<br> 
+							<font class="bashcommand">grep '[abcde]' files</font> matches any lines in <font class="bashcommand">file</font> that contain <font class="bashcommand">a</font>, <font class="bashcommand">b</font>, <font class="bashcommand">c</font>, <font class="bashcommand">d</font> or <font class="bashcommand">e</font>. 
+							</p>
+							
+							<p><font class="bashcommand">grep '[Ss]tring' file</font> matches any lines in <font class="bashcommand">file</font> that contain the words <font class="bashcommand"><u>s</u>tring</font> or <font class="bashcommand"><u>S</u>tring</font>.</p>
+							
+							<p><font class="bashcommand">grep 'B[ai][dt]' file</font> matches any <font class="bashcommand">lines</font> in <font class="bashcommand">file</font> that contain the words <font class="bashcommand">Bad</font>, <font class="bashcommand">Bat</font>, <font class="bashcommand">Bid</font> or <font class="bashcommand">Bit</font> (the second character can be <font class="bashcommand">a</font> or <font class="bashcommand">i</font> and the third character <font class="bashcommand">d</font> or <font class="bashcommand">t</font>).</p>
+							
+							<p><font class="bashcommand">grep '[0-9][0-9]' file</font> matches any lines in <font class="bashcommand">file</font> that contain a pair of numeric digits.</p>
+							
+							<p><font class="bashcommand">grep '[a-zA-Z]' file</font> matches any lines in <font class="bashcommand">file</font> with at least one letter.</p>
+							
+							<p><font class="bashcommand">grep '^$' file</font> matches any empty lines.</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">grep '[^characters]' files</font></td>
+						<td> 
+							<p>Search for any lines that <u>don't contain</u> any of the characters enclosed between he brackets. Use a hyphen for a range of values.</p>		
+							<p>e.i. <font class="bashcommand">grep '[^a-zA-Z0-9]' file</font> matches any lines in file that don't contain any letter or number (any lines that contain only special characters).</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">grep 'character*' files</font></td>
+						<td> 
+							<p>The character preceding the asterisk is optional when matching lines.</p>
+							<p>e.i. <font class="bashcommand">grep '"*smug"*' file</font> matches any lines in file that contain <font class="bashcommand">smug</font> or <font class="bashcommand">"smug"</font> (with or without the quotes that precede the asterisks).</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">grep 'expression\{n\}' files</font></td>
+						<td> 
+							<p>Match exactly <font class="bashcommand">n</font> occurrences of <font class="bashcommand">expression</font>.</p>
+							<p>e.i. <font class="bashcommand">grep '[0-9]\{3\}-[0-9]\{4\}' file</font> matches any lines in <font class="bashcommand">file</font> that contain three digits, followed by a line and four digits.</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">grep 'expression \{n,\}' files</font></td>
+						<td> 
+							<p>Matches n or more occurrences of <font class="bashcommand">expression</font>.</p>
+							<p>e.i. <font class="bashcommand">grep '[0-9]\{3,\}' file</font> matches any lines in <font class="bashcommand">file</font> that contain three or more digits.</p>
+						</td>
+					</tr>
+				</table>
+
+				<table>
+					<tr>
+						<th>Flag</th>
+						<th>Meaning</th>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">-A num</font></td>
+						<td>Print <font class="bashcommand">num</font> lines of trailing context after each match. See here for an example.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">-B num</font></td>
+						<td>Print <font class="bashcommand">num</font> lines of leading context before each match. See here for an example.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">-C num</font></td>
+						<td>Print <font class="bashcommand">num</font> lines of leading and trailing context surrounding each match. If <font class="bashcommand">num</font> is not specified, <font class="bashcommand">num=2</font>. See here for an example.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">-c</font></td>
+						<td>Print the number of matched lines per file instead of the actual lines.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">--colour=when</font></td>
+						<td>Mark up the matching text with the expression stored in <font class="bashcommand">GREP_COLOR</font> environment variable. The possible values of when can be: <font class="bashcommand">never</font>, <font class="bashcommand">always</font> or <font class="bashcommand">auto</font>.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">-d action</font></td>
+						<td>Specify the demanded action for directories. The possible values of action are: <font class="bashcommand">read</font> (default), which means that the directories are read in the same manner as normal files; <font class="bashcommand">skip</font> to silently ignore the directories, and <font class="bashcommand">recourse</font> to read them recursively, which has the same effect as the <font class="bashcommand">-R</font> and <font class="bashcommand">-r</font> option.</td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand"> </font></td>
+						<td> </td>
+					</tr>
+				</table>
 		    </div>
 		       
 		    <div id="content10" class="hidden">
