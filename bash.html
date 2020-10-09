@@ -6804,7 +6804,7 @@
 			    	</ol>
 			    	</p>
 
-			<h3>Reading comma-separated CSV files using the read utility but no file descriptor</h3>
+			<h3>9.4 Reading comma-separated CSV files using the read utility but no file descriptor</h3>
 
 			<p>In the following example we are going to read a csv file called example.csv. The file has five columns (five fields per line). We are going to use the <font class="bashcommand">while</font> loop to iterate through each line of the csv file and save the fields in variables <font class="bashcommand">f1</font>, <font class="bashcommand">f2</font>, <font class="bashcommand">f3</font>, <font class="bashcommand">f4</font>. Before starting to iterate, we have to tell bash that comma (<font class="bashcommand">,</font>) will be the separator in each line: <font class="bashcommand">IFS=','</font>.</p>
 
@@ -6843,7 +6843,7 @@
 				</font>
 		    		</font></p>
 
-		    	<h3>9.4. The awk command</h3>
+		    	<h3>9.5. The awk command</h3>
 		    		<p><font class="bashcommand">awk</font> is a bash program that scans files and process their content using patterns. It reads each line of a file or a group of files searching for the specified pattern and each time that it finds the pattern, it performs an associated action. This tool can extract specific lines or columns from files, merge files, search the content of one file in the other, etc.</p>
 		    		
 				<p>When reading each line of the specified files, <font class="bashcommand">awk</font> will separate it into fields (columns) using the blank space as a separator. If your file uses a different separator (i.e. a comma). Then you must specify your separator using the <font class="bashcommand">-F</font> flag (see syntax below). The different fields will be denoted <font class="bashcommand">$1</font>, <font class="bashcommand">$2</font>, <font class="bashcommand">$3</font>... etc. <font class="bashcommand">$0</font> will refer to the entire line. If the field separator (<font class="bashcommand">FS</font>) is null, each line will be split into one field per character.</p>
@@ -6877,7 +6877,7 @@
 					</tr>
 				</table>
 
-		    	<h3>9.5. The grep command</h3>
+		    	<h3>9.6. The grep command</h3>
 		    		<p>Searches a given pattern or text in a file or list of files. <font class="bashcommand">grep</font> is is able to find simple patterns and basic regular expressions, <font class="bashcommand">egrep</font> can perform search of extended regular expressions. <font class="bashcommand">fgrep</font> is quicker than both tools but can only handle fixed patterns. <font class="bashcommand">zgrep</font>, <font class="bashcommand">zegrep</font>, and <font class="bashcommand">zfgrep</font> act like <font class="bashcommand">grep</font>, <font class="bashcommand">egrep</font>, and <font class="bashcommand">fgrep</font>, respectively, but accept compressed files as input.</p>
 		    
 				<p>Syntax: <font class="bashcommand">grep [flag] [pattern] [file(s)]</font></p>
@@ -7270,7 +7270,7 @@
 				B12226546 Group1 55 
 				</p>
 
-			<h3>Examples: Reading specific columns from a file or a list of files</h3>
+			<h3>9.6. Examples: Reading specific columns from a file or a list of files</h3>
 				<p>
 					<font class="example">Print the first column of each file</font>
 					In order to print the first column of these files, we will use <font class="bashcommand">awk</font> utility. As it was shown before, the command for this utility consists on some optional flags followed by an action statement and then the list of files. In this case the action statement is <font class="bashcommand">'{print $1}'</font>, because we want to print only the first column (<font class="bashcommand">$1</font>). Files file2.txt and file4.txt use a space as a column separator (which is the separator for default). So, to access the first column of these files we don't need the <font class="bashcommand">-F</font> flag. However, files file1.csv and file3.csv use a comma as a separator. So, in order for <font class="bashcommand">awk</font> to distinguish the different columns we have to use the <font class="bashcommand">-F</font> flag. In this case, the parameter of the <font class="bashcommand">-F</font> flag is a comma (<font class="bashcommand">-F','</font>). If you are trying to read a file which has the columns separated by a different character, then use that character instead of <font class="bashcommand">','</font>. 
