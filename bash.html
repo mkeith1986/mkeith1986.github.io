@@ -6882,6 +6882,7 @@
 		    
 				<p>Syntax: <font class="bashcommand">grep [flag] [pattern] [file(s)]</font></p>
 
+				<p>
 				<table>
 					<tr>
 						<th>grep format</th>
@@ -6970,7 +6971,9 @@
 						</td>
 					</tr>
 				</table>
+				</p>
 
+				<p>
 				<table>
 					<tr>
 						<th>Flag</th>
@@ -7132,6 +7135,7 @@
 						<td>Force output to be line buffered. By default, output is line buffered when standard output is a terminal and block buffered otherwise.</td>
 					</tr>
 				</table>
+				</p>
 
 				<p>The following examples will show how to read and manipulate files using different command line tools. Each example will read one or more of the following files. file1.csv and file3.csv use comma as the separator between columns. On the other hand, file2.txt and file file4.txt use a space as the separator between columns.</p>
 
@@ -7272,6 +7276,7 @@
 					In order to print the first column of these files, we will use <font class="bashcommand">awk</font> utility. As it was shown before, the command for this utility consists on some optional flags followed by an action statement and then the list of files. In this case the action statement is <font class="bashcommand">'{print $1}'</font>, because we want to print only the first column (<font class="bashcommand">$1</font>). Files file2.txt and file4.txt use a space as a column separator (which is the separator for default). So, to access the first column of these files we don't need the <font class="bashcommand">-F</font> flag. However, files file1.csv and file3.csv use a comma as a separator. So, in order for <font class="bashcommand">awk</font> to distinguish the different columns we have to use the <font class="bashcommand">-F</font> flag. In this case, the parameter of the <font class="bashcommand">-F</font> flag is a comma (<font class="bashcommand">-F','</font>). If you are trying to read a file which has the columns separated by a different character, then use that character instead of <font class="bashcommand">','</font>. 
 				</p>
 
+				<p>
 				<table class="ghostTable">
 					<tr>
 						<th>Space-separated files</th>
@@ -7428,7 +7433,9 @@
 						<td>"B33199522"</td>
 					</tr>
 				</table>
+				</p>
 
+				<p>
 				<table class="ghostTable">
 					<tr>
 						<td><font class="bashcommand">$ awk '{print $1}' file4.txt</font></td>
@@ -7575,9 +7582,11 @@
 						<td>B11110893</td>
 					</tr>
 				</table>
+				</p>
 
 				<p>To precede each line by the line number, add <font class="bashcommand">NR</font>, after the string <font class="bashcommand">print</font> in the <font class="bashcommand">awk</font> command to indicate that you want to print the Number Row before the column 1 (<font class="bashcommand">$1</font>):</p>
 
+				<p>
 				<table class="ghostTable">
 					<tr>
 						<th>Space-separated files</th>
@@ -7734,7 +7743,9 @@
 						<td>29 "B33199522"</td>
 					</tr>
 				</table>
+				</p>
 
+				<p>
 				<table class="ghostTable">
 					<tr>
 						<td><font class="bashcommand">$ awk '{print NR, $1}' file4.txt</font></td>
@@ -7881,12 +7892,14 @@
 						<td>28 B11110893</td>
 					</tr>
 				</table>
+				</p>
 
 				<p>
 					<font class="example">Print the first column of file1.csv and file2.txt in reverse order</font>
-					In order to print from the last line to the first line, you can use the command <font class="example">tail</font> with the flag <font class="example">-r</font> (for reverse) after the command <font class="example">awk</font>. The command line will first execute the <font class="example">awk</font> command which is written before the <font class="example">|</font> symbol, and then it will run the <font class="example">tail</font> command which inverts the order of the previous output. Remember that for file1.csv you need to use <font class="example">-F','</font> to indicate that the columns are separated by commas and not spaces.
+					In order to print from the last line to the first line, you can use the command <font class="bashcommand">tail</font> with the flag <font class="bashcommand">-r</font> (for reverse) after the command <font class="bashcommand">awk</font>. The command line will first execute the <font class="bashcommand">awk</font> command which is written before the <font class="bashcommand">|</font> symbol, and then it will run the <font class="bashcommand">tail</font> command which inverts the order of the previous output. Remember that for file1.csv you need to use <font class="bashcommand">-F','</font> to indicate that the columns are separated by commas and not spaces.
 				</p>
 
+				<p>
 				<table class="ghostTable">
 					<tr>
 						<th>Space-separated file</th>
@@ -8043,6 +8056,7 @@
 						<td>"Anonymized ID"</td>
 					</tr>
 				</table>
+				</p>
 
 				<p>The same as in example 1, to precede each line by the line number, add <font class="bashcommand">NR</font>, after the string <font class="bashcommand">print</font> in the <font class="bashcommand">awk</font> command to indicate that you want to print the Number Row before the column 1 (<font class="bashcommand">$1</font>):</p>
 		    </div>
@@ -8211,7 +8225,7 @@
 		
 		<footer>
 			<p>
-				Last update: October 6 / 2020<br>
+				Last update: October 9 / 2020<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
