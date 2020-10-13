@@ -8059,6 +8059,329 @@
 				</p>
 
 				<p>The same as in example 1, to precede each line by the line number, add <font class="bashcommand">NR</font>, after the string <font class="bashcommand">print</font> in the <font class="bashcommand">awk</font> command to indicate that you want to print the Number Row before the column 1 (<font class="bashcommand">$1</font>):</p>
+
+				<p>
+				<table class="ghostTable">
+					<tr>
+						<th>Space-separated file</th>
+						<th>Comma-separated file</th>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">$ awk '{print NR, $1}' file2.txt | tail -r</font></td>
+						<td><font class="bashcommand">$ awk -F',' '{print NR, $1}' file1.csv | tail -r</font></td>
+					</tr>
+					
+					<tr>
+						<td>29 "B11133232"</td>
+						<td>29 "B33199522"</td>
+					</tr>
+					
+					<tr>
+						<td>28 "B11156098"</td>
+						<td>28 "C11137159"</td>
+					</tr>
+					
+					<tr>
+						<td>27 "B11152577"</td>
+						<td>27 "B11141503"</td>
+					</tr>
+					
+					<tr>
+						<td>26 "B11150911"</td>
+						<td>26 "B33191224"</td>
+					</tr>
+					
+					<tr>
+						<td>25 "C11138912"</td>
+						<td>25 "B11157974"</td>
+					</tr>
+					
+					<tr>
+						<td>24 "B11135292"</td>
+						<td>24 "B11131290"</td>
+					</tr>
+					
+					<tr>
+						<td>23 "B11133232"</td>
+						<td>23 "B33191224"</td>
+					</tr>
+					
+					<tr>
+						<td>22 "B11156098"</td>
+						<td>22 "B11147712"</td>
+					</tr>
+					
+					<tr>
+						<td>21 "B11137784"</td>
+						<td>21 "B11110927"</td>
+					</tr>
+					
+					<tr>
+						<td>20 "B11131605"</td>
+						<td>20 "B11110603"</td>
+					</tr>
+					
+					<tr>
+						<td>19 "C11138999"</td>
+						<td>19 "B11137879"</td>
+					</tr>
+					
+					<tr>
+						<td>18 "B11155267"</td>
+						<td>18 "B33199603"</td>
+					</tr>
+					
+					<tr>
+						<td>17 "B33191224"</td>
+						<td>17 "B11135072"</td>
+					</tr>
+					
+					<tr>
+						<td>16 "B11137120"</td>
+						<td>16 "B11135291"</td>
+					</tr>
+					
+					<tr>
+						<td>15 "B11155267"</td>
+						<td>15 "B11110925"</td>
+					</tr>
+					
+					<tr>
+						<td>14 "B11154532"</td>
+						<td>14 "B11154358"</td>
+					</tr>
+					
+					<tr>
+						<td>13 "C11138929"</td>
+						<td>13 "B11152799"</td>
+					</tr>
+					
+					<tr>
+						<td>12 "B11110676"</td>
+						<td>12 "B11110690"</td>
+					</tr>
+					
+					<tr>
+						<td>11 "B11156453"</td>
+						<td>11 "B11157958"</td>
+					</tr>
+					
+					<tr>
+						<td>10 "C11137159"</td>
+						<td>10 "B11177806"</td>
+					</tr>
+					
+					<tr>
+						<td>9 "B11144345"</td>
+						<td>9 "B11177579"</td>
+					</tr>
+					
+					<tr>
+						<td>8 "B11134987"</td>
+						<td>8 "B11153927"</td>
+					</tr>
+					
+					<tr>
+						<td>7 "B12226566"</td>
+						<td>7 "B11135291"</td>
+					</tr>
+					
+					<tr>
+						<td>6 "B11137244"</td>
+						<td>6 "B11110455"</td>
+					</tr>
+					
+					<tr>
+						<td>5 "B11144100"</td>
+						<td>5 "B11144410"</td>
+					</tr>
+					
+					<tr>
+						<td>4 "B11154534"</td>
+						<td>4 "B11137879"</td>
+					</tr>
+					
+					<tr>
+						<td>3 "B11137244"</td>
+						<td>3 "B33199603"</td>
+					</tr>
+					
+					<tr>
+						<td>2 "B11130912"</td>
+						<td>2 "B33199522"</td>
+					</tr>
+					
+					<tr>
+						<td>1 "AnonymizedID"</td>
+						<td>1 "Anonymized ID"</td>
+					</tr>
+				</table>
+				</p>
+
+				<p>
+				<font class="example">Print the second and third columns of file1.csv and file2.txt. Show the lines of file2.txt in reverse order.</font>
+				In the previous examples we used the action statement <font class="bascommand">'{print $1}'</font> to print the first column. Since we now want to print the second and third columns instead of the first one, we replace  <font class="bascommand">$1</font> by  <font class="bascommand">$2</font>, <font class="bascommand">$3</font>. If you wanted to print column 4 and 5 instead, then you would simply use <font class="bascommand">$4</font>,<font class="bascommand">$5</font>, etc. In order to print the output in reverse order for file2.txt, use the <font class="bascommand">tail -r</font> command after the <font class="bascommand">awk</font>. 
+				</p>
+
+				<p>
+				<table class="ghostTable">
+					<tr>
+						<th>Space-separated file</th>
+						<th>Comma-separated file</th>
+					</tr>
+					
+					<tr>
+						<td><font class="bascommand">$ awk '{print $2,$3}' file2.txt</font></td>
+						<td><font class="bascommand">$ awk -F',' '{print $2,$3}' file1.csv | tail -r</font></td>
+					</tr>
+					
+					<tr>
+						<td>"SubjectGroup" "TEST1"</td>
+						<td>"Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>"Group2b" "900"</td>
+						<td>"Group3" "9"</td>
+					</tr>
+					
+					<tr>
+						<td>"Group1" "450"</td>
+						<td>"Group3" "0"</td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+				</table>
+				</p>
 		    </div>
 		       
 		    <div id="content10" class="hidden">
