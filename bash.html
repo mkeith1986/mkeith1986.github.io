@@ -8225,7 +8225,7 @@
 
 				<p>
 				<font class="example">Print the second and third columns of file1.csv and file2.txt. Show the lines of file2.txt in reverse order.</font>
-				In the previous examples we used the action statement <font class="bascommand">'{print $1}'</font> to print the first column. Since we now want to print the second and third columns instead of the first one, we replace  <font class="bascommand">$1</font> by  <font class="bascommand">$2</font>, <font class="bascommand">$3</font>. If you wanted to print column 4 and 5 instead, then you would simply use <font class="bascommand">$4</font>,<font class="bascommand">$5</font>, etc. In order to print the output in reverse order for file2.txt, use the <font class="bascommand">tail -r</font> command after the <font class="bascommand">awk</font>. 
+				In the previous examples we used the action statement <font class="bashcommand">'{print $1}'</font> to print the first column. Since we now want to print the second and third columns instead of the first one, we replace  <font class="bashcommand">$1</font> by  <font class="bashcommand">$2</font>, <font class="bashcommand">$3</font>. If you wanted to print column 4 and 5 instead, then you would simply use <font class="bashcommand">$4</font>,<font class="bashcommand">$5</font>, etc. In order to print the output in reverse order for file2.txt, use the <font class="bashcommand">tail -r</font> command after the <font class="bashcommand">awk</font>. 
 				</p>
 
 				<p>
@@ -8236,8 +8236,8 @@
 					</tr>
 					
 					<tr>
-						<td><font class="bascommand">$ awk '{print $2,$3}' file2.txt</font></td>
-						<td><font class="bascommand">$ awk -F',' '{print $2,$3}' file1.csv | tail -r</font></td>
+						<td><font class="bashcommand">$ awk '{print $2,$3}' file2.txt</font></td>
+						<td><font class="bashcommand">$ awk -F',' '{print $2,$3}' file1.csv | tail -r</font></td>
 					</tr>
 					
 					<tr>
@@ -8387,7 +8387,7 @@
 				</table>
 				</p>
 
-				<p>To precede each line by the line number, add <font class="bascommand">NR</font>, after the string <font class="bascommand">print</font> in the <font class="bascommand">awk</font> command to indicate that you want to print the Number Row before the column 1 (<font class="bascommand">$1</font>):</p>
+				<p>To precede each line by the line number, add <font class="bashcommand">NR</font>, after the string <font class="bashcommand">print</font> in the <font class="bashcommand">awk</font> command to indicate that you want to print the Number Row before the column 1 (<font class="bashcommand">$1</font>):</p>
 
 				<p>
 				<table class="ghostTable">
@@ -8397,8 +8397,8 @@
 					</tr>
 					
 					<tr>
-						<td><font class="bascommand">$ awk '{print NR,$2,$3}' file2.txt</font></td>
-						<td><font class="bascommand">$ awk -F',' '{print NR,$2,$3}' file1.csv | tail -r</font></td>
+						<td><font class="bashcommand">$ awk '{print NR,$2,$3}' file2.txt</font></td>
+						<td><font class="bashcommand">$ awk -F',' '{print NR,$2,$3}' file1.csv | tail -r</font></td>
 					</tr>
 					
 					<tr>
