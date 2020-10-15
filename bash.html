@@ -6661,6 +6661,7 @@
 				&gt; do<br>
 				&gt; echo $((i++)) $line<br>
 				&gt; done<br>
+				<font class="bashcommand-result">
 				0 a<br>
 				1 b<br>
 				2 c<br>
@@ -6671,6 +6672,7 @@
 				7 h<br>
 				8 i<br>
 				9 j 
+				</font>
 				</font></p>
 
 				<p>To fix this problem you have to tell bash that newline (<font class="bashcommand">\n</font>) is the only separator. You do this by declaring the system variable <font class="bashcommand">IFS=$'\n'</font>.</p>
