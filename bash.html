@@ -8252,135 +8252,467 @@
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "456"</td>
+						<td>"Group2 b" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "450"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "450"</td>
+						<td>"Group2 b" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group2b" "450"</td>
+						<td>"Group2 b" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "900"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "900"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group3" "MissingData"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group4" "456"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "900"</td>
+						<td>"Group3" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group2b" "2"</td>
+						<td>"MISSING" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "456"</td>
+						<td>"Group3" "9"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group3" "900"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group2b" "450"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group2b" "450"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group3" "900"</td>
+						<td>"Group3" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group2b" "900"</td>
+						<td>"Group3" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "456"</td>
+						<td>"Group1" "MD"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "900"</td>
+						<td>"Group2 b" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "500"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "500"</td>
+						<td>"Group3" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group3" "MissingData"</td>
+						<td>"Group2 b" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group2b" "900"</td>
+						<td>"Group2 b" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group2b" "900"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "900"</td>
+						<td>"Group3" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "456"</td>
+						<td>"Group1" "0"</td>
 					</tr>
 					
 					<tr>
-						<td> </td>
-						<td> </td>
+						<td>"Group1" "456"</td>
+						<td>"Subject Group" "HASCONDITION"</td>
 					</tr>
 				</table>
+				</p>
+
+				<p>To precede each line by the line number, add <font class="bascommand">NR</font>, after the string <font class="bascommand">print</font> in the <font class="bascommand">awk</font> command to indicate that you want to print the Number Row before the column 1 (<font class="bascommand">$1</font>):</p>
+
+				<p>
+				<table class="ghostTable">
+					<tr>
+						<th>Space-separated file</th>
+						<th>Comma-separated file</th>
+					</tr>
+					
+					<tr>
+						<td><font class="bascommand">$ awk '{print NR,$2,$3}' file2.txt</font></td>
+						<td><font class="bascommand">$ awk -F',' '{print NR,$2,$3}' file1.csv | tail -r</font></td>
+					</tr>
+					
+					<tr>
+						<td>1 "SubjectGroup" "TEST1"</td>
+						<td>29 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>2 "Group2b" "900"</td>
+						<td>28 "Group3" "9"</td>
+					</tr>
+					
+					<tr>
+						<td>3 "Group1" "450"</td>
+						<td>27 "Group3" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>4 "Group1" "456"</td>
+						<td>26 "Group2 b" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>5 "Group1" "450"</td>
+						<td>25 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>6 "Group1" "450"</td>
+						<td>24 "Group2 b" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>7 "Group2b" "450"</td>
+						<td>23 "Group2 b" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>8 "Group1" "900"</td>
+						<td>22 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>9 "Group1" "900"</td>
+						<td>21 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>10 "Group3" "MissingData"</td>
+						<td>20 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>11 "Group4" "456"</td>
+						<td>19 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>12 "Group1" "900"</td>
+						<td>18 "Group3" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>13 "Group2b" "2"</td>
+						<td>17 "MISSING" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>14 "Group1" "456"</td>
+						<td>16 "Group3" "9"</td>
+					</tr>
+					
+					<tr>
+						<td>15 "Group3" "900"</td>
+						<td>15 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>16 "Group2b" "450"</td>
+						<td>14 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>17 "Group2b" "450"</td>
+						<td>13 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>18 "Group3" "900"</td>
+						<td>12 "Group3" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>19 "Group2b" "900"</td>
+						<td>11 "Group3" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>20 "Group1" "456"</td>
+						<td>10 "Group1" "MD"</td>
+					</tr>
+					
+					<tr>
+						<td>21 "Group1" "900"</td>
+						<td>9 "Group2 b" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>22 "Group1" "500"</td>
+						<td>8 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>23 "Group1" "500"</td>
+						<td>7 "Group3" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>24 "Group3" "MissingData"</td>
+						<td>6 "Group2 b" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>25 "Group2b" "900"</td>
+						<td>5 "Group2 b" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>26 "Group2b" "900"</td>
+						<td>4 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>27 "Group1" "900"</td>
+						<td>3 "Group3" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>28 "Group1" "456"</td>
+						<td>2 "Group1" "0"</td>
+					</tr>
+					
+					<tr>
+						<td>29 "Group1" "456"</td>
+						<td>1 "Subject Group" "HASCONDITION"</td>
+					</tr>
+				</table>
+				</p>
+
+				<p>
+					<font class="example">Print all the columns of file1.csv showing the lines in reverse order.</font>
+					To print all the columns of a file using <font class="bashcommand">awk</font> simply use <font class="bashcommand">$0</font> (instead of a column number). Or use the command <font class="bashcommand">cat</font>.
+				</p>
+
+				<p>
+				<table class="ghostTable">
+					<tr>
+						<th>Using <font class="bashcommand">awk</font></th>
+						<th>Using <font class="bashcommand">cat</font></th>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">$ awk -F',' '{print $0}' file1.csv | tail -r</font></td>
+						<td><font class="bashcommand">$ cat file1.csv | tail -r</font></td>
+					</tr>
+					
+					<tr>
+						<td>"B33199522","Group1","0",""</td>
+						<td>"B33199522","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"C11137159","Group3","9","mTBI"</td>
+						<td>"C11137159","Group3","9","mTBI"</td>
+					</tr>
+					
+					<tr>
+						<td>"B11141503","Group3","0",""</td>
+						<td>"B11141503","Group3","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B33191224","Group2 b","0",""</td>
+						<td>"B33191224","Group2 b","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11157974","Group1","0",""</td>
+						<td>"B11157974","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11131290","Group2 b","0",""</td>
+						<td>"B11131290","Group2 b","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B33191224","Group2 b","0",""</td>
+						<td>"B33191224","Group2 b","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11147712","Group1","0",""</td>
+						<td>"B11147712","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11110927","Group1","0",""</td>
+						<td>"B11110927","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11110603","Group1","0",""</td>
+						<td>"B11110603","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11137879","Group1","0",""</td>
+						<td>"B11137879","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B33199603","Group3","0",""</td>
+						<td>"B33199603","Group3","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11135072","MISSING","0",""</td>
+						<td>"B11135072","MISSING","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11135291","Group3","9","mTBI"</td>
+						<td>"B11135291","Group3","9","mTBI"</td>
+					</tr>
+					
+					<tr>
+						<td>"B11110925","Group1","0",""</td>
+						<td>"B11110925","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11154358","Group1","0",""</td>
+						<td>"B11154358","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11152799","Group1","0",""</td>
+						<td>"B11152799","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11110690","Group3","0",""</td>
+						<td>"B11110690","Group3","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11157958","Group3","0",""</td>
+						<td>"B11157958","Group3","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11177806","Group1","MD",""</td>
+						<td>"B11177806","Group1","MD",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11177579","Group2 b","0",""</td>
+						<td>"B11177579","Group2 b","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11153927","Group1","0",""</td>
+						<td>"B11153927","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11135291","Group3","0",""</td>
+						<td>"B11135291","Group3","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11110455","Group2 b","0",""</td>
+						<td>"B11110455","Group2 b","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11144410","Group2 b","0",""</td>
+						<td>"B11144410","Group2 b","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B11137879","Group1","0",""</td>
+						<td>"B11137879","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B33199603","Group3","0",""</td>
+						<td>"B33199603","Group3","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"B33199522","Group1","0",""</td>
+						<td>"B33199522","Group1","0",""</td>
+					</tr>
+					
+					<tr>
+						<td>"Anonymized ID","Subject Group","HASCONDITION","CONDITION"</td>
+						<td>"Anonymized ID","Subject Group","HASCONDITION","CONDITION"</td>
+					</tr>
+				</table>
+				</p>
+	
+				<p>
+					<font class="example">Print all the columns of file1.csv in reversed order (first the third column, then the second and finally the first one), and save the re-ordered columns in a new file called file1_reordered.csv.</font> 
+					If you were going to print the columns one to three in normal order, you would use <font class="bashcommand">'{print $1,$2,$3}'</font>. To print them in reverse order, you just reverse the order of the columns in <font class="bashcommand">print</font>: <font class="bashcommand">'{print $3,$2,$1}'</font>.<br>
+					To save the output to a file instead of showing it in the terminal, use >> file as explained in previous chapters.<br>
+					Remember to use the <font class="bashcommand">-F','</font> flag to indicate that the columns are separated by commas and not the default space.
 				</p>
 		    </div>
 		       
