@@ -24,29 +24,56 @@
 				<ul>
 					<li><a onclick="showContent(1);">1. FSL 6.0.3 (Linux 18.04)</a></li>
 					<li><a onclick="showContent(2);">2. DSI Studio (Linux 18.04)</a></li>
+					<li><a onclick="showContent(3);">3. AFNI (Linux 18.04)</a></li>
+					<li><a onclick="showContent(4);">4. MySQL (Linux 18.04)</a></li>
+					<li><a onclick="showContent(5);">5. Anaconda (Linux 18.04)</a></li>
+					<li><a onclick="showContent(5);">6. PsychoPy (Linux 18.04)</a></li>
+					<li><a onclick="showContent(5);">7. Eclipse (Linux 18.04)</a></li>
+					<li><a onclick="showContent(5);">8. GitHub (Linux 18.04)</a></li>
 				</ul>
 			</nav>
 			
 			<article>
 				<div id="content1">
 			    	<h2>1. FSL 6.0.3 (Ubuntu 18.04)</h2>
+				<p>You will need administrative privileges in order to install FSL.</p>
 			    	
-			    	<h3>1.1. Check your Python installation</h3>
+			    	<h3>1.1. (Optional) Update all your current packages</h3>
+			    	<ul>
+			    		<li>Open your Terminal application:
+			    			<ul>
+			    				<li>Click on the nine dots in the left bottom of the screen. It will show a menu with all the installed applications.</li>
+			    				<li>Scroll down until you see an application called Terminal and click on it. The Terminal will open.</li>
+			    				<li>Navigate to the folder where you downloaded the FSL installer. For example, if the file was downloaded in the Downloads directory, type <font class="bashcommand">$ cd ~/Downloads/</font></li>
+			    			</ul>
+			    		</li>
+			    		<li>Type <font class="bashcommand">$ sudo apt-get autoclean</font> to clean the cache by removing files that cannot longer be downloaded from the local repository.</li>
+			    		<li>Type <font class="bashcommand">$ sudo apt-get autoremove</font> in order to remove libraries that were previously depencies of some programs but are no longer being used (to clear space).</li>
+			    		<li>(recommended) Type <font class="bashcommand">$ sudo apt-get update</font> to update the <u>package list</u> with the latest versions of your programs (does not actually upgrade or install those new versions).</li>
+			    		<li>(recommended) Type <font class="bashcommand">$ sudo apt-get upgrade</font> to upgrade those programs (already installed in your machine) that have new versions available and install the new versions.</li>
+			    		<li>Type <font class="bashcommand">Y</font> when prompted for confirmation</li>
+			    		<li>Type <font class="bashcommand">$ sudo apt-get dist-upgrade</font>. Because <font class="bashcommand">$ sudo apt-get upgrade</font> only upgrades packages that are already installed in your machine, whenever a new version of a program requires other packages that are not yet installed, <font class="bashcommand">$ sudo apt-get upgrade</font> will not update those packages. However, in those cases <font class="bashcommand">$ sudo apt-get dist-upgrade</font> will still perform the upgrade and resolve any dependencies. If you get any errors or warnings of packages that were kept back with <font class="bashcommand">$ sudo apt-get upgrade</font>, use <font class="bashcommand">$ sudo apt-get dist-upgrade</font> instead.</li>
+			    		<li>Type <font class="bashcommand">Y</font> when prompted for confirmation</li>
+			    	</ul>
+			    	
+			    	<h3>1.2. Check your Python installation</h3>
 			    	<p>
 			    		Make sure that you have Python 2 installed. To do that, type:<br>
 			    		<font class="bashcommand">$ python --version</font><br>
-			    		If you have Python 2 installed, you should see something like this (the exact version will vary but should start with 2):<br>
-			    		<font class="bashcommand-result">Python 2.7.17</font><br>
+			    		If you have Python 2 installed, you should see something like this (the exact version will vary but should start with a 2):<br>
+			    		<font class="bashcommand-result">Python 2.7.18</font><br>
 			    		If Python 2 is <b>not</b> installed, you should see something like this:<br>
 			    		<font class="bashcommand-result">-bash: python: command not found</font><br>
 			    		And you can install it with the following command:<br>
 			    		<font class="bashcommand">$ sudo apt install python</font>
 			    	</p>
+				
+				<p>Don't worry about having two versions of Python in case you already have Python3. You can always use <font class="bashcommand">$ python2 &lt;your_python2_script&gt;</font> to run your python2 scripts and <font class="bashcommand">$ python3 &lt;your_python3_script&gt;</font> to run your python3 scripts. Or just <font class="bashcommand">$ python &lt;your_python_script&gt;</font> to run the the python version that you have for default.</p>
 			    	
-			    	<h3>1.2. Register the new license</h3>
+			    	<h3>1.3. Register the new license</h3>
 			    	<p>Register at <a href="https://fsl.fmrib.ox.ac.uk/fsldownloads_registration" target="_blank">fsldownloads_registration</a>. Read and agree to the software license, fill the form and select Linux - Ubuntu 18 bionic as operating system, then click Register.</p>
 			    
-			    	<h3>1.3. Install the software</h3>
+			    	<h3>1.4. Install the software</h3>
 			    	<ul>
 			    		<li>Click on <a href="https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py" target="_blank">Download FSL 6.0.3</a> to download the installer (fslinstaller.py)</li>
 			    		<li>Open your Terminal application:
@@ -73,12 +100,12 @@
 			    		<li>Check that your environment is correct by typing: c$ echo $FSLDIR</font>. It should show the location you selected during installation.</li>
 			    		<li>Check that your path is correct by typing: <font class="bashcommand">$ flirt -version</font>. The output should be: <font class="bashcommand-result">FLIRT version 6.0</font></li>
 			    	</ul>
-			    </div>
+			    	</div>
 			    
 				<div id="content2" class="hidden">
 			    	<h2>2. DSI Studio (Ubuntu 18.04)</h2>
 			    	
-			    	<h3>2.1. Update all your current packages</h3>
+			    	<h3>2.1. (Optional) Update all your current packages</h3>
 			    	<ul>
 			    		<li>Open your Terminal application:
 			    			<ul>
@@ -87,7 +114,12 @@
 			    				<li>Navigate to the folder where you downloaded the FSL installer. For example, if the file was downloaded in the Downloads directory, type <font class="bashcommand">$ cd ~/Downloads/</font></li>
 			    			</ul>
 			    		</li>
-			    		<li>Type <font class="bashcommand">$ sudo apt-get upgrade</font></li>
+			    		<li>Type <font class="bashcommand">$ sudo apt-get autoclean</font> to clean the cache by removing files that cannot longer be downloaded from the local repository.</li>
+			    		<li>Type <font class="bashcommand">$ sudo apt-get autoremove</font> in order to remove libraries that were previously depencies of some programs but are no longer being used (to clear space).</li>
+			    		<li>(recommended) Type <font class="bashcommand">$ sudo apt-get update</font> to update the <u>package list</u> with the latest versions of your programs (does not actually upgrade or install those new versions).</li>
+			    		<li>(recommended) Type <font class="bashcommand">$ sudo apt-get upgrade</font> to upgrade those programs (already installed in your machine) that have new versions available and install the new versions.</li>
+			    		<li>Type <font class="bashcommand">Y</font> when prompted for confirmation</li>
+			    		<li>Type <font class="bashcommand">$ sudo apt-get dist-upgrade</font>. Because <font class="bashcommand">$ sudo apt-get upgrade</font> only upgrades packages that are already installed in your machine, whenever a new version of a program requires other packages that are not yet installed, <font class="bashcommand">$ sudo apt-get upgrade</font> will not update those packages. However, in those cases <font class="bashcommand">$ sudo apt-get dist-upgrade</font> will still perform the upgrade and resolve any dependencies. If you get any errors or warnings of packages that were kept back with <font class="bashcommand">$ sudo apt-get upgrade</font>, use <font class="bashcommand">$ sudo apt-get dist-upgrade</font> instead.</li>
 			    		<li>Type <font class="bashcommand">Y</font> when prompted for confirmation</li>
 			    	</ul>
 			    	
@@ -178,7 +210,31 @@
 			    		<li>Try to run DSI Studio from the terminal: <font class="bashcommand">$ ./dsi_studio</font></li>
 			    		<li>If the installation finished successfully, the application should open</li>
 			    	</ul>
-			    </div>
+			    	</div>
+			    
+		         	<div id="content3" class="hidden">
+			    	<h2>3. AFNI (Ubuntu 18.04)</h2>
+				</div>	
+				
+				<div id="content4" class="hidden">
+			    	<h2>4. MySQL (Ubuntu 18.04)</h2>
+				</div>
+		
+				<div id="content5" class="hidden">
+			    	<h2>5. Anaconda (Ubuntu 18.04)</h2>
+				</div>
+		
+				<div id="content6" class="hidden">
+			    	<h2>6. PsychoPy (Ubuntu 18.04)</h2>
+				</div>
+		
+				<div id="content7" class="hidden">
+			    	<h2>7. Eclipse (Ubuntu 18.04)</h2>
+				</div>
+		
+				<div id="content8" class="hidden">
+			    	<h2>8. GitHub (Ubuntu 18.04)</h2>
+				</div>
 			</article>
 		</section>
 		
