@@ -92,14 +92,14 @@
 			    			</ul>
 			    		</li>	
 			    		<li>Provide your password when prompted</li>
-			    		<li>Log out and back in to complete the setup</li>
+			    		<li>Log out and back in to complete the setup. If you are connected remotely, close your ssh connection and open a new one.</li>
 			    	</ul>
 			    	
 			    	<h3>1.5. Check the installation</h3>
 			    	<ul>
 			    		<li>Start a new Terminal session</li>
-			    		<li>Check that your environment is correct by typing: c$ echo $FSLDIR</font>. It should show the location you selected during installation.</li>
-			    		<li>Check that your path is correct by typing: <font class="bashcommand">$ flirt -version</font>. The output should be: <font class="bashcommand-result">FLIRT version 6.0</font></li>
+			    		<li>Check that your environment is correct by typing: <font class="bashcommand">$ echo $FSLDIR</font>. It should show the location you selected during installation.</li>
+			    		<li>Check that your path is correct by typing: <font class="bashcommand">$ flirt -version</font>. The output should be: <font class="bashcommand-result">FLIRT version X.X</font> (X.X will vary depending on the version you installed)</li>
 			    	</ul>
 			    	</div>
 			    
@@ -128,8 +128,8 @@
 			    	<p>You could install all of the packages below in a single command but I prefer to install them separately in case one of them has a dependency that is not installed in my computer. To install all at the same time, list all the packages name separated by a space after the word <font class="bashcommand">install</font>. Either way, install first g++-5 and gcc-5 before installing the others.</p>
 			    	<font class="bashcommand">
 				    	<ul>
-				    		<li>$ sudo apt install g++-5</li>
-				    		<li>$ sudo apt install gcc-5</li>
+				    		<li>$ sudo apt install g++</li>
+				    		<li>$ sudo apt install gcc</li>
 				    		<li>$ sudo apt install git</li>
 				    		<li>$ sudo apt install libboost-all-dev</li>
 				    		<li>$ sudo apt install zlib1g</li>
@@ -142,19 +142,20 @@
 			    		<li>Download the <a href="http://download.qt.io/archive/qt/5.12/5.12.8/qt-opensource-linux-x64-5.12.8.run" target="_blank">installer</a></li>
 			    		<li>Navigate to the folder where you downloaded the installer (i.e. <font class="bashcommand">$ cd ~/Downloads/</font>)</li>
 			    		<li>Change the permissions of the installation file so it can be executed: <font class="bashcommand">$ chmod 775 qt-opensource-linux-x64-5.12.8.run</font></li>
-			    		<li>Execute the installer: <font class="bashcommand">$ ./qt-opensource-linux-x64-5.12.8.run</font></li>
+			    		<li>Execute the installer: <font class="bashcommand">$ ./qt-opensource-linux-x64-5.12.8.run</font>. You will need access to the computer screen (instead of a ssh connection) because this will open an installation GUI.</li>
 			    		<li>If you get a waring about the Qt account settings file missing, it's ok, it will be created once you log in or create an account. Check that the file was actually created after the installation (If you get the warning, it will show the expected path of the file).</li>
 			    		<li>Login to your Qt Account or sign up for one when prompted, and accept the service terms</li>
 			    		<li>Check your email and verify your Qt account before clicking Next</li>
 			    		<li>Follow the instructions of the installer. When prompted to select the components, select all of them</li>
 			    		<li>Write down the folder where Qr5.12.8 was installed (the information will be provided to you during installation) because you will need to remember it in the next section</li>
 			    		<li>You can close the Qt application if it launches</li>
+					<li>Re-run the commands from section 2.1. in case there is a new version of Qt available or of any of the dependencies installed in section 2.2.</li>
 			    	</ul>
 			    	
 			    	<h3>2.4. Download the DSI Studio installer</h3>
 			    	<ul>
 			    		<li>Create a working directory where the installation files will be saved. For example, in your home directory (i.e. <font class="bashcommand">$ mkdir /home/myuser/dsistudio</font>)</li>
-			    		<li>Navigate to the directory that you just created (i.e. <font class="bashcommand">$ cd /home/myuser/dsistudio</font>)</li>
+			    		<li>Navigate into the directory that you just created (i.e. <font class="bashcommand">$ cd /home/myuser/dsistudio</font>)</li>
 			    		<li>Download the source code of DSI Studio from Github: <font class="bashcommand">$ git clone -b master git://github.com/frankyeh/DSI-Studio.git src</font></li>
 			    		<li>A folder called src should now appear in your current directory (to check type <font class="bashcommand">$ ls</font>)</li>
 			    		<li>Create the following subdirectory inside the src folder: <font class="bashcommand">$ mkdir src/tipl</font></li>
@@ -171,7 +172,7 @@
 			    		<li>Go back to your DSI studio folder (i.e. <font class="bashcommand">$ cd /home/myuser/dsistudio</font>)</li>
 			    		<li>Create a directory to build and compile: <font class="bashcommand">$ mkdir build</font></li>
 			    		<li>Navigate to that directory: <font class="bashcommand">$ cd build</font></li>
-			    		<li>Execute qmake, which is installed in the Qt5.12.5 directory (and I wrote above to remember its path). i.e. if my installation folder for Qt5 is /home/myuser/Qt5.12.8, then this is the command I will run to execute qmake: <font class="bashcommand">$ /home/myuser/Qt5.12.8/5.12.8/gcc_64/bin/qmake ../src</font></li>
+			    		<li>Execute qmake, which is installed in the Qt5.12.5 directory (and I wrote above to remember its path). i.e. if my installation folder for Qt5 is /home/myuser/Qt5.12.8, then this is the command I would run to execute qmake: <font class="bashcommand">$ /home/myuser/Qt5.12.8/5.12.8/gcc_64/bin/qmake ../src</font></li>
 			    		<li>You should see something like this: <font class="bashcommand-result">Info: creating stash file /home/myuser/dsistudio/build/.qmake.stash</font></li>
 			    		<li>Compile: <font class="bashcommand">$ make</font></li>
 			    		<li>Wait until it finishes compiling. This could take several few minutes. If everything goes well, you should find dsi_studio under build directory (Which should be the current directory). To check type <font class="bashcommand">ls dsi_studio</font>. You should get: <font class="bashcommand-result">dsi-studio</font>. If there was an error in the installation, you will get something like this: <font class="bashcommand-result">ls: cannot access 'dsi_studio': No such file or directory</font>. If this happens, do <b>not</b> continue with the installation, check the previous steps. Did you get any error running a previous step? Did you get a message of some package or dependency that needs to be installed? Any error should be fixed right away or the installation wont be completed successfully.</li>
