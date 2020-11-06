@@ -212,6 +212,24 @@
 			    		<li>Try to run DSI Studio from the terminal: <font class="bashcommand">$ ./dsi_studio</font></li>
 			    		<li>If the installation finished successfully, the application should open</li>
 			    	</ul>
+					
+				<h3>2.8. Potential errors during installation</h3>
+				<p>It's not uncommon to run into issues while installing DSI Studio. I could not possibly describe all the possible problems you could run into but here are a few examples of errors I have run into and how I solved them:</p>
+				
+				<h4><font class="bashcommand">N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'https://download.mono-project.com/repo/ubuntu stable-focal InRelease' doesn't support architecture 'i386'</font> while upgrading or updating your packages</h4>
+				<p>In this example the error occured when updating the mono package. But it could happen for any other package. To solve the issue, I typed the following commands. Replace the list file for the one corresponding to the package you are having issues with.</p>
+				<ul>
+					<li>Type <font class="bashcommand">$ /etc/apt/sources.list.d/</font> and look for the .list file corresponding to the problematic repository. In my case it was: mono-official-stable.list</li>
+					<li>Type <font class="bashcommand">$ sudo gedit /etc/apt/sources.list.d/mono-official-stable.list</font>. Replace gedit by <font class="bashcommand">vi</font> or <font class="bashcommand">nano</font> or you favorite editor.</li>
+					<li>
+						The file should contain one line that starts with the word <font class="bashcommand">deb</font> and contains the https address from the error you got when updating your packages. Place <font class="bashcommand">[arch=amd64]</font> between <font class="bashcommand">deb</font> and the http address.<br>
+						For me, this is how the like look before the edits:<br>
+						<font class="bashcommand">deb https://download.mono-project.com/repo/ubuntu stable-focal main</font><br>
+						And this is how it looked after the edits:
+						<font class="bashcommand">deb [arch=amd64] https://download.mono-project.com/repo/ubuntu stable-focal main</font>
+					</li>
+					<li>Re-run the update or upgrade command that gave the error</li>
+				</ul>
 			    	</div>
 			    
 		         	<div id="content3" class="hidden">
