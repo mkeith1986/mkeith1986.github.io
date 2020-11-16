@@ -95,7 +95,21 @@
 			    		<li>Log out and back in to complete the setup. If you are connected remotely, close your ssh connection and open a new one.</li>
 			    	</ul>
 			    	
-			    	<h3>1.5. Check the installation</h3>
+				<h3>1.5. Update your bash profile</h3>
+				<ul>
+					<li>Open your bash profile: <font class="bashcommand">vi ~/.bashrc</font></li>
+					<li>
+						Paste the following lines:<br>
+						<font class="bashcommand">
+						FSLDIR=/usr/local/fsl<br>
+						. ${FSLDIR}/etc/fslconf/fsl.sh<br>
+						PATH=${FSLDIR}/bin:${PATH}<br>
+						export FSLDIR PATH
+						</font>
+					</li>
+				</ul>
+					
+			    	<h3>1.6. Check the installation</h3>
 			    	<ul>
 			    		<li>Start a new Terminal session</li>
 			    		<li>Check that your environment is correct by typing: <font class="bashcommand">$ echo $FSLDIR</font>. It should show the location you selected during installation.</li>
