@@ -8721,7 +8721,7 @@
 
 				<p>
 				<font class="bashcommand">
-				$ awk -F',' '{print $3,$2,$1}' file1.csv >> file1_reordered.csv<br>
+				$ awk -F',' '{print $3,$2,$1}' file1.csv &gt;&gt; file1_reordered.csv<br>
 				$ cat file1_reordered.csv<br>
 				<font class="bashcommand-result"><br>
 				"HASCONDITION" "Subject Group" "Anonymized ID"<br>
@@ -8804,6 +8804,41 @@
 				The elements of the array will be saved in the variable <font class="bashcommand">ARRAY</font>. As it was learned in previous chapters, to access the individual elements of <font class="bashcommand">ARRAY</font> you use the syntax <font class="bashcommand">${ARRAY[index]}</font>. With <font class="bashcommand">index</font> starting at <font class="bashcommand">0</font>. So, to access the first element the command is <font class="bashcommand">echo ${ARRAY[0]}</font>, to access the second element <font class="bashcommand">echo ${ARRAY[1]}</font>, etc. Type <font class="bashcommand">echo ${ARRAY[@]}</font> to view all elements and to obtain the number of elements (size of <font class="bashcommand">ARRAY</font>).<br>
 				Remember, the system variable <font class="bashcommand">IFS</font> contains the separator that is being used to separate each feld within the lines of a file. You can change the value of this variable at any time: <font class="bashcommand">IFS='character'</font>
 				</p>
+
+				<table>
+					<tr>
+						<th>Space-separated file</th>
+						<th>Comma-separated file</th>
+					</tr>
+					
+					<tr>
+						<td><font class="bashcommand">
+						$ IFS=$'\n'<br>
+						$ ARRAY=($(awk '{print $2}' file2.txt))<br>
+						$ echo ${ARRAY[0]}<br> 
+						<font class="bashcommand-result">"SubjectGroup"</font><br>
+						$ echo ${ARRAY[1]}<br>
+						<font class="bashcommand-result">"Group2b"</font><br>
+						$ echo ${ARRAY[@]}<br>
+						<font class="bashcommand-result">"SubjectGroup" "Group2b" "Group1" "Group1" "Group1" "Group1" "Group2b" "Group1" "Group1" "Group3" "Group4" "Group1" "Group2b" "Group1" "Group3" "Group2b" "Group2b" "Group3" "Group2b" "Group1" "Group1" "Group1" "Group1" "Group3" "Group2b" "Group2b" "Group1" "Group1" "Group1"</font><br>
+						$ echo ${#ARRAY[@]}<br>
+						<font class="bashcommand-result">29</font>
+						</font></td>
+						
+						<td><font class="bashcommand">
+						$ IFS=$'\n'<br>
+						$ ARRAY=($(awk -F',' '{print $2}' file1.csv))<br>
+						$ echo ${ARRAY[0]}<br>
+						<font class="bashcommand-result">"Subject Group"</font><br>
+						$ echo ${ARRAY[1]}<br>
+						<font class="bashcommand-result">"Group1"</font><br>
+						$ echo ${ARRAY[@]}<br>
+						<font class="bashcommand-result">"Subject Group" "Group1" "Group3" "Group1" "Group2 b" "Group2 b" "Group3" "Group1" "Group2 b" "Group1" "Group3" "Group3" "Group1" "Group1" "Group1" "Group3" "MISSING" "Group3" "Group1" "Group1" "Group1" "Group1" "Group2 b" "Group2 b" "Group1" "Group2 b" "Group3" "Group3" "Group1"</font><br>
+						$ echo ${#ARRAY[@]}<br>
+						<font class="bashcommand-result">29</font>
+						</font></td>
+					</tr>
+				</table>
 		    </div>
 		       
 		    <div id="content10" class="hidden">
