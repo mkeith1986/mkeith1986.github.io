@@ -270,13 +270,11 @@
 						<img src="vi_6.png"/>
 					</p>
 					
-					<p>
-						The following table shows a list of vi commands that can be used in command mode and the action that will 
+					<p>The following table shows a list of vi commands that can be used in command mode and the action that will 
 						happen in each case. In general, a number preceding any vi command will tell vi to repeat the command that 
 						number of times. For example, <font class="bashcommand">p</font> is the command for pasting. If you write 
 						(in command mode) <font class="bashcommand">2p</font>, then vi will paste whatever you copied two times where 
-						the cursor is currently located.
-					</p>
+						the cursor is currently located.</p>
 					
 					<table>
 						<caption>List of vi commands</caption>
@@ -8839,6 +8837,457 @@
 						</font></td>
 					</tr>
 				</table>
+
+				<p>
+				<font class="example">Print the first column of file2.txt followed by the first column of file4.txt.</font>
+				To print a specific column for more than one file, you use the same command, adding the list of files you want to print after the first one. However, all the files in the list must use the same column separator (in this case is a space). Since the column separator for this list of files is a space (the default), you don't need to use the <font class="bashcommand">-F</font> flag.
+				</p>
+
+				<p>
+				<font class="bashcommand">
+				$ awk '{print $1}' file2.txt file4.txt<br>
+				<font class="bashcommand-result">
+				"AnonymizedID"<br>
+				"B11130912"<br>
+				"B11137244"<br>
+				"B11154534"<br>
+				"B11144100"<br>
+				"B11137244"<br>
+				"B12226566"<br>
+				"B11134987"<br>
+				"B11144345"<br>
+				"C11137159"<br>
+				"B11156453"<br>
+				"B11110676"<br>
+				"C11138929"<br>
+				"B11154532"<br>
+				"B11155267"<br>
+				"B11137120"<br>
+				"B33191224"<br>
+				"B11155267"<br>
+				"C11138999"<br>
+				"B11131605"<br>
+				"B11137784"<br>
+				"B11156098"<br>
+				"B11133232"<br>
+				"B11135292"<br>
+				"C11138912"<br>
+				"B11150911"<br>
+				"B11152577"<br>
+				"B11156098"<br>
+				"B11133232"<br>
+				AnonymizedID<br>
+				B11108326<br>
+				B11110893<br>
+				B11119909<br>
+				D11144030<br>
+				D11144030<br>
+				B11119903<br>
+				C11131039<br>
+				C11133100<br>
+				C11135566<br>
+				C11137159<br>
+				C11137159<br>
+				C11137167<br>
+				C11137167<br>
+				C11137439<br>
+				C11137439<br>
+				C11137443<br>
+				C11137544<br>
+				C11137123<br>
+				C11138150<br>
+				C11138152<br>
+				C11138797<br>
+				C11138184<br>
+				C11138122<br>
+				C11138122<br>
+				C11138192<br>
+				B12226507<br>
+				B12226546
+				</font>
+				</font>
+				</p>
+
+				<p>
+				<font class="example">Print the first column of file3.csv followed by the first column of file1.csv.</font> 
+				Since the column separator for this list of files is a comma, you need to use the <font class="bashcommand">-F','</font> flag.
+				</p>
+
+				<p>
+				<font class="bashcommand">
+				$ awk -F',' '{print $1}' file3.csv file1.csv<br>
+				<font class="bashcommand-result">
+				Anonymized ID<br>
+				C11138122<br>
+				C11138192<br>
+				B12226507<br>
+				B12226546<br>
+				C11138122<br>
+				C11138184<br>
+				C11138797<br>
+				C11138152<br>
+				C11138150<br>
+				C11137167<br>
+				C11137159<br>
+				C11137167<br>
+				C11137159<br>
+				C11131039<br>
+				C11135566<br>
+				B11119903<br>
+				C11137544<br>
+				C11137443<br>
+				C11137123<br>
+				C11137439<br>
+				C11137439<br>
+				C11133100<br>
+				D11144030<br>
+				B11108399<br>
+				B11108326<br>
+				B11119909<br>
+				B11110893<br>
+				"Anonymized ID"<br>
+				"B33199522"<br>
+				"B33199603"<br>
+				"B11137879"<br>
+				"B11144410"<br>
+				"B11110455"<br>
+				"B11135291"<br>
+				"B11153927"<br>
+				"B11177579"<br>
+				"B11177806"<br>
+				"B11157958"<br>
+				"B11110690"<br>
+				"B11152799"<br>
+				"B11154358"<br>
+				"B11110925"<br>
+				"B11135291"<br>
+				"B11135072"<br>
+				"B33199603"<br>
+				"B11137879"<br>
+				"B11110603"<br>
+				"B11110927"<br>
+				"B11147712"<br>
+				"B33191224"<br>
+				"B11131290"<br>
+				"B11157974"<br>
+				"B33191224"<br>
+				"B11141503"<br>
+				"C11137159"<br>
+				"B33199522" 
+				</font>
+				</font>
+				</p>
+
+			<h3>9.7. Reading specific columns from a file or a list of files and sorting the result in alphabetical order and/or removing duplicate values</h3>
+				<p>
+				<font class="example">Print the first column of file1.csv and file2.txt in alphabetical order.</font>
+				In order to do this, you sort the result after printing the first column. First, use <font class="bashcommand">awk</font> to print the desired column, followed by <font class="bashcommand">| sort</font> to sort it in alphabetical order. 
+				</p>
+
+				<p><table class="ghostTable">
+				<tr>
+					<th>Space-separated file</th>
+					<th>Comma-separated file</th>
+				</tr>
+					
+				<tr>
+					<td><font class="bashcommand">
+					$ awk '{print $1}' file2.txt | sort<br>
+					<font class="bashcommand-result">
+					"AnonymizedID"<br>
+					"B11110676"<br>
+					"B11130912"<br>
+					"B11131605"<br>
+					"B11133232"<br>
+					"B11133232"<br>
+					"B11134987"<br>
+					"B11135292"<br>
+					"B11137120"<br>
+					"B11137244"<br>
+					"B11137244"<br>
+					"B11137784"<br>
+					"B11144100"<br>
+					"B11144345"<br>
+					"B11150911"<br>
+					"B11152577"<br>
+					"B11154532"<br>
+					"B11154534"<br>
+					"B11155267"<br>
+					"B11155267"<br>
+					"B11156098"<br>
+					"B11156098"<br>
+					"B11156453"<br>
+					"B12226566"<br>
+					"B33191224"<br>
+					"C11137159"<br>
+					"C11138912"<br>
+					"C11138929"<br>
+					"C11138999"
+					</font>
+					</font></td>
+					
+					<td><font class="bashcommand">
+					$ awk -F ',' '{print $1}' file1.csv | sort<br>
+					<font class="bashcommand-result">
+					"Anonymized ID"<br>
+					"B11110455"<br>
+					"B11110603"<br>
+					"B11110690"<br>
+					"B11110925"<br>
+					"B11110927"<br>
+					"B11131290"<br>
+					"B11135072"<br>
+					"B11135291"<br>
+					"B11135291"<br>
+					"B11137879"<br>
+					"B11137879"<br>
+					"B11141503"<br>
+					"B11144410"<br>
+					"B11147712"<br>
+					"B11152799"<br>
+					"B11153927"<br>
+					"B11154358"<br>
+					"B11157958"<br>
+					"B11157974"<br>
+					"B11177579"<br>
+					"B11177806"<br>
+					"B33191224"<br>
+					"B33191224"<br>
+					"B33199522"<br>
+					"B33199522"<br>
+					"B33199603"<br>
+					"B33199603"<br>
+					"C11137159"
+					</font>
+					</font></td>
+				</tr>
+				</table></p>
+
+				<p>
+				<font class="example">Print the first column of file1.csv and file2.txt in alphabetical removing any duplicate values.</font>
+				In order to do this, you remove the duplicates after printing and sorting the first column. First, use <font class="bashcommand">awk</font> to print the desired column, followed by <font class="bashcommand">sort | uniq</font> to sort and remove the duplicates on the result.
+				</p>
+
+				<p><table class="ghostTable">
+				<tr>
+					<th>Space-separated file</th>
+					<th>Comma-separated file</th>
+				</tr>
+					
+				<tr>
+					<td><font class="bashcommand">
+					$ awk '{print $1}' file2.txt | sort | uniq<br>
+					<font class="bashcommand-result">
+					"AnonymizedID"<br>
+					"B11130912"<br>
+					"B11137244"<br>
+					"B11154534"<br>
+					"B11144100"<br>
+					"B11137244"<br>
+					"B12226566"<br>
+					"B11134987"<br>
+					"B11144345"<br>
+					"C11137159"<br>
+					"B11156453"<br>
+					"B11110676"<br>
+					"C11138929"<br>
+					"B11154532"<br>
+					"B11155267"<br>
+					"B11137120"<br>
+					"B33191224"<br>
+					"B11155267"<br>
+					"C11138999"<br>
+					"B11131605"<br>
+					"B11137784"<br>
+					"B11156098"<br>
+					"B11133232"<br>
+					"B11135292"<br>
+					"C11138912"<br>
+					"B11150911"<br>
+					"B11152577"<br>
+					"B11156098"<br>
+					"B11133232"
+					</font>
+					</font></td>	
+					
+					<td><font class="bashcommand">
+					$ awk -F ',' '{print $1}' file1.csv | sort | uniq<br>
+					<font class="bashcommand-result">
+					"Anonymized ID"<br>
+					"B33199522"<br>
+					"B33199603"<br>
+					"B11137879"<br>
+					"B11144410"<br>
+					"B11110455"<br>
+					"B11135291"<br>
+					"B11153927"<br>
+					"B11177579"<br>
+					"B11177806"<br>
+					"B11157958"<br>
+					"B11110690"<br>
+					"B11152799"<br>
+					"B11154358"<br>
+					"B11110925"<br>
+					"B11135291"<br>
+					"B11135072"<br>
+					"B33199603"<br>
+					"B11137879"<br>
+					"B11110603"<br>
+					"B11110927"<br>
+					"B11147712"<br>
+					"B33191224"<br>
+					"B11131290"<br>
+					"B11157974"<br>
+					"B33191224"<br>
+					"B11141503"<br>
+					"C11137159"<br>
+					"B33199522"
+					</font>
+					</font></td>
+				</tr>
+				</table></p>
+
+				<p>
+				Print the first column of file1.csv and file3.csv combined, in alphabetical order and with no duplicates.<br>
+				As explained in a previous example, to print the first column of file1.csv and file3.csv combined just use the command <font class="bashcommand">awk</font> with the list of files to be read (file1.csv file3.csv) at the end of the command. Then, use <font class="bashcommand">| sort</font> to organize the output in alphabetical order, and finally use <font class="bashcommand">| uniq</font> to remove the duplicates. 
+				</p>
+
+				<p>In this case, because the strings in file1.csv all start by colons (<font class="bashcommand">"</font>), while the values in file3.csv don't, then all the values of file1.csv will be printed before those of file3.csv (because alphabetically, special characters such as <font class="bashcommand">"</font> go before any letter (including <font class="bashcommand">A</font>). So, for bash <font class="bashcommand">"B11110455"</font> goes before <font class="bashcommand">Anonymized ID</font>.</p>
+
+				<p><font class="bashcommand">
+				$ awk -F ',' '{print $1}' file1.csv file3.csv | sort | uniq<br>
+				<font class="bashcommand-result">
+				"Anonymized ID"<br>
+				"B11110455"<br>
+				"B11110603"<br>
+				"B11110690"<br>
+				"B11110925"<br>
+				"B11110927"<br>
+				"B11131290"<br>
+				"B11135072"<br>
+				"B11135291"<br>
+				"B11137879"<br>
+				"B11141503"<br>
+				"B11144410"<br>
+				"B11147712"<br>
+				"B11152799"<br>
+				"B11153927"<br>
+				"B11154358"<br>
+				"B11157958"<br>
+				"B11157974"<br>
+				"B11177579"<br>
+				"B11177806"<br>
+				"B33191224"<br>
+				"B33199522"<br>
+				"B33199603"<br>
+				"C11137159"<br>
+				Anonymized ID<br>
+				B11108326<br>
+				B11108399<br>
+				B11110893<br>
+				B11119903<br>
+				B11119909<br>
+				B12226507<br>
+				B12226546<br>
+				C11131039<br>
+				C11133100<br>
+				C11135566<br>
+				C11137123<br>
+				C11137159<br>
+				C11137167<br>
+				C11137439<br>
+				C11137443<br>
+				C11137544<br>
+				C11138122<br>
+				C11138150<br>
+				C11138152<br>
+				C11138184<br>
+				C11138192<br>
+				C11138797<br>
+				D11144030
+				</font>
+				</font></p>
+
+			<h3>9.8. Reading all the columns from multiple files and concatenating them horizontally</h3>
+				<p>
+				<font class="example">Concatenate all the columns of file2.txt and file4.txt horizontally</font>
+				Print the columns of one file next to the columns of the previous one, using a space as separator between the columns of one file and the other.
+				</p>
+
+				<p><font class="bashcommand">
+				$ paste -d ' ' file2.txt file4.txt<br>
+				<font class="bashcommand-result">
+				"AnonymizedID" "SubjectGroup" "TEST1" "TEST2" AnonymizedID SubjectGroup AGE<br>
+				B11108399 Group1 23b" "900" "MissingData" B11108326 Group1 59<br>
+				"B11137244" "Group1" "450" "555" B11110893 Group1 28<br>
+				"B11154534" "Group1" "456" "456" B11119909 Group2 61<br>
+				"B11144100" "Group1" "450" "886" D11144030 Group3 11<br>
+				"B11137244" "Group1" "450" "456" D11144030 Group3 13<br>
+				"B12226566" "Group2b" "450" "MissingData" B11119903 Group2 84<br>
+				"B11134987" "Group1" "900" "MissingData" C11131039 Group2 67<br>
+				"B11144345" "Group1" "900" "776" C11133100 Group1 23<br>
+				"C11137159" "Group3" "MissingData" "MissingData" C11135566 Group2 72<br>
+				"B11156453" "Group4" "456" "2" C11137159 Group3 11<br>
+				"B11110676" "Group1" "900" "10" C11137159 Group3 12<br>
+				"C11138929" "Group2b" "2" "MissingData" C11137167 Group3 14<br>
+				"B11154532" "Group1" "456" "886" C11137167 Group3 16<br>
+				"B11155267" "Group3" "900" "10" C11137439 Group3 15<br>
+				"B11137120" "Group2b" "450" "456" C11137439 Group3 79<br>
+				"B33191224" "Group2b" "450" "776" C11137443 Group3 15<br>
+				"B11155267" "Group3" "900" "10" C11137544 Group1 22<br>
+				"C11138999" "Group2b" "900" "MissingData" C11137123 Group2 68<br>
+				"B11131605" "Group1" "456" "MissingData" C11138150 Group1 44<br>
+				"B11137784" "Group1" "900" "436" C11138152 Group1 10<br>
+				"B11156098" "Group1" "500" "886" C11138797 Group1 24<br>
+				"B11133232" "Group1" "500" "MissingData" C11138184 Group1 57<br>
+				"B11135292" "Group3" "MissingData" "MissingData" C11138122 Group1 23<br>
+				"C11138912" "Group2b" "900" "MissingData" C11138122 MISSING 25<br>
+				"B11150911" "Group2b" "900" "117" C11138192 Group1 45<br>
+				"B11152577" "Group1" "900" "756" B12226507 Group1 26<br>
+				"B11156098" "Group1" "456" "886" B12226546 Group1 55<br>
+				"B11133232" "Group1" "456" "MissingData" 
+				</font>
+				</font></p>
+
+				<p>
+				<font class="example">Concatenate all the columns of file2.txt and file4.txt horizontally.</font>
+				Use a semicolon (<font class="bashcommand">;</font>) as separator between the columns of one file and the other.
+				</p>
+
+				<p><font class="bashcommand">
+				$ paste -d ';' file2.txt file4.txt<br>
+				<font class="bashcommand-result>">
+				"AnonymizedID" "SubjectGroup" "TEST1" "TEST2";AnonymizedID SubjectGroup AGE<br>
+				B11108399 Group1 23b" "900" "MissingData";B11108326 Group1 59<br>
+				"B11137244" "Group1" "450" "555";B11110893 Group1 28<br>
+				"B11154534" "Group1" "456" "456";B11119909 Group2 61<br>
+				"B11144100" "Group1" "450" "886";D11144030 Group3 11<br>
+				"B11137244" "Group1" "450" "456";D11144030 Group3 13<br>
+				"B12226566" "Group2b" "450" "MissingData";B11119903 Group2 84<br>
+				"B11134987" "Group1" "900" "MissingData";C11131039 Group2 67<br>
+				"B11144345" "Group1" "900" "776";C11133100 Group1 23<br>
+				"C11137159" "Group3" "MissingData" "MissingData";C11135566 Group2 72<br>
+				"B11156453" "Group4" "456" "2";C11137159 Group3 11<br>
+				"B11110676" "Group1" "900" "10";C11137159 Group3 12<br>
+				"C11138929" "Group2b" "2" "MissingData";C11137167 Group3 14<br>
+				"B11154532" "Group1" "456" "886";C11137167 Group3 16<br>
+				"B11155267" "Group3" "900" "10";C11137439 Group3 15<br>
+				"B11137120" "Group2b" "450" "456";C11137439 Group3 79<br>
+				"B33191224" "Group2b" "450" "776";C11137443 Group3 15<br>
+				"B11155267" "Group3" "900" "10";C11137544 Group1 22<br>
+				"C11138999" "Group2b" "900" "MissingData";C11137123 Group2 68<br>
+				"B11131605" "Group1" "456" "MissingData";C11138150 Group1 44<br>
+				"B11137784" "Group1" "900" "436";C11138152 Group1 10<br>
+				"B11156098" "Group1" "500" "886";C11138797 Group1 24<br>
+				"B11133232" "Group1" "500" "MissingData";C11138184 Group1 57<br>
+				"B11135292" "Group3" "MissingData" "MissingData";C11138122 Group1 23<br>
+				"C11138912" "Group2b" "900" "MissingData";C11138122 MISSING 25<br>
+				"B11150911" "Group2b" "900" "117";C11138192 Group1 45<br>
+				"B11152577" "Group1" "900" "756";B12226507 Group1 26<br>
+				"B11156098" "Group1" "456" "886";B12226546 Group1 55<br>
+				"B11133232" "Group1" "456" "MissingData"; 
+				</font>
+				</font></p>
 		    </div>
 		       
 		    <div id="content10" class="hidden">
@@ -9005,7 +9454,7 @@
 		
 		<footer>
 			<p>
-				Last update: October 9 / 2020<br>
+				Last update: Nov 30 / 2020<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
