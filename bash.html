@@ -9681,6 +9681,151 @@
 				"B11141503","Group3","0","" 
 				</font>
 				</font></p>
+
+				<font class="example">Print <b>from the beginning until the second line</b> of file1.csv (same result as printing the first two lines)</font>
+				
+				<p><font class="bashcommand">
+				$ cat file1.csv | head -n+2<br>
+				<font class="bashcommand-result">
+				"Anonymized ID","Subject Group","HASCONDITION","CONDITION"<br>
+				"B33199522","Group1","0","" 
+				</font>
+				</font></p>
+
+				<font class="example">Print <b>from the beginning until the third line</b> of file1.csv (same result as printing the first three lines)</font>
+
+				<p><font class="bashcommand">
+				$ cat file1.csv | head -n+3<br>
+				<font class="bashcommand-result">
+				"Anonymized ID","Subject Group","HASCONDITION","CONDITION"<br>
+				"B33199522","Group1","0",""<br>
+				"B33199603","Group3","0","" 
+				</font>
+				</font></p>
+					
+				<font class="example">Print <b>from the second line until the last line</b> of file1.csv</font>
+
+				<p><font class="bashcommand">
+				$ cat file1.csv | tail -n+2<br>
+				<font class="bashcommand-result">
+				"B33199522","Group1","0",""<br>
+				"B33199603","Group3","0",""<br>
+				"B11137879","Group1","0",""<br>
+				"B11144410","Group2 b","0",""<br>
+				"B11110455","Group2 b","0",""<br>
+				"B11135291","Group3","0",""<br>
+				"B11153927","Group1","0",""<br>
+				"B11177579","Group2 b","0",""<br>
+				"B11177806","Group1","MD",""<br>
+				"B11157958","Group3","0",""<br>
+				"B11110690","Group3","0",""<br>
+				"B11152799","Group1","0",""<br>
+				"B11154358","Group1","0",""<br>
+				"B11110925","Group1","0",""<br>
+				"B11135291","Group3","9","mTBI"<br>
+				"B11135072","MISSING","0",""<br>
+				"B33199603","Group3","0",""<br>
+				"B11137879","Group1","0",""<br>
+				"B11110603","Group1","0",""<br>
+				"B11110927","Group1","0",""<br>
+				"B11147712","Group1","0",""<br>
+				"B33191224","Group2 b","0",""<br>
+				"B11131290","Group2 b","0",""<br>
+				"B11157974","Group1","0",""<br>
+				"B33191224","Group2 b","0",""<br>
+				"B11141503","Group3","0",""<br>
+				"C11137159","Group3","9","mTBI"<br>
+				"B33199522","Group1","0","" 
+				</font>
+				</font></p>
+
+				<font class="example">Print <b>from the third line until the last line</b> of file1.csv</font>
+
+				<p><font class="bashcommand">
+				$ cat file1.csv | tail -n+3<br>
+				<font class="bashcommand-result">
+				"B33199603","Group3","0",""<br>
+				"B11137879","Group1","0",""<br>
+				"B11144410","Group2 b","0",""<br>
+				"B11110455","Group2 b","0",""<br>
+				"B11135291","Group3","0",""<br>
+				"B11153927","Group1","0",""<br>
+				"B11177579","Group2 b","0",""<br>
+				"B11177806","Group1","MD",""<br>
+				"B11157958","Group3","0",""<br>
+				"B11110690","Group3","0",""<br>
+				"B11152799","Group1","0",""<br>
+				"B11154358","Group1","0",""<br>
+				"B11110925","Group1","0",""<br>
+				"B11135291","Group3","9","mTBI"<br>
+				"B11135072","MISSING","0",""<br>
+				"B33199603","Group3","0",""<br>
+				"B11137879","Group1","0",""<br>
+				"B11110603","Group1","0",""<br>
+				"B11110927","Group1","0",""<br>
+				"B11147712","Group1","0",""<br>
+				"B33191224","Group2 b","0",""<br>
+				"B11131290","Group2 b","0",""<br>
+				"B11157974","Group1","0",""<br>
+				"B33191224","Group2 b","0",""<br>
+				"B11141503","Group3","0",""<br>
+				"C11137159","Group3","9","mTBI"<br>
+				"B33199522","Group1","0","" 
+				</font>
+				</font></p>
+
+				<h3>9.12. Examples: Reading specific columns or lines in a file or a list of files, that contain a searched value</h3>
+
+				<font class="example">Print the line(s) of file3.csv that contain the string C11137439</font>
+
+				<p>
+				Using <font class="bashcommand">awk</font>:<br>
+				<font class="bashcommand">
+				$ awk '/C11137439/' file3.csv<br>
+				<font class="bashcommand-result">
+				C11137439,Group3,79<br>
+				C11137439,Group3,15 
+				</font>
+				</font>
+				</p>
+
+				<p>
+				Using <font class="bashcommand">grep</font>:<br>
+				$ grep C11137439 file3.csv<br>
+				<font class="bashcommand-result">
+				C11137439,Group3,79<br>
+				C11137439,Group3,15 
+				</font>
+				</font>
+				</p>
+
+				<p>
+				<font class="example">Print the line(s) of file3.csv that contain the string AAA (which is <b>stored in a variable</b>)</font>
+				<font class="bashcommand">$ VAR=C11137439</font>
+				</p>
+
+				<p>
+				Using <font class="bashcommand">awk</font>:<br>
+				<font class="bashcommand">
+				$ awk -v var=$VAR '$0~var' file3.csv<br>
+				<font class="bashcommand-result">
+				C11137439,Group3,79<br>
+				C11137439,Group3,15 
+				</font>
+				</font>
+				</p>
+
+				<p>
+				Using <font class="bashcommand">grep</font>:<br>
+				$ grep $VAR file3.csv<br>
+				<font class="bashcommand-result">
+				C11137439,Group3,79<br>
+				C11137439,Group3,15 
+				</font>
+				</font>
+				</p>
+
+				<font class="example">Print the line(s) of file3.csv that contain the strings C11137439 <b>or</b> B11119909</font>
 		    </div>
 		       
 		    <div id="content10" class="hidden">
