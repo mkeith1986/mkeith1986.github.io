@@ -9918,6 +9918,77 @@
 				C11137439 
 				</font>
 				</font></p>
+
+				<p><font class="bashcommand">
+				$ grep C11137439 *<br>
+				<font class="bashcommand-result">
+				file3.csv:C11137439,Group3,79<br>
+				file3.csv:C11137439,Group3,15<br>
+				file4.txt:C11137439 Group3 15<br>
+				file4.txt:C11137439 Group3 79<br>
+				patterns.txt:C11137439 
+				</font>
+				</font></p>
+
+				<p>
+				To omit the file names in the grep option, use the flag <font class="bashcommand">-h</font>:<br> 
+				<font class="bashcommand">
+				$ grep -h C11137439 *<br>
+				<font class="bashcommand-result">
+				C11137439,Group3,79<br>
+				C11137439,Group3,15<br>
+				C11137439 Group3 15<br>
+				C11137439 Group3 79<br>
+				C11137439 
+				</font>
+				</font>
+				</p>
+
+				<p>
+				If you wanted to include the line number for each match, you can add the flag <font class="bashcommand">-n</font>:<br>
+				<font class="bashcommand">
+				$ grep -n "C11137439" *<br>
+				<font class="bashcommand-result">
+				file3.csv:21:C11137439,Group3,79<br>
+				file3.csv:22:C11137439,Group3,15<br>
+				file4.txt:15:C11137439 Group3 15<br>
+				file4.txt:16:C11137439 Group3 79<br>
+				patterns.txt:1:C11137439 
+				</font>
+				</font>
+				</p>
+
+				<p><font class="bashcommand">
+				$ grep -h -n "C11137439" *<br>
+				<font class="bashcommand-result">
+				<b>21</b>:C11137439,Group3,79<br>
+				<b>22</b>:C11137439,Group3,15<br>
+				<b>15</b>:C11137439 Group3 15<br>
+				<b>16</b>:C11137439 Group3 79<br>
+				<b>1</b>:C11137439 
+				</font>
+				</font></p>
+
+				<p>
+				If you want to show only the first three matches, you can add the flag <font class="bashcommand">-m</font> with the parameter <font class="bashcommand">3</font> (to print only three lines):<br>
+				<font class="bashcommand">
+				$ grep -m 3 "C11137439" *<br>
+				<font class="bashcommand-result">
+				file3.csv:C11137439,Group3,79<br>
+				file3.csv:C11137439,Group3,15<br>
+				file4.txt:C11137439 Group3 15 
+				</font>
+				</font>
+				</p>
+
+				<p><font class="bashcommand">
+				$ grep -m 3 "C11137439" * -h<br>
+				<font class="bashcommand-result">
+				C11137439,Group3,79<br>
+				C11137439,Group3,15<br>
+				C11137439 Group3 15 
+				</font>
+				</font></p>
 		    </div>
 		       
 		    <div id="content10" class="hidden">
