@@ -273,7 +273,8 @@
 			    		<li>You should see something like this: <font class="bashcommand-result">Info: creating stash file /home/myuser/dsistudio/build/.qmake.stash</font></li>
 			    		<li>Compile: <font class="bashcommand">$ make</font></li>
 			    		<li>Wait until it finishes compiling. This could take several few minutes. If everything goes well, you should find dsi_studio under build directory (Which should be the current directory). To check type <font class="bashcommand">ls dsi_studio</font>. You should get: <font class="bashcommand-result">dsi-studio</font>. If there was an error in the installation, you will get something like this: <font class="bashcommand-result">ls: cannot access 'dsi_studio': No such file or directory</font>. If this happens, do <b>not</b> continue with the installation, check the previous steps. Did you get any error running a previous step? Did you get a message of some package or dependency that needs to be installed? Any error should be fixed right away or the installation wont be completed successfully.</li>
-			    		<li>Remove unnecessary files: <font class="bashcommand">$ make clean</font></li>
+					<li>If you have an Ubuntu version higher than Ubuntu 16, there is a high chance that you will have problems compiling dsi_studio. In that case, you will have to use a singularity container for dsi_studio. Follow the instructions in section <a href="#singularity">5.9. Using DSI Studio through a singularity container.</a></li>
+					<li>If you were able to compile dsi_studio, remove unnecessary files: <font class="bashcommand">$ make clean</font></li>
 			    	</ul>
 			    	
 			    	<h3>5.6. Download the atlas files from the Windows installer</h3>
@@ -327,6 +328,8 @@
 					</li>
 					<li>Re-run the update or upgrade command that gave the error</li>
 				</ul>
+					
+				<h3 id="singularity">5.9. Using DSI Studio through a singularity container</h3>
 			    	</div>
 			    
 		         	<div id="content6" class="hidden">
