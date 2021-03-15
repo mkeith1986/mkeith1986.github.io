@@ -275,11 +275,12 @@
 						<ul>
 			    				<li>Wait until it finishes compiling. This could take several few minutes. If everything goes well, you should find dsi_studio under build directory (Which should be the current directory). To check type <font class="bashcommand">ls dsi_studio</font>. You should get: <font class="bashcommand-result">dsi-studio</font>. If there was an error in the installation, you will get something like this: <font class="bashcommand-result">ls: cannot access 'dsi_studio': No such file or directory</font>. If this happens, do <b>not</b> continue with the installation, check the previous steps. Did you get any error running a previous step? Did you get a message of some package or dependency that needs to be installed? Any error should be fixed right away or the installation wont be completed successfully.</li>
 							<li>If you have an Ubuntu version higher than Ubuntu 16, there is a high chance that you will have problems compiling dsi_studio. If you didn't have any errors in the previous steps and are not missing any package or dependency that needs to be installed but still get compiling errors, you will have to use a singularity container to run dsi_studio. You will get an error in the Makefile when compiling, something like this: <font class="bashcommand-result">error: *** [Makefile:11814: RegionModel.o] Error 1</font>. In that case, skip the following sections and jump to <a href="#singularity">5.9. Using DSI Studio through a singularity container.</a> and follow the instructions.</li>
+							<li>If that still fails (dsi_studio has many issues running on Linux), try <a href="#ubuntu16">installing dsi_studio on a virtual machine with Ubuntu 16.04</a></li>
 						</ul>
 					<li>If you were able to compile dsi_studio, remove unnecessary files: <font class="bashcommand">$ make clean</font> and continue to section 5.6.</li>
 			    	</ul>
 			    	
-			    	<h3>5.6. Download the atlas files from the Windows installer</h3>
+			    	<h3 id="atlas">5.6. Download the atlas files from the Windows installer</h3>
 			    	<ul>
 			    		<li>Go back to the dsistudio directory: <font class="bashcommand">$ cd ..</font></li>
 			    		<li>Download the Windows installer from one of the following locations:
@@ -349,7 +350,23 @@
 					<li>Open the dsi_studio GUI:</li>
 						<ul>
 							<li>Type the following command, replacing <font class="bashcommand">/home/user/dsistudio.simg</font> by the path were the dsi_studio image is saved: <font class="bashcommand">singularity exec /home/user/dsistudio.simg dsi_studio</font></li>
+							<li>If that still fails (dsi_studio has many issues running on Linux), try <a href="#ubuntu16">installing dsi_studio on a virtual machine with Ubuntu 16.04</a></li>
+							<li>If it worked, go to section <a href="#atlas">5.6. Download the atlas files from the Windows installer</a></li>
+							<li>Go to step 5.1. again and try installing DSI Studio on your virtual machine</li>
 						</ul>
+				</ul>
+				
+				<h3 id="ubuntu16">5.10. Using DSI Studio on a virtual machine with Ubuntu 16.04</h3>
+				<ul>
+					<li>Download VirtualBox 6.1</li>
+					<ul>
+						<li>Follow this <a href="https://www.virtualbox.org/wiki/Download_Old_Builds_6_1">link</a></li>
+						<li>Select the OS of your host machine. For example, if you have Ubuntu 20, click on Ubuntu 19.10 / 20.04</li>
+						<li>Double click on the installer and follow the instructions</li>
+						<li>Download the <a href="https://releases.ubuntu.com/16.04/">iso image</a> for Ubuntu-16.04-desktop version</li>
+						<li>Open Oracle Virutal Box</li>
+						<li>Follow the instructions in this <a href="https://medium.com/@tushar0618/install-ubuntu-16-04-lts-on-virtual-box-desktop-version-30dc6f1958d0">link</a> to install Virtual Box and start the Ubuntu 16.04 image</li>
+					</ul>
 				</ul>
 			    	</div>
 			    
