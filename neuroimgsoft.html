@@ -274,7 +274,7 @@
 			    		<li>Compile: <font class="bashcommand">$ make</font></li>
 						<ul>
 			    				<li>Wait until it finishes compiling. This could take several few minutes. If everything goes well, you should find dsi_studio under build directory (Which should be the current directory). To check type <font class="bashcommand">ls dsi_studio</font>. You should get: <font class="bashcommand-result">dsi-studio</font>. If there was an error in the installation, you will get something like this: <font class="bashcommand-result">ls: cannot access 'dsi_studio': No such file or directory</font>. If this happens, do <b>not</b> continue with the installation, check the previous steps. Did you get any error running a previous step? Did you get a message of some package or dependency that needs to be installed? Any error should be fixed right away or the installation wont be completed successfully.</li>
-							<li>If you have an Ubuntu version higher than Ubuntu 16, there is a high chance that you will have problems compiling dsi_studio. If you didn't have any errors in the previous steps and are not missing any package or dependency that needs to be installed but still get compiling errors, you will have to use a singularity container to run dsi_studio. You will get an error in the Makefile when compiling, something like this: <font class="bashcommand-result">error: *** [Makefile:11814: RegionModel.o] Error 1</font>. In that case, jump to section <a href="#singularity">5.9. Using DSI Studio through a singularity container.</a> and follow the instructions.</li>
+							<li>If you have an Ubuntu version higher than Ubuntu 16, there is a high chance that you will have problems compiling dsi_studio. If you didn't have any errors in the previous steps and are not missing any package or dependency that needs to be installed but still get compiling errors, you will have to use a singularity container to run dsi_studio. You will get an error in the Makefile when compiling, something like this: <font class="bashcommand-result">error: *** [Makefile:11814: RegionModel.o] Error 1</font>. In that case, skip the following sections and jump to <a href="#singularity">5.9. Using DSI Studio through a singularity container.</a> and follow the instructions.</li>
 						</ul>
 					<li>If you were able to compile dsi_studio, remove unnecessary files: <font class="bashcommand">$ make clean</font> and continue to section 5.6.</li>
 			    	</ul>
@@ -308,9 +308,8 @@
 			    	
 			    	<h3>5.7. Check the installation</h3>
 			    	<ul>
-			    		<li>Cross your fingers and hope for the best</li>
-			    		<li>Try to run DSI Studio from the terminal: <font class="bashcommand">$ ./dsi_studio</font></li>
-			    		<li>If the installation finished successfully, the application should open</li>
+			    		li>Try to run DSI Studio from the terminal: <font class="bashcommand">$ ./dsi_studio</font></li>
+			    		<li>If the installation finished successfully, the application should open. If you get an error saying dsi_studio not found. Try writing the full path to the dsi_studio executable. For example: <font class="bashcommand">/home/user/dsi_studio/dsi_studio</font></li>
 			    	</ul>
 					
 				<h3>5.8. Potential errors during installation</h3>
@@ -332,10 +331,30 @@
 				</ul>
 					
 				<h3 id="singularity">5.9. Using DSI Studio through a singularity container</h3>
+				<ul>
+					<li>Check if you have Docker installed in your computer. And install it if you don't.</li>
+					<ul>
+						<li>To check if you have Docker installed, type <font class="bashcommand">docker --version</font> in the command line.</li>
+						<li>If Docker is already installed, you will see something like this (will differ depending on your version): <font class="bashcommand-result">Docker version 19.03.13, build cd8016b6bc</font></li>
+						<li>If it is not installed, you will get an error saying command not found. In that case, follow the instructions in this <a href="https://docs.docker.com/engine/install/ubuntu/">link</a> to install Docker.</li>
+					</ul>
+					<li>Once docker is installed, enable the NeuroDebian repository following the instructions in the <a href="http://neuro.debian.net/">NeuroDebian web site</a>. Choose your operating system. If you are not a cluster administrator and are just installing the software for a single user in one machine, choose the option "only software with guaranteed freedoms". Then, you will see a list of commands that you have to copy paste in your command line.</li>
+					<li>Install singularity: <font class="bashcommand">sudo apt-get install -y singularity-container</font>. If you have a previously installed configuration, you might be asked the type of configuration that you want. For a single user, choose the one by default. Check the <a href="https://singularity.lbl.gov/docs-config">admin docs</a> for cluster admins.</li>
+					<li>Check that singularity was correctly installed: <font class="bashcommand">singularity --version</font>. You should see the singularity version.</li>
+					<li>Create the dsi_studio image file:</li>
+						<ul>
+							<li>Type <font class="bashcommand">singularity pull docker://dsistudio/dsistudio</font> in the command line</li>
+							<li>The path and file name of the dsi_studio image will be printed. Save this path, because you will need it to run dsi_studio commands.</li>
+						</ul>
+					<li>Open the dsi_studio GUI:</li>
+						<ul>
+							<li>Type the following command, replacing <font class="bashcommand">/home/user/dsistudio.simg</font> by the path were the dsi_studio image is saved: <font class="bashcommand">singularity exec /home/user/dsistudio.simg dsi_studio</font></li>
+						</ul>
+				</ul>
 			    	</div>
 			    
 		         	<div id="content6" class="hidden">
-			    	<h2>6. MySQL (Ubuntu)</h2>
+			    	<h2>6. MySQL (Ubuntu)</h2>. 
 				</div>
 		
 				<div id="content7" class="hidden">
