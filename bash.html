@@ -12191,6 +12191,86 @@
 						</font></td>
 					</tr>
 				</table></p>
+
+				<p>
+				<font class="example">Print all the lines of file4.txt in upper-case.</font><br>
+				To convert a string to upper-case use the function <font class="bashcommand">toupper()</font> and pass as parameter <font class="bashcommand">$0</font> which contains the whole line.
+				</p>
+
+				<p><table>
+					<tr><td><font class="bashcommand">$ awk '{print toupper($0)}' file4.txt</font></td></tr>
+					<tr><td><font class="bashcommand-result">
+						ANONYMIZEDID SUBJECTGROUP AGE<br>
+						B11108326 GROUP1 59<br>
+						B11108399 GROUP1 23<br>
+						B11110893 GROUP1 28<br>
+						B11119909 GROUP2 61<br>
+						D11144030 GROUP3 11<br>
+						D11144030 GROUP3 13<br>
+						B11119903 GROUP2 84<br>
+						C11131039 GROUP2 67<br>
+						C11133100 GROUP1 23<br>
+						C11135566 GROUP2 72<br>
+						C11137159 GROUP3 11<br>
+						C11137159 GROUP3 12<br>
+						C11137167 GROUP3 14<br>
+						C11137167 GROUP3 16<br>
+						C11137439 GROUP3 15<br>
+						C11137439 GROUP3 79<br>
+						C11137443 GROUP3 15<br>
+						C11137544 GROUP1 22<br>
+						C11137123 GROUP2 68<br>
+						C11138150 GROUP1 44<br>
+						C11138152 GROUP1 10<br>
+						C11138797 GROUP1 24<br>
+						C11138184 GROUP1 57<br>
+						C11138122 GROUP1 23<br>
+						C11138122 MISSING 25<br>
+						C11138192 GROUP1 45<br>
+						B12226507 GROUP1 26<br>
+						B12226546 GROUP1 55 
+					</font></td></tr>
+				</table></p>
+
+				<p>
+				<font class="example">Print all the lines of file4.txt in lower-case.</font><br>
+				To convert a string to lower-case use the function tolower() and pass as parameter $0 which contains the whole line.
+				</p>
+
+				<p><table>
+					<tr><td><font class="bashcommand">$ awk '{print tolower($0)}' file4.txt</font></tr></td>
+					<tr><td><font class="bashcommand-result">
+						anonymizedid subjectgroup age<br>
+						b11108326 group1 59<br>
+						b11108399 group1 23<br>
+						b11110893 group1 28<br>
+						b11119909 group2 61<br>
+						d11144030 group3 11<br>
+						d11144030 group3 13<br>
+						b11119903 group2 84<br>
+						c11131039 group2 67<br>
+						c11133100 group1 23<br>
+						c11135566 group2 72<br>
+						c11137159 group3 11<br>
+						c11137159 group3 12<br>
+						c11137167 group3 14<br>
+						c11137167 group3 16<br>
+						c11137439 group3 15<br>
+						c11137439 group3 79<br>
+						c11137443 group3 15<br>
+						c11137544 group1 22<br>
+						c11137123 group2 68<br>
+						c11138150 group1 44<br>
+						c11138152 group1 10<br>
+						c11138797 group1 24<br>
+						c11138184 group1 57<br>
+						c11138122 group1 23<br>
+						c11138122 missing 25<br>
+						c11138192 group1 45<br>
+						b12226507 group1 26<br>
+						b12226546 group1 55
+					</font></tr></td>
+				</p></table>
 		    </div>
 		       
 		    <div id="content10" class="hidden">
@@ -12357,7 +12437,7 @@
 		
 		<footer>
 			<p>
-				Last update: May 10 / 2021<br>
+				Last update: June 16 / 2021<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
