@@ -10592,7 +10592,7 @@
 						<td><font class="bashcommand">
 						$ awk -F',' '$3 > "20" {print $1}' file3.csv<br>
 						<font class="bashcommand-result">
-						Anonymized ID<Br>
+						Anonymized ID<br>
 						C11138122<br>
 						C11138192<br>
 						B12226507<br>
@@ -10628,7 +10628,7 @@
 						<td><font class="bashcommand">
 						$ awk '$3 < "20" {print $1}' file4.txt<br>
 						<font class="bashcommand-result">
-						D11144030<br
+						D11144030<br>
 						D11144030<br>
 						C11137159<br>
 						C11137159<br>
@@ -11958,32 +11958,24 @@
 					<tr>
 						<td><p><font class="bashcommand">
 						$ awk '{print NF}' file3.csv | wc -l<br>
-						<font class="bashcommand-result">
-						28
-						</font>
+						<font class="bashcommand-result">28</font>
 						</font></p>
 						
 						<p><font class="bashcommand">
 						$ nlines=$(awk '{print NF}' file3.csv | wc -l)<br>
 						$ echo $nlines<br>
-						<font class="bashcommand-result">
-						28
-						</font>
+						<font class="bashcommand-result">28</font>
 						</font></p></td>
 						
 						<td><p><font class="bashcommand">
 						$ awk '{print NF}' file4.txt | wc -l<br>
-						<font class="bashcommand-result">
-						29
-						</font>
+						<font class="bashcommand-result">29</font>
 						</font></p>
 						
 						<p><font class="bashcommand">
 						$ nlines=$(awk '{print NF}' file4.txt | wc -l)<br>
 						$ echo $nlines<br>
-						<font class="bashcommand-result">
-						29
-						</font>
+						<font class="bashcommand-result">29</font>
 						</font></p></td>
 					</tr>
 				</table></p>
@@ -11999,32 +11991,24 @@
 					<tr>
 						<td><p><font class="bashcommand">
 						$ awk -F',' '{print NF}' file3.csv | sort –nu<br>
-						<font class="bashcommand-result">
-						3
-						</font>
+						<font class="bashcommand-result">3</font>
 						</font></p>
 						
 						<p><font class="bashcommand">
 						$ ncols=$(awk -F',' '{print NF}' file3.csv | sort -nu)<br>
 						$ echo $ncols<br>
-						<font class="bashcommand-result">
-						3
-						</font>
+						<font class="bashcommand-result">3</font>
 						</font></p></td>
 						
 						<td><p><font class="bashcommand">
 						$ awk '{print NF}' file4.txt | sort -nu<br>
-						<font class="bashcommand-result">
-						3
-						</font>
+						<font class="bashcommand-result">3</font>
 						</font></p>
 						
 						<p><font class="bashcommand">
 						$ ncols=$(awk '{print NF}' file4.txt | sort -nu)<br>
 						$ echo $ncols<br>
-						<font class="bashcommand-result">
-						3
-						</font>
+						<font class="bashcommand-result">3</font>
 						</font></p></td>
 					</tr>
 				</table></p>
@@ -12078,35 +12062,7 @@
 						<td><font class="bashcommand">
 						$ awk '{print length($0)}' file4.txt<br>
 						<font class="bashcommand-result">
-						29<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						19<br>
-						20<br>
-						19<br>
-						19<br>
-						19
+						29<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>19<br>20<br>19<br>19<br>19
 						</font>
 						</font></td>
 					</tr>
@@ -12124,69 +12080,14 @@
 						<td><p><font class="bashcommand">
 						$ awk '{print length($2)}' file4.txt<br>
 						<font class="bashcommand-result">
-						12<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						7<br>
-						6<br>
-						6<br>
-						6
+						12<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>7<br>6<br>6<br>6
 						</font>
 						</font></td>
 						
 						<td><p><font class="bashcommand">
 						$ awk -F',' '{print length($2)}' file3.csv<br>
 						<font class="bashcommand-result">
-						13<br>
-						7<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						8<br>
-						8<br>
-						8<br>
-						6<br>
-						6<br>
-						8<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						6<br>
-						8<br>
-						6
+						13<br>7<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>6<br>8<br>8<br>8<br>6<br>6<br>8<br>6<br>6<br>6<br>6<br>6<br>6<br>8<br>6
 						</font>
 						</font></td>
 					</tr>
@@ -12271,11 +12172,13 @@
 						b12226546 group1 55
 					</font></tr></td>
 				</p></table>
+
+				<p>Some other functions that can be used in addition to <font class="bashcommand">toupper()</font> and <font class="bashcommand">tolower()</font> can be found <a href="https://www.cs.princeton.edu/courses/archive/spr08/cos333/awk.help" target="_blank">here</a></p>
 		    </div>
 		       
 		    <div id="content10" class="hidden">
 		    	<h2>10. Manipulating image files</h2>
-		    		<p>Content of section 10</p>
+		    		<h3>Changing format or properties of an image file using sips (for Mac users)</h3>
 		    </div>
 		       
 		    <div id="content11" class="hidden">
@@ -12437,7 +12340,7 @@
 		
 		<footer>
 			<p>
-				Last update: June 16 / 2021<br>
+				Last update: July 08 / 2021<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
