@@ -12297,6 +12297,62 @@
 					<td>Creator of the file.</td>
 				</tr>
 			    </p></table>
+
+			    <p>For the examples below I will be using the following image, taken from the following article, which I published long time ago: <a href='https://pubmed.ncbi.nlm.nih.gov/29113642/' target='_blank'>link to article</a>. <a href='https://pubmed.ncbi.nlm.nih.gov/29113642/#&gid=article-figures&pid=figure-2-uid-1' target='_blank'>Link to original image</a>.</p>
+
+			    <p><img src="https://www.ncbi.nlm.nih.gov/pmc/articles/instance/5809301/bin/nihms909531f2.jpg" alt="thalamo-cortical connectivity"></p>
+
+			    <p>
+				<font class="example">Convert <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/instance/5809301/bin/nihms909531f2.jpg' target='_blank'>AutismArticle1.png</a> to pdf using <font class="bashcommand">sips</font>.</font>
+				<font class="bashcommand">$ sips -s format pdf AutismArticle1.png --out AutismArticle1.pdf</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.png</font><br> 
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.pdf</font>
+			    </p>
+
+			    <p>
+				<font class="example">Rotate <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/instance/5809301/bin/nihms909531f2.jpg' target='_blank'>AutismArticle1.png</a> 45&#8728; clock-wise.</font>
+				<font class="bashcommand">$ sips -r 45 AutismArticle1.png --out test.png</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.png</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/test.png</font>
+			    </p>
+
+			    <p>Result image:</p>
+			    <p><img src="rotated1.png" alt="image rotated 45 degrees clock wise"></p>
+
+			<p>
+				<font class="example">Rotate <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/instance/5809301/bin/nihms909531f2.jpg' target='_blank'>AutismArticle1.png</a> 45&#8728; counter-clock-wise.</font>
+				<font class="bashcommand">$ sips -r -45 AutismArticle1.png --out test.png</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.png</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/test2.png</font>
+			</p>
+
+			<p>Result image:</p>
+			<p><img src="rotated2.png" alt="image rotated 45 degrees counter clock wise"></p>
+
+			<p>
+				<font class="example">Flip <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/instance/5809301/bin/nihms909531f2.jpg' target='_blank'>AutismArticle1.png</a> horizontally.</font>
+				<font class="bashcommand">$ sips -f horizontal AutismArticle1.png --out test.png</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.png</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/test.png</font>
+			</p>
+
+			<p>Result image:</p>
+			<p><img src="flipped.png alt="image rotated 45 degrees counter clock wise"></p>
+
+			<p>
+				<font class="example">Flip <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/instance/5809301/bin/nihms909531f2.jpg' target='_blank'>AutismArticle1.png</a> vertically.</font>
+				<font class="bashcommand">$ sips -f vertical AutismArticle1.png --out test.png</font><br> 
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.png</font><br> 
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/test.png</font>
+			</p>
+
+			<p>Result image:</p>
+			<p><img src="flipped2.png" alt="image rotated 45 degrees counter clock wise"></p>
+
+			<p>
+				<font class="example">Crop <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/instance/5809301/bin/nihms909531f2.jpg' target='_blank'>AutismArticle1.png</a> to fit a new size that be &#188;<sup>th</sup> of its original height and &#188;<sup>th</sup> of its original weight.</font>
+				The first step is to obtain the current width and height using <font class="bashcommand">sips</font> with the flags <font class="bashcommand">--getProperty pixelWidth</font> and <font class="bashcommand">--getProperty pixelHeight</font>. Then, divide the two numbers by four. And finally use <font class="bashcommand">sips</font> with the <font class="bashcommand">-c</font> flag to crop the file.
+			</p>
 		    </div>
 		       
 		    <div id="content11" class="hidden">
