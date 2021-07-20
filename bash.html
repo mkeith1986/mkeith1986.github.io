@@ -12353,6 +12353,41 @@
 				<font class="example">Crop <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/instance/5809301/bin/nihms909531f2.jpg' target='_blank'>AutismArticle1.png</a> to fit a new size that be &#188;<sup>th</sup> of its original height and &#188;<sup>th</sup> of its original weight.</font>
 				The first step is to obtain the current width and height using <font class="bashcommand">sips</font> with the flags <font class="bashcommand">--getProperty pixelWidth</font> and <font class="bashcommand">--getProperty pixelHeight</font>. Then, divide the two numbers by four. And finally use <font class="bashcommand">sips</font> with the <font class="bashcommand">-c</font> flag to crop the file.
 			</p>
+
+			<p>
+			<font class="bashcommand">$ sips --getProperty pixelHeight AutismArticle1.png</font><br>
+			<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.png</font><br>
+			<font class="bashcommand-result">&nbsp;&nbsp;pixelHeight: 440</font><br>
+			<font class="bashcommand">$ sips --getProperty pixelWidth AutismArticle1.png</font><br>
+			<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.png</font><br>
+			<font class="bashcommand-result">&nbsp;&nbsp;pixelWidth: 727</font><br>
+			<font class="bashcommand">$ echo "440/4" | bc -l</font><br>
+			<font class="bashcommand-result">110.00000000000000000000</font><br>
+			<font class="bashcommand">$ echo "727/4" | bc -l</font><br>
+			<font class="bashcommand-result">181.75000000000000000000</font><br>
+			<font class="bashcommand">$ sips -c 110 181 AutismArticle1.png --out test.png</font><br>
+			<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.png</font><br>
+			<font class="bashcommand-result">&nbsp;&nbsp;/Users/monica/Desktop/Backup/images_presentations/test.png</font>
+			</p>
+
+			<p>Result image:</p>
+			<p><img src="cropped.png" alt="cropped image"></p>
+
+			<p>
+				<font class="example">Resample image to 110x181.</font>
+				<font class="bashcommand">$ sips -z 110 181 AutismArticle1.png --out test.png</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/AutismArticle1.png</font><br>
+				<font class="bashcommand-result">&nbsp;&nbsp;/Users/monica/Desktop/Backup/images_presentations/test.png</font><br>
+				<font class="bashcommand">$ sips --getProperty pixelHeight test.png</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/test.png</font><br>
+				<font class="bashcommand-result">&nbsp;&nbsp;pixelHeight: 110</font><br>
+				<font class="bashcommand">$ sips --getProperty pixelWidth test.png</font><br>
+				<font class="bashcommand-result">/Users/monica/Desktop/Backup/images_presentations/test.png</font><br>
+				<font class="bashcommand-result">&nbsp;&nbsp;pixelWidth: 181</font>
+			</p>
+
+			<p>Result image:</p>
+			<p><img src="resampled.png" alt="cropped image"></p>
 		    </div>
 		       
 		    <div id="content11" class="hidden">
@@ -12514,7 +12549,7 @@
 		
 		<footer>
 			<p>
-				Last update: July 19 / 2021<br>
+				Last update: July 20 / 2021<br>
 				All the content from this tutorial was originally created by the author<br>
 				Author: <a href="http://linkedin.com/in/monicakeithmri" target="_blank">Monica Keith</a>
 			</p>
