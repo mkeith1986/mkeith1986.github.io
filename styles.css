@@ -45,6 +45,13 @@ article {
 	padding: 20px;
 	width: 70%;
 }
+
+iframe {
+	position: absolute;
+	height: 100%;
+	width: 65%;
+	border: none;
+}
 			
 /* Clear floats after the columns */
 section:after {
