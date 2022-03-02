@@ -47,7 +47,7 @@ article {
 }
 
 iframe {
-	overflow: hidden;
+	width: 70%;
 }
 
 /* Clear floats after the columns */
