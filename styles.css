@@ -46,10 +46,6 @@ article {
 	width: 70%;
 }
 
-iframe {
-	overflow: visible;
-}
-
 /* Clear floats after the columns */
 section:after {
 	content: "";
