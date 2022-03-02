@@ -46,12 +46,9 @@ article {
 	width: 70%;
 }
 
-iframe {
-	position: absolute;
+linked_page {
 	height: 100%;
 	width: 65%;
-	border: none;
-	overflow: scroll;
 }
 			
 /* Clear floats after the columns */
