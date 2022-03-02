@@ -46,11 +46,6 @@ article {
 	width: 70%;
 }
 
-.linked_page {
-	height: 500px;
-	width: 500px;
-}
-			
 /* Clear floats after the columns */
 section:after {
 	content: "";
