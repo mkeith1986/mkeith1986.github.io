@@ -48,9 +48,10 @@ article {
 
 iframe {
 	position: absolute;
-	height: 65%;
+	height: 100%;
 	width: 65%;
 	border: none;
+	overflow : scroll;
 }
 			
 /* Clear floats after the columns */
