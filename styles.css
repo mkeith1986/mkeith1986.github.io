@@ -47,8 +47,8 @@ article {
 }
 
 .linked_page {
-	height: 100%;
-	width: 65%;
+	height: 500px;
+	width: 500px;
 }
 			
 /* Clear floats after the columns */
