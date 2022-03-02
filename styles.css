@@ -126,6 +126,6 @@ tr:nth-child(1){
 iframe {
 	overflow: scroll;
 	height: 900px;
-	overflow: scroll;
 	width: 100%;
+	border: 1px solid rgb(68, 67, 67);
 }
