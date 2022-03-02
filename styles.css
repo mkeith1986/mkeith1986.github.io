@@ -51,7 +51,7 @@ iframe {
 	height: 100%;
 	width: 65%;
 	border: none;
-	overflow : scroll;
+	scrolling = "no";
 }
 			
 /* Clear floats after the columns */
