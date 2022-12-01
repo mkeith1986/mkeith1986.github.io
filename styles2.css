@@ -37,7 +37,9 @@ nav a {
 }
 
 nav a:hover {
-	background: #ddd;
+	background-color: #FF9F99;
+	/* background-color: #777; */
+	/* background: #ddd; */
   	/* color: black; */
 }
 			
