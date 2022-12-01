@@ -18,7 +18,7 @@ header {
 			
 /* Create two columns/boxes that floats on top of each other */
 nav {
-	overflow: hidden;
+	overflow: auto;
   	background-color: #333;
   	position: fixed;
   	top: 0;
