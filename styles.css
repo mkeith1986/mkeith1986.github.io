@@ -75,7 +75,8 @@ div.hidden {
 }
 			
 iframe {
-	overflow: scroll;
+	/* overflow: scroll; */
+	overflow: auto;
 	/* height: auto; this definitely doesnt work, makes it be really small */
 	height: 1000px;
 	width: 100%;
