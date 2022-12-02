@@ -70,6 +70,10 @@ footer {
 	}
 }
 
+div.hidden {
+	display: none;
+}
+			
 iframe {
 	overflow: scroll;
 	/* height: 900px; */
