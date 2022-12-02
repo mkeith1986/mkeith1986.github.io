@@ -99,7 +99,8 @@ iframe {
 	overflow: scroll;
 	/* height: 10000px; */
 	/* height: auto; */
-	height: 900px;
+	/* height: 900px; */
+	height: 100%;
 	width: 100%;
 	border: 1px solid rgb(68, 67, 67);
 }
