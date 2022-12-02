@@ -96,7 +96,8 @@ tr:nth-child(1){
 }
 
 iframe {
-	overflow: scroll;
+	/* overflow: scroll; */
+	overflow: auto;
 	/* height: 100%; this definitely doesnt work, makes it be really small */
 	/* height: auto; this definitely doesnt work, makes it be really small */
 	/* height: 10000px; */
