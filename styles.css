@@ -71,60 +71,6 @@ footer {
 		height: auto;
 	}
 }
-			
-div.hidden {
-	display: none;
-}
-			
-.bashcommand {
-	font-family: Courier;
-	font-size: 10px;
-}
-			
-.bashcommand-result {
-	font-family: Courier;
-	font-size: 10px;
-	color: #808080;
-}
-			
-.example{
-	text-decoration: underline;
-	display: block;
-}
-			
-.example:before{
-	content: "Example: ";
-}
-			
-table {
-	border-collapse: collapse;
-	font-size: 12px;
-}
-			
-caption {
-	padding: 5px;
-	caption-side: bottom;
-}
-			
-td, th {
-	border: 1px solid #dddddd;
-	text-align: left;
-	vertical-align: top;
-	padding: 5px;
-}
-			
-tr:nth-child(even){
-	background-color: #dddddd;
-}
-			
-tr:nth-child(1){
-	background-color: #b1b1b1;
-}
-			
-.ghostTable td{
-	border: 0px;
-	background-color: #ffffff;
-}
 
 iframe {
 	overflow: scroll;
