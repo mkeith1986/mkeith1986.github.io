@@ -7,16 +7,6 @@ body {
 	font-size: 14px;
 }
 			
-/* Style the header */
-header {
-	/* background-color: #666; */
-	background-color: #7C6983;
-	padding: 5px;
-	text-align: center;
-	font-size: 35px;
-	color: white;
-}
-			
 /* Create two columns/boxes that floats on top of each other */
 nav {
 	/* background-color: #333; */
