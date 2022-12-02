@@ -98,9 +98,9 @@ tr:nth-child(1){
 iframe {
 	overflow: scroll;
 	/* height: 10000px; */
-	/* height: auto; */
+	height: auto;
 	/* height: 900px; */
-	height: 100%;
+	/* height: 100%; this definitely doesnt work, makes it be really small*/
 	width: 100%;
 	border: 1px solid rgb(68, 67, 67);
 }
