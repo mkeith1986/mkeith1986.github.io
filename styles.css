@@ -76,8 +76,8 @@ div.hidden {
 			
 iframe {
 	overflow: scroll;
-	/* height: 900px; */
-	height: auto;
+	height: 900px;
+	/* height: auto; */
 	width: 100%;
 	border: 1px solid rgb(68, 67, 67);
 }
